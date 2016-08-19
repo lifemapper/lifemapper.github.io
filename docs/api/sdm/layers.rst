@@ -115,7 +115,7 @@ Format Options
     +---------+--------------------------------------+------------------------------------------------------+
     | AAIGrid | image/x-aaigrid                      | Returns an ASCII grid with layer data                |
     +---------+--------------------------------------+------------------------------------------------------+
-    | atom    | application/atom+xml                 | Returns an atom fed for the layer                    |
+    | atom    | application/atom+xml                 | Returns an atom feed for the layer                   |
     +---------+--------------------------------------+------------------------------------------------------+
     | eml     | application/xml                      | Returns an EML document with layer metadata          |
     +---------+--------------------------------------+------------------------------------------------------+
