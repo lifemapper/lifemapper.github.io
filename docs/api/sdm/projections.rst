@@ -88,7 +88,7 @@ HTTP Method
 
 URL
 ===
-   /services/sdm/projections/{layer id}
+   /services/sdm/projections/{projection id}
 
 Example
 =======
