@@ -364,7 +364,7 @@ POST Query Parameters
    +=============+=========+==========+===================================================================================+
    | displayName | String  | Yes      | The display name for this occurrence set                                          |
    +-------------+---------+----------+-----------------------------------------------------------------------------------+
-   | epsgCode    | Integer | Yes      | The EPSG code for the layer's map projection                                      |
+   | epsgCode    | Integer | Yes      | The EPSG code for the occurrence sets's map projection                            |
    +-------------+---------+----------+-----------------------------------------------------------------------------------+
    | name        | String  | No       | A short name for this occurrence set, note that this must be unique for each user |
    +-------------+---------+----------+-----------------------------------------------------------------------------------+
@@ -373,7 +373,7 @@ POST Query Parameters
 
 Example
 =======
-   Post a new occurrence set named "My sample points", the data is in CSV format and EPSG:2163.  Layer data is in file points.csv.
+   Post a new occurrence set named "My sample points", the data is in CSV format and EPSG:2163.  Occurrence data is in file points.csv.
 
    Request
       .. code-block:: bash
