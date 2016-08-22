@@ -58,6 +58,7 @@ Example
 For this example, we will count all of the layers that are in the scenario 34 and request a JSON document as the response.
 
 Request::
+
    $ curl "http://svc.lifemapper.org/services/sdm/layers/count/json?scenario=34"
 
 Response
@@ -92,6 +93,7 @@ Example
 For this example, we will delete layer 4444
 
 Request::
+
     $ curl -X DELETE "http://svc.lifemapper.org/services/sdm/layers/4444"
 
 -----
