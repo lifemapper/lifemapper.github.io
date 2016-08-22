@@ -1,11 +1,14 @@
+
+.. hightlight:: rest
+
 =======================
 SDM Layers REST Service
 =======================
   The Lifemapper SDM Layers REST service allows a user to count, list, post, get, and delete environmental layers used to create Species Distribution Modeling experiments in Lifemapper.
 
-*****************
+************
 Count Layers
-*****************
+************
   Requests sent to the layer count service will return the number of SDM layers that match the specified criteria for the specified user.
 
 HTTP Method
@@ -51,7 +54,7 @@ Query Parameters
    +---------------+--------------------+------------+---------------------------------------------------------------------+
 
 Example
-========
+=======
    For this example, we will count all of the layers that are in the scenario 34 and request a JSON document as the response.
 
    Request
@@ -71,9 +74,9 @@ Example
 
 -----
 
-*****************
+************
 Delete Layer
-*****************
+************
    The delete layer service removes a layer you own from the Lifemapper system.  You may want to do this if you think a layer is invalid
 
 HTTP Method
@@ -275,9 +278,9 @@ Example
          
 -----
 
-*****************
+**********
 Post Layer
-*****************
+**********
    The post layer service allows you to post a new environment layer for use in SDM experiments within Lifemapper
 
 HTTP Method

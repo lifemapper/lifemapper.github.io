@@ -1,6 +1,12 @@
+
+.. hightlight:: rest
+
 ============================
 SDM Experiments REST Service
 ============================
+
+.. contents::  
+
   The Lifemapper SDM Experiments REST service allows a user to count, list, post, get, and delete Species Distribution Modeling experiments.
 
 *****************
@@ -53,7 +59,7 @@ Query Parameters
    +-----------------+--------------------+-------------+-------------------------------------------------------------------------------------+
 
 Example
-========
+=======
    For this example, we will count all of the public experiments built with the ATT Maxent algorithm and request a JSON document as the response.
 
    Request
@@ -95,9 +101,9 @@ Example
 
 -----
 
-*****************
+**************
 Get Experiment
-*****************
+**************
    The get experiment method retrieves an experiment that you own or that is public.
 
 HTTP Method
@@ -181,9 +187,9 @@ Example
 -----
 
 
-*****************
+****************
 List Experiments
-*****************
+****************
    The SDM experiments listing services allows you to retrieve a list of Lifemapper experiments that meet your specified criteria.  The "page" and "perPage" parameters provide a method to page through results since they are often too numerous to retrieve with one request
 
 HTTP Method
@@ -300,9 +306,9 @@ Example
 
 -----
 
-*****************
+***************
 Post Experiment
-*****************
+***************
    The post experiment service allows you to submit a new SDM experiment to Lifemapper for computation
 
 HTTP Method
