@@ -117,29 +117,29 @@ URL
 
 Format Options
 ==============
- +---------+--------------------------------------+--------------------------------------------------------------------+
- | Format  | Content-Type                         | Description                                                        |
- +=========+======================================+====================================================================+
- | (blank) | text/html                            | Returns an HTML page containing experiment metadata                |
- +---------+--------------------------------------+--------------------------------------------------------------------+
- | atom    | application/atom+xml                 | Returns an atom fed for the experiment                             |
- +---------+--------------------------------------+--------------------------------------------------------------------+
- | eml     | application/xml                      | Returns an EML document with experiment metadata                   |
- +---------+--------------------------------------+--------------------------------------------------------------------+
- | html    | text/html                            | Returns an HTML page containing experiment metadata                |
- +---------+--------------------------------------+--------------------------------------------------------------------+
- | json    | application/json                     | Returns a JSON document with experiment metadata                   |
- +---------+--------------------------------------+--------------------------------------------------------------------+
- | kml     | application/vnd.google-earth.kml+xml | Returns a KML document with the spatial layers in the experiment   |
- +---------+--------------------------------------+--------------------------------------------------------------------+
- | model   | application/xml or text/plain        | Returns the raw model output from the modeling software            |
- +---------+--------------------------------------+--------------------------------------------------------------------+
- | package | application/zip                      | Returns a compressed archive of outputs from the modeling software |
- +---------+--------------------------------------+--------------------------------------------------------------------+
- | status  | application/xml                      | Returns an XML document with the status of the experiment          |
- +---------+--------------------------------------+--------------------------------------------------------------------+
- | xml     | application/xml                      | Returns an XML document with experiment metadata                   |
- +---------+--------------------------------------+--------------------------------------------------------------------+
++---------+--------------------------------------+--------------------------------------------------------------------+
+| Format  | Content-Type                         | Description                                                        |
++=========+======================================+====================================================================+
+| (blank) | text/html                            | Returns an HTML page containing experiment metadata                |
++---------+--------------------------------------+--------------------------------------------------------------------+
+| atom    | application/atom+xml                 | Returns an atom fed for the experiment                             |
++---------+--------------------------------------+--------------------------------------------------------------------+
+| eml     | application/xml                      | Returns an EML document with experiment metadata                   |
++---------+--------------------------------------+--------------------------------------------------------------------+
+| html    | text/html                            | Returns an HTML page containing experiment metadata                |
++---------+--------------------------------------+--------------------------------------------------------------------+
+| json    | application/json                     | Returns a JSON document with experiment metadata                   |
++---------+--------------------------------------+--------------------------------------------------------------------+
+| kml     | application/vnd.google-earth.kml+xml | Returns a KML document with the spatial layers in the experiment   |
++---------+--------------------------------------+--------------------------------------------------------------------+
+| model   | application/xml or text/plain        | Returns the raw model output from the modeling software            |
++---------+--------------------------------------+--------------------------------------------------------------------+
+| package | application/zip                      | Returns a compressed archive of outputs from the modeling software |
++---------+--------------------------------------+--------------------------------------------------------------------+
+| status  | application/xml                      | Returns an XML document with the status of the experiment          |
++---------+--------------------------------------+--------------------------------------------------------------------+
+| xml     | application/xml                      | Returns an XML document with experiment metadata                   |
++---------+--------------------------------------+--------------------------------------------------------------------+
 
 
 
@@ -203,19 +203,19 @@ URL
 
 Format Options
 ==============
- +---------+----------------------+
- | Format  | Content-Type         |
- +=========+======================+
- | (blank) | text/html            |
- +---------+----------------------+
- | ATOM    | application/atom+xml |
- +---------+----------------------+
- | HTML    | text/html            |
- +---------+----------------------+
- | JSON    | application/json     |
- +---------+----------------------+
- | XML     | application/xml      |
- +---------+----------------------+
++---------+----------------------+
+| Format  | Content-Type         |
++=========+======================+
+| (blank) | text/html            |
++---------+----------------------+
+| ATOM    | application/atom+xml |
++---------+----------------------+
+| HTML    | text/html            |
++---------+----------------------+
+| JSON    | application/json     |
++---------+----------------------+
+| XML     | application/xml      |
++---------+----------------------+
 
 
 Query Parameters
@@ -324,19 +324,19 @@ URL
 Format Options
 ==============
 The POST service supports the following interfaces for the response:
- +---------+----------------------+
- | Format  | Content-Type         |
- +=========+======================+
- | (blank) | text/html            |
- +---------+----------------------+
- | ATOM    | application/atom+xml |
- +---------+----------------------+
- | HTML    | text/html            |
- +---------+----------------------+
- | JSON    | application/json     |
- +---------+----------------------+
- | XML     | application/xml      |
- +---------+----------------------+
++---------+----------------------+
+| Format  | Content-Type         |
++=========+======================+
+| (blank) | text/html            |
++---------+----------------------+
+| ATOM    | application/atom+xml |
++---------+----------------------+
+| HTML    | text/html            |
++---------+----------------------+
+| JSON    | application/json     |
++---------+----------------------+
+| XML     | application/xml      |
++---------+----------------------+
 
 
 Example
