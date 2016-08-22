@@ -1,33 +1,36 @@
 ==========================
 SDM Scenarios REST Service
 ==========================
-  The Lifemapper SDM Scenarios REST service allows a user to count, list, post, get, and delete environmental scenarios used to create Species Distribution Modeling experiments in Lifemapper.
 
-*****************
+.. contents::  
+
+The Lifemapper SDM Scenarios REST service allows a user to count, list, post, get, and delete environmental scenarios used to create Species Distribution Modeling experiments in Lifemapper.
+
+***************
 Count Scenarios
-*****************
-  Requests sent to the scenario count service will return the number of SDM scenarios that match the specified criteria for the specified user.
+***************
+Requests sent to the scenario count service will return the number of SDM scenarios that match the specified criteria for the specified user.
 
 HTTP Method
 ===========
-   GET
+GET
 
 URL
 ===
-   /services/sdm/scenarios/count/{format}
+/services/sdm/scenarios/count/{format}
 
 Format Options
 ==============
 
-    +---------+------------------+
-    | Format  | Content-Type     |
-    +=========+==================+
-    | (blank) | application/xml  |
-    +---------+------------------+
-    | XML     | application/xml  |
-    +---------+------------------+
-    | JSON    | application/json |
-    +---------+------------------+
++---------+------------------+
+| Format  | Content-Type     |
++=========+==================+
+| (blank) | application/xml  |
++---------+------------------+
+| XML     | application/xml  |
++---------+------------------+
+| JSON    | application/json |
++---------+------------------+
 
 Query Parameters
 ================
@@ -49,7 +52,7 @@ Query Parameters
    +------------------+--------------------+------------+----------------------------------------------------------------+
 
 Example
-========
+=======
    For this example, we will count all of the scenarios that match scenario 34 and request a JSON document as the response.
 
    Request

@@ -1,9 +1,9 @@
-
-.. highlight:: rest
-
 ============================
 SDM Projections REST Service
 ============================
+
+.. contents::  
+
 The Lifemapper SDM Projections REST service allows a user to count, list, post, get, and delete SDM projections
 
 *****************

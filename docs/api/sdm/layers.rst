@@ -1,9 +1,9 @@
-
-.. contents::  
-
 =======================
 SDM Layers REST Service
 =======================
+
+.. contents::  
+
 The Lifemapper SDM Layers REST service allows a user to count, list, post, get, 
 and delete environmental layers used to create Species Distribution Modeling 
 experiments in Lifemapper.
