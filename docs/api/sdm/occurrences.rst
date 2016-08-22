@@ -58,23 +58,22 @@ Example
 For this example, we will count all of the occurrence sets with more than 100 points and request an XML document
 
 Request::
+
       $ curl "http://svc.lifemapper.org/services/sdm/occurrences/count/xml?minimumNumberOfPoints=100"
 
-Response
+Response::
    
-.. code-block:: json
-
-         <?xml version="1.0" encoding="utf-8"?>
-         <lm:response xmlns:lm="http://lifemapper.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://lifemapper.org /schemas/serviceResponse.xsd">
-            <lm:title>Lifemapper List Service</lm:title>
-            <lm:user>kubi</lm:user>
-            <lm:items>
-               <lm:denominator>1</lm:denominator>
-               <lm:imag>0</lm:imag>
-               <lm:numerator>51989</lm:numerator>
-               <lm:real>51989</lm:real>
-            </lm:items>
-         </lm:response>
+   <?xml version="1.0" encoding="utf-8"?>
+      <lm:response xmlns:lm="http://lifemapper.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://lifemapper.org /schemas/serviceResponse.xsd">
+         <lm:title>Lifemapper List Service</lm:title>
+         <lm:user>kubi</lm:user>
+         <lm:items>
+            <lm:denominator>1</lm:denominator>
+            <lm:imag>0</lm:imag>
+            <lm:numerator>51989</lm:numerator>
+            <lm:real>51989</lm:real>
+         </lm:items>
+      </lm:response>
 
 -----
 
@@ -96,6 +95,7 @@ Example
 For this example, we will delete occurrence set 99
 
 Request::
+
       $ curl -X DELETE "http://svc.lifemapper.org/services/sdm/occurrences/99"
 
 -----
@@ -145,9 +145,11 @@ Example
 For this example, we will get the shapefile for occurrence set 1000
 
 Request::
+
       $ curl -X GET "http://svc.lifemapper.org/services/sdm/occurrences/1000/shapefile"
 
-Response
+Response::
+
    Response is zip file with the files in the shapefile for the occurrence set
 
 -----
@@ -216,11 +218,10 @@ Example
 In this example, we will request the 3rd page of results, with 2 results per page.  The occurrence sets should have at least 500 points and we'll request full objects in JSON.
 
 Request::
+
       $ curl -X GET "http://svc.lifemapper.org/services/sdm/occurrences/json?page=3&perPage=2&minimumNumberOfPoints=500&fullObjects=1"
 
-Response
-
-.. code-block:: json
+Response::
 
    {
       "title": "Lifemapper List Service",
@@ -380,9 +381,11 @@ Example
 Post a new occurrence set named "My sample points", the data is in CSV format and EPSG:2163.  Occurrence data is in file points.csv.
 
 Request::
+
    $ curl -X POST -H 'Content-type: text/csv' --data '@points.csv' http://svc.lifemapper.org/services/sdm/occurrences/?displayName=My%20sample%20points&pointsType=CSV&epsgCode=2163
 
-Response
+Response::
+
   The response of this request is the same as if you ran a GET request on the occurrence set you just posted.  
 
 -----
