@@ -4,12 +4,15 @@
 =======================
 SDM Layers REST Service
 =======================
-The Lifemapper SDM Layers REST service allows a user to count, list, post, get, and delete environmental layers used to create Species Distribution Modeling experiments in Lifemapper.
+The Lifemapper SDM Layers REST service allows a user to count, list, post, get, 
+and delete environmental layers used to create Species Distribution Modeling 
+experiments in Lifemapper.
 
 ************
 Count Layers
 ************
-Requests sent to the layer count service will return the number of SDM layers that match the specified criteria for the specified user.
+Requests sent to the layer count service will return the number of SDM layers 
+that match the specified criteria for the specified user.
 
 HTTP Method
 ===========
@@ -55,9 +58,11 @@ Query Parameters
 
 Example
 =======
-For this example, we will count all of the layers that are in the scenario 34 and request a JSON document as the response.
+For this example, we will count all of the layers that are in the scenario 34 
+and request a JSON document as the response.
 
 Request::
+
    $ curl "http://svc.lifemapper.org/services/sdm/layers/count/json?scenario=34"
 
 Response
@@ -77,7 +82,8 @@ Response
 ************
 Delete Layer
 ************
-The delete layer service removes a layer you own from the Lifemapper system.  You may want to do this if you think a layer is invalid
+The delete layer service removes a layer you own from the Lifemapper system.  
+You may want to do this if you think a layer is invalid.
 
 HTTP Method
 ===========
@@ -92,6 +98,7 @@ Example
 For this example, we will delete layer 4444
 
 Request::
+
     $ curl -X DELETE "http://svc.lifemapper.org/services/sdm/layers/4444"
 
 -----
@@ -141,6 +148,7 @@ Example
 For this example, we will get the data for layer 123 in GeoTiff format
 
 Request::
+
    $ curl -X GET "http://svc.lifemapper.org/services/sdm/layers/123/GTiff"
 
 Response: 
@@ -152,7 +160,10 @@ Response:
 ***********
 List Layers
 ***********
-The SDM layers listing services allows you to retrieve a list of Lifemapper layers that meet your specified criteria.  The "page" and "perPage" parameters provide a method to page through results since they are often too numerous to retrieve with one request
+The SDM layers listing services allows you to retrieve a list of Lifemapper 
+layers that meet your specified criteria.  The "page" and "perPage" parameters 
+provide a method to page through results since they are often too numerous to 
+retrieve with one request
 
 HTTP Method
 ===========
@@ -208,9 +219,11 @@ Query Parameters
 
 Example
 =======
-In this example, we will request the 0th page of results with 2 results per page.  The layers should have EPSG code 4326 and the response will be XML.
+In this example, we will request the 0th page of results with 2 results per page.  
+The layers should have EPSG code 4326 and the response will be XML.
 
 Request::
+
       $ curl -X GET "http://svc.lifemapper.org/services/sdm/layers/xml?page=0&perPage=2&epsgCode=4326"
 
 Response
@@ -281,7 +294,8 @@ Response
 **********
 Post Layer
 **********
-The post layer service allows you to post a new environment layer for use in SDM experiments within Lifemapper
+The post layer service allows you to post a new environment layer for use in 
+SDM experiments within Lifemapper.
 
 HTTP Method
 ===========
@@ -294,6 +308,7 @@ URL
 Format Options
 ==============
 The POST service supports the following interfaces for the response:
+
 +---------+----------------------+
 | Format  | Content-Type         |
 +=========+======================+
@@ -310,7 +325,9 @@ The POST service supports the following interfaces for the response:
 
 POST Query Parameters
 =====================
-Layers can be posted with all metadata in an XML document if you provide a layer URL where the content can be downloaded.  Otherwise, metadata parameters should be included in the URL and the body of the requests should be the layer content.
+Layers can be posted with all metadata in an XML document if you provide a layer 
+URL where the content can be downloaded.  Otherwise, metadata parameters should 
+be included in the URL and the body of the requests should be the layer content.
 
 +----------------+----------+----------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Parameter      | Type     | Required | Description                                                                                                                                                   |
@@ -348,7 +365,10 @@ Layers can be posted with all metadata in an XML document if you provide a layer
 
 Example
 =======
-Post a new layer with the name 'sampleLayer'.  The data is in EPSG:4326 and the cells are 2.5 decimal degrees (dd) with the measurement units degreesC.  The data is a GeoTiff and we'll use the 'temperature' type code.  The file is located at 'layerData.tif' on the local system.
+Post a new layer with the name 'sampleLayer'.  The data is in EPSG:4326 and the 
+cells are 2.5 decimal degrees (dd) with the measurement units degreesC.  The 
+data is a GeoTiff and we'll use the 'temperature' type code.  The file is 
+located at 'layerData.tif' on the local system.
 
 Request
 .. code-block:: bash
@@ -357,7 +377,8 @@ Request
 
 
 Response:
-     The response of this request is the same as if you ran a GET request on the layer you just posted.  
+     The response of this request is the same as if you ran a GET request on the 
+     layer you just posted.  
 
 -----
 
