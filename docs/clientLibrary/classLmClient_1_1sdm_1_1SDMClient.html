@@ -35,7 +35,7 @@
    <div id="projectname">Lifemapper Client Library
    &#160;<span id="projectnumber">3.3.4</span>
    </div>
-   <div id="projectbrief">A client library for accessing Lifemappwer web services with Python</div>
+   <div id="projectbrief">A client library for accessing Lifemapper web services with Python</div>
   </td>
    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -117,6 +117,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:adb6f74eabd10a006266f6eed5e0cac7e"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLmClient_1_1sdm_1_1SDMClient.html#adb6f74eabd10a006266f6eed5e0cac7e">__init__</a> (self, <a class="el" href="classLmClient_1_1sdm_1_1SDMClient.html#aa963662e4ec4d30d1cea07e3e8eae152">cl</a>)</td></tr>
 <tr class="memdesc:adb6f74eabd10a006266f6eed5e0cac7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">: Constructor  <a href="#adb6f74eabd10a006266f6eed5e0cac7e">More...</a><br /></td></tr>
 <tr class="separator:adb6f74eabd10a006266f6eed5e0cac7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a219906d8be8ef75ce2602ca1563000d3"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLmClient_1_1sdm_1_1SDMClient.html#a219906d8be8ef75ce2602ca1563000d3">getAlgorithmCodes</a> (self)</td></tr>
+<tr class="memdesc:a219906d8be8ef75ce2602ca1563000d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">: Gets the list of available algorithm codes  <a href="#a219906d8be8ef75ce2602ca1563000d3">More...</a><br /></td></tr>
+<tr class="separator:a219906d8be8ef75ce2602ca1563000d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abcd1c256ea7fd200d77a6994242ef604"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLmClient_1_1sdm_1_1SDMClient.html#abcd1c256ea7fd200d77a6994242ef604">getAlgorithmFromCode</a> (self, code)</td></tr>
 <tr class="memdesc:abcd1c256ea7fd200d77a6994242ef604"><td class="mdescLeft">&#160;</td><td class="mdescRight">: Deep copies an algorithm object and adds a value attribute to each parameter that is populated with the default value for that parameter  <a href="#abcd1c256ea7fd200d77a6994242ef604">More...</a><br /></td></tr>
 <tr class="separator:abcd1c256ea7fd200d77a6994242ef604"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -252,6 +255,7 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:aa963662e4ec4d30d1cea07e3e8eae152"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLmClient_1_1sdm_1_1SDMClient.html#aa963662e4ec4d30d1cea07e3e8eae152">cl</a></td></tr>
 <tr class="separator:aa963662e4ec4d30d1cea07e3e8eae152"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb218948a8bcc67e4e58199da995cc0d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLmClient_1_1sdm_1_1SDMClient.html#afb218948a8bcc67e4e58199da995cc0d">algos</a></td></tr>
+<tr class="memdesc:afb218948a8bcc67e4e58199da995cc0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">A list of algorithm objects.  <a href="#afb218948a8bcc67e4e58199da995cc0d">More...</a><br /></td></tr>
 <tr class="separator:afb218948a8bcc67e4e58199da995cc0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
@@ -327,7 +331,7 @@ Private Member Functions</h2></td></tr>
 <p>: Gets available Lifemapper SDM algorithms </p>
 <dl class="section return"><dt>Returns</dt><dd>: Lifemapper algorithms </dd></dl>
 
-<p>Definition at line <a class="el" href="sdm_8py_source.html#l00281">281</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
+<p>Definition at line <a class="el" href="sdm_8py_source.html#l00282">282</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
 
 </div>
 </div>
@@ -404,18 +408,18 @@ Private Member Functions</h2></td></tr>
     <tr><td class="paramname">beforeTime</td><td>(optional) Count only experiments modified before this time. See time formats in the module documentation. [integer or string] </td></tr>
     <tr><td class="paramname">displayName</td><td>(optional) Count only experiments with this display name. [string] </td></tr>
     <tr><td class="paramname">epsgCode</td><td>(optional) Count only experiments with this EPSG code [integer] </td></tr>
-    <tr><td class="paramname">algorithmCode</td><td>(optional) Count only experiments generated with this algorithm code. See available algorithms in the module documentation. [string] </td></tr>
+    <tr><td class="paramname">algorithmCode</td><td>(optional) Count only experiments generated with this algorithm code. Get available algorithms from <a class="el" href="classLmClient_1_1sdm_1_1SDMClient.html#a219906d8be8ef75ce2602ca1563000d3" title=": Gets the list of available algorithm codes ">SDMClient.getAlgorithmCodes</a>. [string] </td></tr>
     <tr><td class="paramname">occurrenceSetId</td><td>(optional) Count only experiments generated from this occurrence set. [integer] </td></tr>
-    <tr><td class="paramname">status</td><td>(optional) Count only experiments with this model status. More information about status is available in the module documentation. [integer] </td></tr>
+    <tr><td class="paramname">status</td><td>(optional) Count only experiments with this model status. See <a class="el" href="classcore_1_1LmCommon_1_1common_1_1lmconstants_1_1JobStatus.html" title=": Constants to define the status of a job. ">core.LmCommon.common.lmconstants.JobStatus</a> for status documentation. [integer] </td></tr>
     <tr><td class="paramname">public</td><td>(optional) If True, use the anonymous client if available </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>: The total number of experiments that match the given criteria. [integer] </dd></dl>
 
-<p>Definition at line <a class="el" href="sdm_8py_source.html#l00340">340</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
+<p>Definition at line <a class="el" href="sdm_8py_source.html#l00353">353</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
 
-<p>Referenced by <a class="el" href="sdm_8py_source.html#l00294">LmClient.sdm.SDMClient.getAlgorithmFromCode()</a>.</p>
+<p>Referenced by <a class="el" href="sdm_8py_source.html#l00307">LmClient.sdm.SDMClient.getAlgorithmFromCode()</a>.</p>
 
 </div>
 </div>
@@ -487,9 +491,9 @@ Private Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>: The total number of layers that match the given criteria. [integer] </dd></dl>
 
-<p>Definition at line <a class="el" href="sdm_8py_source.html#l00550">550</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
+<p>Definition at line <a class="el" href="sdm_8py_source.html#l00567">567</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
 
-<p>Referenced by <a class="el" href="sdm_8py_source.html#l00466">LmClient.sdm.SDMClient.postExperiment()</a>.</p>
+<p>Referenced by <a class="el" href="sdm_8py_source.html#l00483">LmClient.sdm.SDMClient.postExperiment()</a>.</p>
 
 </div>
 </div>
@@ -561,9 +565,9 @@ Private Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>: The total number of occurrence sets that match the given criteria. [integer] </dd></dl>
 
-<p>Definition at line <a class="el" href="sdm_8py_source.html#l00778">778</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
+<p>Definition at line <a class="el" href="sdm_8py_source.html#l00795">795</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
 
-<p>Referenced by <a class="el" href="sdm_8py_source.html#l00710">LmClient.sdm.SDMClient.postLayer()</a>.</p>
+<p>Referenced by <a class="el" href="sdm_8py_source.html#l00727">LmClient.sdm.SDMClient.postLayer()</a>.</p>
 
 </div>
 </div>
@@ -652,19 +656,19 @@ Private Member Functions</h2></td></tr>
     <tr><td class="paramname">beforeTime</td><td>(optional) Count only projections modified before this time. See time formats in the module documentation. [integer or string] </td></tr>
     <tr><td class="paramname">displayName</td><td>(optional) Count only projections with this display name. [string] </td></tr>
     <tr><td class="paramname">epsgCode</td><td>(optional) Count only projections that use this EPSG code. [integer] </td></tr>
-    <tr><td class="paramname">algorithmCode</td><td>(optional) Count only projections that have this algorithm code. See available algorithms in the module documentation. [string] </td></tr>
+    <tr><td class="paramname">algorithmCode</td><td>(optional) Count only projections that have this algorithm code. Get available algorithm codes from <a class="el" href="classLmClient_1_1sdm_1_1SDMClient.html#a219906d8be8ef75ce2602ca1563000d3" title=": Gets the list of available algorithm codes ">SDMClient.getAlgorithmCodes</a>. [string] </td></tr>
     <tr><td class="paramname">expId</td><td>(optional) Count only projections generated from this experiment. [integer] </td></tr>
     <tr><td class="paramname">occurrenceSetId</td><td>(optional) Count only experiments generated from this occurrence set. [integer] </td></tr>
-    <tr><td class="paramname">status</td><td>(optional) Count only projections with this status. More information about status can be found in the module documentation. [integer] </td></tr>
+    <tr><td class="paramname">status</td><td>(optional) Count only projections with this status. More information about status can be found at <a class="el" href="classcore_1_1LmCommon_1_1common_1_1lmconstants_1_1JobStatus.html" title=": Constants to define the status of a job. ">core.LmCommon.common.lmconstants.JobStatus</a>. [integer] </td></tr>
     <tr><td class="paramname">public</td><td>(optional) If True, use the anonymous client if available </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>: The total number of projections that match the given criteria. [integer] </dd></dl>
 
-<p>Definition at line <a class="el" href="sdm_8py_source.html#l00986">986</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
+<p>Definition at line <a class="el" href="sdm_8py_source.html#l01003">1003</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
 
-<p>Referenced by <a class="el" href="sdm_8py_source.html#l00917">LmClient.sdm.SDMClient.postOccurrenceSet()</a>.</p>
+<p>Referenced by <a class="el" href="sdm_8py_source.html#l00934">LmClient.sdm.SDMClient.postOccurrenceSet()</a>.</p>
 
 </div>
 </div>
@@ -736,9 +740,9 @@ Private Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>: The number of scenarios that match the supplied criteria. [integer] </dd></dl>
 
-<p>Definition at line <a class="el" href="sdm_8py_source.html#l01169">1169</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
+<p>Definition at line <a class="el" href="sdm_8py_source.html#l01187">1187</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
 
-<p>Referenced by <a class="el" href="sdm_8py_source.html#l01123">LmClient.sdm.SDMClient.listProjections()</a>.</p>
+<p>Referenced by <a class="el" href="sdm_8py_source.html#l01141">LmClient.sdm.SDMClient.listProjections()</a>.</p>
 
 </div>
 </div>
@@ -789,7 +793,7 @@ Private Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>: The number of type codes that match the supplied criteria. [integer] </dd></dl>
 
-<p>Definition at line <a class="el" href="sdm_8py_source.html#l01319">1319</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
+<p>Definition at line <a class="el" href="sdm_8py_source.html#l01337">1337</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
 
 </div>
 </div>
@@ -825,7 +829,7 @@ Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="sdm_8py_source.html#l00361">361</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
+<p>Definition at line <a class="el" href="sdm_8py_source.html#l00374">374</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
 
 </div>
 </div>
@@ -861,7 +865,7 @@ Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="sdm_8py_source.html#l00569">569</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
+<p>Definition at line <a class="el" href="sdm_8py_source.html#l00586">586</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
 
 </div>
 </div>
@@ -897,7 +901,7 @@ Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="sdm_8py_source.html#l00797">797</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
+<p>Definition at line <a class="el" href="sdm_8py_source.html#l00814">814</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
 
 </div>
 </div>
@@ -933,7 +937,7 @@ Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="sdm_8py_source.html#l01009">1009</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
+<p>Definition at line <a class="el" href="sdm_8py_source.html#l01026">1026</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
 
 </div>
 </div>
@@ -969,7 +973,7 @@ Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="sdm_8py_source.html#l01189">1189</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
+<p>Definition at line <a class="el" href="sdm_8py_source.html#l01207">1207</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
 
 </div>
 </div>
@@ -1005,7 +1009,30 @@ Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="sdm_8py_source.html#l01335">1335</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
+<p>Definition at line <a class="el" href="sdm_8py_source.html#l01353">1353</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a219906d8be8ef75ce2602ca1563000d3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def LmClient.sdm.SDMClient.getAlgorithmCodes </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>: Gets the list of available algorithm codes </p>
+<dl class="section return"><dt>Returns</dt><dd>: Available Lifemapper algorithm codes </dd></dl>
+
+<p>Definition at line <a class="el" href="sdm_8py_source.html#l00293">293</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
+
+<p>References <a class="el" href="sdm_8py_source.html#l00274">LmClient.sdm.SDMClient.algos</a>.</p>
 
 </div>
 </div>
@@ -1041,9 +1068,9 @@ Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="sdm_8py_source.html#l00294">294</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
+<p>Definition at line <a class="el" href="sdm_8py_source.html#l00307">307</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
 
-<p>References <a class="el" href="sdm_8py_source.html#l00273">LmClient.sdm.SDMClient.algos</a>, and <a class="el" href="sdm_8py_source.html#l00340">LmClient.sdm.SDMClient.countExperiments()</a>.</p>
+<p>References <a class="el" href="sdm_8py_source.html#l00274">LmClient.sdm.SDMClient.algos</a>, and <a class="el" href="sdm_8py_source.html#l00353">LmClient.sdm.SDMClient.countExperiments()</a>.</p>
 
 </div>
 </div>
@@ -1080,7 +1107,7 @@ Private Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>: A Lifemapper experiment [LmAttObj] </dd></dl>
 
-<p>Definition at line <a class="el" href="sdm_8py_source.html#l00372">372</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
+<p>Definition at line <a class="el" href="sdm_8py_source.html#l00385">385</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
 
 </div>
 </div>
@@ -1124,9 +1151,9 @@ Private Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>: True if the write was successful </dd></dl>
 
-<p>Definition at line <a class="el" href="sdm_8py_source.html#l00385">385</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
+<p>Definition at line <a class="el" href="sdm_8py_source.html#l00398">398</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
 
-<p>References <a class="el" href="sdm_8py_source.html#l00425">LmClient.sdm.SDMClient.listExperiments()</a>.</p>
+<p>References <a class="el" href="sdm_8py_source.html#l00438">LmClient.sdm.SDMClient.listExperiments()</a>.</p>
 
 </div>
 </div>
@@ -1163,7 +1190,7 @@ Private Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>: A Lifemapper layer </dd></dl>
 
-<p>Definition at line <a class="el" href="sdm_8py_source.html#l00580">580</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
+<p>Definition at line <a class="el" href="sdm_8py_source.html#l00597">597</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
 
 </div>
 </div>
@@ -1207,7 +1234,7 @@ Private Member Functions</h2></td></tr>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>: This function will be removed in a later version in favor of specifying the format when making the get request  Exception: Raised if write fails </dd></dl>
 
-<p>Definition at line <a class="el" href="sdm_8py_source.html#l00596">596</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
+<p>Definition at line <a class="el" href="sdm_8py_source.html#l00613">613</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
 
 </div>
 </div>
@@ -1251,9 +1278,9 @@ Private Member Functions</h2></td></tr>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>: This function will be removed in a later version in favor of specifying the format when making the get request  Exception: Raised if write fails </dd></dl>
 
-<p>Definition at line <a class="el" href="sdm_8py_source.html#l00618">618</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
+<p>Definition at line <a class="el" href="sdm_8py_source.html#l00635">635</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
 
-<p>References <a class="el" href="sdm_8py_source.html#l00656">LmClient.sdm.SDMClient.listLayers()</a>.</p>
+<p>References <a class="el" href="sdm_8py_source.html#l00673">LmClient.sdm.SDMClient.listLayers()</a>.</p>
 
 </div>
 </div>
@@ -1290,7 +1317,7 @@ Private Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>: A Lifemapper occurrence set. </dd></dl>
 
-<p>Definition at line <a class="el" href="sdm_8py_source.html#l00808">808</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
+<p>Definition at line <a class="el" href="sdm_8py_source.html#l00825">825</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
 
 </div>
 </div>
@@ -1334,7 +1361,7 @@ Private Member Functions</h2></td></tr>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>: This function will be removed in a later version in favor of specifying the format when making the get request </dd></dl>
 
-<p>Definition at line <a class="el" href="sdm_8py_source.html#l00824">824</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
+<p>Definition at line <a class="el" href="sdm_8py_source.html#l00841">841</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
 
 </div>
 </div>
@@ -1385,9 +1412,9 @@ Private Member Functions</h2></td></tr>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>: This function will be removed in a later version in favor of specifying the format when making the get request </dd></dl>
 
-<p>Definition at line <a class="el" href="sdm_8py_source.html#l00852">852</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
+<p>Definition at line <a class="el" href="sdm_8py_source.html#l00869">869</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
 
-<p>References <a class="el" href="sdm_8py_source.html#l00891">LmClient.sdm.SDMClient.listOccurrenceSets()</a>.</p>
+<p>References <a class="el" href="sdm_8py_source.html#l00908">LmClient.sdm.SDMClient.listOccurrenceSets()</a>.</p>
 
 </div>
 </div>
@@ -1423,7 +1450,7 @@ Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="sdm_8py_source.html#l01515">1515</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
+<p>Definition at line <a class="el" href="sdm_8py_source.html#l01533">1533</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
 
 </div>
 </div>
@@ -1460,7 +1487,7 @@ Private Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>: A Lifemapper projection. </dd></dl>
 
-<p>Definition at line <a class="el" href="sdm_8py_source.html#l01020">1020</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
+<p>Definition at line <a class="el" href="sdm_8py_source.html#l01037">1037</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
 
 </div>
 </div>
@@ -1504,7 +1531,7 @@ Private Member Functions</h2></td></tr>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>: This function will be removed in a later version in favor of specifying the format when making the get request </dd></dl>
 
-<p>Definition at line <a class="el" href="sdm_8py_source.html#l01036">1036</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
+<p>Definition at line <a class="el" href="sdm_8py_source.html#l01053">1053</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
 
 </div>
 </div>
@@ -1548,7 +1575,7 @@ Private Member Functions</h2></td></tr>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>: This function will be removed in a later version in favor of specifying the format when making the get request </dd></dl>
 
-<p>Definition at line <a class="el" href="sdm_8py_source.html#l01058">1058</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
+<p>Definition at line <a class="el" href="sdm_8py_source.html#l01075">1075</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
 
 </div>
 </div>
@@ -1592,9 +1619,9 @@ Private Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>: A url pointing to the desired interface for the projection </dd></dl>
 
-<p>Definition at line <a class="el" href="sdm_8py_source.html#l01078">1078</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
+<p>Definition at line <a class="el" href="sdm_8py_source.html#l01095">1095</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
 
-<p>References <a class="el" href="sdm_8py_source.html#l01123">LmClient.sdm.SDMClient.listProjections()</a>.</p>
+<p>References <a class="el" href="sdm_8py_source.html#l01141">LmClient.sdm.SDMClient.listProjections()</a>.</p>
 
 </div>
 </div>
@@ -1631,9 +1658,9 @@ Private Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>: A Lifemapper scenario. </dd></dl>
 
-<p>Definition at line <a class="el" href="sdm_8py_source.html#l01200">1200</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
+<p>Definition at line <a class="el" href="sdm_8py_source.html#l01218">1218</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
 
-<p>References <a class="el" href="sdm_8py_source.html#l01233">LmClient.sdm.SDMClient.listScenarios()</a>.</p>
+<p>References <a class="el" href="sdm_8py_source.html#l01251">LmClient.sdm.SDMClient.listScenarios()</a>.</p>
 
 </div>
 </div>
@@ -1691,9 +1718,9 @@ Private Member Functions</h2></td></tr>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>: This code should be hardened. It is mainly for the Spring 2015 iDigBio hackathon </dd></dl>
 
-<p>Definition at line <a class="el" href="sdm_8py_source.html#l01504">1504</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
+<p>Definition at line <a class="el" href="sdm_8py_source.html#l01522">1522</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
 
-<p>Referenced by <a class="el" href="sdm_8py_source.html#l01481">LmClient.sdm.SDMClient.searchArchive()</a>.</p>
+<p>Referenced by <a class="el" href="sdm_8py_source.html#l01499">LmClient.sdm.SDMClient.searchArchive()</a>.</p>
 
 </div>
 </div>
@@ -1730,9 +1757,9 @@ Private Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>: A type code object </dd></dl>
 
-<p>Definition at line <a class="el" href="sdm_8py_source.html#l01346">1346</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
+<p>Definition at line <a class="el" href="sdm_8py_source.html#l01364">1364</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
 
-<p>References <a class="el" href="sdm_8py_source.html#l01371">LmClient.sdm.SDMClient.listTypeCodes()</a>.</p>
+<p>References <a class="el" href="sdm_8py_source.html#l01389">LmClient.sdm.SDMClient.listTypeCodes()</a>.</p>
 
 </div>
 </div>
@@ -1783,7 +1810,7 @@ Private Member Functions</h2></td></tr>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>: This will return a list of SearchHit objects. These are named tuples that have the attributes: name, id, numPoints, downloadUrl and binomial. These attributes are pulled from the response from the Lucene query and may change over time. </dd></dl>
 
-<p>Definition at line <a class="el" href="sdm_8py_source.html#l01429">1429</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
+<p>Definition at line <a class="el" href="sdm_8py_source.html#l01447">1447</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
 
 </div>
 </div>
@@ -1880,9 +1907,9 @@ Private Member Functions</h2></td></tr>
     <tr><td class="paramname">epsgCode</td><td>(optional) Return only experiments that use this EPSG code. [integer] </td></tr>
     <tr><td class="paramname">perPage</td><td>(optional) Return this many results per page. [integer] </td></tr>
     <tr><td class="paramname">page</td><td>(optional) Return this page of results. [integer] </td></tr>
-    <tr><td class="paramname">algorithmCode</td><td>(optional) Return only experiments generated from this algorithm. See available algorithms in the module documentation. [string] </td></tr>
+    <tr><td class="paramname">algorithmCode</td><td>(optional) Return only experiments generated from this algorithm. Get available algorithms codes from <a class="el" href="classLmClient_1_1sdm_1_1SDMClient.html#a219906d8be8ef75ce2602ca1563000d3" title=": Gets the list of available algorithm codes ">SDMClient.getAlgorithmCodes()</a>. [string] </td></tr>
     <tr><td class="paramname">occurrenceSetId</td><td>(optional) Return only experiments generated from this occurrence set. [integer] </td></tr>
-    <tr><td class="paramname">status</td><td>(optional) Return only experiments with this status. More information about status can be found in the module documentation. [integer] </td></tr>
+    <tr><td class="paramname">status</td><td>(optional) Return only experiments with this status. More information about status can be found at <a class="el" href="classcore_1_1LmCommon_1_1common_1_1lmconstants_1_1JobStatus.html" title=": Constants to define the status of a job. ">core.LmCommon.common.lmconstants.JobStatus</a>. [integer] </td></tr>
     <tr><td class="paramname">public</td><td>(optional) If True, use the anonymous client if available </td></tr>
     <tr><td class="paramname">fullObjects</td><td>(optional) If True, return the full objects instead of the list objects </td></tr>
   </table>
@@ -1890,11 +1917,11 @@ Private Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>: Experiments that match the specified parameters. [LmAttObj] </dd></dl>
 
-<p>Definition at line <a class="el" href="sdm_8py_source.html#l00425">425</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
+<p>Definition at line <a class="el" href="sdm_8py_source.html#l00438">438</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
 
-<p>References <a class="el" href="sdm_8py_source.html#l00466">LmClient.sdm.SDMClient.postExperiment()</a>.</p>
+<p>References <a class="el" href="sdm_8py_source.html#l00483">LmClient.sdm.SDMClient.postExperiment()</a>.</p>
 
-<p>Referenced by <a class="el" href="sdm_8py_source.html#l00385">LmClient.sdm.SDMClient.getExperimentPackage()</a>.</p>
+<p>Referenced by <a class="el" href="sdm_8py_source.html#l00398">LmClient.sdm.SDMClient.getExperimentPackage()</a>.</p>
 
 </div>
 </div>
@@ -1988,11 +2015,11 @@ Private Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>: Layers that match the specified parameters. [LmAttObj] </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>: Returned object has metadata included. Reference items with "items.item" property </dd></dl>
 
-<p>Definition at line <a class="el" href="sdm_8py_source.html#l00656">656</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
+<p>Definition at line <a class="el" href="sdm_8py_source.html#l00673">673</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
 
-<p>References <a class="el" href="sdm_8py_source.html#l00710">LmClient.sdm.SDMClient.postLayer()</a>.</p>
+<p>References <a class="el" href="sdm_8py_source.html#l00727">LmClient.sdm.SDMClient.postLayer()</a>.</p>
 
-<p>Referenced by <a class="el" href="sdm_8py_source.html#l00618">LmClient.sdm.SDMClient.getLayerTiff()</a>.</p>
+<p>Referenced by <a class="el" href="sdm_8py_source.html#l00635">LmClient.sdm.SDMClient.getLayerTiff()</a>.</p>
 
 </div>
 </div>
@@ -2086,9 +2113,9 @@ Private Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>: Occurrence Sets that match the specified parameters. [LmAttObj] </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>: Returned object has metadata included. Reference items with "items.item" property </dd></dl>
 
-<p>Definition at line <a class="el" href="sdm_8py_source.html#l00891">891</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
+<p>Definition at line <a class="el" href="sdm_8py_source.html#l00908">908</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
 
-<p>Referenced by <a class="el" href="sdm_8py_source.html#l00852">LmClient.sdm.SDMClient.getOccurrenceSetShapefile()</a>.</p>
+<p>Referenced by <a class="el" href="sdm_8py_source.html#l00869">LmClient.sdm.SDMClient.getOccurrenceSetShapefile()</a>.</p>
 
 </div>
 </div>
@@ -2197,11 +2224,11 @@ Private Member Functions</h2></td></tr>
     <tr><td class="paramname">epsgCode</td><td>(optional) Return only projections that use this EPSG code. [integer] </td></tr>
     <tr><td class="paramname">perPage</td><td>(optional) Return this many results per page. [integer] </td></tr>
     <tr><td class="paramname">page</td><td>(optional) Return this page of results. [integer] </td></tr>
-    <tr><td class="paramname">algorithmCode</td><td>(optional) Return only projections that are generated from models generated from this algorithm. See available algorithms in the module documentation. [string] </td></tr>
+    <tr><td class="paramname">algorithmCode</td><td>(optional) Return only projections that are generated from models generated from this algorithm. Get available algorithm codes from <a class="el" href="classLmClient_1_1sdm_1_1SDMClient.html#a219906d8be8ef75ce2602ca1563000d3" title=": Gets the list of available algorithm codes ">SDMClient.getAlgorithmCodes</a>. [string] </td></tr>
     <tr><td class="paramname">expId</td><td>(optional) Return only projections generated from this experiment. [integer] </td></tr>
     <tr><td class="paramname">occurrenceSetId</td><td>(optional) Return only projections generated from models that used this occurrence set. [integer] </td></tr>
     <tr><td class="paramname">scenarioId</td><td>(optional) Only return projections that use this scenario [integer] </td></tr>
-    <tr><td class="paramname">status</td><td>(optional) Return only projections that have this status. More information about status can be found in the module documentation. [integer] </td></tr>
+    <tr><td class="paramname">status</td><td>(optional) Return only projections that have this status. More information about status can be found at <a class="el" href="classcore_1_1LmCommon_1_1common_1_1lmconstants_1_1JobStatus.html" title=": Constants to define the status of a job. ">core.LmCommon.common.lmconstants.JobStatus</a>. [integer] </td></tr>
     <tr><td class="paramname">public</td><td>(optional) If True, use the anonymous client if available </td></tr>
     <tr><td class="paramname">fullObjects</td><td>(optional) If True, return the full objects instead of the list objects </td></tr>
   </table>
@@ -2210,11 +2237,11 @@ Private Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>: Projections that match the specified parameters. [LmAttObj] </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>: Returned object has metadata included. Reference items with "items.item" property </dd></dl>
 
-<p>Definition at line <a class="el" href="sdm_8py_source.html#l01123">1123</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
+<p>Definition at line <a class="el" href="sdm_8py_source.html#l01141">1141</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
 
-<p>References <a class="el" href="sdm_8py_source.html#l01169">LmClient.sdm.SDMClient.countScenarios()</a>.</p>
+<p>References <a class="el" href="sdm_8py_source.html#l01187">LmClient.sdm.SDMClient.countScenarios()</a>.</p>
 
-<p>Referenced by <a class="el" href="sdm_8py_source.html#l01078">LmClient.sdm.SDMClient.getProjectionUrl()</a>.</p>
+<p>Referenced by <a class="el" href="sdm_8py_source.html#l01095">LmClient.sdm.SDMClient.getProjectionUrl()</a>.</p>
 
 </div>
 </div>
@@ -2308,11 +2335,11 @@ Private Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>: Scenarios that match the specified parameters. [LmAttObj] </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>: Returned object has metadata included. Reference items with "items.item" property </dd></dl>
 
-<p>Definition at line <a class="el" href="sdm_8py_source.html#l01233">1233</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
+<p>Definition at line <a class="el" href="sdm_8py_source.html#l01251">1251</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
 
-<p>References <a class="el" href="sdm_8py_source.html#l01275">LmClient.sdm.SDMClient.postScenario()</a>.</p>
+<p>References <a class="el" href="sdm_8py_source.html#l01293">LmClient.sdm.SDMClient.postScenario()</a>.</p>
 
-<p>Referenced by <a class="el" href="sdm_8py_source.html#l01200">LmClient.sdm.SDMClient.getScenario()</a>.</p>
+<p>Referenced by <a class="el" href="sdm_8py_source.html#l01218">LmClient.sdm.SDMClient.getScenario()</a>.</p>
 
 </div>
 </div>
@@ -2385,9 +2412,9 @@ Private Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>: Type Codes that match the specified parameters. [LmAttObj] </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>: Returned object has metadata included. Reference items with "items.item" property </dd></dl>
 
-<p>Definition at line <a class="el" href="sdm_8py_source.html#l01371">1371</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
+<p>Definition at line <a class="el" href="sdm_8py_source.html#l01389">1389</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
 
-<p>Referenced by <a class="el" href="sdm_8py_source.html#l01346">LmClient.sdm.SDMClient.getTypeCode()</a>.</p>
+<p>Referenced by <a class="el" href="sdm_8py_source.html#l01364">LmClient.sdm.SDMClient.getTypeCode()</a>.</p>
 
 </div>
 </div>
@@ -2466,7 +2493,7 @@ Private Member Functions</h2></td></tr>
 <p>: Post a new Lifemapper experiment </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">algorithm</td><td>An Lifemapper SDM algorithm object </td></tr>
+    <tr><td class="paramname">algorithm</td><td>An Lifemapper SDM algorithm object or algorithm code. Use <a class="el" href="classLmClient_1_1sdm_1_1SDMClient.html#abcd1c256ea7fd200d77a6994242ef604" title=": Deep copies an algorithm object and adds a value attribute to each parameter that is populated with...">SDMClient.getAlgorithmFromCode</a> to get an algorithm object or just supply the desired algorithm code if none of the parameters should be different from the defaults. [<a class="el" href="classLmClient_1_1sdm_1_1Algorithm.html" title=": Algorithm class ">Algorithm</a> or string] </td></tr>
     <tr><td class="paramname">mdlScn</td><td>The id of the model scenario to use for the experiment [integer] </td></tr>
     <tr><td class="paramname">occSetId</td><td>The id of the occurrence set to be used for the experiment. [integer] </td></tr>
     <tr><td class="paramname">prjScns</td><td>(optional) List of projection scenario ids to use for the experiment [list of integers] </td></tr>
@@ -2480,11 +2507,11 @@ Private Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>: Experiment </dd></dl>
 
-<p>Definition at line <a class="el" href="sdm_8py_source.html#l00466">466</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
+<p>Definition at line <a class="el" href="sdm_8py_source.html#l00483">483</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
 
-<p>References <a class="el" href="sdm_8py_source.html#l00550">LmClient.sdm.SDMClient.countLayers()</a>, and <a class="el" href="sdm_8py_source.html#l01531">LmClient.sdm.SDMClient.validateAlgorithmParameters()</a>.</p>
+<p>References <a class="el" href="sdm_8py_source.html#l00567">LmClient.sdm.SDMClient.countLayers()</a>, and <a class="el" href="sdm_8py_source.html#l01549">LmClient.sdm.SDMClient.validateAlgorithmParameters()</a>.</p>
 
-<p>Referenced by <a class="el" href="sdm_8py_source.html#l00425">LmClient.sdm.SDMClient.listExperiments()</a>.</p>
+<p>Referenced by <a class="el" href="sdm_8py_source.html#l00438">LmClient.sdm.SDMClient.listExperiments()</a>.</p>
 
 </div>
 </div>
@@ -2625,11 +2652,11 @@ Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="sdm_8py_source.html#l00710">710</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
+<p>Definition at line <a class="el" href="sdm_8py_source.html#l00727">727</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
 
-<p>References <a class="el" href="sdm_8py_source.html#l00778">LmClient.sdm.SDMClient.countOccurrenceSets()</a>.</p>
+<p>References <a class="el" href="sdm_8py_source.html#l00795">LmClient.sdm.SDMClient.countOccurrenceSets()</a>.</p>
 
-<p>Referenced by <a class="el" href="sdm_8py_source.html#l00656">LmClient.sdm.SDMClient.listLayers()</a>.</p>
+<p>Referenced by <a class="el" href="sdm_8py_source.html#l00673">LmClient.sdm.SDMClient.listLayers()</a>.</p>
 
 </div>
 </div>
@@ -2687,9 +2714,9 @@ Private Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>: The occurrence set id number. [integer] </dd></dl>
 
-<p>Definition at line <a class="el" href="sdm_8py_source.html#l00917">917</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
+<p>Definition at line <a class="el" href="sdm_8py_source.html#l00934">934</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
 
-<p>References <a class="el" href="sdm_8py_source.html#l00986">LmClient.sdm.SDMClient.countProjections()</a>.</p>
+<p>References <a class="el" href="sdm_8py_source.html#l01003">LmClient.sdm.SDMClient.countProjections()</a>.</p>
 
 </div>
 </div>
@@ -2795,9 +2822,9 @@ Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="sdm_8py_source.html#l01275">1275</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
+<p>Definition at line <a class="el" href="sdm_8py_source.html#l01293">1293</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
 
-<p>Referenced by <a class="el" href="sdm_8py_source.html#l01233">LmClient.sdm.SDMClient.listScenarios()</a>.</p>
+<p>Referenced by <a class="el" href="sdm_8py_source.html#l01251">LmClient.sdm.SDMClient.listScenarios()</a>.</p>
 
 </div>
 </div>
@@ -2855,7 +2882,7 @@ Private Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>: An objectification of the type code that was newly created </dd></dl>
 
-<p>Definition at line <a class="el" href="sdm_8py_source.html#l01396">1396</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
+<p>Definition at line <a class="el" href="sdm_8py_source.html#l01414">1414</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
 
 </div>
 </div>
@@ -2906,9 +2933,9 @@ Private Member Functions</h2></td></tr>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>: This will return all models and projections associated with occurrence sets that match this query : A list of archive hits </dd></dl>
 
-<p>Definition at line <a class="el" href="sdm_8py_source.html#l01481">1481</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
+<p>Definition at line <a class="el" href="sdm_8py_source.html#l01499">1499</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
 
-<p>References <a class="el" href="sdm_8py_source.html#l01504">LmClient.sdm.SDMClient.getShapefileFromOccurrencesHint()</a>.</p>
+<p>References <a class="el" href="sdm_8py_source.html#l01522">LmClient.sdm.SDMClient.getShapefileFromOccurrencesHint()</a>.</p>
 
 </div>
 </div>
@@ -2954,9 +2981,9 @@ Private Member Functions</h2></td></tr>
 <dd>
 : Throws an error if projections are specified and parameter dictates that they can't be </dd></dl>
 
-<p>Definition at line <a class="el" href="sdm_8py_source.html#l01531">1531</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
+<p>Definition at line <a class="el" href="sdm_8py_source.html#l01549">1549</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
 
-<p>Referenced by <a class="el" href="sdm_8py_source.html#l00466">LmClient.sdm.SDMClient.postExperiment()</a>.</p>
+<p>Referenced by <a class="el" href="sdm_8py_source.html#l00483">LmClient.sdm.SDMClient.postExperiment()</a>.</p>
 
 </div>
 </div>
@@ -2971,9 +2998,12 @@ Private Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="sdm_8py_source.html#l00273">273</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
+<p>A list of algorithm objects. </p>
+<p>Get the algorithm code from each with the 'code' attribute </p>
 
-<p>Referenced by <a class="el" href="sdm_8py_source.html#l00294">LmClient.sdm.SDMClient.getAlgorithmFromCode()</a>.</p>
+<p>Definition at line <a class="el" href="sdm_8py_source.html#l00274">274</a> of file <a class="el" href="sdm_8py_source.html">sdm.py</a>.</p>
+
+<p>Referenced by <a class="el" href="sdm_8py_source.html#l00293">LmClient.sdm.SDMClient.getAlgorithmCodes()</a>, and <a class="el" href="sdm_8py_source.html#l00307">LmClient.sdm.SDMClient.getAlgorithmFromCode()</a>.</p>
 
 </div>
 </div>
@@ -3000,7 +3030,7 @@ Private Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceLmClient.html">LmClient</a></li><li class="navelem"><a class="el" href="namespaceLmClient_1_1sdm.html">sdm</a></li><li class="navelem"><a class="el" href="classLmClient_1_1sdm_1_1SDMClient.html">SDMClient</a></li>
-    <li class="footer">Generated on Thu Aug 18 2016 13:01:45 for Lifemapper Client Library by
+    <li class="footer">Generated on Mon Aug 22 2016 12:19:06 for Lifemapper Client Library by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

@@ -14,6 +14,7 @@ var classLmClient_1_1sdm_1_1SDMClient =
     [ "deleteProjection", "classLmClient_1_1sdm_1_1SDMClient.html#a4e9eb5086cb23741ea29256747985b7f", null ],
     [ "deleteScenario", "classLmClient_1_1sdm_1_1SDMClient.html#a8b27522ccd1a23afafc72ac776516bf2", null ],
     [ "deleteTypeCode", "classLmClient_1_1sdm_1_1SDMClient.html#a3b2e64b3abb287d0355c0bf5a2c6f8db", null ],
+    [ "getAlgorithmCodes", "classLmClient_1_1sdm_1_1SDMClient.html#a219906d8be8ef75ce2602ca1563000d3", null ],
     [ "getAlgorithmFromCode", "classLmClient_1_1sdm_1_1SDMClient.html#abcd1c256ea7fd200d77a6994242ef604", null ],
     [ "getExperiment", "classLmClient_1_1sdm_1_1SDMClient.html#aecca87c8b27cd1df4ab59d8705c12aeb", null ],
     [ "getExperimentPackage", "classLmClient_1_1sdm_1_1SDMClient.html#a918101db2b83b73a328f10018331bcc7", null ],

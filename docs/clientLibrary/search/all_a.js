@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['name',['name',['../classLmClient_1_1sdm_1_1AlgorithmParameter.html#aee7230fe68c392467c4e88b02b617cee',1,'LmClient.sdm.AlgorithmParameter.name()'],['../classLmClient_1_1sdm_1_1Algorithm.html#a41faefce0b0e30161a282fef15b5ff98',1,'LmClient.sdm.Algorithm.name()']]]
+  ['jobstage',['JobStage',['../classcore_1_1LmCommon_1_1common_1_1lmconstants_1_1JobStage.html',1,'core::LmCommon::common::lmconstants']]],
+  ['jobstatus',['JobStatus',['../classcore_1_1LmCommon_1_1common_1_1lmconstants_1_1JobStatus.html',1,'core::LmCommon::common::lmconstants']]],
+  ['json',['JSON',['../namespacecore_1_1LmCommon_1_1common_1_1lmconstants.html#a2cb7620d59359c24d4cecf78d66f4083',1,'core::LmCommon::common::lmconstants']]]
 ];

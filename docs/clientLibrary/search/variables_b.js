@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['param',['param',['../classLmClient_1_1sdm_1_1ParameterOutOfRange.html#acdc674ffc24a0ae5664c61b314767c5b',1,'LmClient.sdm.ParameterOutOfRange.param()'],['../classLmClient_1_1sdm_1_1ProjectionsNotAllowed.html#ae2546bfebe3a392e5ae741b8cbc98c0a',1,'LmClient.sdm.ProjectionsNotAllowed.param()']]],
-  ['parameters',['parameters',['../classLmClient_1_1rad_1_1RADClient.html#a0e55d9989ea214aedb1476fc8756808c',1,'LmClient.rad.RADClient.parameters()'],['../classLmClient_1_1sdm_1_1Algorithm.html#a385be623e58273463f4c9ac1de7a2241',1,'LmClient.sdm.Algorithm.parameters()']]]
+  ['kwargs',['kwargs',['../classcore_1_1LmCommon_1_1tools_1_1testing_1_1lmTest_1_1LMTestBuilder.html#a6e43be766e8855541f89f34bbd363f43',1,'core.LmCommon.tools.testing.lmTest.LMTestBuilder.kwargs()'],['../classcore_1_1LmCommon_1_1tools_1_1testing_1_1testSuite_1_1LMTestSuite.html#a6dcee5ee63e006ec9c86a09d8fcd7b20',1,'core.LmCommon.tools.testing.testSuite.LMTestSuite.kwargs()']]]
 ];
