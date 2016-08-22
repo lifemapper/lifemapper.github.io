@@ -3,6 +3,8 @@ Lifemapper
 
 .. contents::
 
+.. _Using Lifemapper : docs/using.rst
+
 Overview
 ~~~~~~~~
 Lifemapper (Lm) is a high-throughput species distribution modeling system and 
@@ -53,6 +55,11 @@ described above, and are encompassed in a module named Lifemapper Species
 Distribution Modeling, or LmSDM. Multi-species analyses are contained by the 
 module named Lifemapper Range and Diversity, or LmRAD.  
 
+Using the Client Library
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+For information on data objects, terms, and workflow, see  `Using Lifemapper`_
+
 Installation
 ~~~~~~~~~~~~
 The Lifemapper software can be installed on physical or virtual hardware that 
@@ -72,9 +79,6 @@ The Python client library is this package.  The Lifemapper plugin to the open
 source GIS package QGIS (www.qgis.org) can be downloaded  
 from the QGIS plugin repository.  
 
-Query
-~~~~~
-The 
 
 Future Directions
 ~~~~~~~~~~~~~~~~~
