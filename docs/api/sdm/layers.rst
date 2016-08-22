@@ -370,15 +370,14 @@ cells are 2.5 decimal degrees (dd) with the measurement units degreesC.  The
 data is a GeoTiff and we'll use the 'temperature' type code.  The file is 
 located at 'layerData.tif' on the local system.
 
-Request
-.. code-block:: bash
-      
-         $ curl -X POST -H 'Content-type: image/tiff' --data '@layerData.tif' http://svc.lifemapper.org/services/sdm/layers/?name=sampleLayer&units=dd&resolution=2.5&epsgCode=4326&envLayerType=temperature&dataFormat=GTiff&valUnits=degreesC
+Request::
+     
+   $ curl -X POST -H 'Content-type: image/tiff' --data '@layerData.tif' http://svc.lifemapper.org/services/sdm/layers/?name=sampleLayer&units=dd&resolution=2.5&epsgCode=4326&envLayerType=temperature&dataFormat=GTiff&valUnits=degreesC
 
 
 Response:
-     The response of this request is the same as if you ran a GET request on the 
-     layer you just posted.  
+  The response of this request is the same as if you ran a GET request on the 
+  layer you just posted.  
 
 -----
 
@@ -390,65 +389,65 @@ Sample JSON
 
 .. code-block:: json
 
-         {
-            "title": "Precipitation Seasonality, IPCC AR5 RCP4.5, 2050, 10min",
-            "SRS": "epsg:4326",
-            "bbox": "(-180.0, -60.0, 180.0, 90.0)",
-            "dataFormat": "GTiff",
-            "description": "Precipitation Seasonality (Coefficient of Variation), Predicted 2041-2060 climate calculated from change modeled by Community Climate System Model, 4.0, National Center for Atmospheric Research (NCAR) http://www.cesm.ucar.edu/models/ccsm4.0/ for the IPCC Fifth Assessment Report (2013), Scenario RCP4.5 plus Worldclim 1.4 observed mean climate",
-            "endDate": "1864-07-08 00:00:00",
-            "epsgcode": "4326",
-            "gdalType": "3",
-            "geoTransform": 
-            {
-               "geoTransform": "-180.0",
-               "geoTransform": "0.166666666667",
-               "geoTransform": "0.0",
-               "geoTransform": "90.0",
-               "geoTransform": "0.0",
-               "geoTransform": "-0.166666666667"
-            },
-            "id": "7513",
-            "isCategorical": "False",
-            "keywords": 
-            {
-               "keyword": "precipitation",
-               "keyword": "seasonality"
-            },
-            "mapLayername": "cc45bi5015-10min",
-            "mapPrefix": "http://yeti.lifemapper.org/ogc?map=usr_kubi_4326&layers=cc45bi5015-10min",
-            "mapUnits": "dd",
-            "maxVal": "222.0",
-            "maxX": "180.0",
-            "maxY": "90.0",
-            "metadataUrl": "http://yeti.lifemapper.org/services/sdm/layers/7513",
-            "minVal": "0.0",
-            "minX": "-180.0",
-            "minY": "-60.0",
-            "modTime": "2015-11-19 16:08:10",
-            "moduleType": "sdm",
-            "name": "cc45bi5015-10min",
-            "nodataVal": "-32768.0",
-            "parametersModTime": "2015-11-19 16:08:10",
-            "resolution": "0.16667",
-            "serviceType": "layers",
-            "size": 
-            {
-               "size": "2160",
-               "size": "900"
-            },
-            "srs": "GEOGCS['WGS 84',DATUM['unknown',SPHEROID['WGS84',6378137,298.257223563],TOWGS84[0,0,0,0,0,0,0]],PRIMEM['Greenwich',0],UNIT['degree',0.0174532925199433]]",
-            "startDate": "1864-06-19 00:00:00",
-            "title": "Precipitation Seasonality, IPCC AR5 RCP4.5, 2050, 10min",
-            "typeCode": "BIO15",
-            "typeDescription": "Precipitation Seasonality (Coefficient of Variation)",
-            "typeKeywords": 
-            {
-               "typeKeyword": "precipitation",
-               "typeKeyword": "seasonality"
-            },
-            "typeTitle": "Precipitation Seasonality",
-            "user": "kubi",
-            "valUnits": "coefficientOfVariation",
-            "verify": "6be49375f7f57e1da5c6683624f5e2b3ee39807e986d1582e901cac38caec5c3"
-         }
+   {
+      "title": "Precipitation Seasonality, IPCC AR5 RCP4.5, 2050, 10min",
+      "SRS": "epsg:4326",
+      "bbox": "(-180.0, -60.0, 180.0, 90.0)",
+      "dataFormat": "GTiff",
+      "description": "Precipitation Seasonality (Coefficient of Variation), Predicted 2041-2060 climate calculated from change modeled by Community Climate System Model, 4.0, National Center for Atmospheric Research (NCAR) http://www.cesm.ucar.edu/models/ccsm4.0/ for the IPCC Fifth Assessment Report (2013), Scenario RCP4.5 plus Worldclim 1.4 observed mean climate",
+      "endDate": "1864-07-08 00:00:00",
+      "epsgcode": "4326",
+      "gdalType": "3",
+      "geoTransform": 
+      {
+         "geoTransform": "-180.0",
+         "geoTransform": "0.166666666667",
+         "geoTransform": "0.0",
+         "geoTransform": "90.0",
+         "geoTransform": "0.0",
+         "geoTransform": "-0.166666666667"
+      },
+      "id": "7513",
+      "isCategorical": "False",
+      "keywords": 
+      {
+         "keyword": "precipitation",
+         "keyword": "seasonality"
+      },
+      "mapLayername": "cc45bi5015-10min",
+      "mapPrefix": "http://yeti.lifemapper.org/ogc?map=usr_kubi_4326&layers=cc45bi5015-10min",
+      "mapUnits": "dd",
+      "maxVal": "222.0",
+      "maxX": "180.0",
+      "maxY": "90.0",
+      "metadataUrl": "http://yeti.lifemapper.org/services/sdm/layers/7513",
+      "minVal": "0.0",
+      "minX": "-180.0",
+      "minY": "-60.0",
+      "modTime": "2015-11-19 16:08:10",
+      "moduleType": "sdm",
+      "name": "cc45bi5015-10min",
+      "nodataVal": "-32768.0",
+      "parametersModTime": "2015-11-19 16:08:10",
+      "resolution": "0.16667",
+      "serviceType": "layers",
+      "size": 
+      {
+         "size": "2160",
+         "size": "900"
+      },
+      "srs": "GEOGCS['WGS 84',DATUM['unknown',SPHEROID['WGS84',6378137,298.257223563],TOWGS84[0,0,0,0,0,0,0]],PRIMEM['Greenwich',0],UNIT['degree',0.0174532925199433]]",
+      "startDate": "1864-06-19 00:00:00",
+      "title": "Precipitation Seasonality, IPCC AR5 RCP4.5, 2050, 10min",
+      "typeCode": "BIO15",
+      "typeDescription": "Precipitation Seasonality (Coefficient of Variation)",
+      "typeKeywords": 
+      {
+         "typeKeyword": "precipitation",
+         "typeKeyword": "seasonality"
+      },
+      "typeTitle": "Precipitation Seasonality",
+      "user": "kubi",
+      "valUnits": "coefficientOfVariation",
+      "verify": "6be49375f7f57e1da5c6683624f5e2b3ee39807e986d1582e901cac38caec5c3"
+   }

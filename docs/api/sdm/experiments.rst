@@ -98,6 +98,7 @@ Example
 For this example, we will delete experiment 12345
 
 Request::
+
    $ curl -X DELETE "http://svc.lifemapper.org/services/sdm/experiments/12345"
 
 -----
@@ -149,6 +150,7 @@ Example
 For this example, we will get the raw model of experiment 12345.  It was built with Maxent and is completed
 
 Request::
+
    $ curl -X GET "http://svc.lifemapper.org/services/sdm/experiments/12345/model"
 
 Response
