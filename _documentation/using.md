@@ -1,5 +1,4 @@
-Using the APIs or Client Library
-================================
+# Using the APIs or Client Library
 
 .. contents::
 
@@ -27,20 +26,19 @@ request computations on existing or user-submitted data.  Users need not login
 to query for existing public data, but must register and login to request 
 analyses.
  
-Single species data and analyses
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+## Single species data and analyses
 
 Data objects containing geospatial data about individual species include:
 
-OccurrenceSet::
-  Point data representing specimens collected for a single species or taxa.  Data
+OccurrenceSet
+: Point data representing specimens collected for a single species or taxa.  Data
   contains a location, x and y, in some known geographic spatial reference system.
   Public data in Lifemapper installations are in the 'Geographic' spatial 
   reference system, latitude and longitude in decimal degrees. API documentation
   is at `OccurrenceSets`_ 
 
-Scenarios::
-  Scenarios consist of a set of environmental layers (i.e. elevation, 
+Scenarios
+: Scenarios consist of a set of environmental layers (i.e. elevation, 
   precipitation, temperature, soil, etc).  For Species Distribution Modeling, 
   researchers often use inputs of 'present day' species points and 'present day' 
   climate and/or other environmental data.  The resulting models can be 
@@ -50,16 +48,15 @@ Scenarios::
   International Panel on Climate Change (IPCC) for its Fifth Assessment 
   Report (AR5, 2013).  API documentation is at `Scenarios`_ 
   
-Projections::
-
-  Computed SDM models may be projected back onto the same, or matching 
+Projections
+: Computed SDM models may be projected back onto the same, or matching 
   environmental layersets (Scenarios) 
   
-Experiments::
-  Experiments contain a single species 
+Experiments
+:  Experiments contain a single species 
 
 Species Distribution Modeling (SDM) experiments follow a general workflow.  
-A researcher::
+A researcher:
 
   1. begins with input species data and environmental data 
   1. chooses an algorithm and any parameters for computing the model
