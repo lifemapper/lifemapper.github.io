@@ -1,11 +1,12 @@
 
-.. hightlight:: rest
+.. highlight:: rest
 
 ============================
 SDM Experiments REST Service
 ============================
 
 .. contents::  
+
 
 The Lifemapper SDM Experiments REST service allows a user to count, list, post, get, and delete Species Distribution Modeling experiments.
 

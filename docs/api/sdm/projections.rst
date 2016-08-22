@@ -1,33 +1,36 @@
+
+.. highlight:: rest
+
 ============================
 SDM Projections REST Service
 ============================
-  The Lifemapper SDM Projections REST service allows a user to count, list, post, get, and delete SDM projections
+The Lifemapper SDM Projections REST service allows a user to count, list, post, get, and delete SDM projections
 
 *****************
 Count Projections
 *****************
-  Requests sent to the projections count service will return the number of SDM projections that match the specified criteria for the specified user.
+Requests sent to the projections count service will return the number of SDM projections that match the specified criteria for the specified user.
 
 HTTP Method
 ===========
-   GET
+GET
 
 URL
 ===
-   /services/sdm/projections/count/{format}
+/services/sdm/projections/count/{format}
 
 Format Options
 ==============
 
-    +---------+------------------+
-    | Format  | Content-Type     |
-    +=========+==================+
-    | (blank) | application/xml  |
-    +---------+------------------+
-    | XML     | application/xml  |
-    +---------+------------------+
-    | JSON    | application/json |
-    +---------+------------------+
++---------+------------------+
+| Format  | Content-Type     |
++=========+==================+
+| (blank) | application/xml  |
++---------+------------------+
+| XML     | application/xml  |
++---------+------------------+
+| JSON    | application/json |
++---------+------------------+
 
 Query Parameters
 ================
@@ -57,7 +60,7 @@ Query Parameters
    +-----------------+--------------------+------------+--------------------------------------------------------------------------+
 
 Example
-========
+=======
    For this example, we will count all of the projections that are in experiment 123 and request a JSON document as the response.
 
    Request

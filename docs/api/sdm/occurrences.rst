@@ -1,65 +1,68 @@
+
+.. contents::  
+
 ============================
 SDM Occurrences REST Service
 ============================
-  The Lifemapper SDM Occurrences REST service allows a user to count, list, post, get, and delete occurrence data layers used to create Species Distribution Modeling experiments in Lifemapper.
+The Lifemapper SDM Occurrences REST service allows a user to count, list, post, get, and delete occurrence data layers used to create Species Distribution Modeling experiments in Lifemapper.
 
 *********************
 Count Occurrence Sets
 *********************
-  Requests sent to the occurrence set count service will return the number of SDM occurrence sets that match the specified criteria for the specified user.
+Requests sent to the occurrence set count service will return the number of SDM occurrence sets that match the specified criteria for the specified user.
 
 HTTP Method
 ===========
-   GET
+GET
 
 URL
 ===
-   /services/sdm/occurrences/count/{format}
+/services/sdm/occurrences/count/{format}
 
 Format Options
 ==============
 
-    +---------+------------------+
-    | Format  | Content-Type     |
-    +=========+==================+
-    | (blank) | application/xml  |
-    +---------+------------------+
-    | XML     | application/xml  |
-    +---------+------------------+
-    | JSON    | application/json |
-    +---------+------------------+
++---------+------------------+
+| Format  | Content-Type     |
++=========+==================+
+| (blank) | application/xml  |
++---------+------------------+
+| XML     | application/xml  |
++---------+------------------+
+| JSON    | application/json |
++---------+------------------+
 
 Query Parameters
 ================
 
-   +-----------------------+--------------------+------------+----------------------------------------------------------------------+
-   | Name                  | Type               | Example    | Description                                                          |
-   +=======================+====================+============+======================================================================+
-   | afterTime             | ISO 8601 Date time | 2015-05-13 | Count occurrence sets modified after this time                       |
-   +-----------------------+--------------------+------------+----------------------------------------------------------------------+
-   | beforeTime            | ISO 8601 Date time | 2014-12-03 | Count occurrence sets modified before this time                      |
-   +-----------------------+--------------------+------------+----------------------------------------------------------------------+
-   | displayName           | String             | Acer       | Count occurrence sets that have display names like this              |
-   +-----------------------+--------------------+------------+----------------------------------------------------------------------+
-   | epsgCode              | Integer            | 4326       | Count occurrence sets built using this EPSG code                     |
-   +-----------------------+--------------------+------------+----------------------------------------------------------------------+
-   | hasProjections        | Integer            | 1          | Count occurrence sets that have projections if this is set to 1      |
-   +-----------------------+--------------------+------------+----------------------------------------------------------------------+
-   | minimumNumberOfPoints | Integer            | 50         | Count occurrence sets that have at least this many points            |
-   +-----------------------+--------------------+------------+----------------------------------------------------------------------+
-   | public                | Integer            | 1          | (Only if logged in) Count public occurrence sets if this is set to 1 |
-   +-----------------------+--------------------+------------+----------------------------------------------------------------------+
++-----------------------+--------------------+------------+----------------------------------------------------------------------+
+| Name                  | Type               | Example    | Description                                                          |
++=======================+====================+============+======================================================================+
+| afterTime             | ISO 8601 Date time | 2015-05-13 | Count occurrence sets modified after this time                       |
++-----------------------+--------------------+------------+----------------------------------------------------------------------+
+| beforeTime            | ISO 8601 Date time | 2014-12-03 | Count occurrence sets modified before this time                      |
++-----------------------+--------------------+------------+----------------------------------------------------------------------+
+| displayName           | String             | Acer       | Count occurrence sets that have display names like this              |
++-----------------------+--------------------+------------+----------------------------------------------------------------------+
+| epsgCode              | Integer            | 4326       | Count occurrence sets built using this EPSG code                     |
++-----------------------+--------------------+------------+----------------------------------------------------------------------+
+| hasProjections        | Integer            | 1          | Count occurrence sets that have projections if this is set to 1      |
++-----------------------+--------------------+------------+----------------------------------------------------------------------+
+| minimumNumberOfPoints | Integer            | 50         | Count occurrence sets that have at least this many points            |
++-----------------------+--------------------+------------+----------------------------------------------------------------------+
+| public                | Integer            | 1          | (Only if logged in) Count public occurrence sets if this is set to 1 |
++-----------------------+--------------------+------------+----------------------------------------------------------------------+
    
 Example
-========
-   For this example, we will count all of the occurrence sets with more than 100 points and request an XML document
+=======
+For this example, we will count all of the occurrence sets with more than 100 points and request an XML document
 
-   Request
+Request::
       $ curl "http://svc.lifemapper.org/services/sdm/occurrences/count/xml?minimumNumberOfPoints=100"
 
-   Response
+Response
    
-      .. code-block:: json
+.. code-block:: json
 
          <?xml version="1.0" encoding="utf-8"?>
          <lm:response xmlns:lm="http://lifemapper.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://lifemapper.org /schemas/serviceResponse.xsd">
@@ -78,21 +81,21 @@ Example
 *********************
 Delete Occurrence Set
 *********************
-   The delete occurrence set service removes an occurrence set you own from the Lifemapper system.
+The delete occurrence set service removes an occurrence set you own from the Lifemapper system.
 
 HTTP Method
 ===========
-   DELETE
+DELETE
 
 URL
 ===
-   /services/sdm/occurrences/{occurrence set id}
+/services/sdm/occurrences/{occurrence set id}
 
 Example
 =======
-   For this example, we will delete occurrence set 99
+For this example, we will delete occurrence set 99
 
-   Request
+Request::
       $ curl -X DELETE "http://svc.lifemapper.org/services/sdm/occurrences/99"
 
 -----
