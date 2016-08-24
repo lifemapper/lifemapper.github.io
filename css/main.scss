@@ -26,6 +26,19 @@ $content-width:    800px;
 $on-palm:          600px;
 $on-laptop:        800px;
 
+$white: #fff;
+$blue:       #455979;
+$blue-light: lighten($blue, 25%);
+$blue-dark:  darken($blue, 25%);
+$orange: #e55909;
+$teal-dark: #196b89;
+$teal-light: #379bbf;
+$grey-light: #fafafa;
+.center-image {
+    margin: 0 auto;
+    display: block;
+}
+
 // Minima also includes a mixin for defining media queries.
 // Use media queries like this:
 // @include media-query($on-palm) {
@@ -37,3 +50,10 @@ $on-laptop:        800px;
 
 // Import partials from the `minima` theme.
 @import "minima";
+
+// Import partials from `sass_dir` (defaults to `_sass`)
+@import
+        "styles",
+        "layout",
+        "lifemapper"
+;

@@ -25,3 +25,22 @@ github_username:  jekyll
 # Build settings
 markdown: kramdown
 theme: minima
+
+collections:
+  documentation:
+      output: true
+      permalink: /documentation/:path/
+  projects:
+     output: false
+     permalink: /projects/:path/
+  people:
+     output: true
+     permalink: /people/:path/
+  news:
+     output: false
+     permalink: /documentation/:path/
+
+
+exclude:
+  - README.rst
+  - junk/
