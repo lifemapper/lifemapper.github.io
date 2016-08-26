@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Welcome to Jekyll!"
+title:  "Welcome to Lifemapper!"
 date:   2016-08-23 11:42:42 -0500
 categories: jekyll update
 ---
