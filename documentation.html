@@ -4,32 +4,24 @@ image_path: ""
 layout: page
 ---
 
-<h2>
-  <a href="https://github.com/lifemapper/lifemapper.github.io/blob/master/docs/api/overview.rst"></a>
-</h2>
+<h4>To understand how to use the service types and workflows below, start with 
+the Lifemapper <a href="overview.html">Overview</a>.</h4>
 
-This is the repository:
+<h3>Service Types</h3>
 <ul>
-   <li><h4><a href="https://github.com/lifemapper/lifemapper.github.io/blob/master/docs/api/occurrences.rst">Occurrences</a></h3></li>
-   <li><h4><a href="https://github.com/lifemapper/lifemapper.github.io/blob/master/docs/api/scenarios.rst">Scenarios</a></h3></li>
-   <li><h4><a href="https://github.com/lifemapper/lifemapper.github.io/blob/master/docs/api/typecodes.rst">Environmental Layer Typecodes</a></h3></li>
-   <li><h4><a href="https://github.com/lifemapper/lifemapper.github.io/blob/master/docs/api/layers.rst">Environmental Layers</a></h3></li>
-   <li><h4><a href="https://github.com/lifemapper/lifemapper.github.io/blob/master/docs/api/projections.rst">Projections</a></h3></li>
-   <li><h4><a href="https://github.com/lifemapper/lifemapper.github.io/blob/master/docs/api/experiments.rst"></a>SDM Experiments</h3></li>
+   <li><h4><a href="/documentation/occurrences.html">Occurrence Set</a></h4></li>
+   <li><h4><a href="/documentation/scenarios.html">Scenario</a></h4></li>
+   <li><h4><a href="/documentation/typecodes.html">Environmental Layer Typecode</a></h4></li>
+   <li><h4><a href="/documentation/layers.html">Environmental Layer</a></h4></li>
+   <li><h4><a href="/documentation/projections.html">Projection</a></h4></li>
+   <li><h4><a href="/documentation/experiments.html">SDM Experiment</a></h4></li>
 </ul>
 
-This is the individual MD pages:
+<br />
+
+<h3>Typical Workflows</h3>
 <ul>
-   <li><h4><a href="site.documentation.occurrences.html">Occurrences</a></h3></li>
-   <li><h4><a href="documentation/scenarios.html">Scenarios</a></h3></li>
+   <li><h4><a href="/documentation/analysis-flow.html">Request Analyses</a></h4></li>
+   <li><h4><a href="/documentation/query-flow.html">Query Public Data</a></h4></li>
 </ul>
 
-This is a for loop:
-{% for doc in site.documentation %}
-   <li>
-      <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-      <h3>
-         <a href="{{ doc.url | prepend: site.baseurl }}">{{ doc.title | escape }}</a>
-      </h3>
-   </li>
-{% endfor %}
