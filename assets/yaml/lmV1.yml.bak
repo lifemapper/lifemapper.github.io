@@ -46,6 +46,20 @@ paths:
           description: A list of experiments matching the specified criteria
           schema:
             $ref: '#/definitions/AtomList'
+    post:
+      summary: Post a new SDM experiment
+      description: |
+        Posting a new SDM experiment creates items in the Lifemapper system 
+        and initializes them for computation
+      parameters:
+        - $ref: '#/parameters/MetaFormats'
+      tags:
+        - Experiments
+      responses:
+        201:
+          description: A new experiment is posted
+          schema:
+            $ref: '#/definitions/Experiment'
   /sdm/experiments/{experimentId}/{format}:
     get:
       summary: GET an SDM experiment
@@ -60,6 +74,17 @@ paths:
           description: The experiment formatted as specified
           schema:
             $ref: '#/definitions/Experiment'
+    delete:
+      summary: Delete an existing experiment
+      description: Delete an SDM experiment that you own
+      parameters:
+        - $ref: '#/parameters/ExperimentFormats'
+        - $ref: '#/parameters/PathExperimentId'
+      tags:
+        - Experiments
+      responses:
+        200:
+          description: An okay message that the experiment was deleted
   /sdm/experiments/{experimentId}/algorithm/{format}:
     get:
       summary: Get the algorithm for an SDM experiment
@@ -137,6 +162,102 @@ paths:
           description: A list of environmental layers that match the criteria
           schema:
             $ref: '#/definitions/AtomList'
+    post:
+      # TODO: make sure this definition is correct
+      summary: Post a new environmental layer
+      parameters:
+        - $ref: '#/parameters/MetaFormats'
+        - name: dataFormat
+          in: query
+          description: The format of the layer data.  see http://www.gdal.org/formats_list.html
+          required: true
+          type: string
+        - name: description
+          in: query
+          description: A description of this layer
+          required: false
+          type: string
+        - name: endDate
+          in: query
+          description: The end date for this layer
+          required: false
+          type: string
+          format: YYYY-MM-DD
+        - name: envLayerType
+          in: query
+          description: The type code for this layer
+          required: true
+          type: string
+        - name: envLayerTypeId
+          in: query
+          description: The type code id for this layer
+          required: false
+          type: integer
+        - name: epsgCode
+          in: query
+          description: The EPSG code for this layer
+          required: true
+          type: integer
+        - name: isCategorical
+          in: query
+          description: An indicator if this layer is categorical or not (1=yes, 0=no)
+          required: false
+          type: integer
+          format: int2
+          minimum: 0
+          maximum: 1
+          enum: [0, 1]
+        #TODO: How to specify multiple?
+        - name: keyword
+          in: query
+          description: A keyword associated with this layer
+          required: false
+          type: string
+        - name: layerUrl
+          in: query
+          description: A URL where the layer content can be retrieved
+          required: false
+          type: string
+        - name: name
+          in: query
+          description: A name for this layer
+          required: true
+          type: string
+        - name: resolution
+          in: query
+          description: The resolution of the cells in this layer
+          required: true
+          type: string
+        - name: startDate
+          in: query
+          description: The start date for this layer
+          required: false
+          type: string
+          format: YYYY-MM-DD
+        - name: title
+          in: query
+          description: A title for this layer
+          required: false
+          type: string
+        # TODO: Enum this
+        - name: units
+          in: query
+          description: The cell size units for this layer (such as dd for decimal degrees)
+          required: true
+          type: string
+        # TODO: Enum?
+        - name: valUnits
+          in: query
+          description: The units for the values in each cell (such as degreesCelsius)
+          required: false
+          type: string
+      tags:
+        - Layers
+      responses:
+        201:
+          description: Successful layer post
+          schema:
+            $ref: '#/definitions/Layer'
   /sdm/layers/{layerId}/{format}:
     get:
       summary: Get an SDM environmental layer
@@ -150,6 +271,16 @@ paths:
           description: Layer object in specified format
           schema:
             $ref: '#/definitions/Layer'
+    delete:
+      summary: Delete an SDM environmental layer that you own
+      parameters:
+        - $ref: '#/parameters/PathLayerId'
+        - $ref: '#/parameters/MetaFormats'
+      tags:
+        - Layers
+      responses:
+        200:
+          description: Returns an OK response that a layer is deleted
   # Count experiments
   # Count layers
   /sdm/occurrences/{format}:
@@ -174,6 +305,39 @@ paths:
           description: A list of occurrene sets that match your criteria
           schema:
             $ref: '#/definitions/AtomList'
+    post:
+      summary: Post a new occurrence set
+      parameters:
+        #TODO: Body
+        - $ref: '#/parameters/MetaFormats'
+        - name: pointsType
+          in: query
+          description: The type of file being uploaded
+          required: true
+          type: string
+        - name: displayName
+          in: query
+          description: The display name for this occurrence set
+          required: true
+          type: string
+          format: string
+        - name: epsgCode
+          in: query
+          description: The EPSG code for the occurrence set
+          required: true
+          type: integer
+        - name: name
+          in: query
+          description: A short name for the occurrence set
+          required: false
+          type: string
+      tags:
+        - Occurrence Sets
+      responses:
+        201:
+          description: An occurrence set in the specified format
+          schema:
+            $ref: '#/definitions/OccurrenceSet'
   /sdm/occurrences/{occurrenceSetId}/{format}:
     get:
       summary: Get an occurrence set in the specified format
@@ -187,6 +351,16 @@ paths:
           description: An occurrence set in the specified format
           schema:
             $ref: '#/definitions/OccurrenceSet'
+    delete:
+      summary: Delete an occurrence set you own
+      parameters:
+        - $ref: '#/parameters/PathOccurrenceSetId'
+        - $ref: '#/parameters/MetaFormats'
+      tags:
+        - Occurrence Sets
+      responses:
+        200:
+          description: OK message that an occurrence set was deleted
   /sdm/projections/{format}:
     get:
       summary: Get a list of projections that match your criteria
@@ -225,6 +399,16 @@ paths:
           description: Get a projection in the format you specify
           schema:
             $ref: '#/definitions/Projection'
+    delete:
+      summary: Delete a projection that you own
+      parameters:
+        - $ref: '#/parameters/PathProjectionId'
+        - $ref: '#/parameters/MetaFormats'
+      tags:
+        - Projections
+      responses:
+        200:
+          description: OK Message that a projection was deleted
   /sdm/scenarios/{format}:
     get:
       summary: Get a list of scenarios that match your criteria
@@ -246,6 +430,74 @@ paths:
           description: A list of scenarios matching the criteria
           schema:
             $ref: '#/definitions/AtomList'
+    post:
+      summary: Post a new climate scenario for SDM
+      parameters:
+        - $ref: '#/parameters/MetaFormats'
+        - name: code
+          in: query
+          description: A short name for this scenario
+          required: true
+          type: string
+        - name: title
+          in: query
+          description: A title for this scenario
+          required: false
+          type: string
+        - name: author
+          in: query
+          description: The author of this climate scenario
+          required: false
+          type: string
+        - name: description
+          in: query
+          description: A description of this scenario
+          required: false
+          type: string
+        - name: startDate
+          in: query
+          description: The start date of this scenario
+          required: false
+          type: string
+          format: YYYY-MM-DD
+        - name: endDate
+          in: query
+          description: The end date of this scenario
+          required: false
+          type: string
+        - name: units
+          in: query
+          description: The cell size units for layers in this scenario
+          required: true
+          type: string
+        - name: resolution
+          in: query
+          description: The resolution of the layers in this scenario
+          required: false
+          type: number
+        - name: keyword
+          #TODO Multiple
+          in: query
+          description: A keyword associated with this scenario
+          required: false
+          type: string
+        - name: epsgCode
+          in: query
+          description: The EPSG code used by the layers in the scenario
+          required: true
+          type: integer
+        - name: layer
+          in: query
+          description: The layer id of a layer to add to this scenario
+          required: true
+          type: integer
+      tags:
+        - Scenarios
+      responses:
+        201:
+          description: The posted scenario
+          schema:
+            $ref: '#/definitions/Scenario'
   /sdm/scenarios/{scenarioId}/{format}:
     get:
       summary: Get a scenario
@@ -259,6 +511,16 @@ paths:
           description: The scenario in the specified format
           schema:
             $ref: '#/definitions/Scenario'
+    delete:
+      summary: Delete a scenario that you own
+      parameters:
+        - $ref: '#/parameters/PathScenarioId'
+        - $ref: '#/parameters/MetaFormats'
+      tags:
+        - Scenarios
+      responses:
+        200:
+          description: An OK message that the scenario was deleted
   /sdm/typecodes/{format}:
     get:
       summary: Get a list of type codes that match the specified criteria
@@ -277,6 +539,37 @@ paths:
           description: A list of type codes matching your criteria
           schema:
             $ref: '#/definitions/AtomList'
+    post:
+      summary: Post a new type code
+      parameters:
+        - $ref: '#/parameters/MetaFormats'
+        - name: code
+          in: query
+          description: The code for the new type code
+          required: true
+          type: string
+        - name: description
+          in: query
+          description: A description of the new type code
+          required: false
+          type: string
+        - name: title
+          in: query
+          description: A title for this type code
+          required: false
+          type: string
+        - name: keyword
+          in: query
+          description: A keyword to associate with this type code
+          required: false
+          type: string
+      tags:
+        - Type Codes
+      responses:
+        201:
+          description: A new type code in the specified format
+          schema:
+            $ref: '#/definitions/TypeCode'
   /sdm/typecodes/{typeCodeId}/{format}:
     get:
       summary: Get a type code
@@ -290,6 +583,16 @@ paths:
           description: The type code
           schema:
             $ref: '#/definitions/TypeCode'
+    delete:
+      summary: Delete a type code that you own
+      parameters:
+        - $ref: '#/parameters/PathTypeCodeId'
+        - $ref: '#/parameters/MetaFormats'
+      tags:
+        - Type Codes
+      responses:
+        200:
+          description: An OK message that the type code was deleted
 definitions:
   Algorithm:
     #TODO Fill in description
