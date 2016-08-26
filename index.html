@@ -1,28 +1,42 @@
-<!DOCTYPE html>
-<html>
-   <head>
-      <title>Meta page for the Lifemapper project</title>
-      <link rel="stylesheet" type="text/css" href="/css/main.css">
-   </head>
-   <body>
-      <img src="images/lifemapperbannertop.png" />
-      <p>
-         This is the Lifemapper documentation website and will be the home of
-         information about how to use Lifemapper.
-         <br />
-         <br />
-      </p>
-      <h2>Documentation</h2>
+---
+layout: default
+---
+
+<div class="home">
+
+  <p>
+     This is the Lifemapper documentation website, it contains
+     information about how to use, install, and program against Lifemapper.
+  </p>
+  <p>
+      <h1 class="page-heading">Documentation</h1>
       <ul>
-         <li><a href="docs/using.rst">Using Lifemapper Webservices</a></li>
-         <li><a href="docs/api/overview.rst">Lifemapper Webservices API</a></li>
-         <li><a href="docs/clientLibrary/index.html">Lifemapper Python Client Library Reference</a></li>
+         <li><a href="overview.html">Start Here!</a></li>
+         <li><a href="documentation.html">API Documentation</a></li>
+         <li><a href="docs/clientLibrary/index.html">Python Client Library Reference</a></li>
       </ul>
-      <br />
-      <h2>Collaborations</h2>
+
+      <h1 class="page-heading">Collaborations</h1>
       <ul>
          <li><a href="http://biotaphy.org">Biotaphy Project</a></li>
+         <li><a href="http://www.pragma-grid.net/">PRAGMA</a></li>
       </ul>
-      <img src="images/lifemapperbannerbottom.png" />
-   </body>
-</html>
+
+      <h1 class="page-heading">Posts</h1>
+      <ul class="post-list">
+         {% for post in site.posts %}
+            <li>
+               <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+               <h2>
+                  <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title | escape }}</a>
+               </h2>
+            </li>
+         {% endfor %}
+      </ul>
+
+  </p>
+      <br />
+
+  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+
+</div>

@@ -1,3 +1,9 @@
+---
+title: Using Lifemapper
+image_path: ""
+layout: page
+---
+
 # Using the APIs or Client Library
 
 .. contents::
@@ -70,12 +76,11 @@ the public data archive, or upload their own data.  Species data is held in
 'OccurrenceSet' objects in the Lifemapper data archive, and may be queried 
 with 'list' or 'count' queries, using filters as the user   
 
-Multi-species data and analyses
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+## Multi-species data and analyses
 
 
-Querying the public contents of a Lifemapper installation
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+## Querying the public contents of a Lifemapper installation
 
 
 
