@@ -29,7 +29,7 @@ theme: minima
 collections:
   documentation:
       output: true
-      permalink: /documentation/:path/
+      permalink: /documentation/:title/
   projects:
      output: false
      permalink: /projects/:path/

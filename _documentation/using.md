@@ -8,12 +8,6 @@ layout: page
 
 .. contents::
 
-.. _SDM experiments : docs/apis/experiments.rst
-.. _Environmental Layers : docs/apis/layers.rst
-.. _Scenarios : docs/apis/scenarios.rst
-.. _OccurrenceSets : docs/apis/occurrences.rst
-.. _Projections : docs/apis/projections.rst
-
 The Lifemapper Python Client Library simplifies queries to a Lifemapper
 installation by wrapping HTTP requests in the Python language.
 Code documentation is at http://lifemapper.github.io.   
@@ -32,16 +26,22 @@ request computations on existing or user-submitted data.  Users need not login
 to query for existing public data, but must register and login to request 
 analyses.
  
-## Single species data and analyses
+### Single species data and analyses
 
 Data objects containing geospatial data about individual species include:
+
+Algorithm
+: An algorithm is a procedure or formula for solving a problem.  There are 
+  multiple algorithms for computing Species Distribution Models (SDM) which 
+  define the relationship between a set of points and the environmental values 
+  at those points. Lifemapper provides 12 algorithms
 
 OccurrenceSet
 : Point data representing specimens collected for a single species or taxa.  Data
   contains a location, x and y, in some known geographic spatial reference system.
   Public data in Lifemapper installations are in the 'Geographic' spatial 
   reference system, latitude and longitude in decimal degrees. API documentation
-  is at `OccurrenceSets`_ 
+  is at [Occurrence Sets](/documentation/api.html#/Occurrence_Sets) 
 
 Scenarios
 : Scenarios consist of a set of environmental layers (i.e. elevation, 
@@ -52,11 +52,17 @@ Scenarios
   same layer types.  An example of predicted environmental data available in 
   the Lifemapper archive is climate data computed for the 
   International Panel on Climate Change (IPCC) for its Fifth Assessment 
-  Report (AR5, 2013).  API documentation is at `Scenarios`_ 
+  Report (AR5, 2013).  API documentation is at 
+  [Scenarios] (/documentation/api.html#/Scenarios)
   
 Projections
-: Computed SDM models may be projected back onto the same, or matching 
-  environmental layersets (Scenarios) 
+: Computed SDM models may be applied, or *projected* back onto the same, or 
+  matching Scenarios.  A map created from the projection of this model onto 
+  a Scenario is called a *Projection*, and is a file of geospatial data in 
+  raster format.  Different algorithms produce projections with different values.  
+  The Maxent algorithm produces projections with values denoting the predicted 
+  presence as a value between 0 and 1.  Other algorithms produce raster files 
+  with only the values 1 (predicted present) or 0 (not predicted present).
   
 Experiments
 :  Experiments contain a single species 
@@ -76,11 +82,11 @@ the public data archive, or upload their own data.  Species data is held in
 'OccurrenceSet' objects in the Lifemapper data archive, and may be queried 
 with 'list' or 'count' queries, using filters as the user   
 
-## Multi-species data and analyses
+### Multi-species data and analyses
 
 
 
-## Querying the public contents of a Lifemapper installation
+### Querying the public contents of a Lifemapper installation
 
 
 
