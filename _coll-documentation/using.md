@@ -3,10 +3,14 @@ title: Using Lifemapper
 image_path: ""
 layout: page
 ---
+# Contents
+{:.no_toc}
+
+* Will be replaced with the ToC, excluding the "Contents" header
+{:toc}
 
 # Using the APIs or Client Library
 
-.. contents::
 
 The Lifemapper Python Client Library simplifies queries to a Lifemapper
 installation by wrapping HTTP requests in the Python language.

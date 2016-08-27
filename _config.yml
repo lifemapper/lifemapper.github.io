@@ -27,18 +27,18 @@ markdown: kramdown
 theme: minima
 
 collections:
-  documentation:
+  coll-documentation:
       output: true
-      permalink: /documentation/:title/
-  projects:
+      permalink: /documentation/:path/
+  coll-projects:
      output: false
      permalink: /projects/:path/
   people:
-     output: true
-     permalink: /people/:path/
-  news:
      output: false
-     permalink: /documentation/:path/
+     permalink: /people/:path/
+  coll-lmclient:
+     output: true
+     permalink: /lmclient/:path/
 
 
 exclude:
