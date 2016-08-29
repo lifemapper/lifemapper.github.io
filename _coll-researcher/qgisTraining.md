@@ -16,12 +16,12 @@ layout: page
 ### Preparation
 
 
- 1. Install QGIS 
+1. Install QGIS
     * Windows/Linux install version 2.10 or 2.12
     * OSX: install version 2.8 (QGIS has a bug in the OSX version of 2.10 and 
       2.12)
- 1. Open QGIS
- 1. Install plugin
+1. Open QGIS
+1. Install plugin
     * Plugins (top menu) → Manage and Install Plugins …
     * Search for Lifemapper, select Lifemapper MacroEcology Range and Diversity 
       Tools 
@@ -33,7 +33,6 @@ layout: page
       dialog to open a browser 
     * If you are a new user, the app will prompt you to create a new workspace - 
       choose a local drive and create a new directory
-     
 1. In all Lifemapper dialogs, click the ? button to display context-sensitive help
 
 

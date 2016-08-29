@@ -17,24 +17,6 @@ the [Using Lifemapper Web Services](/documentation/using) overview.
 
 ---
 
-## Web Service Access
-
-The two primary ways to query Lifemapper are the:
-
- * [REST API](api.html), and
- * [Python Client library wrapper](/lmclient/index)
-
----
-
-## Researcher Resources
-
-Definitions, resources, tutorials:
-
- * [Geospatial Data](/researcher/spatialData), and
- * [Lifemapper QGIS Plugin](/researcher/qgisTraining)
-
----
-
 ## Service Types
  * [Occurrence Set](api.html#/Occurrence_Sets)
  * [Scenario (Layer set)](api.html#/Scenarios)
