@@ -20,17 +20,6 @@ layout: page
     * Windows/Linux install version 2.10 or 2.12
     * OSX: install version 2.8 (QGIS has a bug in the OSX version of 2.10 and 
       2.12)
-      
-<ol>
-   <li> Install QGIS
-      <ul>
-         <li>Windows/Linux install version 2.10 or 2.12</li>
-         <li>OSX: install version 2.8 (QGIS has a bug in the OSX version of 2.10 
-             and 2.12)</li>
-      </ul></li>
-   <li> Open QGIS </li>
-</ol>
-
  1. Open QGIS
  1. Install plugin
     * Plugins (top menu) → Manage and Install Plugins …
