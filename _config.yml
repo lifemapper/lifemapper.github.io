@@ -33,12 +33,15 @@ collections:
   coll-projects:
      output: false
      permalink: /projects/:path/
-  people:
+  coll-people:
      output: false
      permalink: /people/:path/
   coll-lmclient:
      output: true
      permalink: /lmclient/:path/
+  coll-researcher:
+     output: true
+     permalink: /researcher/:path/
 
 
 exclude:

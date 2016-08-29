@@ -26,6 +26,15 @@ The two primary ways to query Lifemapper are the:
 
 ---
 
+## Researcher Resources
+
+Definitions, resources, tutorials:
+
+ * [Geospatial Data](/researcher/spatialData), and
+ * [Lifemapper QGIS Plugin](/researcher/qgisTraining)
+
+---
+
 ## Service Types
  * [Occurrence Set](api.html#/Occurrence_Sets)
  * [Scenario (Layer set)](api.html#/Scenarios)

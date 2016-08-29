@@ -13,7 +13,7 @@ layout: default
       <ul>
          <li><a href="overview.html">Start Here!</a></li>
          <li><a href="documentation.html">Documentation</a></li>
-         <li><a href="docs/clientLibrary/index.html">Python Client Library Reference</a></li>
+         <li><a href="docs/clientLibrary">Python Client Library Reference</a></li>
       </ul>
 
       <h1 class="page-heading">Collaborations</h1>
@@ -27,9 +27,9 @@ layout: default
          {% for post in site.posts %}
             <li>
                <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-               <h2>
+               <h3>
                   <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title | escape }}</a>
-               </h2>
+               </h3>
             </li>
          {% endfor %}
       </ul>
