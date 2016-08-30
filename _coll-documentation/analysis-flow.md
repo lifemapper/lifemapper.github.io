@@ -28,7 +28,9 @@ habitat from these models.  Inputs must include:
    computed model onto these projection scenarios to creates maps of habitat in 
    which the species may thrive.  Matching scenarios are explained further below.
  * An [Algorithm](/api.html#/Algorithm) for computing the relationship between 
-   species occurrences and environmental values.
+   species occurrences and environmental values.  Algorithms with
+   code, author, parameters, and description is located in the following
+   [XML file](http://svc.lifemapper.org/clients/algorithms.xml).
 
 Each individual Environmental Layer must have a 
 [Type Code](/api.html#/Type_Codes) which allows the software to identify the 
