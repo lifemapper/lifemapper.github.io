@@ -16,6 +16,7 @@ To understand how to use the service types and workflows below, start with
 the [Using Lifemapper Web Services](/documentation/using) overview.
 
 ---
+
 ## Python Client Library
 
 Doxygen documentation for the Python client library starts
