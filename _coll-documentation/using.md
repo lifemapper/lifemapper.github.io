@@ -111,7 +111,9 @@ Data products may include the following matrices:
    * A Presence Absence Matrix, or PAM, which contains the species distributions
      represented as a binary matrix of 0/1 indicating presence or non-presence 
      in a grid cell.
-   * A Geographic  matrix, or GRIM, containing environmental values 
+   * Geographic Reference Information Matrix, or GRIM, containing environmental 
+     values
+   * Matrix representing the Biogeographic hypotheses.
    
  * Matrices representing MCPA calculations 
    * Environmental Correlation
