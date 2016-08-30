@@ -26,7 +26,12 @@ All documentation is listed in the [Documentation](/documentation.html) page.
 
 The two primary ways of accessing Lifemapper webservices are the 
 [Python client library](/lmclient/description/), an easy wrapper for
-Lifemapper services.  Example code is linked off this page.  
+Lifemapper services.  Example code is linked off this page. Doxygen 
+documentation for the Python client library starts
+[here](/docs/clientLibrary).  Dig into the 'Classes' for the 
+[SDM Client functions](/docs/clientLibrary/classLmClient_1_1sdm_1_1SDMClient.html) 
+and 
+[RAD Client functions](/docs/clientLibrary/classLmClient_1_1rad_1_1RADClient.html)
 
 If you prefer
 to call the web services from another language, check out the 
