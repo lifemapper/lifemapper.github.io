@@ -105,12 +105,23 @@ Inputs may start with:
  * Biogeographic Hypotheses.  These can be in the form of raster or vector files
    describing biogeographic hypotheses for testing.
 
-Data products may include:
+Data products may include the following matrices:
 
- * A Presence Absence Matrix - or PAM - which contains the species distributions
-   represented as a binary matrix of 0/1 indicating presence or non-presence 
-   in a grid cell.
- * 
+ * Matrices representing the intersection of layers with the grid:
+   * A Presence Absence Matrix, or PAM, which contains the species distributions
+     represented as a binary matrix of 0/1 indicating presence or non-presence 
+     in a grid cell.
+   * A Geographic  matrix, or GRIM, containing environmental values 
+   
+ * Matrices representing MCPA calculations 
+   * Environmental Correlation
+   * Environmental P-Value
+   * Environmental R-Squared
+   * Environmental R-Squared P-Value
+   * Biogeographic Environmental Correlation
+   * Biogeographic Environmental P-Value
+   * Biogeographic Environmental R-Squared
+   * Biogeographic Environmental R-Squared P-Value
 
 ### Querying the public contents of a Lifemapper installation
 
