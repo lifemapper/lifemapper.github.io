@@ -14,6 +14,8 @@ date:   2016-08-23 11:42:42 -0500
 ## Goal
 The goal is to create a nice, dynamically updated webpage with visualizations 
 of the Lifemapper Catalog contents, status, and speed of computation.  The 
+page should be a tool for Lifemapper developers or administrators to diagnose
+problems with the installation or data.  The 
 visualization need not be published on a live site, but should query the live
 KU Lifemapper services.
 
