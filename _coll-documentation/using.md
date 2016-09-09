@@ -57,7 +57,7 @@ Scenarios
   the Lifemapper archive is climate data computed for the 
   International Panel on Climate Change (IPCC) for its Fifth Assessment 
   Report (AR5, 2013).  API documentation is at 
-  [Scenarios] (/documentation/api.html#/Scenarios)
+  [Scenarios](/documentation/api.html#/Scenarios)
   
 Projections
 : Computed SDM models may be applied, or *projected* back onto the same, or 
@@ -88,7 +88,42 @@ with 'list' or 'count' queries, using filters as the user
 
 ### Multi-species data and analyses
 
+Multi-species analysis allow large scale analyses of the distribution of many 
+species.  Scale may refer to the taxonomic, phylogenetic, or geographic breadth 
+of the analyses.
 
+Inputs may start with:
+
+ * Species layers.  These layers can be raster or vector format, and can 
+   be predicted (i.e. SDM output projections) or other types of distribution 
+   or range maps.  
+ * Environmental layers.  These layers can be raster or vector format.
+ * A grid definition. This defines the geographic bounding box, geographic 
+   projection, and grid cell size and shape
+ * A phylogenetic tree. This contains a tree in NEXUS format with leaves
+   corresponding to each species layer in the analysis.
+ * Biogeographic Hypotheses.  These can be in the form of raster or vector files
+   describing biogeographic hypotheses for testing.
+
+Data products may include the following matrices:
+
+ * Matrices representing the intersection of layers with the grid:
+   * A Presence Absence Matrix, or PAM, which contains the species distributions
+     represented as a binary matrix of 0/1 indicating presence or non-presence 
+     in a grid cell.
+   * Geographic Reference Information Matrix, or GRIM, containing environmental 
+     values
+   * Matrix representing the Biogeographic hypotheses.
+   
+ * Matrices representing MCPA calculations 
+   * Environmental Correlation
+   * Environmental P-Value
+   * Environmental R-Squared
+   * Environmental R-Squared P-Value
+   * Biogeographic Environmental Correlation
+   * Biogeographic Environmental P-Value
+   * Biogeographic Environmental R-Squared
+   * Biogeographic Environmental R-Squared P-Value
 
 ### Querying the public contents of a Lifemapper installation
 
