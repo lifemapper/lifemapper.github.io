@@ -1,0 +1,770 @@
+# Draft of Lifemapper services API v2
+swagger: '2.0'
+info:
+  title: Lifemapper API
+  description: Lifemapper services
+  version: "2.0.0"
+# the domain of the service
+host: svc.lifemapper.org
+# array of all schemes that your API supports
+schemes:
+  - https
+# will be prefixed to all paths
+basePath: /api/v2
+produces:
+  - application/json
+paths:
+
+  # Env layers (GET, POST, DELETE, LIST, COUNT)
+  # Occurrence sets (GET, POST, DELETE, LIST, COUNT)
+  # Projections (GET, POST, DELETE, LIST, COUNT)
+  # Scenarios (GET, POST, DELETE, LIST, COUNT)
+  
+  # Retrieval of incomplete object HTTP status (202?)
+  # POST responses should be ATOM lists
+  /envlayers:
+    get:
+      summary: Environmental layers listing services
+      description: |
+        The environmental layers endpoint provides a service for querying
+        environmental layers that match a set of query parameters.
+      parameters:
+        - $ref: '#/parameters/AfterTime'
+        - $ref: '#/parameters/BeforeTime'
+        - $ref: '#/parameters/EPSG'
+        - $ref: '#/parameters/FullObjects'
+        - $ref: '#/parameters/IsCategorical'
+        - $ref: '#/parameters/Offset'
+        - $ref: '#/parameters/Limit'
+        - $ref: '#/parameters/Public'
+        - $ref: '#/parameters/ScenarioId'
+      tags:
+        - Layers
+      responses:
+        200:
+          description: A list of environmental layers that match the specified criteria
+          schema:
+            $ref: '#/definitions/AtomList'
+    post:
+      summary: Post a new environmental layer
+      consumes:
+        - multipart/form-data
+      parameters:
+        - name: epsgCode
+          in: query
+          description: The EPSG code for the layer
+          required: true
+          type: integer
+        - name: name
+          in: query
+          description: A short name for the layer
+          required: false
+          type: string
+        - name: isCategorical
+          in: query
+          description: An indicator if this layer is categorical or not (1=yes, 0=no)
+          required: false
+          type: integer
+          format: int2
+          minimum: 0
+          maximum: 1
+          enum: [0, 1]
+        - name: envLayerTypeId
+          in: query
+          description: The type code id for this layer
+          required: false
+          type: integer
+        - name: additionalMetadata
+          in: query
+          description: Additional metadata to add to the layer
+          required: false
+          type: string
+        - name: envLayerType
+          in: query
+          description: The type code for this layer
+          required: true
+          type: string
+        - name: valUnits
+          in: query
+          description: The units for the values in each cell (such as degreesCelsius)
+          required: false
+          type: string
+        - name: gcmCode
+          in: query
+          description: GCM
+          required: false
+          type: string
+        - name: alternatePredictionCode
+          in: query
+          description: Alternate prediction code
+          required: false
+          type: string
+        - name: dateCode
+          in: query
+          description: Date code
+          required: false
+          type: string
+        - name: file
+          in: formData
+          description: The layer content as a file
+          required: true
+          type: file
+      tags:
+        - Layers
+      responses:
+        201:
+          description: Successful layer post
+          schema:
+            $ref: '#/definitions/Layer'
+  /envlayers/{layerId}:
+    get:
+      summary: Get an environmental layer
+      parameters:
+        - $ref: '#/parameters/PathLayerId'
+      tags:
+        - Layers
+      responses:
+        200:
+          description: Layer object in specified format
+          schema:
+            $ref: '#/definitions/Layer'
+    delete:
+      summary: Delete an environmental layer that you own
+      parameters:
+        - $ref: '#/parameters/PathLayerId'
+      tags:
+        - Layers
+      responses:
+        200:
+          description: Returns an OK response that a layer is deleted
+
+  /occurrences:
+    get:
+      summary: Get a list of occurrence sets that match your criteria
+      parameters:
+        - $ref: '#/parameters/AfterTime'
+        - $ref: '#/parameters/BeforeTime'
+        - $ref: '#/parameters/DisplayName'
+        - $ref: '#/parameters/EPSG'
+        - $ref: '#/parameters/FullObjects'
+        - $ref: '#/parameters/HasProjections' #TODO
+        - $ref: '#/parameters/MinimumNumberOfPoints' # TODO
+        - $ref: '#/parameters/Limit'
+        - $ref: '#/parameters/Offset'
+        - $ref: '#/parameters/Public'
+      tags:
+        - Occurrence Sets
+      responses:
+        200:
+          description: A list of occurrene sets that match your criteria
+          schema:
+            $ref: '#/definitions/AtomList'
+    post:
+      summary: Post a new occurrence set
+      consumes:
+        - multipart/form-data
+      parameters:
+        - name: file
+          in: formData
+          description: The occurrence set as a zipped shapefile
+          required: true
+          type: file
+        - $ref: '#/parameters/DisplayName'
+        - $ref: '#/parameters/EPSG'
+        - $ref: '#/parameters/AdditionalMetadata'
+      tags:
+        - Occurrence Sets
+      responses:
+        201:
+          description: An occurrence set in the specified format
+          schema:
+            $ref: '#/definitions/OccurrenceSet'
+  /occurrences/{occurrenceSetId}:
+    get:
+      summary: Get an occurrence set in the specified format
+      parameters:
+        - $ref: '#/parameters/PathOccurrenceSetId'
+      tags:
+        - Occurrence Sets
+      responses:
+        200:
+          description: An occurrence set in the specified format
+          schema:
+            $ref: '#/definitions/OccurrenceSet'
+    delete:
+      summary: Delete an occurrence set you own
+      parameters:
+        - $ref: '#/parameters/PathOccurrenceSetId'
+      tags:
+        - Occurrence Sets
+      responses:
+        200:
+          description: OK message that an occurrence set was deleted
+
+  /projections:
+    get:
+      summary: Get a list of projections that match your criteria
+      parameters:
+        - $ref: '#/parameters/AfterTime'
+        - $ref: '#/parameters/AlgorithmCode'
+        - $ref: '#/parameters/BeforeTime'
+        - $ref: '#/parameters/DisplayName'
+        - $ref: '#/parameters/EPSG'
+        - $ref: '#/parameters/FullObjects'
+        - $ref: '#/parameters/OccurrenceSetId'
+        - $ref: '#/parameters/Limit'
+        - $ref: '#/parameters/Offset'
+        - $ref: '#/parameters/Public'
+        - $ref: '#/parameters/ScenarioId'
+        - $ref: '#/parameters/Status'
+      tags:
+        - Projections
+      responses:
+        200:
+          description: A list of projections
+          schema:
+            $ref: '#/definitions/AtomList'
+    post:
+      summary: Post a group of projections
+      parameters:
+        - name: body
+          in: body
+          description: A projection(s) request post body
+          required: true
+          schema: {
+            "$ref" : "#/definitions/ProjectionPOST"
+          }
+      responses:
+        202:
+          description: A list of posted projection URLs
+          schema:
+            $ref: '#/definitions/AtomList'
+            
+  /projections/{projectionId}:
+    get:
+      summary: Get a projection
+      parameters:
+        - $ref: '#/parameters/PathProjectionId'
+      tags:
+        - Projections
+      responses:
+        200:
+          description: Get a projection in the format you specify
+          schema:
+            $ref: '#/definitions/Projection'
+    delete:
+      summary: Delete a projection that you own
+      parameters:
+        - $ref: '#/parameters/PathProjectionId'
+      tags:
+        - Projections
+      responses:
+        200:
+          description: OK Message that a projection was deleted
+
+
+  /scenarios:
+    get:
+      summary: Get a list of scenarios that match your criteria
+      parameters:
+        - $ref: '#/parameters/AfterTime'
+        - $ref: '#/parameters/BeforeTime'
+        - $ref: '#/parameters/EPSG'
+        - $ref: '#/parameters/FullObjects'
+        - $ref: '#/parameters/Limit'
+        - $ref: '#/parameters/Offset'
+        - $ref: '#/parameters/Public'
+      tags:
+        - Scenarios
+      responses:
+        200:
+          description: A list of scenarios matching the criteria
+          schema:
+            $ref: '#/definitions/AtomList'
+    post:
+      summary: Post a new climate scenario for SDM
+      parameters:
+        - name: body
+          in: body
+          description: Scenario POST body
+          required: true
+          schema: {
+            "$ref" : "#/definitions/ScenarioPOST"
+          }
+      tags:
+        - Scenarios
+      responses:
+        201:
+          description: The posted scenario
+          schema:
+            $ref: '#/definitions/Scenario'
+
+  /scenarios/{scenarioId}:
+    get:
+      summary: Get a scenario
+      parameters:
+        - $ref: '#/parameters/PathScenarioId'
+      tags:
+        - Scenarios
+      responses:
+        200:
+          description: The scenario in the specified format
+          schema:
+            $ref: '#/definitions/Scenario'
+    delete:
+      summary: Delete a scenario that you own
+      parameters:
+        - $ref: '#/parameters/PathScenarioId'
+      tags:
+        - Scenarios
+      responses:
+        200:
+          description: An OK message that the scenario was deleted
+
+definitions:
+  Algorithm:
+    type: object
+    properties:
+      code:
+        type: string
+      parameters:
+        type: array
+        items:
+          properties:
+            name:
+              type: string
+            value:
+              type: string
+
+  AtomList:
+    type: object
+    properties:
+      title:
+        type: string
+        description: The title of the returned list
+      items:
+        type: array
+        description: Array of returned items
+        items:
+           $ref: '#/definitions/AtomObject'
+      itemCount:
+        type: integer
+        description: The total number of items that match these criteria
+      userId:
+        type: string
+        description: The name of the user that these items belong to
+
+  AtomObject:
+    type: object
+    properties:
+      id:
+        type: integer
+        description: The id of the object
+      modTime:
+        type: string
+        description: The date / time this object was last modified
+      title:
+        type: string
+        description: The title of the object
+      url:
+        type: string
+        description: A URL for more information about this object
+
+  Layer:
+    type: object
+    properties:
+      objectType:
+        type: string
+      id:
+        type: string
+      metadataUrl:
+        type: string
+      etag:
+        type: string
+      name:
+        type: string
+      userId:
+        type: string
+      additionalMetadata:
+        type: object
+      map:
+        $ref: '#/definitions/Map'
+      spatial:
+        $ref: '#/definitions/Spatial'
+
+  Map:
+    type: object
+    properties:
+      ogcEndpoint:
+        type: string
+      mapName:
+        type: string
+      layerNames:
+        type: array
+        items:
+          properties:
+            metadataUrl:
+              type: string
+            layerName:
+              type: string
+
+  OccurrenceSet:
+    type: object
+    properties:
+      objectType:
+        type: string
+      id:
+        type: string
+      metadataUrl:
+        type: string
+      status:
+        type: string
+      statusModTime:
+        type: string
+      etag:
+        type: string
+      taxonId:
+        type: string
+      speciesName:
+        type: string
+      squid:
+        type: string
+      userId:
+        type: string
+      additionalMetadata:
+        type: object
+      map:
+        $ref: '#/definitions/Map'
+      spatial:
+        $ref: '#/definitions/Spatial'
+
+  Projection:
+    type: object
+    properties:
+      objectType:
+        type: string
+      id:
+        type: string
+      metadataUrl:
+        type: string
+      status:
+        type: number
+      statusModTime:
+        type: string
+      etag:
+        type: string
+      algorithm:
+        $ref: '#/definitions/Algorithm'
+      modelScenario:
+        type: object
+        properties:
+          code:
+            type: string
+          id:
+            type: string
+          metadataUrl:
+            type: string
+      projectionScenario:
+        type: object
+        properties:
+          code:
+            type: string
+          id:
+            type: string
+          metadataUrl:
+            type: string
+      taxonId:
+        type: string
+      squid:
+        type: string
+      speciesName:
+        type: string
+      additionalMetadata:
+        type: object
+      map:
+        $ref: '#/definitions/Map'
+      spatial:
+        $ref: '#/definitions/Spatial'
+
+  ProjectionPOST:
+    type: object
+    properties:
+      occurrenceSet:
+        type: number
+      algorithm:
+        $ref: '#/definitions/Algorithm'
+      modelScenario:
+        type: number
+      projectionScenario:
+        type: array
+        items:
+          type: number
+  
+  RasterData:
+    type: object
+    properties:
+      dataUrl:
+        type: string
+      verify:
+        type: string
+      fileSize:
+        type: string
+      dataFormat:
+        type: string
+      minimumValue:
+        type: number
+      maximumValue:
+        type: number
+      valueUnits:
+        type: string
+      numRows:
+        type: number
+      numColumns:
+        type: number
+      nodataValue:
+        type: number
+      dataType:
+        type: string
+
+  Scenario:
+    type: object
+    properties:
+      objectType:
+        type: string
+      id:
+        type: string
+      metadataUrl:
+        type: string
+      etag:
+        type: string
+      code:
+        type: string
+      userId:
+        type: string
+      additionalMetadata:
+        type: object
+      map:
+        $ref: '#/definitions/Map'
+      spatial:
+        $ref: '#/definitions/Spatial'
+      environmentalCode:
+        type: string
+      gcmCode:
+        type: string
+      alternatePrediction:
+        type: string
+      dateCode:
+        type: string
+      envTypeId:
+        type: string
+
+  ScenarioPOST:
+    type: object
+    properties:
+      scenarioCode:
+        type: string
+        description: The code to use for the scenario
+      epsgCode:
+        type: string
+      layers:
+        type: array
+        items:
+          type: integer
+      resolution:
+        type: number
+      units:
+        type: string
+      additionalMetadata:
+        type: object
+
+  Spatial:
+    type: object
+    properties:
+      epsg:
+        type: string
+      bbox:
+        type: string
+      mapUnits:
+        type: string
+      resolution:
+        type: number
+      rasterData:
+        $ref: '#/definitions/RasterData'
+      vectorData:
+        $ref: '#/definitions/VectorData'
+
+  VectorData:
+    type: object
+    properties:
+      dataUrl:
+        type: string
+      verify:
+        type: string
+      fileSize:
+        type: string
+      dataFormat:
+        type: string
+      ogrType:
+        type: string
+      featureCount:
+        type: number
+      features:
+        type: array
+        items:
+          properties:
+            localId:
+              type: string
+            x:
+              type: number
+            y:
+              type: number
+
+parameters:
+  # Path Parameters
+  PathLayerId:
+    name: layerId
+    in: path
+    description: The id of the layer to use
+    required: true
+    type: integer
+  PathOccurrenceSetId:
+    name: occurrenceSetId
+    in: path
+    description: The id of the occurrence set to use
+    required: true
+    type: integer
+  PathProjectionId:
+    name: projectionId
+    in: path
+    description: The id of the projection
+    required: true
+    type: integer
+  PathScenarioId:
+    name: scenarioId
+    in: path
+    description: The id of the scenario
+    required: true
+    type: integer
+  # Query Parameters
+  AdditionalMetadata:
+    name: additionalMetadata
+    in: query
+    description: Additional metadata in JSON format
+    required: false
+    type: string
+  AfterTime:
+    name: afterTime
+    in: query
+    description: Return experiments modified after this time
+    required: false
+    type: string
+  AlgorithmCode:
+    name: algorithmCode
+    in: query
+    description: Return experiments that were built using this algorithm
+    required: false
+    type: string
+  BeforeTime:
+    name: beforeTime
+    in: query
+    description: Return experiments modified before this time
+    required: false
+    type: string
+  DisplayName:
+    name: displayName
+    in: query
+    description: Return experiments that have occurrence sets with a display name like this
+    required: false
+    type: string
+  EPSG:
+    name: epsgCode
+    in: query
+    description: Return experiments built using this EPSG code
+    required: false
+    type: integer
+    format: integer
+  FullObjects:
+    name: fullObjects
+    in: query
+    description: Return full experiment objects
+    required: false
+    type: integer
+    format: int2
+    enum: [0, 1]
+    minimum: 0
+    maximum: 1
+  HasProjections:
+    name: hasProjections
+    in: query
+    description: If 1, only return occurrence sets that have projections
+    required: false
+    type: integer
+    format: 0 or 1
+    enum: [0, 1]
+    minimum: 0
+    maximum: 1
+  IsCategorical:
+    name: isCategorical
+    in: query
+    description: If 1, only return categorical layers.  If 0, return layers that are not
+    required: false
+    type: integer
+    format: int2
+    enum: [0, 1]
+    minimum: 0
+    maximum: 1
+  Limit:
+    name: limit
+    in: query
+    description: The maximum number of records to return
+    required: false
+    type: integer
+    format: integer
+    minimum: 1
+    maximum: 1000
+  MinimumNumberOfPoints:
+    name: minimumNumberOfPoints
+    in: query
+    description: Only return occurrence sets with at least this number of points
+    required: false
+    type: integer
+    minimum: 0
+  OccurrenceSetId:
+    name: occurrenceSetId
+    in: query
+    description: Return experiments built using this occurrence set
+    required: false
+    type: integer
+    format: integer
+  Offset:
+    name: offset
+    in: query
+    description: A number of records to skip before beginning return
+    required: false
+    type: integer
+    format: integer
+    minimum: 0
+  Public:
+    name: public
+    in: query
+    description: If this is 1, return public objects, else return only private content if this is 0
+    required: false
+    type: integer
+    format: int2
+    minimum: 0
+    maximum: 1
+    enum: [0, 1]
+  ScenarioId:
+    name: scenarioId
+    in: query
+    description: Return objects thatare in or used this scenario
+    required: false
+    type: integer
+    minimum: 0
+  Status:
+    name: status
+    in: query
+    description: Return experiments that have this status for the model
+    required: false
+    type: integer
+    format: integer
