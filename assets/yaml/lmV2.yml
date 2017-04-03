@@ -731,7 +731,7 @@ parameters:
     in: query
     description: Limit the layers return to only be the indicated type, 0 for all layers, 1 for environmental layers
     required: false
-    type: int
+    type: integer
     format: int
     enum: [0, 1]
     minimum: 0
