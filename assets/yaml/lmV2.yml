@@ -154,6 +154,7 @@ paths:
         - $ref: '#/parameters/Limit'
         - $ref: '#/parameters/Offset'
         - $ref: '#/parameters/Public'
+        - $ref: '#/parameters/Squid'
         - $ref: '#/parameters/Status'
       tags:
         - Occurrence Sets
@@ -218,6 +219,7 @@ paths:
         - $ref: '#/parameters/Offset'
         - $ref: '#/parameters/Public'
         - $ref: '#/parameters/ScenarioId'
+        - $ref: '#/parameters/Squid'
         - $ref: '#/parameters/Status'
       tags:
         - Projections
@@ -784,10 +786,16 @@ parameters:
     required: false
     type: integer
     minimum: 0
+  Squid:
+    name: squid
+    in: query
+    description: Return items with this squid
+    required: false
+    type: string
   Status:
     name: status
     in: query
-    description: Return experiments that have this status for the model
+    description: Return items that have this status
     required: false
     type: integer
     format: integer
