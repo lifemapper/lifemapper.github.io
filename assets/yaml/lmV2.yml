@@ -732,7 +732,7 @@ parameters:
     description: Limit the layers return to only be the indicated type, 0 for all layers, 1 for environmental layers
     required: false
     type: integer
-    format: int
+    format: integer
     enum: [0, 1]
     minimum: 0
     maximum: 1
