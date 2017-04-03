@@ -795,7 +795,10 @@ parameters:
   Status:
     name: status
     in: query
-    description: Return items that have this status
+    description: If zero, return anything, if 1, return running, if 2, return complete, if 3, return error
     required: false
     type: integer
     format: integer
+    enum: [0, 1, 2, 3]
+    minimum: 0
+    maximum: 3
