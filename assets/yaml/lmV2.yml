@@ -22,31 +22,31 @@ paths:
   
   # Retrieval of incomplete object HTTP status (202?)
   # POST responses should be ATOM lists
-  /envlayers:
+  /layer:
     get:
-      summary: Environmental layers listing services
+      summary: Lifemapper layers listing services
       description: |
-        The environmental layers endpoint provides a service for querying
-        environmental layers that match a set of query parameters.
+        The layers endpoint provides a service for querying Lifemapper layers
+        that match a set of query parameters.
       parameters:
         - $ref: '#/parameters/AfterTime'
         - $ref: '#/parameters/BeforeTime'
         - $ref: '#/parameters/EPSG'
-        - $ref: '#/parameters/FullObjects'
         - $ref: '#/parameters/IsCategorical'
-        - $ref: '#/parameters/Offset'
+        - $ref: '#/parameters/LayerType'
         - $ref: '#/parameters/Limit'
+        - $ref: '#/parameters/Offset'
         - $ref: '#/parameters/Public'
         - $ref: '#/parameters/ScenarioId'
       tags:
         - Layers
       responses:
         200:
-          description: A list of environmental layers that match the specified criteria
+          description: A list of layers that match the specified criteria
           schema:
             $ref: '#/definitions/AtomList'
     post:
-      summary: Post a new environmental layer
+      summary: Post a new layer
       consumes:
         - multipart/form-data
       parameters:
@@ -116,11 +116,12 @@ paths:
           description: Successful layer post
           schema:
             $ref: '#/definitions/Layer'
-  /envlayers/{layerId}:
+  /layer/{layerId}:
     get:
-      summary: Get an environmental layer
+      summary: Get a layer
       parameters:
         - $ref: '#/parameters/PathLayerId'
+        - $ref: '#/parameters/LayerType'
       tags:
         - Layers
       responses:
@@ -129,7 +130,7 @@ paths:
           schema:
             $ref: '#/definitions/Layer'
     delete:
-      summary: Delete an environmental layer that you own
+      summary: Delete a layer that you own
       parameters:
         - $ref: '#/parameters/PathLayerId'
       tags:
@@ -138,7 +139,7 @@ paths:
         200:
           description: Returns an OK response that a layer is deleted
 
-  /occurrences:
+  /occurrence:
     get:
       summary: Get a list of occurrence sets that match your criteria
       parameters:
@@ -146,17 +147,16 @@ paths:
         - $ref: '#/parameters/BeforeTime'
         - $ref: '#/parameters/DisplayName'
         - $ref: '#/parameters/EPSG'
-        - $ref: '#/parameters/FullObjects'
-        - $ref: '#/parameters/HasProjections' #TODO
         - $ref: '#/parameters/MinimumNumberOfPoints' # TODO
         - $ref: '#/parameters/Limit'
         - $ref: '#/parameters/Offset'
         - $ref: '#/parameters/Public'
+        - $ref: '#/parameters/Status'
       tags:
         - Occurrence Sets
       responses:
         200:
-          description: A list of occurrene sets that match your criteria
+          description: A list of occurrence sets that match your criteria
           schema:
             $ref: '#/definitions/AtomList'
     post:
@@ -179,7 +179,7 @@ paths:
           description: An occurrence set in the specified format
           schema:
             $ref: '#/definitions/OccurrenceSet'
-  /occurrences/{occurrenceSetId}:
+  /occurrence/{occurrenceSetId}:
     get:
       summary: Get an occurrence set in the specified format
       parameters:
@@ -201,7 +201,7 @@ paths:
         200:
           description: OK message that an occurrence set was deleted
 
-  /projections:
+  /projection:
     get:
       summary: Get a list of projections that match your criteria
       parameters:
@@ -210,7 +210,6 @@ paths:
         - $ref: '#/parameters/BeforeTime'
         - $ref: '#/parameters/DisplayName'
         - $ref: '#/parameters/EPSG'
-        - $ref: '#/parameters/FullObjects'
         - $ref: '#/parameters/OccurrenceSetId'
         - $ref: '#/parameters/Limit'
         - $ref: '#/parameters/Offset'
@@ -240,7 +239,7 @@ paths:
           schema:
             $ref: '#/definitions/AtomList'
             
-  /projections/{projectionId}:
+  /projection/{projectionId}:
     get:
       summary: Get a projection
       parameters:
@@ -263,14 +262,13 @@ paths:
           description: OK Message that a projection was deleted
 
 
-  /scenarios:
+  /scenario:
     get:
       summary: Get a list of scenarios that match your criteria
       parameters:
         - $ref: '#/parameters/AfterTime'
         - $ref: '#/parameters/BeforeTime'
         - $ref: '#/parameters/EPSG'
-        - $ref: '#/parameters/FullObjects'
         - $ref: '#/parameters/Limit'
         - $ref: '#/parameters/Offset'
         - $ref: '#/parameters/Public'
@@ -299,7 +297,7 @@ paths:
           schema:
             $ref: '#/definitions/Scenario'
 
-  /scenarios/{scenarioId}:
+  /scenario/{scenarioId}:
     get:
       summary: Get a scenario
       parameters:
@@ -710,6 +708,14 @@ parameters:
     required: false
     type: integer
     format: int2
+    enum: [0, 1]
+    minimum: 0
+    maximum: 1
+  LayerType:
+    name: layerType
+    in: query
+    description: Limt the layers returned to only be the indicated type (0: all layers, 1: environmental layers)
+    format: int
     enum: [0, 1]
     minimum: 0
     maximum: 1
