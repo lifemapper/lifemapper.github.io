@@ -38,6 +38,9 @@ paths:
         - $ref: '#/parameters/Offset'
         - $ref: '#/parameters/Public'
         - $ref: '#/parameters/ScenarioId'
+        - $ref: '#/parameters/GCM'
+        - $ref: '#/parameters/AltPredictionCode'
+        - $ref: '#/parameters/DateCode'
       tags:
         - Layers
       responses:
@@ -269,6 +272,9 @@ paths:
         - $ref: '#/parameters/AfterTime'
         - $ref: '#/parameters/BeforeTime'
         - $ref: '#/parameters/EPSG'
+        - $ref: '#/parameters/GCM'
+        - $ref: '#/parameters/AltPredictionCode'
+        - $ref: '#/parameters/DateCode'
         - $ref: '#/parameters/Limit'
         - $ref: '#/parameters/Offset'
         - $ref: '#/parameters/Public'
@@ -662,10 +668,22 @@ parameters:
     description: Return experiments that were built using this algorithm
     required: false
     type: string
+  AltPredictionCode:
+    name: altPredCode
+    in: query
+    description: Alternate prediction code
+    required: false
+    type: string
   BeforeTime:
     name: beforeTime
     in: query
     description: Return experiments modified before this time
+    required: false
+    type: string
+  DateCode:
+    name: dateCode
+    in: query
+    description: Date code
     required: false
     type: string
   DisplayName:
@@ -681,16 +699,13 @@ parameters:
     required: false
     type: integer
     format: integer
-  FullObjects:
-    name: fullObjects
+  GCM:
+    name: gcm
     in: query
-    description: Return full experiment objects
+    description: General Circulation Model
     required: false
-    type: integer
-    format: int2
-    enum: [0, 1]
-    minimum: 0
-    maximum: 1
+    type: string
+    format: string
   HasProjections:
     name: hasProjections
     in: query
@@ -714,7 +729,8 @@ parameters:
   LayerType:
     name: layerType
     in: query
-    description: Limt the layers returned to only be the indicated type (0: all layers, 1: environmental layers)
+    description: Limit the layers return to only be the indicated type, 0 for all layers, 1 for environmental layers
+    required: false
     format: int
     enum: [0, 1]
     minimum: 0
