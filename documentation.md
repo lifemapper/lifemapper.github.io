@@ -28,6 +28,7 @@ and
 ---
 
 ## REST API Service Types
+ * [Updates](/documentation/updates)
  * [Occurrence Set](api.html#/Occurrence_Sets)
  * [Scenario (Layer set)](api.html#/Scenarios)
  * [Layer](api.html#/Layers)
