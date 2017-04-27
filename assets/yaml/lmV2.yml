@@ -22,6 +22,152 @@ paths:
   
   # Retrieval of incomplete object HTTP status (202?)
   # POST responses should be ATOM lists
+  /envlayer:
+    get:
+      summary: Lifemapper layers listing services
+      description: |
+        The layers endpoint provides a service for querying Lifemapper layers
+        that match a set of query parameters.
+      parameters:
+        - $ref: '#/parameters/Offset'
+        - $ref: '#/parameters/Limit'
+        - $ref: '#/parameters/Public'
+        - $ref: '#/parameters/EnvCode'
+        - $ref: '#/parameters/GCM'
+        - $ref: '#/parameters/AltPredCode'
+        - $ref: '#/parameters/DateCode'
+        - $ref: '#/parameters/AfterTime'
+        - $ref: '#/parameters/BeforeTime'
+        - $ref: '#/parameters/EPSG'
+        - $ref: '#/parameters/EnvTypeId'
+        - $ref: '#/parameters/ScenarioCode'
+        - $ref: '#/parameters/ScenarioId'
+      tags:
+        - Layers
+      responses:
+        200:
+          description: A list of layers that match the specified criteria
+          schema:
+            $ref: '#/definitions/AtomList'
+    post:
+      summary: Post a new layer
+      consumes:
+        - multipart/form-data
+      parameters:
+        - name: epsgCode
+          in: query
+          description: The EPSG code for the layer
+          required: true
+          type: integer
+        - name: name
+          in: query
+          description: A short name for the layer
+          required: false
+          type: string
+        - name: isCategorical
+          in: query
+          description: An indicator if this layer is categorical or not (1=yes, 0=no)
+          required: false
+          type: integer
+          format: int2
+          minimum: 0
+          maximum: 1
+          enum: [0, 1]
+        - name: envLayerTypeId
+          in: query
+          description: The type code id for this layer
+          required: false
+          type: integer
+        - name: additionalMetadata
+          in: query
+          description: Additional metadata to add to the layer
+          required: false
+          type: string
+        - name: envLayerType
+          in: query
+          description: The type code for this layer
+          required: true
+          type: string
+        - name: valUnits
+          in: query
+          description: The units for the values in each cell (such as degreesCelsius)
+          required: false
+          type: string
+        - name: gcmCode
+          in: query
+          description: GCM
+          required: false
+          type: string
+        - name: alternatePredictionCode
+          in: query
+          description: Alternate prediction code
+          required: false
+          type: string
+        - name: dateCode
+          in: query
+          description: Date code
+          required: false
+          type: string
+        - name: file
+          in: formData
+          description: The layer content as a file
+          required: true
+          type: file
+      tags:
+        - Layers
+      responses:
+        201:
+          description: Successful layer post
+          schema:
+            $ref: '#/definitions/Layer'
+  /envlayer/count:
+    get:
+      summary: Lifemapper layers listing services
+      description: |
+        The layers endpoint provides a service for querying Lifemapper layers
+        that match a set of query parameters.
+      parameters:
+        - $ref: '#/parameters/Public'
+        - $ref: '#/parameters/EnvCode'
+        - $ref: '#/parameters/GCM'
+        - $ref: '#/parameters/AltPredCode'
+        - $ref: '#/parameters/DateCode'
+        - $ref: '#/parameters/AfterTime'
+        - $ref: '#/parameters/BeforeTime'
+        - $ref: '#/parameters/EPSG'
+        - $ref: '#/parameters/EnvTypeId'
+        - $ref: '#/parameters/ScenarioCode'
+        - $ref: '#/parameters/ScenarioId'
+      tags:
+        - Layers
+      responses:
+        200:
+          description: A count of environmental layers matching the criteria
+          schema:
+            $ref: '#/definitions/ObjectCount'
+  /envlayer/{layerId}:
+    get:
+      summary: Get a layer
+      parameters:
+        - $ref: '#/parameters/PathLayerId'
+        - $ref: '#/parameters/LayerType'
+      tags:
+        - Layers
+      responses:
+        200:
+          description: Layer object in specified format
+          schema:
+            $ref: '#/definitions/Layer'
+    delete:
+      summary: Delete a layer that you own
+      parameters:
+        - $ref: '#/parameters/PathLayerId'
+      tags:
+        - Layers
+      responses:
+        200:
+          description: Returns an OK response that a layer is deleted
+
   /layer:
     get:
       summary: Lifemapper layers listing services
@@ -744,6 +890,12 @@ parameters:
     description: Return experiments that have occurrence sets with a display name like this
     required: false
     type: string
+  EnvCode:
+    name: envCode
+    in: query
+    description: Return items with this env code
+    required: false
+    type: string
   EPSG:
     name: epsgCode
     in: query
@@ -843,6 +995,12 @@ parameters:
     minimum: 0
     maximum: 1
     enum: [0, 1]
+  ScenarioCode:
+    name: scenarioCode
+    in: query
+    description: Return objects thatare in or used this scenario
+    required: false
+    type: string
   ScenarioId:
     name: scenarioId
     in: query
