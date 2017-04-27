@@ -249,6 +249,33 @@ paths:
           schema:
             $ref: '#/definitions/AtomList'
             
+  /projection/count:
+    get:
+      summary: Get a count of projections that match your criteria
+      parameters:
+        - $ref: '#/parameters/Public'
+        - $ref: '#/parameters/DisplayName'
+        - $ref: '#/parameters/AfterTime'
+        - $ref: '#/parameters/BeforeTime'
+        - $ref: '#/parameters/EPSG'
+        - $ref: '#/parameters/Status'
+        - $ref: '#/parameters/AfterStatus'
+        - $ref: '#/parameters/BeforeStatus'
+        - $ref: '#/parameters/OccurrenceSetId'
+        - $ref: '#/parameters/AlgorithmCode'
+        - $ref: '#/parameters/ModelScenarioCode'
+        - $ref: '#/parameters/ModelScenarioId'
+        - $ref: '#/parameters/ProjectScenarioCode'
+        - $ref: '#/parameters/ProjectScenarioId'
+        - $ref: '#/parameters/Squid'
+      tags:
+        - Projections
+      responses:
+        200:
+          description: A count of items matching the criteria
+          schema:
+            $ref: '#/definitions/ObjectCount'
+
   /projection/{projectionId}:
     get:
       summary: Get a projection
@@ -418,6 +445,12 @@ definitions:
               type: string
             layerName:
               type: string
+
+  ObjectCount:
+    type: object
+    properties:
+      count:
+        type: integer
 
   OccurrenceSet:
     type: object
