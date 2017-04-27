@@ -32,10 +32,8 @@ paths:
         - $ref: '#/parameters/AfterTime'
         - $ref: '#/parameters/BeforeTime'
         - $ref: '#/parameters/EPSG'
-        - $ref: '#/parameters/IsCategorical'
         - $ref: '#/parameters/LayerType'
         - $ref: '#/parameters/Limit'
-        - $ref: '#/parameters/Offset'
         - $ref: '#/parameters/Public'
         - $ref: '#/parameters/ScenarioId'
         - $ref: '#/parameters/GCM'
@@ -209,18 +207,23 @@ paths:
     get:
       summary: Get a list of projections that match your criteria
       parameters:
-        - $ref: '#/parameters/AfterTime'
-        - $ref: '#/parameters/AlgorithmCode'
-        - $ref: '#/parameters/BeforeTime'
-        - $ref: '#/parameters/DisplayName'
-        - $ref: '#/parameters/EPSG'
-        - $ref: '#/parameters/OccurrenceSetId'
-        - $ref: '#/parameters/Limit'
         - $ref: '#/parameters/Offset'
+        - $ref: '#/parameters/Limit'
         - $ref: '#/parameters/Public'
-        - $ref: '#/parameters/ScenarioId'
-        - $ref: '#/parameters/Squid'
+        - $ref: '#/parameters/DisplayName'
+        - $ref: '#/parameters/AfterTime'
+        - $ref: '#/parameters/BeforeTime'
+        - $ref: '#/parameters/EPSG'
         - $ref: '#/parameters/Status'
+        - $ref: '#/parameters/AfterStatus'
+        - $ref: '#/parameters/BeforeStatus'
+        - $ref: '#/parameters/OccurrenceSetId'
+        - $ref: '#/parameters/AlgorithmCode'
+        - $ref: '#/parameters/ModelScenarioCode'
+        - $ref: '#/parameters/ModelScenarioId'
+        - $ref: '#/parameters/ProjectScenarioCode'
+        - $ref: '#/parameters/ProjectScenarioId'
+        - $ref: '#/parameters/Squid'
       tags:
         - Projections
       responses:
@@ -238,6 +241,8 @@ paths:
           schema: {
             "$ref" : "#/definitions/ProjectionPOST"
           }
+      tags:
+        - Projections
       responses:
         202:
           description: A list of posted projection URLs
@@ -658,6 +663,12 @@ parameters:
     description: Additional metadata in JSON format
     required: false
     type: string
+  AfterStatus:
+    name: afterStatus
+    in: query
+    description: Return items with a status greater than this value
+    required: false
+    type: integer
   AfterTime:
     name: afterTime
     in: query
@@ -670,12 +681,18 @@ parameters:
     description: Return experiments that were built using this algorithm
     required: false
     type: string
-  AltPredictionCode:
+  AltPredCode:
     name: altPredCode
     in: query
     description: Alternate prediction code
     required: false
     type: string
+  BeforeStatus:
+    name: beforeStatus
+    in: query
+    description: Return items with a status less than this value
+    required: false
+    type: integer
   BeforeTime:
     name: beforeTime
     in: query
@@ -718,16 +735,6 @@ parameters:
     enum: [0, 1]
     minimum: 0
     maximum: 1
-  IsCategorical:
-    name: isCategorical
-    in: query
-    description: If 1, only return categorical layers.  If 0, return layers that are not
-    required: false
-    type: integer
-    format: int2
-    enum: [0, 1]
-    minimum: 0
-    maximum: 1
   LayerType:
     name: layerType
     in: query
@@ -747,6 +754,18 @@ parameters:
     format: integer
     minimum: 1
     maximum: 1000
+  ModelScenarioCode:
+    name: mdlScenCode
+    in: query
+    description: Only return items built with this modeling scenario
+    required: false
+    type: string
+  ModelScenarioId:
+    name: mdlScenId
+    in: query
+    description: Only return items built with this modeling scenario
+    required: false
+    type: integer
   MinimumNumberOfPoints:
     name: minimumNumberOfPoints
     in: query
@@ -769,6 +788,18 @@ parameters:
     type: integer
     format: integer
     minimum: 0
+  ProjectScenarioCode:
+    name: prjScenCode
+    in: query
+    description: Only return items built with this SDM projection scenario
+    required: false
+    type: string
+  ProjectScenarioId:
+    name: prjScenId
+    in: query
+    description: Only return items built with this SDM projection scenario
+    required: false
+    type: integer
   Public:
     name: public
     in: query
