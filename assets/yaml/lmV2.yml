@@ -24,10 +24,10 @@ paths:
   # POST responses should be ATOM lists
   /envlayer:
     get:
-      summary: Lifemapper layers listing services
+      summary: Lifemapper environmental layers listing service
       description: |
-        The layers endpoint provides a service for querying Lifemapper layers
-        that match a set of query parameters.
+        The layers endpoint provides a service for querying Lifemapper 
+        environmental layers that match a set of query parameters.
       parameters:
         - $ref: '#/parameters/Offset'
         - $ref: '#/parameters/Limit'
@@ -43,14 +43,14 @@ paths:
         - $ref: '#/parameters/ScenarioCode'
         - $ref: '#/parameters/ScenarioId'
       tags:
-        - Layers
+        - Environmental Layer
       responses:
         200:
-          description: A list of layers that match the specified criteria
+          description: A list of environmental layers that match the specified criteria
           schema:
             $ref: '#/definitions/AtomList'
     post:
-      summary: Post a new layer
+      summary: Post a new environmental layer
       consumes:
         - multipart/form-data
       parameters:
@@ -114,7 +114,7 @@ paths:
           required: true
           type: file
       tags:
-        - Layers
+        - Environmental Layer
       responses:
         201:
           description: Successful layer post
@@ -122,7 +122,7 @@ paths:
             $ref: '#/definitions/Layer'
   /envlayer/count:
     get:
-      summary: Lifemapper layers listing services
+      summary: Lifemapper environmental layers listing services
       description: |
         The layers endpoint provides a service for querying Lifemapper layers
         that match a set of query parameters.
@@ -139,7 +139,7 @@ paths:
         - $ref: '#/parameters/ScenarioCode'
         - $ref: '#/parameters/ScenarioId'
       tags:
-        - Layers
+        - Environmental Layer
       responses:
         200:
           description: A count of environmental layers matching the criteria
@@ -147,12 +147,11 @@ paths:
             $ref: '#/definitions/ObjectCount'
   /envlayer/{layerId}:
     get:
-      summary: Get a layer
+      summary: Get an environmental layer
       parameters:
         - $ref: '#/parameters/PathLayerId'
-        - $ref: '#/parameters/LayerType'
       tags:
-        - Layers
+        - Environmental Layer
       responses:
         200:
           description: Layer object in specified format
@@ -163,7 +162,7 @@ paths:
       parameters:
         - $ref: '#/parameters/PathLayerId'
       tags:
-        - Layers
+        - Environmental Layer
       responses:
         200:
           description: Returns an OK response that a layer is deleted
@@ -183,7 +182,7 @@ paths:
         - $ref: '#/parameters/Public'
         - $ref: '#/parameters/ScenarioId'
         - $ref: '#/parameters/GCM'
-        - $ref: '#/parameters/AltPredictionCode'
+        - $ref: '#/parameters/AltPredCode'
         - $ref: '#/parameters/DateCode'
       tags:
         - Layers
@@ -453,7 +452,7 @@ paths:
         - $ref: '#/parameters/BeforeTime'
         - $ref: '#/parameters/EPSG'
         - $ref: '#/parameters/GCM'
-        - $ref: '#/parameters/AltPredictionCode'
+        - $ref: '#/parameters/AltPredCode'
         - $ref: '#/parameters/DateCode'
         - $ref: '#/parameters/Limit'
         - $ref: '#/parameters/Offset'
@@ -896,6 +895,12 @@ parameters:
     description: Return items with this env code
     required: false
     type: string
+  EnvTypeId:
+    name: envTypeId
+    in: query
+    description: Environmental layer type id
+    required: false
+    type: integer
   EPSG:
     name: epsgCode
     in: query
