@@ -8,6 +8,7 @@ info:
 host: svc.lifemapper.org
 # array of all schemes that your API supports
 schemes:
+  - http
   - https
 # will be prefixed to all paths
 basePath: /api/v2
@@ -15,13 +16,11 @@ produces:
   - application/json
 paths:
 
-  # Env layers (GET, POST, DELETE, LIST, COUNT)
-  # Occurrence sets (GET, POST, DELETE, LIST, COUNT)
-  # Projections (GET, POST, DELETE, LIST, COUNT)
-  # Scenarios (GET, POST, DELETE, LIST, COUNT)
-  
+
   # Retrieval of incomplete object HTTP status (202?)
+  # POST and DELETE don't necessarily return content
   # POST responses should be ATOM lists
+
   /envlayer:
     get:
       summary: Lifemapper environmental layers listing service
@@ -39,7 +38,6 @@ paths:
         - $ref: '#/parameters/AfterTime'
         - $ref: '#/parameters/BeforeTime'
         - $ref: '#/parameters/EPSG'
-        - $ref: '#/parameters/EnvTypeId'
         - $ref: '#/parameters/ScenarioCode'
         - $ref: '#/parameters/ScenarioId'
       tags:
@@ -122,10 +120,11 @@ paths:
             $ref: '#/definitions/Layer'
   /envlayer/count:
     get:
-      summary: Lifemapper environmental layers listing services
+      summary: Lifemapper environmental layers count services
       description: |
-        The layers endpoint provides a service for querying Lifemapper layers
-        that match a set of query parameters.
+        The environmental layers count service endpoint provides a service for
+        returning the number of environmental layers that match a set of query
+        parameters.
       parameters:
         - $ref: '#/parameters/Public'
         - $ref: '#/parameters/EnvCode'
@@ -135,7 +134,6 @@ paths:
         - $ref: '#/parameters/AfterTime'
         - $ref: '#/parameters/BeforeTime'
         - $ref: '#/parameters/EPSG'
-        - $ref: '#/parameters/EnvTypeId'
         - $ref: '#/parameters/ScenarioCode'
         - $ref: '#/parameters/ScenarioId'
       tags:
@@ -156,7 +154,7 @@ paths:
         200:
           description: Layer object in specified format
           schema:
-            $ref: '#/definitions/Layer'
+            $ref: '#/definitions/EnvLayer'
     delete:
       summary: Delete a layer that you own
       parameters:
@@ -174,16 +172,13 @@ paths:
         The layers endpoint provides a service for querying Lifemapper layers
         that match a set of query parameters.
       parameters:
+        - $ref: '#/parameters/Offset'
+        - $ref: '#/parameters/Limit'
+        - $ref: '#/parameters/Public'
+        - $ref: '#/parameters/Squid'
         - $ref: '#/parameters/AfterTime'
         - $ref: '#/parameters/BeforeTime'
         - $ref: '#/parameters/EPSG'
-        - $ref: '#/parameters/LayerType'
-        - $ref: '#/parameters/Limit'
-        - $ref: '#/parameters/Public'
-        - $ref: '#/parameters/ScenarioId'
-        - $ref: '#/parameters/GCM'
-        - $ref: '#/parameters/AltPredCode'
-        - $ref: '#/parameters/DateCode'
       tags:
         - Layers
       responses:
@@ -262,12 +257,30 @@ paths:
           description: Successful layer post
           schema:
             $ref: '#/definitions/Layer'
+  /layer/count:
+    get:
+      summary: Lifemapper layers count service
+      description: |
+        The layers endpoint provides a service counting how many Lifemapper 
+        layers match a set of query parameters.
+      parameters:
+        - $ref: '#/parameters/Public'
+        - $ref: '#/parameters/Squid'
+        - $ref: '#/parameters/AfterTime'
+        - $ref: '#/parameters/BeforeTime'
+        - $ref: '#/parameters/EPSG'
+      tags:
+        - Layers
+      responses:
+        200:
+          description: The number of layers that match the specified criteria
+          schema:
+            $ref: '#/definitions/ObjectCount'
   /layer/{layerId}:
     get:
       summary: Get a layer
       parameters:
         - $ref: '#/parameters/PathLayerId'
-        - $ref: '#/parameters/LayerType'
       tags:
         - Layers
       responses:
@@ -289,18 +302,20 @@ paths:
     get:
       summary: Get a list of occurrence sets that match your criteria
       parameters:
+        - $ref: '#/parameters/Offset'
+        - $ref: '#/parameters/Limit'
+        - $ref: '#/parameters/Public'
+        - $ref: '#/parameters/MinimumNumberOfPoints'
+        - $ref: '#/parameters/DisplayName'
         - $ref: '#/parameters/AfterTime'
         - $ref: '#/parameters/BeforeTime'
-        - $ref: '#/parameters/DisplayName'
         - $ref: '#/parameters/EPSG'
-        - $ref: '#/parameters/MinimumNumberOfPoints' # TODO
-        - $ref: '#/parameters/Limit'
-        - $ref: '#/parameters/Offset'
-        - $ref: '#/parameters/Public'
         - $ref: '#/parameters/Squid'
         - $ref: '#/parameters/Status'
+        - $ref: '#/parameters/AfterStatus'
+        - $ref: '#/parameters/BeforeStatus'
       tags:
-        - Occurrence Sets
+        - Occurrence Layers
       responses:
         200:
           description: A list of occurrence sets that match your criteria
@@ -320,19 +335,40 @@ paths:
         - $ref: '#/parameters/EPSG'
         - $ref: '#/parameters/AdditionalMetadata'
       tags:
-        - Occurrence Sets
+        - Occurrence Layers
       responses:
         201:
           description: An occurrence set in the specified format
           schema:
             $ref: '#/definitions/OccurrenceSet'
+  /occurrence/count:
+    get:
+      summary: Get a count of occurrence layers that match your criteria
+      parameters:
+        - $ref: '#/parameters/Public'
+        - $ref: '#/parameters/MinimumNumberOfPoints'
+        - $ref: '#/parameters/DisplayName'
+        - $ref: '#/parameters/AfterTime'
+        - $ref: '#/parameters/BeforeTime'
+        - $ref: '#/parameters/EPSG'
+        - $ref: '#/parameters/Squid'
+        - $ref: '#/parameters/Status'
+        - $ref: '#/parameters/AfterStatus'
+        - $ref: '#/parameters/BeforeStatus'
+      tags:
+        - Occurrence Layers
+      responses:
+        200:
+          description: A count of occurrence sets that match your criteria
+          schema:
+            $ref: '#/definitions/ObjectCount'
   /occurrence/{occurrenceSetId}:
     get:
       summary: Get an occurrence set in the specified format
       parameters:
         - $ref: '#/parameters/PathOccurrenceSetId'
       tags:
-        - Occurrence Sets
+        - Occurrence Layers
       responses:
         200:
           description: An occurrence set in the specified format
@@ -552,6 +588,28 @@ definitions:
       url:
         type: string
         description: A URL for more information about this object
+
+  EnvLayer:
+    type: object
+    properties:
+      objectType:
+        type: string
+      id:
+        type: string
+      metadataUrl:
+        type: string
+      etag:
+        type: string
+      name:
+        type: string
+      userId:
+        type: string
+      additionalMetadata:
+        type: object
+      map:
+        $ref: '#/definitions/Map'
+      spatial:
+        $ref: '#/definitions/Spatial'
 
   Layer:
     type: object
@@ -1022,10 +1080,7 @@ parameters:
   Status:
     name: status
     in: query
-    description: If zero, return anything, if 1, return running, if 2, return complete, if 3, return error
+    description: If provided, only return items with the status indicated (see before and after status)
     required: false
     type: integer
     format: integer
-    enum: [0, 1, 2, 3]
-    minimum: 0
-    maximum: 3
