@@ -180,7 +180,7 @@ paths:
         - $ref: '#/parameters/BeforeTime'
         - $ref: '#/parameters/EPSG'
       tags:
-        - Layers
+        - Layer
       responses:
         200:
           description: A list of layers that match the specified criteria
@@ -251,7 +251,7 @@ paths:
           required: true
           type: file
       tags:
-        - Layers
+        - Layer
       responses:
         201:
           description: Successful layer post
@@ -270,7 +270,7 @@ paths:
         - $ref: '#/parameters/BeforeTime'
         - $ref: '#/parameters/EPSG'
       tags:
-        - Layers
+        - Layer
       responses:
         200:
           description: The number of layers that match the specified criteria
@@ -282,7 +282,7 @@ paths:
       parameters:
         - $ref: '#/parameters/PathLayerId'
       tags:
-        - Layers
+        - Layer
       responses:
         200:
           description: Layer object in specified format
@@ -293,7 +293,7 @@ paths:
       parameters:
         - $ref: '#/parameters/PathLayerId'
       tags:
-        - Layers
+        - Layer
       responses:
         200:
           description: Returns an OK response that a layer is deleted
@@ -315,7 +315,7 @@ paths:
         - $ref: '#/parameters/AfterStatus'
         - $ref: '#/parameters/BeforeStatus'
       tags:
-        - Occurrence Layers
+        - Occurrence Layer
       responses:
         200:
           description: A list of occurrence sets that match your criteria
@@ -335,7 +335,7 @@ paths:
         - $ref: '#/parameters/EPSG'
         - $ref: '#/parameters/AdditionalMetadata'
       tags:
-        - Occurrence Layers
+        - Occurrence Layer
       responses:
         201:
           description: An occurrence set in the specified format
@@ -356,7 +356,7 @@ paths:
         - $ref: '#/parameters/AfterStatus'
         - $ref: '#/parameters/BeforeStatus'
       tags:
-        - Occurrence Layers
+        - Occurrence Layer
       responses:
         200:
           description: A count of occurrence sets that match your criteria
@@ -368,7 +368,7 @@ paths:
       parameters:
         - $ref: '#/parameters/PathOccurrenceSetId'
       tags:
-        - Occurrence Layers
+        - Occurrence Layer
       responses:
         200:
           description: An occurrence set in the specified format
@@ -379,12 +379,12 @@ paths:
       parameters:
         - $ref: '#/parameters/PathOccurrenceSetId'
       tags:
-        - Occurrence Sets
+        - Occurrence Layer
       responses:
         200:
           description: OK message that an occurrence set was deleted
 
-  /projection:
+  /sdmProject:
     get:
       summary: Get a list of projections that match your criteria
       parameters:
@@ -406,7 +406,7 @@ paths:
         - $ref: '#/parameters/ProjectScenarioId'
         - $ref: '#/parameters/Squid'
       tags:
-        - Projections
+        - Projection
       responses:
         200:
           description: A list of projections
@@ -423,14 +423,14 @@ paths:
             "$ref" : "#/definitions/ProjectionPOST"
           }
       tags:
-        - Projections
+        - Projection
       responses:
         202:
           description: A list of posted projection URLs
           schema:
             $ref: '#/definitions/AtomList'
             
-  /projection/count:
+  /sdmProject/count:
     get:
       summary: Get a count of projections that match your criteria
       parameters:
@@ -450,20 +450,20 @@ paths:
         - $ref: '#/parameters/ProjectScenarioId'
         - $ref: '#/parameters/Squid'
       tags:
-        - Projections
+        - Projection
       responses:
         200:
           description: A count of items matching the criteria
           schema:
             $ref: '#/definitions/ObjectCount'
 
-  /projection/{projectionId}:
+  /sdmProject/{projectionId}:
     get:
       summary: Get a projection
       parameters:
         - $ref: '#/parameters/PathProjectionId'
       tags:
-        - Projections
+        - Projection
       responses:
         200:
           description: Get a projection in the format you specify
@@ -474,7 +474,7 @@ paths:
       parameters:
         - $ref: '#/parameters/PathProjectionId'
       tags:
-        - Projections
+        - Projection
       responses:
         200:
           description: OK Message that a projection was deleted
@@ -484,17 +484,17 @@ paths:
     get:
       summary: Get a list of scenarios that match your criteria
       parameters:
-        - $ref: '#/parameters/AfterTime'
+        - $ref: '#/parameters/Offset'
+        - $ref: '#/parameters/Limit'
+        - $ref: '#/parameters/Public'
         - $ref: '#/parameters/BeforeTime'
+        - $ref: '#/parameters/AfterTime'
         - $ref: '#/parameters/EPSG'
         - $ref: '#/parameters/GCM'
         - $ref: '#/parameters/AltPredCode'
         - $ref: '#/parameters/DateCode'
-        - $ref: '#/parameters/Limit'
-        - $ref: '#/parameters/Offset'
-        - $ref: '#/parameters/Public'
       tags:
-        - Scenarios
+        - Scenario
       responses:
         200:
           description: A list of scenarios matching the criteria
@@ -511,12 +511,31 @@ paths:
             "$ref" : "#/definitions/ScenarioPOST"
           }
       tags:
-        - Scenarios
+        - Scenario
       responses:
         201:
           description: The posted scenario
           schema:
             $ref: '#/definitions/Scenario'
+
+  /scenario/count:
+    get:
+      summary: Get the number of scenarios that match your criteria
+      parameters:
+        - $ref: '#/parameters/Public'
+        - $ref: '#/parameters/BeforeTime'
+        - $ref: '#/parameters/AfterTime'
+        - $ref: '#/parameters/EPSG'
+        - $ref: '#/parameters/GCM'
+        - $ref: '#/parameters/AltPredCode'
+        - $ref: '#/parameters/DateCode'
+      tags:
+        - Scenario
+      responses:
+        200:
+          description: The number of scenarios matching the criteria
+          schema:
+            $ref: '#/definitions/ObjectCount'
 
   /scenario/{scenarioId}:
     get:
@@ -524,7 +543,7 @@ paths:
       parameters:
         - $ref: '#/parameters/PathScenarioId'
       tags:
-        - Scenarios
+        - Scenario
       responses:
         200:
           description: The scenario in the specified format
@@ -535,11 +554,10 @@ paths:
       parameters:
         - $ref: '#/parameters/PathScenarioId'
       tags:
-        - Scenarios
+        - Scenario
       responses:
         200:
           description: An OK message that the scenario was deleted
-
 definitions:
   Algorithm:
     type: object
@@ -563,7 +581,7 @@ definitions:
         description: The title of the returned list
       items:
         type: array
-        description: Array of returned items
+        description: Array of returned item
         items:
            $ref: '#/definitions/AtomObject'
       itemCount:
@@ -953,12 +971,6 @@ parameters:
     description: Return items with this env code
     required: false
     type: string
-  EnvTypeId:
-    name: envTypeId
-    in: query
-    description: Environmental layer type id
-    required: false
-    type: integer
   EPSG:
     name: epsgCode
     in: query
@@ -973,26 +985,6 @@ parameters:
     required: false
     type: string
     format: string
-  HasProjections:
-    name: hasProjections
-    in: query
-    description: If 1, only return occurrence sets that have projections
-    required: false
-    type: integer
-    format: 0 or 1
-    enum: [0, 1]
-    minimum: 0
-    maximum: 1
-  LayerType:
-    name: layerType
-    in: query
-    description: Limit the layers return to only be the indicated type, 0 for all layers, 1 for environmental layers
-    required: false
-    type: integer
-    format: integer
-    enum: [0, 1]
-    minimum: 0
-    maximum: 1
   Limit:
     name: limit
     in: query
