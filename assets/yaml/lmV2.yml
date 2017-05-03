@@ -76,7 +76,7 @@ paths:
           description: The type code id for this layer
           required: false
           type: integer
-        - name: additionalMetadata
+        - name: metadata
           in: query
           description: Additional metadata to add to the layer
           required: false
@@ -118,6 +118,9 @@ paths:
           description: Successful layer post
           schema:
             $ref: '#/definitions/Layer'
+        400:
+          description: Error status returned when there is a problem with the 
+                       user inputs
   /envlayer/count:
     get:
       summary: Lifemapper environmental layers count services
@@ -150,11 +153,22 @@ paths:
         - $ref: '#/parameters/PathLayerId'
       tags:
         - Environmental Layer
+      produces:
+        - application/json
+        - image/tiff
+        - application/vnd.google-earth.kml+xml
+        - application/vnd.google-earth.kmz
       responses:
         200:
           description: Layer object in specified format
           schema:
             $ref: '#/definitions/EnvLayer'
+        403:
+          description: Error status thrown when the user does not have 
+                       permission to access an environmental layer
+        404:
+          description: Error status thrown when the requested environmental 
+                       layer was not found
     delete:
       summary: Delete a layer that you own
       parameters:
@@ -164,6 +178,12 @@ paths:
       responses:
         200:
           description: Returns an OK response that a layer is deleted
+        403:
+          description: Error status thrown when the user does not have 
+                       permission to delete an environmental layer
+        404:
+          description: Error status thrown when the requested environmental 
+                       layer was not found
 
   /layer:
     get:
@@ -215,7 +235,7 @@ paths:
           description: The type code id for this layer
           required: false
           type: integer
-        - name: additionalMetadata
+        - name: metadata
           in: query
           description: Additional metadata to add to the layer
           required: false
@@ -257,6 +277,9 @@ paths:
           description: Successful layer post
           schema:
             $ref: '#/definitions/Layer'
+        400:
+          description: Error status thrown when there is a problem with user 
+                       inputs
   /layer/count:
     get:
       summary: Lifemapper layers count service
@@ -283,11 +306,21 @@ paths:
         - $ref: '#/parameters/PathLayerId'
       tags:
         - Layer
+      produces:
+        - application/json
+        - image/tiff
+        - application/vnd.google-earth.kml+xml
+        - application/vnd.google-earth.kmz
       responses:
         200:
           description: Layer object in specified format
           schema:
             $ref: '#/definitions/Layer'
+        403:
+          description: Error status thrown when the user does not have 
+                       permission to retrieve a layer
+        404:
+          description: Error status thrown when the layer was not found
     delete:
       summary: Delete a layer that you own
       parameters:
@@ -297,7 +330,12 @@ paths:
       responses:
         200:
           description: Returns an OK response that a layer is deleted
-
+        403:
+          description: Error status thrown when the user does not have 
+                       permission to delete a layer
+        404:
+          description: Error status thrown when the layer was not found
+                       
   /occurrence:
     get:
       summary: Get a list of occurrence sets that match your criteria
@@ -333,7 +371,7 @@ paths:
           type: file
         - $ref: '#/parameters/DisplayName'
         - $ref: '#/parameters/EPSG'
-        - $ref: '#/parameters/AdditionalMetadata'
+        - $ref: '#/parameters/Metadata'
       tags:
         - Occurrence Layer
       responses:
@@ -341,6 +379,8 @@ paths:
           description: An occurrence set in the specified format
           schema:
             $ref: '#/definitions/OccurrenceSet'
+        400:
+          description: Error status returned when the user inputs are incorrect
   /occurrence/count:
     get:
       summary: Get a count of occurrence layers that match your criteria
@@ -369,11 +409,22 @@ paths:
         - $ref: '#/parameters/PathOccurrenceSetId'
       tags:
         - Occurrence Layer
+      produces:
+        - application/json
+        - application/x-gzip
+        - application/vnd.google-earth.kml+xml
+        - application/vnd.google-earth.kmz
       responses:
         200:
           description: An occurrence set in the specified format
           schema:
             $ref: '#/definitions/OccurrenceSet'
+        403:
+          description: Error status thrown when the user does not have 
+                       permission to access the occurrence layer
+        404:
+          description: Error status thrown when the requested occurrence layer 
+                       does not exist
     delete:
       summary: Delete an occurrence set you own
       parameters:
@@ -383,6 +434,12 @@ paths:
       responses:
         200:
           description: OK message that an occurrence set was deleted
+        403:
+          description: Error status thrown when the user does not have 
+                       permission to delete the occurrence layer
+        404:
+          description: Error status thrown when the requested occurrence layer 
+                       does not exist
 
   /sdmProject:
     get:
@@ -406,7 +463,7 @@ paths:
         - $ref: '#/parameters/ProjectScenarioId'
         - $ref: '#/parameters/Squid'
       tags:
-        - Projection
+        - SDM Projection
       responses:
         200:
           description: A list of projections
@@ -423,12 +480,15 @@ paths:
             "$ref" : "#/definitions/ProjectionPOST"
           }
       tags:
-        - Projection
+        - SDM Projection
       responses:
         202:
           description: A list of posted projection URLs
           schema:
             $ref: '#/definitions/AtomList'
+        400:
+          description: Error status returned when there is a problem with user 
+                       inputs
             
   /sdmProject/count:
     get:
@@ -450,7 +510,7 @@ paths:
         - $ref: '#/parameters/ProjectScenarioId'
         - $ref: '#/parameters/Squid'
       tags:
-        - Projection
+        - SDM Projection
       responses:
         200:
           description: A count of items matching the criteria
@@ -463,21 +523,38 @@ paths:
       parameters:
         - $ref: '#/parameters/PathProjectionId'
       tags:
-        - Projection
+        - SDM Projection
+      produces:
+        - application/json
+        - image/tiff
+        - application/vnd.google-earth.kml+xml
+        - application/vnd.google-earth.kmz
       responses:
         200:
           description: Get a projection in the format you specify
           schema:
             $ref: '#/definitions/Projection'
+        403:
+          description: Error status raised when the user does not have 
+                       permission to access a SDM projection object
+        404:
+          description: Error status raised when the SDM projection object
+                       requested was not found
     delete:
       summary: Delete a projection that you own
       parameters:
         - $ref: '#/parameters/PathProjectionId'
       tags:
-        - Projection
+        - SDM Projection
       responses:
         200:
           description: OK Message that a projection was deleted
+        403:
+          description: Error status raised when the user does not have 
+                       permission to delete a SDM projection object
+        404:
+          description: Error status raised when the SDM projection object
+                       requested was not found
 
 
   /scenario:
@@ -517,6 +594,9 @@ paths:
           description: The posted scenario
           schema:
             $ref: '#/definitions/Scenario'
+        400:
+          description: Error status returned when there is a problem with user 
+                       input
 
   /scenario/count:
     get:
@@ -549,6 +629,12 @@ paths:
           description: The scenario in the specified format
           schema:
             $ref: '#/definitions/Scenario'
+        403:
+          description: Error status returned when the user does not have 
+                       permission to access a scenario
+        404:
+          description: Error status returned when the requested scenario does 
+                       not exist
     delete:
       summary: Delete a scenario that you own
       parameters:
@@ -558,6 +644,13 @@ paths:
       responses:
         200:
           description: An OK message that the scenario was deleted
+        403:
+          description: Error status returned when the user does not have 
+                       permission to delete a scenario
+        404:
+          description: Error status returned when the requested scenario does 
+                       not exist
+
 definitions:
   Algorithm:
     type: object
@@ -574,35 +667,25 @@ definitions:
               type: string
 
   AtomList:
-    type: object
-    properties:
-      title:
-        type: string
-        description: The title of the returned list
-      items:
-        type: array
-        description: Array of returned item
-        items:
-           $ref: '#/definitions/AtomObject'
-      itemCount:
-        type: integer
-        description: The total number of items that match these criteria
-      userId:
-        type: string
-        description: The name of the user that these items belong to
-
+    type: array
+    items:
+       $ref: '#/definitions/AtomObject'
+  
   AtomObject:
     type: object
     properties:
+      epsg:
+        type: integer
+        description: The EPSG code of the object
       id:
         type: integer
         description: The id of the object
-      modTime:
+      modificationTime:
         type: string
         description: The date / time this object was last modified
-      title:
+      name:
         type: string
-        description: The title of the object
+        description: The name of the object
       url:
         type: string
         description: A URL for more information about this object
@@ -614,20 +697,31 @@ definitions:
         type: string
       id:
         type: string
-      metadataUrl:
+      url:
         type: string
+      user:
+        type: string
+      status:
+        type: integer
+      statusModTime:
+        type: string
+        description: The date / time this object was last modified
       etag:
         type: string
-      name:
-        type: string
-      userId:
-        type: string
-      additionalMetadata:
+      metadata:
         type: object
       map:
         $ref: '#/definitions/Map'
-      spatial:
-        $ref: '#/definitions/Spatial'
+      spatialRaster:
+        $ref: '#/definitions/SpatialRaster'
+      envCode:
+        type: string
+      gcmCode:
+        type: string
+      altPredCode:
+        type: string
+      dateCode:
+        type: string
 
   Layer:
     type: object
@@ -636,20 +730,21 @@ definitions:
         type: string
       id:
         type: string
-      metadataUrl:
+      url:
         type: string
+      user:
+        type: string
+      status:
+        type: integer
+      statusModTime:
+        type: string
+        description: The date / time this object was last modified
       etag:
         type: string
-      name:
-        type: string
-      userId:
-        type: string
-      additionalMetadata:
+      metadata:
         type: object
-      map:
-        $ref: '#/definitions/Map'
-      spatial:
-        $ref: '#/definitions/Spatial'
+      spatialRaster:
+        $ref: '#/definitions/SpatialRaster'
 
   Map:
     type: object
@@ -673,6 +768,14 @@ definitions:
       count:
         type: integer
 
+  ObjectRef:
+    type: object
+    properties:
+      id:
+        type: integer
+      metadataUrl:
+        type: string
+
   OccurrenceSet:
     type: object
     properties:
@@ -680,28 +783,27 @@ definitions:
         type: string
       id:
         type: string
-      metadataUrl:
+      url:
+        type: string
+      user:
         type: string
       status:
-        type: string
+        type: integer
       statusModTime:
         type: string
+        description: The date / time this object was last modified
       etag:
         type: string
-      taxonId:
-        type: string
+      metadata:
+        type: object
+      map:
+        $ref: '#/definitions/Map'
+      spatialVector:
+        $ref: '#/definitions/SpatialVector'
       speciesName:
         type: string
       squid:
         type: string
-      userId:
-        type: string
-      additionalMetadata:
-        type: object
-      map:
-        $ref: '#/definitions/Map'
-      spatial:
-        $ref: '#/definitions/Spatial'
 
   Projection:
     type: object
@@ -710,46 +812,35 @@ definitions:
         type: string
       id:
         type: string
-      metadataUrl:
+      url:
+        type: string
+      user:
         type: string
       status:
-        type: number
+        type: integer
       statusModTime:
         type: string
+        description: The date / time this object was last modified
       etag:
         type: string
-      algorithm:
-        $ref: '#/definitions/Algorithm'
-      modelScenario:
-        type: object
-        properties:
-          code:
-            type: string
-          id:
-            type: string
-          metadataUrl:
-            type: string
-      projectionScenario:
-        type: object
-        properties:
-          code:
-            type: string
-          id:
-            type: string
-          metadataUrl:
-            type: string
-      taxonId:
-        type: string
-      squid:
-        type: string
-      speciesName:
-        type: string
-      additionalMetadata:
+      metadata:
         type: object
       map:
         $ref: '#/definitions/Map'
-      spatial:
-        $ref: '#/definitions/Spatial'
+      spatialRaster:
+        $ref: '#/definitions/SpatialRaster'
+      algorithm:
+        $ref: '#/definitions/Algorithm'
+      modelScenario:
+        $ref: '#/definitions/ScenarioRef'
+      projectionScenario:
+        $ref: '#/definitions/ScenarioRef'
+      speciesName:
+        type: string
+      squid:
+        type: string
+      occurrenceSet:
+        $ref: '#/definitions/ObjectRef'
 
   ProjectionPOST:
     type: object
@@ -765,32 +856,6 @@ definitions:
         items:
           type: number
   
-  RasterData:
-    type: object
-    properties:
-      dataUrl:
-        type: string
-      verify:
-        type: string
-      fileSize:
-        type: string
-      dataFormat:
-        type: string
-      minimumValue:
-        type: number
-      maximumValue:
-        type: number
-      valueUnits:
-        type: string
-      numRows:
-        type: number
-      numColumns:
-        type: number
-      nodataValue:
-        type: number
-      dataType:
-        type: string
-
   Scenario:
     type: object
     properties:
@@ -806,7 +871,7 @@ definitions:
         type: string
       userId:
         type: string
-      additionalMetadata:
+      metadata:
         type: object
       map:
         $ref: '#/definitions/Map'
@@ -839,8 +904,18 @@ definitions:
         type: number
       units:
         type: string
-      additionalMetadata:
+      metadata:
         type: object
+
+  ScenarioRef:
+    type: object
+    properties:
+      code:
+        type: string
+      id:
+        type: integer
+      metadataUrl:
+        type: string
 
   Spatial:
     type: object
@@ -853,36 +928,57 @@ definitions:
         type: string
       resolution:
         type: number
-      rasterData:
-        $ref: '#/definitions/RasterData'
-      vectorData:
-        $ref: '#/definitions/VectorData'
 
-  VectorData:
+  SpatialRaster:
     type: object
     properties:
+      epsg:
+        type: string
+      bbox:
+        type: string
+      mapUnits:
+        type: string
+      resolution:
+        type: number
       dataUrl:
         type: string
-      verify:
+      sha256:
         type: string
-      fileSize:
+      gdalType:
         type: string
       dataFormat:
         type: string
+      minVal:
+        type: number
+      maxVal:
+        type: number
+      valueUnits:
+        type: string
+      dataType:
+        type: string
+
+  SpatialVector:
+    type: object
+    properties:
+      epsg:
+        type: string
+      bbox:
+        type: string
+      mapUnits:
+        type: string
+      resolution:
+        type: number
+      dataUrl:
+        type: string
+      sha256:
+        type: string
       ogrType:
         type: string
-      featureCount:
-        type: number
-      features:
-        type: array
-        items:
-          properties:
-            localId:
-              type: string
-            x:
-              type: number
-            y:
-              type: number
+      dataFormat:
+        type: string
+      numFeatures:
+        type: integer
+
 
 parameters:
   # Path Parameters
@@ -911,12 +1007,6 @@ parameters:
     required: true
     type: integer
   # Query Parameters
-  AdditionalMetadata:
-    name: additionalMetadata
-    in: query
-    description: Additional metadata in JSON format
-    required: false
-    type: string
   AfterStatus:
     name: afterStatus
     in: query
@@ -994,6 +1084,12 @@ parameters:
     format: integer
     minimum: 1
     maximum: 1000
+  Metadata:
+    name: metadata
+    in: query
+    description: Additional metadata in JSON format
+    required: false
+    type: string
   ModelScenarioCode:
     name: mdlScenCode
     in: query
