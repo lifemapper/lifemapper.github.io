@@ -176,7 +176,7 @@ paths:
       tags:
         - Environmental Layer
       responses:
-        200:
+        204:
           description: Returns an OK response that a layer is deleted
         403:
           description: Error status thrown when the user does not have 
@@ -328,7 +328,7 @@ paths:
       tags:
         - Layer
       responses:
-        200:
+        204:
           description: Returns an OK response that a layer is deleted
         403:
           description: Error status thrown when the user does not have 
@@ -432,7 +432,7 @@ paths:
       tags:
         - Occurrence Layer
       responses:
-        200:
+        204:
           description: OK message that an occurrence set was deleted
         403:
           description: Error status thrown when the user does not have 
@@ -547,7 +547,7 @@ paths:
       tags:
         - SDM Projection
       responses:
-        200:
+        204:
           description: OK Message that a projection was deleted
         403:
           description: Error status raised when the user does not have 
@@ -642,7 +642,7 @@ paths:
       tags:
         - Scenario
       responses:
-        200:
+        204:
           description: An OK message that the scenario was deleted
         403:
           description: Error status returned when the user does not have 
@@ -728,7 +728,7 @@ paths:
       tags:
         - Tree
       responses:
-        200:
+        204:
           description: An OK message that the tree was deleted
         403:
           description: Error status returned when the user does not have 
