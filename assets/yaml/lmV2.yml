@@ -930,9 +930,17 @@ definitions:
 
   ProjectionPOST:
     type: object
+    description: |
+      The projection POST object is flexible in that you can specify one or
+      more projections with a single request.  An SDM model is created, but not
+      returned, for every algorithm / occurrence set / model scenario
+      combination.  An SDM projection object is created for every algorithm /
+      occurrence set / model scenario / projection scenario combination
     properties:
-      algorithm:
-        $ref: '#/definitions/Algorithm'
+      algorithms:
+        type: array
+        items:
+          $ref: '#/definitions/Algorithm'
       occurrenceSets:
         type: array
         items:
@@ -944,12 +952,14 @@ definitions:
             gbifTaxonId:
               type: integer
               description: Do not use this, just an example of the future
-      modelScenario:
-        type: object
-        description: Pick one of the options. Only scenario d is enabled now
-        properties:
-          modelScenarioId:
-           type: integer
+      modelScenarios:
+        type: array
+        items:
+          type: object
+          description: Pick one of the options. Only scenario d is enabled now
+          properties:
+            modelScenarioId:
+              type: integer
       projectionScenarios:
         type: array
         items:
@@ -957,6 +967,9 @@ definitions:
           properties:
             projectionScenarioId:
               type: integer
+            matchScenarioId:
+              type: integer
+              description: This must match one of the modeling scenarios
 
   Scenario:
     type: object
