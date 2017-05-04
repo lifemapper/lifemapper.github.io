@@ -931,17 +931,33 @@ definitions:
   ProjectionPOST:
     type: object
     properties:
-      occurrenceSet:
-        type: number
       algorithm:
         $ref: '#/definitions/Algorithm'
-      modelScenario:
-        type: number
-      projectionScenario:
+      occurrenceSets:
         type: array
         items:
-          type: number
-  
+          type: object
+          description: Choose one of the available properties for each itemint hearray
+          properties:
+            occurrenceSetId:
+              type: integer
+            gbifTaxonId:
+              type: integer
+              description: Do not use this, just an example of the future
+      modelScenario:
+        type: object
+        description: Pick one of the options. Only scenario d is enabled now
+        properties:
+          modelScenarioId:
+           type: integer
+      projectionScenarios:
+        type: array
+        items:
+          type: object
+          properties:
+            projectionScenarioId:
+              type: integer
+
   Scenario:
     type: object
     properties:
