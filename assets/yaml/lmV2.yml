@@ -949,17 +949,15 @@ definitions:
           properties:
             occurrenceSetId:
               type: integer
-            gbifTaxonId:
-              type: integer
-              description: Do not use this, just an example of the future
-      modelScenarios:
-        type: array
-        items:
-          type: object
-          description: Pick one of the options. Only scenario d is enabled now
-          properties:
-            modelScenarioId:
-              type: integer
+            #gbifTaxonId:
+            #  type: integer
+            #  description: Do not use this, just an example of the future
+      modelScenario:
+        type: object
+        description: Pick one of the options. Only scenario d is enabled now
+        properties:
+          modelScenarioId:
+            type: integer
       projectionScenarios:
         type: array
         items:
@@ -967,9 +965,11 @@ definitions:
           properties:
             projectionScenarioId:
               type: integer
-            matchScenarioId:
-              type: integer
-              description: This must match one of the modeling scenarios
+            #modelScenario:
+            #  type: string
+            #  description: This is the model scenario that this projection 
+            #               scenario matches.  We may do this by codes and not
+            #               need this
 
   Scenario:
     type: object
