@@ -740,12 +740,14 @@ paths:
 definitions:
   Algorithm:
     type: object
+    required: [code, parameters]
     properties:
       code:
         type: string
       parameters:
         type: array
         items:
+          required: [name, value]
           properties:
             name:
               type: string
@@ -759,6 +761,7 @@ definitions:
   
   AtomObject:
     type: object
+    required: [epsg, id, modificationTime, name, url]
     properties:
       epsg:
         type: integer
@@ -936,6 +939,7 @@ definitions:
       returned, for every algorithm / occurrence set / model scenario
       combination.  An SDM projection object is created for every algorithm /
       occurrence set / model scenario / projection scenario combination
+    required: [algorithms, occurrenceSets, modelScenario, projectionScenarios]
     properties:
       algorithms:
         type: array
@@ -945,7 +949,7 @@ definitions:
         type: array
         items:
           type: object
-          description: Choose one of the available properties for each itemint hearray
+          description: Choose one of the available properties for each item in the array
           properties:
             occurrenceSetId:
               type: integer
