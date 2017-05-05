@@ -5,7 +5,7 @@ info:
   description: Lifemapper services
   version: "2.0.0"
 # the domain of the service
-host: svc.lifemapper.org
+host: notyeti-191.lifemapper.org
 # array of all schemes that your API supports
 schemes:
   - http
@@ -956,15 +956,20 @@ definitions:
         type: object
         description: Pick one of the options. Only scenario d is enabled now
         properties:
-          modelScenarioId:
+          scenarioId:
             type: integer
+          scenarioCode:
+            type: string
       projectionScenarios:
         type: array
         items:
           type: object
+          description: Use one or the other
           properties:
-            projectionScenarioId:
+            scenarioId:
               type: integer
+            scenarioCode:
+              type: string
             #modelScenario:
             #  type: string
             #  description: This is the model scenario that this projection 
