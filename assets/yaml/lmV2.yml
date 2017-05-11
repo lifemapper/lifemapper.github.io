@@ -185,6 +185,43 @@ paths:
           description: Error status thrown when the requested environmental 
                        layer was not found
 
+  /gridset:
+    get:
+      summary: Lifemapper grid sets listing service
+      description: |
+        The gridset endpoint provides a service for querying Lifemapper 
+        gridsets that match a set of query parameters
+      parameters:
+        - $ref: '#/parameters/Offset'
+        - $ref: '#/parameters/Limit'
+        - $ref: '#/parameters/Public'
+      tags:
+        - Grid Set
+      responses:
+        200:
+          description: Returns a list of grid sets atoms
+          schema:
+            $ref: '#/definitions/AtomList'
+
+  /gridset/{gridsetId}/matrix:
+    get:
+      summary: Lifemappr gridset matrix lsting service
+      description: |
+        The matrx endpoint for a grid set provides a servic for querying 
+        Lifemapper matrices that match a set of query parameters
+      parameters:
+        - $ref: '#/parameters/PathGridsetId'
+        - $ref: '#/parameters/Offset'
+        - $ref: '#/parameters/Limit'
+        - $ref: '#/parameters/Public'
+      tags:
+        - Matrix
+      responses:
+        200:
+          description: Returns a list of matrix atoms
+          schema:
+            $ref: '#/definitions/AtomList'
+
   /layer:
     get:
       summary: Lifemapper layers listing services
@@ -812,6 +849,10 @@ definitions:
       dateCode:
         type: string
 
+  GridSet:
+    type: object
+    
+
   Layer:
     type: object
     properties:
@@ -850,6 +891,12 @@ definitions:
               type: string
             layerName:
               type: string
+
+  Matrix:
+    type: object
+    
+  MatrixColumn:
+    type
 
   ObjectCount:
     type: object
@@ -1111,10 +1158,22 @@ definitions:
 
 parameters:
   # Path Parameters
+  PathGridsetId:
+    name: gridsetId
+    in: path
+    description: The id of the grid set to use
+    required: true
+    type: integer
   PathLayerId:
     name: layerId
     in: path
     description: The id of the layer to use
+    required: true
+    type: integer
+  PathMatrixId:
+    name: matrixId
+    in: path
+    description: The id of the matrix to use
     required: true
     type: integer
   PathOccurrenceSetId:
