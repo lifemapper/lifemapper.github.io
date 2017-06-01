@@ -695,8 +695,13 @@ paths:
         - $ref: '#/parameters/Offset'
         - $ref: '#/parameters/Limit'
         - $ref: '#/parameters/Public'
-        - $ref: '#/parameters/BeforeTime'
+        - $ref: '#/parameters/TreeName'
+        - $ref: '#/parameters/IsBinary'
+        - $ref: '#/parameters/IsUltrametric'
+        - $ref: '#/parameters/HasBranchLengths'
+        - $ref: '#/parameters/MetaString'
         - $ref: '#/parameters/AfterTime'
+        - $ref: '#/parameters/BeforeTime'
       tags:
         - Tree
       responses:
@@ -730,8 +735,13 @@ paths:
       summary: Get the number of trees that match your criteria
       parameters:
         - $ref: '#/parameters/Public'
-        - $ref: '#/parameters/BeforeTime'
+        - $ref: '#/parameters/TreeName'
+        - $ref: '#/parameters/IsBinary'
+        - $ref: '#/parameters/IsUltrametric'
+        - $ref: '#/parameters/HasBranchLengths'
+        - $ref: '#/parameters/MetaString'
         - $ref: '#/parameters/AfterTime'
+        - $ref: '#/parameters/BeforeTime'
       tags:
         - Tree
       responses:
@@ -1269,6 +1279,36 @@ parameters:
     required: false
     type: string
     format: string
+  HasBranchLengths:
+    name: hasBranchLengths
+    in: query
+    description: If this is 1, count or list trees with branch lengths
+    required: false
+    type: integer
+    format: int2
+    minimum: 0
+    maximum: 1
+    enum: [0, 1]
+  IsBinary:
+    name: isBinary
+    in: query
+    description: If this is 1, count or list binary trees
+    required: false
+    type: integer
+    format: int2
+    minimum: 0
+    maximum: 1
+    enum: [0, 1]
+  IsUltrametric
+    name: isUltrametric
+    in: query
+    description: If this is 1, count or list ultrametric trees
+    required: false
+    type: integer
+    format: int2
+    minimum: 0
+    maximum: 1
+    enum: [0, 1]
   Limit:
     name: limit
     in: query
@@ -1282,6 +1322,12 @@ parameters:
     name: metadata
     in: query
     description: Additional metadata in JSON format
+    required: false
+    type: string
+  MetaString:
+    name: metaString
+    in: query
+    description: If provided, list or count trees with this meta string
     required: false
     type: string
   ModelScenarioCode:
@@ -1366,3 +1412,10 @@ parameters:
     required: false
     type: integer
     format: integer
+  TreeName:
+    name: treeName
+    in: query
+    description: If provided, return or count trees with this name
+    required: false
+    type: string
+
