@@ -313,6 +313,29 @@ paths:
           description: Error status thrown when the requested matrix was not
                        found
 
+  /gridset/{gridsetId}/matrix/{matrixId}/column:
+    get:
+      summary: Lifemapper gridset matrix column service
+      description: |
+        The matrix endpoint for a grid set provides a service for listing 
+        matrix columns
+      parameters:
+        - $ref: '#/parameters/PathGridsetId'
+        - $ref: '#/parameters/PathMatrixId'
+      tags:
+        - Matrix Column
+      responses:
+        200:
+          description: Returns a matrix column atom list
+          schema:
+            $ref: '#/definitions/AtomList'
+        403:
+          description: Error status thrown when the user does not have 
+                       permission to access a matrix
+        404:
+          description: Error status thrown when the requested matrix was not
+                       found
+
   /layer:
     get:
       summary: Lifemapper layers listing services
@@ -1275,6 +1298,12 @@ parameters:
     name: matrixId
     in: path
     description: The id of the matrix to use
+    required: true
+    type: integer
+  PathMatrixColumnId:
+    name: matrixColumnId
+    in: path
+    description: The id of the matrix column to use
     required: true
     type: integer
   PathOccurrenceSetId:
