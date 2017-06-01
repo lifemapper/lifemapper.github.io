@@ -263,6 +263,33 @@ paths:
           schema:
             $ref: '#/definitions/AtomList'
 
+  /gridset/{gridsetId}/matrix/count:
+    get:
+      summary: Lifemapper gridset matrix count service
+      description: |
+        The matrix endpoint for a grid set provides a service for querying 
+        Lifemapper matrices that match a set of query parameters
+      parameters:
+        - $ref: '#/parameters/PathGridsetId'
+        - $ref: '#/parameters/Public'
+        - $ref: '#/parameters/AfterTime'
+        - $ref: '#/parameters/AltPredCode'
+        - $ref: '#/parameters/BeforeTime'
+        - $ref: '#/parameters/DateCode'
+        - $ref: '#/parameters/EPSG'
+        - $ref: '#/parameters/GCM'
+        - $ref: '#/parameters/Keyword'
+        - $ref: '#/parameters/MatrixType'
+        - $ref: '#/parameters/Status'
+        
+      tags:
+        - Matrix
+      responses:
+        200:
+          description: Returns the number of matching matrices
+          schema:
+            $ref: '#/definitions/ObjectCount'
+
   /layer:
     get:
       summary: Lifemapper layers listing services
