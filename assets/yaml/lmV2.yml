@@ -203,17 +203,58 @@ paths:
           schema:
             $ref: '#/definitions/AtomList'
 
+  /gridset/count:
+    get:
+      summary: Lifemapper grid sets counting service
+      description: |
+        The grid sets endpoint provides a service counting how many Lifemapper 
+        grid sets match a set of query parameters.
+      parameters:
+        - $ref: '#/parameters/Public'
+      tags:
+        - Grid Set
+      responses:
+        200:
+          description: The number of grid sets that match the specified criteria
+          schema:
+            $ref: '#/definitions/ObjectCount'
+
+  /gridset/{gridsetId}/:
+    get:
+      summary: Lifemapper grid set service
+      description: |
+        The grid set service endpoint returns a specific grid set
+      parameters:
+        - $ref: '#/parameters/PathGridsetId'
+      tags:
+        - Grid Set
+      responses:
+        200:
+          description: Returns a grid set object
+          schema:
+            $ref: '#/definitions/GridSet'
+
   /gridset/{gridsetId}/matrix:
     get:
-      summary: Lifemappr gridset matrix lsting service
+      summary: Lifemapper gridset matrix listing service
       description: |
-        The matrx endpoint for a grid set provides a servic for querying 
+        The matrix endpoint for a grid set provides a servic for querying 
         Lifemapper matrices that match a set of query parameters
       parameters:
         - $ref: '#/parameters/PathGridsetId'
-        - $ref: '#/parameters/Offset'
-        - $ref: '#/parameters/Limit'
         - $ref: '#/parameters/Public'
+        - $ref: '#/parameters/AfterTime'
+        - $ref: '#/parameters/AltPredCode'
+        - $ref: '#/parameters/BeforeTime'
+        - $ref: '#/parameters/DateCode'
+        - $ref: '#/parameters/EPSG'
+        - $ref: '#/parameters/GCM'
+        - $ref: '#/parameters/Keyword'
+        - $ref: '#/parameters/Limit'
+        - $ref: '#/parameters/MatrixType'
+        - $ref: '#/parameters/Offset'
+        - $ref: '#/parameters/Status'
+        
       tags:
         - Matrix
       responses:
@@ -1299,7 +1340,7 @@ parameters:
     minimum: 0
     maximum: 1
     enum: [0, 1]
-  IsUltrametric
+  IsUltrametric:
     name: isUltrametric
     in: query
     description: If this is 1, count or list ultrametric trees
@@ -1309,6 +1350,12 @@ parameters:
     minimum: 0
     maximum: 1
     enum: [0, 1]
+  Keyword:
+    name: keyword
+    in: query
+    description: A comma-separated string of keywords
+    required: false
+    type: string
   Limit:
     name: limit
     in: query
@@ -1318,6 +1365,19 @@ parameters:
     format: integer
     minimum: 1
     maximum: 1000
+  MatrixType:
+    name: matrixType
+    in: query
+    description: |
+        Integer code of the matrix type to list or count.  
+        PAM - 1, GRIM - 2, BIOGEO - 3, Rolling PAM - 10,  Padded PAM - 101, 
+        MCPA Output - 201
+    required: false
+    type: integer
+    format: int
+    minimum: 0
+    maximum: 201
+    enum: [1, 2, 3, 10, 101, 201]
   Metadata:
     name: metadata
     in: query
