@@ -195,6 +195,11 @@ paths:
         - $ref: '#/parameters/Offset'
         - $ref: '#/parameters/Limit'
         - $ref: '#/parameters/Public'
+        - $ref: '#/parameters/AfterTime'
+        - $ref: '#/parameters/BeforeTime'
+        - $ref: '#/parameters/EPSG'
+        - $ref: '#/parameters/MetaString'
+        - $ref: '#/parameters/ShapegridId'
       tags:
         - Grid Set
       responses:
@@ -211,6 +216,11 @@ paths:
         grid sets match a set of query parameters.
       parameters:
         - $ref: '#/parameters/Public'
+        - $ref: '#/parameters/AfterTime'
+        - $ref: '#/parameters/BeforeTime'
+        - $ref: '#/parameters/EPSG'
+        - $ref: '#/parameters/MetaString'
+        - $ref: '#/parameters/ShapegridId'
       tags:
         - Grid Set
       responses:
@@ -802,6 +812,78 @@ paths:
           description: Error status returned when the requested scenario does 
                        not exist
 
+  /shapegrid:
+    get:
+      summary: Get a list of shapegrids that match your criteria
+      parameters:
+        - $ref: '#/parameters/Offset'
+        - $ref: '#/parameters/Limit'
+        - $ref: '#/parameters/Public'
+        - $ref: '#/parameters/CellSides'
+        - $ref: '#/parameters/CellSize'
+        - $ref: '#/parameters/AfterTime'
+        - $ref: '#/parameters/BeforeTime'
+        - $ref: '#/parameters/EPSG'
+      tags:
+        - Shapegrid
+      responses:
+        200:
+          description: A list of shapegrids matching the criteria
+          schema:
+            $ref: '#/definitions/AtomList'
+
+  /shapegrid/count:
+    get:
+      summary: Get the number of shapegrids that match your criteria
+      parameters:
+        - $ref: '#/parameters/Public'
+        - $ref: '#/parameters/CellSides'
+        - $ref: '#/parameters/CellSize'
+        - $ref: '#/parameters/AfterTime'
+        - $ref: '#/parameters/BeforeTime'
+        - $ref: '#/parameters/EPSG'
+      tags:
+        - Shapegrid
+      responses:
+        200:
+          description: The number of shapegrids matching the criteria
+          schema:
+            $ref: '#/definitions/ObjectCount'
+
+  /shapegrid/{shapegridId}:
+    get:
+      summary: Get a shapegrid
+      parameters:
+        - $ref: '#/parameters/PathShapegridId'
+      tags:
+        - Shapegrid
+      responses:
+        200:
+          description: The shapegrid in the specified format
+          schema:
+            $ref: '#/definitions/Shapegrid'
+        403:
+          description: Error status returned when the user does not have 
+                       permission to access a shapegrid
+        404:
+          description: Error status returned when the requested shapegrid does 
+                       not exist
+    delete:
+      summary: Delete a shapegrid that you own
+      parameters:
+        - $ref: '#/parameters/PathShapegridId'
+      tags:
+        - Shapegrid
+      responses:
+        204:
+          description: An OK message that the shapegrid was deleted
+        403:
+          description: Error status returned when the user does not have 
+                       permission to delete a shapegrid
+        404:
+          description: Error status returned when the requested shapegrid does 
+                       not exist
+
   /tree:
     get:
       summary: Get a list of trees that match your criteria
@@ -1223,6 +1305,9 @@ definitions:
         type: string
       resolution:
         type: number
+        
+  Shapegrid:
+    type: object
 
   SpatialRaster:
     type: object
@@ -1324,6 +1409,12 @@ parameters:
     description: The id of the scenario
     required: true
     type: integer
+  PathShapegridId:
+    name: shapegridId
+    in: path
+    description: The id of a shapegrid
+    required: true
+    type: integer
   PathTreeId:
     name: treeId
     in: path
@@ -1367,6 +1458,19 @@ parameters:
     description: Return experiments modified before this time
     required: false
     type: string
+  CellSides:
+    name: cellSides
+    in: query
+    description: Count or list shapegrids that have this many sides per cell (4 - square, 6 - hexagon)
+    required: false
+    type: int
+    enum: [4, 6]
+  CellSize:
+    name: cellSize
+    in: query
+    description: Count or list shapegrids that have cells of this size (in units of shapegrid)
+    required: false
+    type: number
   DateCode:
     name: dateCode
     in: query
@@ -1538,6 +1642,12 @@ parameters:
     required: false
     type: integer
     minimum: 0
+  ShapegridId:
+    name: shapegridId
+    in: query
+    description: The id of a shapegrid to use for query
+    required: false
+    type: integer
   Squid:
     name: squid
     in: query
