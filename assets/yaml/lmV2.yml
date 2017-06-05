@@ -1084,14 +1084,16 @@ definitions:
 
   Map:
     type: object
+    required: [endpoint, mapName, layers]
     properties:
-      ogcEndpoint:
+      endpoint:
         type: string
       mapName:
         type: string
-      layerNames:
+      layers:
         type: array
         items:
+          required: [layerName, metadataUrl]
           properties:
             metadataUrl:
               type: string
@@ -1241,7 +1243,7 @@ definitions:
         type: string
       id:
         type: integer
-      metadataUrl:
+      url:
         type: string
       etag:
         type: string
