@@ -1122,11 +1122,12 @@ definitions:
 
   OccurrenceSet:
     type: object
+    required: [id]
     properties:
       objectType:
         type: string
       id:
-        type: string
+        type: integer
       url:
         type: string
       user:
@@ -1141,7 +1142,7 @@ definitions:
       metadata:
         type: object
       map:
-        $ref: '#/definitions/Map'
+        $ref: '#/definitions/SingleLayerMap'
       spatialVector:
         $ref: '#/definitions/SpatialVector'
       speciesName:
@@ -1314,6 +1315,17 @@ definitions:
   Shapegrid:
     type: object
 
+  SingleLayerMap:
+    type: object
+    required: [endpoint, mapName, layerName]
+    properties:
+      endpoint:
+        type: string
+      mapName:
+        type: string
+      layerName:
+        type: string
+
   SpatialRaster:
     type: object
     properties:
@@ -1346,9 +1358,11 @@ definitions:
     type: object
     properties:
       epsg:
-        type: string
+        type: integer
       bbox:
-        type: string
+        type: array
+        items:
+          type: number
       mapUnits:
         type: string
       resolution:
@@ -1358,7 +1372,7 @@ definitions:
       sha256:
         type: string
       ogrType:
-        type: string
+        type: integer
       dataFormat:
         type: string
       numFeatures:
