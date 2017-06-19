@@ -988,14 +988,7 @@ definitions:
       code:
         type: string
       parameters:
-        type: array
-        items:
-          required: [name, value]
-          properties:
-            name:
-              type: string
-            value:
-              type: string
+        type: object
 
   AtomList:
     type: array
@@ -1152,11 +1145,12 @@ definitions:
 
   Projection:
     type: object
+    required: [id]
     properties:
       objectType:
         type: string
       id:
-        type: string
+        type: integer
       url:
         type: string
       user:
@@ -1171,7 +1165,7 @@ definitions:
       metadata:
         type: object
       map:
-        $ref: '#/definitions/Map'
+        $ref: '#/definitions/SingleLayerMap'
       spatialRaster:
         $ref: '#/definitions/SpatialRaster'
       algorithm:
@@ -1330,9 +1324,11 @@ definitions:
     type: object
     properties:
       epsg:
-        type: string
+        type: integer
       bbox:
-        type: string
+        type: array
+        items:
+          type: number
       mapUnits:
         type: string
       resolution:
@@ -1342,7 +1338,7 @@ definitions:
       sha256:
         type: string
       gdalType:
-        type: string
+        type: integer
       dataFormat:
         type: string
       minVal:
@@ -1352,7 +1348,7 @@ definitions:
       valueUnits:
         type: string
       dataType:
-        type: string
+        type: integer
 
   SpatialVector:
     type: object
