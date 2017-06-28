@@ -185,6 +185,68 @@ paths:
           description: Error status thrown when the requested environmental 
                        layer was not found
 
+  /globalpam:
+    get:
+      summary: Lifemapper global PAM query service
+      description: |
+        The Global PAM endpoint allows a user to query all of the completed 
+        PAMs that the user has access to to find those that match their query
+        parameters.
+      parameters:
+        - $ref: '#/parameters/AlgorithmCode'
+        - $ref: '#/parameters/BBox'
+        - $ref: '#/parameters/GridSetId'
+        - $ref: '#/parameters/ModelScenarioCode'
+        - $ref: '#/parameters/PointMax'
+        - $ref: '#/parameters/PointMin'
+        - $ref: '#/parameters/Public'
+        - $ref: '#/parameters/ProjectScenarioCode'
+        - $ref: '#/parameters/Squid'
+        - $ref: '#/parameters/TaxonKingdom'
+        - $ref: '#/parameters/TaxonPhylum'
+        - $ref: '#/parameters/TaxonClass'
+        - $ref: '#/parameters/TaxonOrder'
+        - $ref: '#/parameters/TaxonFamily'
+        - $ref: '#/parameters/TaxonGenus'
+        - $ref: '#/parameters/TaxonSpecies'
+      tags:
+        - Global PAM
+      responses:
+        200:
+          description: Returns a list of matching PAVs
+          schema:
+            $ref: '#/definitions/SolrList'
+    post:
+      summary: Lifemapper Global PAM subset service
+      description: |
+        The Global PAM subset service allows a user to create a subset of an
+        existing Global PAM for computations
+      parameters:
+        - $ref: '#/parameters/ArchiveNameReq'
+        - $ref: '#/parameters/GridSetIdReq'
+        - $ref: '#/parameters/AlgorithmCode'
+        - $ref: '#/parameters/BBox'
+        - $ref: '#/parameters/ModelScenarioCode'
+        - $ref: '#/parameters/PointMax'
+        - $ref: '#/parameters/PointMin'
+        - $ref: '#/parameters/Public'
+        - $ref: '#/parameters/ProjectScenarioCode'
+        - $ref: '#/parameters/Squid'
+        - $ref: '#/parameters/TaxonKingdom'
+        - $ref: '#/parameters/TaxonPhylum'
+        - $ref: '#/parameters/TaxonClass'
+        - $ref: '#/parameters/TaxonOrder'
+        - $ref: '#/parameters/TaxonFamily'
+        - $ref: '#/parameters/TaxonGenus'
+        - $ref: '#/parameters/TaxonSpecies'
+      tags:
+        - Global PAM
+      responses:
+        202:
+          description: An atom for the gridset that was just posted
+          schema:
+            $ref: '#/definitions/AtomObject'
+
   /gridset:
     get:
       summary: Lifemapper grid sets listing service
@@ -644,9 +706,9 @@ paths:
         - SDM Projection
       responses:
         202:
-          description: A list of posted projection URLs
+          description: An atom for the posted grid set
           schema:
-            $ref: '#/definitions/AtomList'
+            $ref: '#/definitions/AtomObject'
         400:
           description: Error status returned when there is a problem with user 
                        inputs
@@ -1320,6 +1382,82 @@ definitions:
       layerName:
         type: string
 
+  SolrList:
+    type: array
+    items:
+       $ref: '#/definitions/SolrPAV'
+
+  SolrPAV:
+    type: object
+    required: [_version_, compressedPAV, displayName, epsgCode, gridSetId,
+               gridSetMetaUrl, id, pavMetaUrl, shapegridDataUrl, shapegridId, 
+               shapegridMetaUrl, squid, userId]
+    properties:
+      _version_:
+        type: long
+        description: Assigned by Solr
+      algorithmCode:
+        type: string
+      algorithmParameters:
+        type: string
+      compressedPAV:
+        type: string
+        description: Run-length encoded version of the PAV
+      displayName: 
+        type: string
+      epsgCode:
+        type: integer
+      gridSetId:
+        type: integer
+      gridSetMetaUrl:
+        type: string
+      id:
+        type: integer
+      modelScenarioCode: 
+        type: string
+      modelScenarioId:
+        type: integer
+      modelScenarioUrl: 
+        type: string
+      occurrenceDataUrl: 
+        type: string
+      occurrenceId:
+        type: integer
+      occurrenceMetaUrl: 
+        type: string
+      pointCount:
+        type: integer
+      pavMetaUrl:
+        type: string
+      sdmProjDataUrl:
+        type: string
+      sdmProjId:
+        type: integer
+      sdmProjMetaUrl:
+        type: string
+      sdmProjScenarioAltPredCode: 
+        type: string
+      sdmProjScenarioCode: 
+        type: string
+      sdmProjScenarioDateCode: 
+        type: string
+      sdmProjScenarioGCM:
+        type: string
+      sdmProjScenarioId:
+        type: integer
+      sdmProjScenarioUrl:
+        type: string
+      shapegridDataUrl:
+        type: string
+      shapegridId: 
+        type: integer
+      shapegridMetaUrl: 
+        type: string
+      squid:
+        type: string
+      userId:
+        type: string
+
   SpatialRaster:
     type: object
     properties:
@@ -1461,6 +1599,18 @@ parameters:
     description: Alternate prediction code
     required: false
     type: string
+  ArchiveNameReq:
+    name: archiveName
+    in: query
+    description: The name for the new archive grid set created
+    required: true
+    type: string
+  BBox:
+    name: bbox
+    in: query
+    description: A bounding box in the form minx,miny,maxx,maxy to use for spatial queries
+    required: false
+    type: string
   BeforeStatus:
     name: beforeStatus
     in: query
@@ -1518,6 +1668,18 @@ parameters:
     required: false
     type: string
     format: string
+  GridSetId:
+    name: gridSetId
+    in: query
+    description: Only return items in this grid set
+    required: false
+    type: string
+  GridSetIdReq:
+    name: gridSetId
+    in: query
+    description: Subset items from this grid set
+    required: true
+    type: string
   HasBranchLengths:
     name: hasBranchLengths
     in: query
@@ -1622,6 +1784,18 @@ parameters:
     type: integer
     format: integer
     minimum: 0
+  PointMax:
+    name: pointMax
+    in: query
+    description: Only return PAVs build from occurrence sets with less than or this many points
+    required: false
+    type: integer
+  PointMin:
+    name: pointMin
+    in: query
+    description: Only return PAVs build from occurrence sets with at least this many points
+    required: false
+    type: integer
   ProjectScenarioCode:
     name: prjScenCode
     in: query
@@ -1676,10 +1850,51 @@ parameters:
     required: false
     type: integer
     format: integer
+  TaxonClass:
+    name: taxonClass
+    in: query
+    description: Limit the Global PAM results to only those in this class
+    required: false
+    type: string
+  TaxonFamily:
+    name: taxonFamily
+    in: query
+    description: Limit the Global PAM results to only those in this family
+    required: false
+    type: string
+  TaxonGenus:
+    name: taxonGenus
+    in: query
+    description: Limit the Global PAM results to only those in this genus
+    required: false
+    type: string
+  TaxonKingdom:
+    name: taxonKingdom
+    in: query
+    description: Limit the Global PAM results to only those in this kingdom
+    required: false
+    type: string
+  TaxonOrder:
+    name: taxonOrder
+    in: query
+    description: Limit the Global PAM results to only those in this order
+    required: false
+    type: string
+  TaxonPhylum:
+    name: taxonPhylum
+    in: query
+    description: Limit the Global PAM results to only those in this phylum
+    required: false
+    type: string
+  TaxonSpecies:
+    name: taxonSpecies
+    in: query
+    description: Limit the Global PAM results to only those with this species name (without genus)
+    required: false
+    type: string
   TreeName:
     name: treeName
     in: query
     description: If provided, return or count trees with this name
     required: false
     type: string
-
