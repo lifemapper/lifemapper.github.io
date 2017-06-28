@@ -1159,7 +1159,7 @@ definitions:
     type: object
     
   MatrixColumn:
-    type
+    type: object
 
   ObjectCount:
     type: object
@@ -1389,13 +1389,10 @@ definitions:
 
   SolrPAV:
     type: object
-    required: [_version_, compressedPAV, displayName, epsgCode, gridSetId,
+    required: [compressedPAV, displayName, epsgCode, gridSetId,
                gridSetMetaUrl, id, pavMetaUrl, shapegridDataUrl, shapegridId, 
                shapegridMetaUrl, squid, userId]
     properties:
-      _version_:
-        type: long
-        description: Assigned by Solr
       algorithmCode:
         type: string
       algorithmParameters:
@@ -1628,7 +1625,7 @@ parameters:
     in: query
     description: Count or list shapegrids that have this many sides per cell (4 - square, 6 - hexagon)
     required: false
-    type: int
+    type: integer
     enum: [4, 6]
   CellSize:
     name: cellSize
