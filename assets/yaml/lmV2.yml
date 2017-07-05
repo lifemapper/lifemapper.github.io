@@ -583,27 +583,25 @@ paths:
           schema:
             $ref: '#/definitions/AtomList'
     post:
-      summary: Post a new occurrence set
-      consumes:
-        - multipart/form-data
+      summary: Perform a BOOM post
       parameters:
-        - name: file
-          in: formData
-          description: The occurrence set as a zipped shapefile
+        - name: body
+          in: body
+          description: A boom request post body
           required: true
-          type: file
-        - $ref: '#/parameters/DisplayName'
-        - $ref: '#/parameters/EPSG'
-        - $ref: '#/parameters/Metadata'
+          schema: {
+            "$ref" : "#/definitions/BoomPOST"
+          }
       tags:
-        - Occurrence Layer
+        - Occurrence layer
       responses:
-        201:
-          description: An occurrence set in the specified format
+        202:
+          description: An atom for the posted grid set
           schema:
-            $ref: '#/definitions/OccurrenceSet'
+            $ref: '#/definitions/AtomObject'
         400:
-          description: Error status returned when the user inputs are incorrect
+          description: Error status returned when there is a problem with user 
+                       inputs
   /occurrence/count:
     get:
       summary: Get a count of occurrence layers that match your criteria
@@ -700,7 +698,7 @@ paths:
           description: A projection(s) request post body
           required: true
           schema: {
-            "$ref" : "#/definitions/ProjectionPOST"
+            "$ref" : "#/definitions/BoomPOST"
           }
       tags:
         - SDM Projection
@@ -1243,7 +1241,7 @@ definitions:
       occurrenceSet:
         $ref: '#/definitions/ObjectRef'
 
-  ProjectionPOST:
+  BoomPOST:
     type: object
     description: |
       The projection POST object is flexible in that you can specify one or
@@ -1265,6 +1263,10 @@ definitions:
           properties:
             occurrenceSetId:
               type: integer
+            occurrenceData:
+              type: string
+            occurrenceMeta:
+              type: object
             #gbifTaxonId:
             #  type: integer
             #  description: Do not use this, just an example of the future
