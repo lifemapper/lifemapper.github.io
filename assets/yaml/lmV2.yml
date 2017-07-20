@@ -1367,7 +1367,7 @@ definitions:
       userId:
         type: string
       metadata:
-        type: object
+        $ref: '#/definitions/ScenarioMetadata'
       map:
         $ref: '#/definitions/Map'
       spatial:
@@ -1383,9 +1383,23 @@ definitions:
       envTypeId:
         type: string
 
+  ScenarioMetadata:
+    type: object
+    properties:
+      author:
+        type: string
+      description:
+        type: string
+      title:
+        type: string
+      keywords:
+        type: array
+        items:
+          type: string
+
   ScenarioPackage:
     type: object
-    required: [id]
+    required: [id, scenarios]
     properties:
       objectType:
         type: string
@@ -1405,6 +1419,12 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/Scenario'
+      url:
+        type: string
+      name:
+        type: string
+      user:
+        type: string
 
   ScenarioPOST:
     type: object
