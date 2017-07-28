@@ -594,7 +594,7 @@ paths:
             "$ref" : "#/definitions/BoomPOST"
           }
       tags:
-        - Occurrence layer
+        - Occurrence Layer
       responses:
         202:
           description: An atom for the posted grid set
