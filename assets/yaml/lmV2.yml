@@ -1419,10 +1419,6 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/Scenario'
-      url:
-        type: string
-      name:
-        type: string
       user:
         type: string
 
