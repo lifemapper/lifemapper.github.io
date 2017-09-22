@@ -1279,7 +1279,7 @@ definitions:
       etag:
         type: string
       metadata:
-        type: object
+        $ref: '#/definitions/ProjectionMetadata'
       map:
         $ref: '#/definitions/SingleLayerMap'
       spatialRaster:
@@ -1396,6 +1396,19 @@ definitions:
             type: integer
           post:
             $ref: '#/definitions/TreePOST'
+  ProjectionMetadata:
+    type: object
+    properties:
+      description:
+        type: string
+      title:
+        type: string
+      isDiscrete:
+        type: boolean
+      keywords:
+        type: array
+        items:
+          type: string
 
   BoomPOST:
     type: object
