@@ -1395,7 +1395,7 @@ definitions:
     required: [compute_pam_stats]
     properties:
       compute_pam_stats:
-        type: int
+        type: integer
         enum: [0, 1]
             
   ProjectionMetadata:
