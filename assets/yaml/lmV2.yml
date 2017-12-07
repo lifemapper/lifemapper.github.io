@@ -1096,6 +1096,43 @@ paths:
           description: Error status returned when the requested tree does 
                        not exist
 
+  /upload:
+    post:
+      summary: Post a new data set for a user
+      consumes:
+        - multipart/form-data
+      parameters:
+        - name: fileName
+          in: query
+          description: The name of the file / package to be stored
+          required: true
+          type: string
+        - name: uploadType
+          in: query
+          description: The type of data being uploaded
+          required: true
+          type: string
+          enum:
+            - biogeo
+            - climate
+            - occurrence
+            - tree
+        - name: file
+          in: formData
+          description: The data posted as a file
+          required: true
+          type: file
+      tags:
+        - Upload
+      responses:
+        202:
+          description: A small JSON chunk indicating the data was posted
+        400:
+          description: Error status returned when there is a problem with user 
+                       input
+        409:
+          description: Post failed due to duplicate name
+
 definitions:
   Algorithm:
     type: object
