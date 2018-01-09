@@ -18,10 +18,10 @@ are updates to the signatures.  All data objects, have the following APIs:
  * count (with filter parameters)
  * list (with filter parameters) returning atoms or full objects
  
+### Input Data objects:
 Input data objects also have a Post API.  Some output objects may also be 
 posted with metadata rather than computed.
- 
-### Input Data objects:
+
  * EnvLayer
  * Scenario (set of EnvLayers)
  * OccurrenceLayer
@@ -35,7 +35,21 @@ posted with metadata rather than computed.
  * Gridset (organizing concept for related Matrices and one ShapeGrid)
 
 ### Other 
-These may be parameter or descriptor types
- * EnvType
- * Algorithm
+Other objects have some webservices associated with them, but they are 
+non-standard.  
 
+ * EnvType : 
+ * Algorithm : Algorithms are described by code, author, parameters, and  
+   description om the following [XML file](http://svc.lifemapper.org/clients/algorithms.xml).
+
+
+|             |          Filters           ||
+Object  | userId | squid | afterTime | beforeTime | epsg | afterStatus | beforeStatus |  
+ ------------ | :-----------: | -----------: |
+Layer       |   X    |         Cell |
+OccurrenceLayer      |          *Long Cell*        ||
+Content       |   **Cell**    |         Cell |
+
+New section   |     More      |         Data |
+And more      | With an escaped '\|'         ||  
+[Prototype table]
