@@ -8,6 +8,7 @@ info:
 host: svc.lifemapper.org
 # array of all schemes that your API supports
 schemes:
+  - http
   - https
 # will be prefixed to all paths
 basePath: /api/v2
@@ -15,41 +16,39 @@ produces:
   - application/json
 paths:
 
-  # Env layers (GET, POST, DELETE, LIST, COUNT)
-  # Occurrence sets (GET, POST, DELETE, LIST, COUNT)
-  # Projections (GET, POST, DELETE, LIST, COUNT)
-  # Scenarios (GET, POST, DELETE, LIST, COUNT)
-  
+
   # Retrieval of incomplete object HTTP status (202?)
+  # POST and DELETE don't necessarily return content
   # POST responses should be ATOM lists
-  /layer:
+
+  /envlayer:
     get:
-      summary: Lifemapper layers listing services
+      summary: Lifemapper environmental layers listing service
       description: |
-        The layers endpoint provides a service for querying Lifemapper layers
-        that match a set of query parameters.
+        The layers endpoint provides a service for querying Lifemapper 
+        environmental layers that match a set of query parameters.
       parameters:
+        - $ref: '#/parameters/Offset'
+        - $ref: '#/parameters/Limit'
+        - $ref: '#/parameters/UrlUser'
+        - $ref: '#/parameters/EnvCode'
+        - $ref: '#/parameters/GCM'
+        - $ref: '#/parameters/AltPredCode'
+        - $ref: '#/parameters/DateCode'
         - $ref: '#/parameters/AfterTime'
         - $ref: '#/parameters/BeforeTime'
         - $ref: '#/parameters/EPSG'
-        - $ref: '#/parameters/IsCategorical'
-        - $ref: '#/parameters/LayerType'
-        - $ref: '#/parameters/Limit'
-        - $ref: '#/parameters/Offset'
-        - $ref: '#/parameters/Public'
+        - $ref: '#/parameters/ScenarioCode'
         - $ref: '#/parameters/ScenarioId'
-        - $ref: '#/parameters/GCM'
-        - $ref: '#/parameters/AltPredictionCode'
-        - $ref: '#/parameters/DateCode'
       tags:
-        - Layers
+        - Environmental Layer
       responses:
         200:
-          description: A list of layers that match the specified criteria
+          description: A list of environmental layers that match the specified criteria
           schema:
             $ref: '#/definitions/AtomList'
     post:
-      summary: Post a new layer
+      summary: Post a new environmental layer
       consumes:
         - multipart/form-data
       parameters:
@@ -77,7 +76,7 @@ paths:
           description: The type code id for this layer
           required: false
           type: integer
-        - name: additionalMetadata
+        - name: metadata
           in: query
           description: Additional metadata to add to the layer
           required: false
@@ -113,116 +112,582 @@ paths:
           required: true
           type: file
       tags:
-        - Layers
+        - Environmental Layer
       responses:
         201:
           description: Successful layer post
           schema:
             $ref: '#/definitions/Layer'
-  /layer/{layerId}:
+        400:
+          description: Error status returned when there is a problem with the 
+                       user inputs
+  /envlayer/count:
     get:
-      summary: Get a layer
+      summary: Lifemapper environmental layers count services
+      description: |
+        The environmental layers count service endpoint provides a service for
+        returning the number of environmental layers that match a set of query
+        parameters.
+      parameters:
+        - $ref: '#/parameters/UrlUser'
+        - $ref: '#/parameters/EnvCode'
+        - $ref: '#/parameters/GCM'
+        - $ref: '#/parameters/AltPredCode'
+        - $ref: '#/parameters/DateCode'
+        - $ref: '#/parameters/AfterTime'
+        - $ref: '#/parameters/BeforeTime'
+        - $ref: '#/parameters/EPSG'
+        - $ref: '#/parameters/ScenarioCode'
+        - $ref: '#/parameters/ScenarioId'
+      tags:
+        - Environmental Layer
+      responses:
+        200:
+          description: A count of environmental layers matching the criteria
+          schema:
+            $ref: '#/definitions/ObjectCount'
+  /envlayer/{layerId}:
+    get:
+      summary: Get an environmental layer
       parameters:
         - $ref: '#/parameters/PathLayerId'
-        - $ref: '#/parameters/LayerType'
       tags:
-        - Layers
+        - Environmental Layer
+      produces:
+        - application/json
+        - image/tiff
+        - application/vnd.google-earth.kml+xml
+        - application/vnd.google-earth.kmz
       responses:
         200:
           description: Layer object in specified format
           schema:
-            $ref: '#/definitions/Layer'
+            $ref: '#/definitions/EnvLayer'
+        403:
+          description: Error status thrown when the user does not have 
+                       permission to access an environmental layer
+        404:
+          description: Error status thrown when the requested environmental 
+                       layer was not found
     delete:
       summary: Delete a layer that you own
       parameters:
         - $ref: '#/parameters/PathLayerId'
       tags:
-        - Layers
+        - Environmental Layer
+      responses:
+        204:
+          description: Returns an OK response that a layer is deleted
+        403:
+          description: Error status thrown when the user does not have 
+                       permission to delete an environmental layer
+        404:
+          description: Error status thrown when the requested environmental 
+                       layer was not found
+
+  /globalpam:
+    get:
+      summary: Lifemapper global PAM query service
+      description: |
+        The Global PAM endpoint allows a user to query all of the completed 
+        PAMs that the user has access to to find those that match their query
+        parameters.
+      parameters:
+        - $ref: '#/parameters/AlgorithmCode'
+        - $ref: '#/parameters/BBox'
+        - $ref: '#/parameters/GridSetId'
+        - $ref: '#/parameters/ModelScenarioCode'
+        - $ref: '#/parameters/PointMax'
+        - $ref: '#/parameters/PointMin'
+        - $ref: '#/parameters/UrlUser'
+        - $ref: '#/parameters/ProjectScenarioCode'
+        - $ref: '#/parameters/Squid'
+        - $ref: '#/parameters/TaxonKingdom'
+        - $ref: '#/parameters/TaxonPhylum'
+        - $ref: '#/parameters/TaxonClass'
+        - $ref: '#/parameters/TaxonOrder'
+        - $ref: '#/parameters/TaxonFamily'
+        - $ref: '#/parameters/TaxonGenus'
+        - $ref: '#/parameters/TaxonSpecies'
+      tags:
+        - Global PAM
       responses:
         200:
-          description: Returns an OK response that a layer is deleted
+          description: Returns a list of matching PAVs
+          schema:
+            $ref: '#/definitions/SolrList'
+    post:
+      summary: Lifemapper Global PAM subset service
+      description: |
+        The Global PAM subset service allows a user to create a subset of an
+        existing Global PAM for computations
+      parameters:
+        - $ref: '#/parameters/ArchiveNameReq'
+        - $ref: '#/parameters/GridSetIdReq'
+        - $ref: '#/parameters/AlgorithmCode'
+        - $ref: '#/parameters/BBox'
+        - $ref: '#/parameters/ModelScenarioCode'
+        - $ref: '#/parameters/PointMax'
+        - $ref: '#/parameters/PointMin'
+        - $ref: '#/parameters/UrlUser'
+        - $ref: '#/parameters/ProjectScenarioCode'
+        - $ref: '#/parameters/Squid'
+        - $ref: '#/parameters/TaxonKingdom'
+        - $ref: '#/parameters/TaxonPhylum'
+        - $ref: '#/parameters/TaxonClass'
+        - $ref: '#/parameters/TaxonOrder'
+        - $ref: '#/parameters/TaxonFamily'
+        - $ref: '#/parameters/TaxonGenus'
+        - $ref: '#/parameters/TaxonSpecies'
+      tags:
+        - Global PAM
+      responses:
+        202:
+          description: An atom for the gridset that was just posted
+          schema:
+            $ref: '#/definitions/AtomObject'
 
+  /gridset:
+    get:
+      summary: Lifemapper grid sets listing service
+      description: |
+        The gridset endpoint provides a service for querying Lifemapper 
+        gridsets that match a set of query parameters
+      parameters:
+        - $ref: '#/parameters/Offset'
+        - $ref: '#/parameters/Limit'
+        - $ref: '#/parameters/UrlUser'
+        - $ref: '#/parameters/AfterTime'
+        - $ref: '#/parameters/BeforeTime'
+        - $ref: '#/parameters/EPSG'
+        - $ref: '#/parameters/MetaString'
+        - $ref: '#/parameters/ShapegridId'
+      tags:
+        - Grid Set
+      responses:
+        200:
+          description: Returns a list of grid sets atoms
+          schema:
+            $ref: '#/definitions/AtomList'
+
+  /gridset/count:
+    get:
+      summary: Lifemapper grid sets counting service
+      description: |
+        The grid sets endpoint provides a service counting how many Lifemapper 
+        grid sets match a set of query parameters.
+      parameters:
+        - $ref: '#/parameters/UrlUser'
+        - $ref: '#/parameters/AfterTime'
+        - $ref: '#/parameters/BeforeTime'
+        - $ref: '#/parameters/EPSG'
+        - $ref: '#/parameters/MetaString'
+        - $ref: '#/parameters/ShapegridId'
+      tags:
+        - Grid Set
+      responses:
+        200:
+          description: The number of grid sets that match the specified criteria
+          schema:
+            $ref: '#/definitions/ObjectCount'
+
+  /gridset/{gridsetId}/:
+    get:
+      summary: Lifemapper grid set service
+      description: |
+        The grid set service endpoint returns a specific grid set
+      parameters:
+        - $ref: '#/parameters/PathGridsetId'
+      tags:
+        - Grid Set
+      responses:
+        200:
+          description: Returns a grid set object
+          schema:
+            $ref: '#/definitions/GridSet'
+
+  /gridset/{gridsetId}/matrix:
+    get:
+      summary: Lifemapper gridset matrix listing service
+      description: |
+        The matrix endpoint for a grid set provides a servic for querying 
+        Lifemapper matrices that match a set of query parameters
+      parameters:
+        - $ref: '#/parameters/PathGridsetId'
+        - $ref: '#/parameters/UrlUser'
+        - $ref: '#/parameters/AfterTime'
+        - $ref: '#/parameters/AltPredCode'
+        - $ref: '#/parameters/BeforeTime'
+        - $ref: '#/parameters/DateCode'
+        - $ref: '#/parameters/EPSG'
+        - $ref: '#/parameters/GCM'
+        - $ref: '#/parameters/Keyword'
+        - $ref: '#/parameters/Limit'
+        - $ref: '#/parameters/MatrixType'
+        - $ref: '#/parameters/Offset'
+        - $ref: '#/parameters/Status'
+        
+      tags:
+        - Matrix
+      responses:
+        200:
+          description: Returns a list of matrix atoms
+          schema:
+            $ref: '#/definitions/AtomList'
+
+  /gridset/{gridsetId}/matrix/count:
+    get:
+      summary: Lifemapper gridset matrix count service
+      description: |
+        The matrix endpoint for a grid set provides a service for querying 
+        Lifemapper matrices that match a set of query parameters
+      parameters:
+        - $ref: '#/parameters/PathGridsetId'
+        - $ref: '#/parameters/UrlUser'
+        - $ref: '#/parameters/AfterTime'
+        - $ref: '#/parameters/AltPredCode'
+        - $ref: '#/parameters/BeforeTime'
+        - $ref: '#/parameters/DateCode'
+        - $ref: '#/parameters/EPSG'
+        - $ref: '#/parameters/GCM'
+        - $ref: '#/parameters/Keyword'
+        - $ref: '#/parameters/MatrixType'
+        - $ref: '#/parameters/Status'
+        
+      tags:
+        - Matrix
+      responses:
+        200:
+          description: Returns the number of matching matrices
+          schema:
+            $ref: '#/definitions/ObjectCount'
+
+  /gridset/{gridsetId}/matrix/{matrixId}:
+    get:
+      summary: Lifemapper gridset matrix service
+      description: |
+        The matrix endpoint for a grid set provides a service for retrieving a  
+        Lifemapper matrix
+      parameters:
+        - $ref: '#/parameters/PathGridsetId'
+        - $ref: '#/parameters/PathMatrixId'
+      tags:
+        - Matrix
+      responses:
+        200:
+          description: Returns a matrix
+          schema:
+            $ref: '#/definitions/Matrix'
+        403:
+          description: Error status thrown when the user does not have 
+                       permission to access a matrix
+        404:
+          description: Error status thrown when the requested matrix was not
+                       found
+
+  /gridset/{gridsetId}/matrix/{matrixId}/column:
+    get:
+      summary: Lifemapper gridset matrix column service
+      description: |
+        The matrix endpoint for a grid set provides a service for listing 
+        matrix columns
+      parameters:
+        - $ref: '#/parameters/PathGridsetId'
+        - $ref: '#/parameters/PathMatrixId'
+      tags:
+        - Matrix Column
+      responses:
+        200:
+          description: Returns a matrix column atom list
+          schema:
+            $ref: '#/definitions/AtomList'
+        403:
+          description: Error status thrown when the user does not have 
+                       permission to access a matrix
+        404:
+          description: Error status thrown when the requested matrix was not
+                       found
+
+  /layer:
+    get:
+      summary: Lifemapper layers listing services
+      description: |
+        The layers endpoint provides a service for querying Lifemapper layers
+        that match a set of query parameters.
+      parameters:
+        - $ref: '#/parameters/Offset'
+        - $ref: '#/parameters/Limit'
+        - $ref: '#/parameters/UrlUser'
+        - $ref: '#/parameters/Squid'
+        - $ref: '#/parameters/AfterTime'
+        - $ref: '#/parameters/BeforeTime'
+        - $ref: '#/parameters/EPSG'
+      tags:
+        - Layer
+      responses:
+        200:
+          description: A list of layers that match the specified criteria
+          schema:
+            $ref: '#/definitions/AtomList'
+    post:
+      summary: Post a new layer
+      consumes:
+        - multipart/form-data
+      parameters:
+        - name: epsgCode
+          in: query
+          description: The EPSG code for the layer
+          required: true
+          type: integer
+        - name: name
+          in: query
+          description: A short name for the layer
+          required: false
+          type: string
+        - name: isCategorical
+          in: query
+          description: An indicator if this layer is categorical or not (1=yes, 0=no)
+          required: false
+          type: integer
+          format: int2
+          minimum: 0
+          maximum: 1
+          enum: [0, 1]
+        - name: envLayerTypeId
+          in: query
+          description: The type code id for this layer
+          required: false
+          type: integer
+        - name: metadata
+          in: query
+          description: Additional metadata to add to the layer
+          required: false
+          type: string
+        - name: envLayerType
+          in: query
+          description: The type code for this layer
+          required: true
+          type: string
+        - name: valUnits
+          in: query
+          description: The units for the values in each cell (such as degreesCelsius)
+          required: false
+          type: string
+        - name: gcmCode
+          in: query
+          description: GCM
+          required: false
+          type: string
+        - name: alternatePredictionCode
+          in: query
+          description: Alternate prediction code
+          required: false
+          type: string
+        - name: dateCode
+          in: query
+          description: Date code
+          required: false
+          type: string
+        - name: file
+          in: formData
+          description: The layer content as a file
+          required: true
+          type: file
+      tags:
+        - Layer
+      responses:
+        201:
+          description: Successful layer post
+          schema:
+            $ref: '#/definitions/Layer'
+        400:
+          description: Error status thrown when there is a problem with user 
+                       inputs
+  /layer/count:
+    get:
+      summary: Lifemapper layers count service
+      description: |
+        The layers endpoint provides a service counting how many Lifemapper 
+        layers match a set of query parameters.
+      parameters:
+        - $ref: '#/parameters/UrlUser'
+        - $ref: '#/parameters/Squid'
+        - $ref: '#/parameters/AfterTime'
+        - $ref: '#/parameters/BeforeTime'
+        - $ref: '#/parameters/EPSG'
+      tags:
+        - Layer
+      responses:
+        200:
+          description: The number of layers that match the specified criteria
+          schema:
+            $ref: '#/definitions/ObjectCount'
+  /layer/{layerId}:
+    get:
+      summary: Get a layer
+      parameters:
+        - $ref: '#/parameters/PathLayerId'
+      tags:
+        - Layer
+      produces:
+        - application/json
+        - image/tiff
+        - application/vnd.google-earth.kml+xml
+        - application/vnd.google-earth.kmz
+      responses:
+        200:
+          description: Layer object in specified format
+          schema:
+            $ref: '#/definitions/Layer'
+        403:
+          description: Error status thrown when the user does not have 
+                       permission to retrieve a layer
+        404:
+          description: Error status thrown when the layer was not found
+    delete:
+      summary: Delete a layer that you own
+      parameters:
+        - $ref: '#/parameters/PathLayerId'
+      tags:
+        - Layer
+      responses:
+        204:
+          description: Returns an OK response that a layer is deleted
+        403:
+          description: Error status thrown when the user does not have 
+                       permission to delete a layer
+        404:
+          description: Error status thrown when the layer was not found
+                       
   /occurrence:
     get:
       summary: Get a list of occurrence sets that match your criteria
       parameters:
+        - $ref: '#/parameters/Offset'
+        - $ref: '#/parameters/Limit'
+        - $ref: '#/parameters/UrlUser'
+        - $ref: '#/parameters/MinimumNumberOfPoints'
+        - $ref: '#/parameters/DisplayName'
         - $ref: '#/parameters/AfterTime'
         - $ref: '#/parameters/BeforeTime'
-        - $ref: '#/parameters/DisplayName'
         - $ref: '#/parameters/EPSG'
-        - $ref: '#/parameters/MinimumNumberOfPoints' # TODO
-        - $ref: '#/parameters/Limit'
-        - $ref: '#/parameters/Offset'
-        - $ref: '#/parameters/Public'
         - $ref: '#/parameters/Squid'
         - $ref: '#/parameters/Status'
+        - $ref: '#/parameters/AfterStatus'
+        - $ref: '#/parameters/BeforeStatus'
+        - $ref: '#/parameters/GridSetId'
       tags:
-        - Occurrence Sets
+        - Occurrence Layer
       responses:
         200:
           description: A list of occurrence sets that match your criteria
           schema:
             $ref: '#/definitions/AtomList'
     post:
-      summary: Post a new occurrence set
-      consumes:
-        - multipart/form-data
+      summary: Perform a BOOM post
       parameters:
-        - name: file
-          in: formData
-          description: The occurrence set as a zipped shapefile
+        - name: body
+          in: body
+          description: A boom request post body
           required: true
-          type: file
-        - $ref: '#/parameters/DisplayName'
-        - $ref: '#/parameters/EPSG'
-        - $ref: '#/parameters/AdditionalMetadata'
+          schema: {
+            "$ref" : "#/definitions/BoomPOST"
+          }
       tags:
-        - Occurrence Sets
+        - Occurrence Layer
       responses:
-        201:
-          description: An occurrence set in the specified format
+        202:
+          description: An atom for the posted grid set
           schema:
-            $ref: '#/definitions/OccurrenceSet'
+            $ref: '#/definitions/AtomObject'
+        400:
+          description: Error status returned when there is a problem with user 
+                       inputs
+  /occurrence/count:
+    get:
+      summary: Get a count of occurrence layers that match your criteria
+      parameters:
+        - $ref: '#/parameters/UrlUser'
+        - $ref: '#/parameters/MinimumNumberOfPoints'
+        - $ref: '#/parameters/DisplayName'
+        - $ref: '#/parameters/AfterTime'
+        - $ref: '#/parameters/BeforeTime'
+        - $ref: '#/parameters/EPSG'
+        - $ref: '#/parameters/Squid'
+        - $ref: '#/parameters/Status'
+        - $ref: '#/parameters/AfterStatus'
+        - $ref: '#/parameters/BeforeStatus'
+        - $ref: '#/parameters/GridSetId'
+      tags:
+        - Occurrence Layer
+      responses:
+        200:
+          description: A count of occurrence sets that match your criteria
+          schema:
+            $ref: '#/definitions/ObjectCount'
   /occurrence/{occurrenceSetId}:
     get:
       summary: Get an occurrence set in the specified format
       parameters:
         - $ref: '#/parameters/PathOccurrenceSetId'
       tags:
-        - Occurrence Sets
+        - Occurrence Layer
+      produces:
+        - application/json
+        - application/x-gzip
+        - application/vnd.google-earth.kml+xml
+        - application/vnd.google-earth.kmz
       responses:
         200:
           description: An occurrence set in the specified format
           schema:
             $ref: '#/definitions/OccurrenceSet'
+        403:
+          description: Error status thrown when the user does not have 
+                       permission to access the occurrence layer
+        404:
+          description: Error status thrown when the requested occurrence layer 
+                       does not exist
     delete:
       summary: Delete an occurrence set you own
       parameters:
         - $ref: '#/parameters/PathOccurrenceSetId'
       tags:
-        - Occurrence Sets
+        - Occurrence Layer
       responses:
-        200:
+        204:
           description: OK message that an occurrence set was deleted
+        403:
+          description: Error status thrown when the user does not have 
+                       permission to delete the occurrence layer
+        404:
+          description: Error status thrown when the requested occurrence layer 
+                       does not exist
 
-  /projection:
+  /sdmProject:
     get:
       summary: Get a list of projections that match your criteria
       parameters:
-        - $ref: '#/parameters/AfterTime'
-        - $ref: '#/parameters/AlgorithmCode'
-        - $ref: '#/parameters/BeforeTime'
-        - $ref: '#/parameters/DisplayName'
-        - $ref: '#/parameters/EPSG'
-        - $ref: '#/parameters/OccurrenceSetId'
-        - $ref: '#/parameters/Limit'
         - $ref: '#/parameters/Offset'
-        - $ref: '#/parameters/Public'
-        - $ref: '#/parameters/ScenarioId'
-        - $ref: '#/parameters/Squid'
+        - $ref: '#/parameters/Limit'
+        - $ref: '#/parameters/UrlUser'
+        - $ref: '#/parameters/DisplayName'
+        - $ref: '#/parameters/AfterTime'
+        - $ref: '#/parameters/BeforeTime'
+        - $ref: '#/parameters/EPSG'
         - $ref: '#/parameters/Status'
+        - $ref: '#/parameters/AfterStatus'
+        - $ref: '#/parameters/BeforeStatus'
+        - $ref: '#/parameters/OccurrenceSetId'
+        - $ref: '#/parameters/AlgorithmCode'
+        - $ref: '#/parameters/ModelScenarioCode'
+        - $ref: '#/parameters/ModelScenarioId'
+        - $ref: '#/parameters/ProjectScenarioCode'
+        - $ref: '#/parameters/ProjectScenarioId'
+        - $ref: '#/parameters/Squid'
+        - $ref: '#/parameters/GridSetId'
       tags:
-        - Projections
+        - SDM Projection
       responses:
         200:
           description: A list of projections
@@ -236,52 +701,101 @@ paths:
           description: A projection(s) request post body
           required: true
           schema: {
-            "$ref" : "#/definitions/ProjectionPOST"
+            "$ref" : "#/definitions/BoomPOST"
           }
+      tags:
+        - SDM Projection
       responses:
         202:
-          description: A list of posted projection URLs
+          description: An atom for the posted grid set
           schema:
-            $ref: '#/definitions/AtomList'
+            $ref: '#/definitions/AtomObject'
+        400:
+          description: Error status returned when there is a problem with user 
+                       inputs
             
-  /projection/{projectionId}:
+  /sdmProject/count:
+    get:
+      summary: Get a count of projections that match your criteria
+      parameters:
+        - $ref: '#/parameters/UrlUser'
+        - $ref: '#/parameters/DisplayName'
+        - $ref: '#/parameters/AfterTime'
+        - $ref: '#/parameters/BeforeTime'
+        - $ref: '#/parameters/EPSG'
+        - $ref: '#/parameters/Status'
+        - $ref: '#/parameters/AfterStatus'
+        - $ref: '#/parameters/BeforeStatus'
+        - $ref: '#/parameters/OccurrenceSetId'
+        - $ref: '#/parameters/AlgorithmCode'
+        - $ref: '#/parameters/ModelScenarioCode'
+        - $ref: '#/parameters/ModelScenarioId'
+        - $ref: '#/parameters/ProjectScenarioCode'
+        - $ref: '#/parameters/ProjectScenarioId'
+        - $ref: '#/parameters/Squid'
+        - $ref: '#/parameters/GridSetId'
+      tags:
+        - SDM Projection
+      responses:
+        200:
+          description: A count of items matching the criteria
+          schema:
+            $ref: '#/definitions/ObjectCount'
+
+  /sdmProject/{projectionId}:
     get:
       summary: Get a projection
       parameters:
         - $ref: '#/parameters/PathProjectionId'
       tags:
-        - Projections
+        - SDM Projection
+      produces:
+        - application/json
+        - image/tiff
+        - application/vnd.google-earth.kml+xml
+        - application/vnd.google-earth.kmz
       responses:
         200:
           description: Get a projection in the format you specify
           schema:
             $ref: '#/definitions/Projection'
+        403:
+          description: Error status raised when the user does not have 
+                       permission to access a SDM projection object
+        404:
+          description: Error status raised when the SDM projection object
+                       requested was not found
     delete:
       summary: Delete a projection that you own
       parameters:
         - $ref: '#/parameters/PathProjectionId'
       tags:
-        - Projections
+        - SDM Projection
       responses:
-        200:
+        204:
           description: OK Message that a projection was deleted
-
+        403:
+          description: Error status raised when the user does not have 
+                       permission to delete a SDM projection object
+        404:
+          description: Error status raised when the SDM projection object
+                       requested was not found
 
   /scenario:
     get:
       summary: Get a list of scenarios that match your criteria
       parameters:
-        - $ref: '#/parameters/AfterTime'
+        - $ref: '#/parameters/Offset'
+        - $ref: '#/parameters/Limit'
+        - $ref: '#/parameters/UrlUser'
         - $ref: '#/parameters/BeforeTime'
+        - $ref: '#/parameters/AfterTime'
         - $ref: '#/parameters/EPSG'
         - $ref: '#/parameters/GCM'
-        - $ref: '#/parameters/AltPredictionCode'
+        - $ref: '#/parameters/AltPredCode'
         - $ref: '#/parameters/DateCode'
-        - $ref: '#/parameters/Limit'
-        - $ref: '#/parameters/Offset'
-        - $ref: '#/parameters/Public'
       tags:
-        - Scenarios
+        - Scenario
       responses:
         200:
           description: A list of scenarios matching the criteria
@@ -298,12 +812,34 @@ paths:
             "$ref" : "#/definitions/ScenarioPOST"
           }
       tags:
-        - Scenarios
+        - Scenario
       responses:
         201:
           description: The posted scenario
           schema:
             $ref: '#/definitions/Scenario'
+        400:
+          description: Error status returned when there is a problem with user 
+                       input
+
+  /scenario/count:
+    get:
+      summary: Get the number of scenarios that match your criteria
+      parameters:
+        - $ref: '#/parameters/UrlUser'
+        - $ref: '#/parameters/BeforeTime'
+        - $ref: '#/parameters/AfterTime'
+        - $ref: '#/parameters/EPSG'
+        - $ref: '#/parameters/GCM'
+        - $ref: '#/parameters/AltPredCode'
+        - $ref: '#/parameters/DateCode'
+      tags:
+        - Scenario
+      responses:
+        200:
+          description: The number of scenarios matching the criteria
+          schema:
+            $ref: '#/definitions/ObjectCount'
 
   /scenario/{scenarioId}:
     get:
@@ -311,70 +847,363 @@ paths:
       parameters:
         - $ref: '#/parameters/PathScenarioId'
       tags:
-        - Scenarios
+        - Scenario
       responses:
         200:
           description: The scenario in the specified format
           schema:
             $ref: '#/definitions/Scenario'
+        403:
+          description: Error status returned when the user does not have 
+                       permission to access a scenario
+        404:
+          description: Error status returned when the requested scenario does 
+                       not exist
     delete:
       summary: Delete a scenario that you own
       parameters:
         - $ref: '#/parameters/PathScenarioId'
       tags:
-        - Scenarios
+        - Scenario
+      responses:
+        204:
+          description: An OK message that the scenario was deleted
+        403:
+          description: Error status returned when the user does not have 
+                       permission to delete a scenario
+        404:
+          description: Error status returned when the requested scenario does 
+                       not exist
+
+  /scenpackage:
+    get:
+      summary: Get a list of scenario packages that match your criteria
+      parameters:
+        - $ref: '#/parameters/Offset'
+        - $ref: '#/parameters/Limit'
+        - $ref: '#/parameters/UrlUser'
+        - $ref: '#/parameters/BeforeTime'
+        - $ref: '#/parameters/AfterTime'
+        - $ref: '#/parameters/ScenarioId'
+      tags:
+        - Scenario Package
       responses:
         200:
-          description: An OK message that the scenario was deleted
+          description: A list of scenario packages matching the criteria
+          schema:
+            $ref: '#/definitions/AtomList'
+
+  /scenpackage/count:
+    get:
+      summary: Get the number of scenario packages that match your criteria
+      parameters:
+        - $ref: '#/parameters/UrlUser'
+        - $ref: '#/parameters/BeforeTime'
+        - $ref: '#/parameters/AfterTime'
+        - $ref: '#/parameters/ScenarioId'
+      tags:
+        - Scenario Package
+      responses:
+        200:
+          description: The number of scenario packages matching the criteria
+          schema:
+            $ref: '#/definitions/ObjectCount'
+
+  /scenpackage/{scenarioPackageId}:
+    get:
+      summary: Get a scenario package
+      parameters:
+        - $ref: '#/parameters/PathScenarioPackageId'
+      tags:
+        - Scenario Package
+      responses:
+        200:
+          description: The scenario package in the specified format
+          schema:
+            $ref: '#/definitions/ScenarioPackage'
+        403:
+          description: Error status returned when the user does not have 
+                       permission to access a scenario package
+        404:
+          description: Error status returned when the requested scenario 
+                       package does not exist
+
+  /shapegrid:
+    get:
+      summary: Get a list of shapegrids that match your criteria
+      parameters:
+        - $ref: '#/parameters/Offset'
+        - $ref: '#/parameters/Limit'
+        - $ref: '#/parameters/UrlUser'
+        - $ref: '#/parameters/CellSides'
+        - $ref: '#/parameters/CellSize'
+        - $ref: '#/parameters/AfterTime'
+        - $ref: '#/parameters/BeforeTime'
+        - $ref: '#/parameters/EPSG'
+      tags:
+        - Shapegrid
+      responses:
+        200:
+          description: A list of shapegrids matching the criteria
+          schema:
+            $ref: '#/definitions/AtomList'
+
+  /shapegrid/count:
+    get:
+      summary: Get the number of shapegrids that match your criteria
+      parameters:
+        - $ref: '#/parameters/UrlUser'
+        - $ref: '#/parameters/CellSides'
+        - $ref: '#/parameters/CellSize'
+        - $ref: '#/parameters/AfterTime'
+        - $ref: '#/parameters/BeforeTime'
+        - $ref: '#/parameters/EPSG'
+      tags:
+        - Shapegrid
+      responses:
+        200:
+          description: The number of shapegrids matching the criteria
+          schema:
+            $ref: '#/definitions/ObjectCount'
+
+  /shapegrid/{shapegridId}:
+    get:
+      summary: Get a shapegrid
+      parameters:
+        - $ref: '#/parameters/PathShapegridId'
+      tags:
+        - Shapegrid
+      responses:
+        200:
+          description: The shapegrid in the specified format
+          schema:
+            $ref: '#/definitions/Shapegrid'
+        403:
+          description: Error status returned when the user does not have 
+                       permission to access a shapegrid
+        404:
+          description: Error status returned when the requested shapegrid does 
+                       not exist
+    delete:
+      summary: Delete a shapegrid that you own
+      parameters:
+        - $ref: '#/parameters/PathShapegridId'
+      tags:
+        - Shapegrid
+      responses:
+        204:
+          description: An OK message that the shapegrid was deleted
+        403:
+          description: Error status returned when the user does not have 
+                       permission to delete a shapegrid
+        404:
+          description: Error status returned when the requested shapegrid does 
+                       not exist
+
+  /tree:
+    get:
+      summary: Get a list of trees that match your criteria
+      parameters:
+        - $ref: '#/parameters/Offset'
+        - $ref: '#/parameters/Limit'
+        - $ref: '#/parameters/UrlUser'
+        - $ref: '#/parameters/TreeName'
+        - $ref: '#/parameters/IsBinary'
+        - $ref: '#/parameters/IsUltrametric'
+        - $ref: '#/parameters/HasBranchLengths'
+        - $ref: '#/parameters/MetaString'
+        - $ref: '#/parameters/AfterTime'
+        - $ref: '#/parameters/BeforeTime'
+      tags:
+        - Tree
+      responses:
+        200:
+          description: A list of trees matching the criteria
+          schema:
+            $ref: '#/definitions/AtomList'
+    post:
+      summary: Post a new phylogenetic tree
+      parameters:
+        - name: body
+          in: body
+          description: Tree POST body
+          required: true
+          schema: {
+            "$ref" : "#/definitions/TreePOST"
+          }
+      tags:
+        - Tree
+      responses:
+        201:
+          description: The posted tree
+          schema:
+            $ref: '#/definitions/Tree'
+        400:
+          description: Error status returned when there is a problem with user 
+                       input
+
+  /tree/count:
+    get:
+      summary: Get the number of trees that match your criteria
+      parameters:
+        - $ref: '#/parameters/UrlUser'
+        - $ref: '#/parameters/TreeName'
+        - $ref: '#/parameters/IsBinary'
+        - $ref: '#/parameters/IsUltrametric'
+        - $ref: '#/parameters/HasBranchLengths'
+        - $ref: '#/parameters/MetaString'
+        - $ref: '#/parameters/AfterTime'
+        - $ref: '#/parameters/BeforeTime'
+      tags:
+        - Tree
+      responses:
+        200:
+          description: The number of trees matching the criteria
+          schema:
+            $ref: '#/definitions/ObjectCount'
+
+  /tree/{treeId}:
+    get:
+      summary: Get a tree
+      parameters:
+        - $ref: '#/parameters/PathTreeId'
+      tags:
+        - Tree
+      responses:
+        200:
+          description: The tree in the specified format
+          schema:
+            $ref: '#/definitions/Tree'
+        403:
+          description: Error status returned when the user does not have 
+                       permission to access a tree
+        404:
+          description: Error status returned when the requested tree does 
+                       not exist
+    delete:
+      summary: Delete a tree that you own
+      parameters:
+        - $ref: '#/parameters/PathTreeId'
+      tags:
+        - Tree
+      responses:
+        204:
+          description: An OK message that the tree was deleted
+        403:
+          description: Error status returned when the user does not have 
+                       permission to delete a tree
+        404:
+          description: Error status returned when the requested tree does 
+                       not exist
+
+  /upload:
+    post:
+      summary: Post a new data set for a user
+      consumes:
+        - multipart/form-data
+      parameters:
+        - name: fileName
+          in: query
+          description: The name of the file / package to be stored
+          required: true
+          type: string
+        - name: uploadType
+          in: query
+          description: The type of data being uploaded
+          required: true
+          type: string
+          enum:
+            - biogeo
+            - climate
+            - occurrence
+            - tree
+        - name: file
+          in: formData
+          description: The data posted as a file
+          required: true
+          type: file
+      tags:
+        - Upload
+      responses:
+        202:
+          description: A small JSON chunk indicating the data was posted
+        400:
+          description: Error status returned when there is a problem with user 
+                       input
+        409:
+          description: Post failed due to duplicate name
 
 definitions:
   Algorithm:
     type: object
+    required: [code, parameters]
     properties:
       code:
         type: string
       parameters:
-        type: array
-        items:
-          properties:
-            name:
-              type: string
-            value:
-              type: string
+        type: object
 
   AtomList:
-    type: object
-    properties:
-      title:
-        type: string
-        description: The title of the returned list
-      items:
-        type: array
-        description: Array of returned items
-        items:
-           $ref: '#/definitions/AtomObject'
-      itemCount:
-        type: integer
-        description: The total number of items that match these criteria
-      userId:
-        type: string
-        description: The name of the user that these items belong to
-
+    type: array
+    items:
+       $ref: '#/definitions/AtomObject'
+  
   AtomObject:
     type: object
+    required: [epsg, id, modificationTime, name, url]
     properties:
+      epsg:
+        type: integer
+        description: The EPSG code of the object
       id:
         type: integer
         description: The id of the object
-      modTime:
+      modificationTime:
         type: string
         description: The date / time this object was last modified
-      title:
+      name:
         type: string
-        description: The title of the object
+        description: The name of the object
       url:
         type: string
         description: A URL for more information about this object
+
+  EnvLayer:
+    type: object
+    properties:
+      objectType:
+        type: string
+      id:
+        type: string
+      url:
+        type: string
+      user:
+        type: string
+      status:
+        type: integer
+      statusModTime:
+        type: string
+        description: The date / time this object was last modified
+      etag:
+        type: string
+      metadata:
+        type: object
+      map:
+        $ref: '#/definitions/Map'
+      spatialRaster:
+        $ref: '#/definitions/SpatialRaster'
+      envCode:
+        type: string
+      gcmCode:
+        type: string
+      altPredCode:
+        type: string
+      dateCode:
+        type: string
+
+  GridSet:
+    type: object
+    
 
   Layer:
     type: object
@@ -383,163 +1212,336 @@ definitions:
         type: string
       id:
         type: string
-      metadataUrl:
+      url:
         type: string
+      user:
+        type: string
+      status:
+        type: integer
+      statusModTime:
+        type: string
+        description: The date / time this object was last modified
       etag:
         type: string
-      name:
-        type: string
-      userId:
-        type: string
-      additionalMetadata:
+      metadata:
         type: object
-      map:
-        $ref: '#/definitions/Map'
-      spatial:
-        $ref: '#/definitions/Spatial'
+      spatialRaster:
+        $ref: '#/definitions/SpatialRaster'
 
   Map:
     type: object
+    required: [endpoint, mapName, layers]
     properties:
-      ogcEndpoint:
+      endpoint:
         type: string
       mapName:
         type: string
-      layerNames:
+      layers:
         type: array
         items:
+          required: [layerName, metadataUrl]
           properties:
             metadataUrl:
               type: string
             layerName:
               type: string
 
+  Matrix:
+    type: object
+    
+  MatrixColumn:
+    type: object
+
+  ObjectCount:
+    type: object
+    properties:
+      count:
+        type: integer
+
+  ObjectRef:
+    type: object
+    properties:
+      id:
+        type: integer
+      metadataUrl:
+        type: string
+
   OccurrenceSet:
     type: object
+    required: [id]
     properties:
       objectType:
         type: string
       id:
+        type: integer
+      url:
         type: string
-      metadataUrl:
+      user:
         type: string
       status:
-        type: string
+        type: integer
       statusModTime:
         type: string
+        description: The date / time this object was last modified
       etag:
         type: string
-      taxonId:
-        type: string
+      metadata:
+        type: object
+      map:
+        $ref: '#/definitions/SingleLayerMap'
+      spatialVector:
+        $ref: '#/definitions/SpatialVector'
       speciesName:
         type: string
       squid:
         type: string
-      userId:
-        type: string
-      additionalMetadata:
-        type: object
-      map:
-        $ref: '#/definitions/Map'
-      spatial:
-        $ref: '#/definitions/Spatial'
 
   Projection:
     type: object
+    required: [id]
     properties:
       objectType:
         type: string
       id:
+        type: integer
+      url:
         type: string
-      metadataUrl:
+      user:
         type: string
       status:
-        type: number
+        type: integer
       statusModTime:
         type: string
+        description: The date / time this object was last modified
       etag:
         type: string
+      metadata:
+        $ref: '#/definitions/ProjectionMetadata'
+      map:
+        $ref: '#/definitions/SingleLayerMap'
+      spatialRaster:
+        $ref: '#/definitions/SpatialRaster'
       algorithm:
         $ref: '#/definitions/Algorithm'
       modelScenario:
-        type: object
-        properties:
-          code:
-            type: string
-          id:
-            type: string
-          metadataUrl:
-            type: string
+        $ref: '#/definitions/ScenarioRef'
       projectionScenario:
-        type: object
-        properties:
-          code:
-            type: string
-          id:
-            type: string
-          metadataUrl:
-            type: string
-      taxonId:
+        $ref: '#/definitions/ScenarioRef'
+      speciesName:
         type: string
       squid:
         type: string
-      speciesName:
-        type: string
-      additionalMetadata:
-        type: object
-      map:
-        $ref: '#/definitions/Map'
-      spatial:
-        $ref: '#/definitions/Spatial'
-
-  ProjectionPOST:
-    type: object
-    properties:
       occurrenceSet:
-        type: number
-      algorithm:
-        $ref: '#/definitions/Algorithm'
-      modelScenario:
-        type: number
-      projectionScenario:
+        $ref: '#/definitions/ObjectRef'
+
+  BoomGlobalPAM:
+    type: object
+    description: A global PAM post object
+    required: [shapegrid, intersect_parameters]
+    properties:
+      shapegrid:
+        type: object
+        properties:
+          ref:
+            type: string
+          id:
+            type: integer
+          post:
+            $ref: '#/definitions/ShapegridPOST'
+      intersect_parameters:
+        type: object
+        required: [min_presence, max_presence, value_name, min_percent]
+        properties:
+          min_presence:
+            type: integer
+          max_presence:
+            type: integer
+          value_name:
+            description: Use pixel for rasters
+            type: string
+          min_percent:
+            type: integer
+
+  BoomMCPA:
+    type: object
+    required: [hypotheses_package_name]
+    properties:
+      hypotheses_package_name:
+        description: The name of the previously uploaded hypothesis package
+        type: string
+
+  BoomOccurrenceSet:
+    type: object
+    description: |
+      Multiple occurrence set specification either via occurrence set ids or
+      generated by processing a CSV file
+    properties:
+      occurrence_ids:
         type: array
         items:
-          type: number
-  
-  RasterData:
+          type: integer
+      points_filename:
+        description: |
+          This is the name of a previously uploaded file in the user space
+        type: string
+      point_count_min:
+        type: integer
+                 
+  BoomPAMStats:
+    type: object
+    description: |
+      Including this option will generate PAM stats for each of the PAMs 
+      produced in the BOOM workflow.  
+    required: [compute_pam_stats]
+    properties:
+      compute_pam_stats:
+        type: integer
+        enum: [0, 1]
+            
+  ProjectionMetadata:
     type: object
     properties:
-      dataUrl:
+      description:
         type: string
-      verify:
+      title:
         type: string
-      fileSize:
+      isDiscrete:
+        type: boolean
+      keywords:
+        type: array
+        items:
+          type: string
+
+  BoomPOST:
+    type: object
+    description: |
+      The projection POST object is flexible in that you can specify one or
+      more projections with a single request.  An SDM model is created, but not
+      returned, for every algorithm / occurrence set / model scenario
+      combination.  An SDM projection object is created for every algorithm /
+      occurrence set / model scenario / projection scenario combination
+    properties:
+      
+      global_pam:
+        $ref: '#/definitions/BoomGlobalPAM'
+      mcpa:
+        $ref: '#/definitions/BoomMCPA'
+      occurrence:
+        $ref: '#/definitions/BoomOccurrenceSet'
+      pam_stats:
+        $ref: '#/definitions/BoomPAMStats'
+      scenario_package:
+        $ref: '#/definitions/BoomScenarioPackage'
+      sdm:
+        $ref: '#/definitions/BoomSDMs'
+      tree:
+        type: object
+        description: Specify the tree to use for this request by id
+        properties:
+          tree_file_name:
+            description: The file name of the tree that was uploaded
+            type: string
+
+      # Old options, remove when updated
+
+      algorithms:
+        type: array
+        items:
+          $ref: '#/definitions/Algorithm'
+      occurrenceSets:
+        type: array
+        items:
+          type: object
+          description: Choose one of the available properties for each item in the array
+          properties:
+            occurrenceSetId:
+              type: integer
+            occurrenceData:
+              type: string
+            occurrenceMeta:
+              type: object
+            #gbifTaxonId:
+            #  type: integer
+            #  description: Do not use this, just an example of the future
+      modelScenario:
+        type: object
+        description: Pick one of the options. Only scenario d is enabled now
+        properties:
+          scenarioId:
+            type: integer
+          scenarioCode:
+            type: string
+      projectionScenarios:
+        type: array
+        items:
+          type: object
+          description: Use one or the other
+          properties:
+            scenarioId:
+              type: integer
+            scenarioCode:
+              type: string
+            #modelScenario:
+            #  type: string
+            #  description: This is the model scenario that this projection 
+            #               scenario matches.  We may do this by codes and not
+            #               need this
+
+  BoomScenarioPackage:
+    type: object
+    properties:
+      scenario_package_filename:
         type: string
-      dataFormat:
-        type: string
-      minimumValue:
-        type: number
-      maximumValue:
-        type: number
-      valueUnits:
-        type: string
-      numRows:
-        type: number
-      numColumns:
-        type: number
-      nodataValue:
-        type: number
-      dataType:
-        type: string
+
+      model_scenario:
+        type: object
+        description: Pick one of the options. Only scenario id is enabled now
+        properties:
+          scenario_code:
+            type: string
+      projection_scenario:
+        type: array
+        items:
+          type: object
+          description: Use one or the other
+          properties:
+            scenario_code:
+              type: string
+      
+
+  BoomSDMs:
+    type: object
+    description: |
+      This section will specify how to post multiple SDMs in one fell swoop
+    required: [algorithm]
+    properties:
+      algorithm:
+        type: array
+        items:
+          $ref: '#/definitions/Algorithm'
+      hull_region_intersect_mask:
+        type: object
+        description: |
+          This is the only intersect method currently available.  If specified,
+          it will intersect a convex hull around the occurrence points with an
+          ecoregions layer to create a mask
+        properties:
+          buffer:
+            type: number
+            description: The buffer, in map units, to use around the points
+          region:
+            type: string
+            description: Layer name in the scenario package to use for ecoregion
 
   Scenario:
     type: object
+    required: [id]
     properties:
       objectType:
         type: string
       id:
-        type: string
-      metadataUrl:
+        type: integer
+      url:
         type: string
       etag:
         type: string
@@ -547,8 +1549,8 @@ definitions:
         type: string
       userId:
         type: string
-      additionalMetadata:
-        type: object
+      metadata:
+        $ref: '#/definitions/ScenarioMetadata'
       map:
         $ref: '#/definitions/Map'
       spatial:
@@ -562,6 +1564,45 @@ definitions:
       dateCode:
         type: string
       envTypeId:
+        type: string
+
+  ScenarioMetadata:
+    type: object
+    properties:
+      author:
+        type: string
+      description:
+        type: string
+      title:
+        type: string
+      keywords:
+        type: array
+        items:
+          type: string
+
+  ScenarioPackage:
+    type: object
+    required: [id, scenarios]
+    properties:
+      objectType:
+        type: string
+      id:
+        type: integer
+      name:
+        type: string
+      url:
+        type: string
+      etag:
+        type: string
+      userId:
+        type: string
+      metadata:
+        type: object
+      scenarios:
+        type: array
+        items:
+          $ref: '#/definitions/Scenario'
+      user:
         type: string
 
   ScenarioPOST:
@@ -580,57 +1621,239 @@ definitions:
         type: number
       units:
         type: string
-      additionalMetadata:
+      metadata:
         type: object
+
+  ScenarioRef:
+    type: object
+    properties:
+      code:
+        type: string
+      id:
+        type: integer
+      metadataUrl:
+        type: string
 
   Spatial:
     type: object
     properties:
       epsg:
-        type: string
+        type: integer
       bbox:
-        type: string
+        type: array
+        items:
+          type: number
       mapUnits:
         type: string
       resolution:
         type: number
-      rasterData:
-        $ref: '#/definitions/RasterData'
-      vectorData:
-        $ref: '#/definitions/VectorData'
+        
+  Shapegrid:
+    type: object
 
-  VectorData:
+  ShapegridPOST:
+    type: object
+    required: [name, epsg, minx, miny, maxx, maxy, resolution, cell_sides, map_units]
+    properties:
+      localId:
+        description: |
+          This identifier can be used within this document to reference this 
+          newly create shapegrid
+        type: string
+      name:
+        type: string
+      epsg:
+        type: integer
+      minx:
+        type: number
+      miny:
+        type: number
+      maxx:
+        type: number
+      maxy:
+        type: number
+      resolution:
+        type: number
+      cell_sides:
+        type: integer
+      map_units:
+        type: string
+      cutout_wkt:
+        type: string
+
+  SingleLayerMap:
+    type: object
+    required: [endpoint, mapName, layerName]
+    properties:
+      endpoint:
+        type: string
+      mapName:
+        type: string
+      layerName:
+        type: string
+
+  SolrList:
+    type: array
+    items:
+       $ref: '#/definitions/SolrPAV'
+
+  SolrPAV:
+    type: object
+    required: [compressedPAV, displayName, epsgCode, gridSetId,
+               gridSetMetaUrl, id, pavMetaUrl, shapegridDataUrl, shapegridId, 
+               shapegridMetaUrl, squid, userId]
+    properties:
+      algorithmCode:
+        type: string
+      algorithmParameters:
+        type: string
+      compressedPAV:
+        type: string
+        description: Run-length encoded version of the PAV
+      displayName: 
+        type: string
+      epsgCode:
+        type: integer
+      gridSetId:
+        type: integer
+      gridSetMetaUrl:
+        type: string
+      id:
+        type: integer
+      modelScenarioCode: 
+        type: string
+      modelScenarioId:
+        type: integer
+      modelScenarioUrl: 
+        type: string
+      occurrenceDataUrl: 
+        type: string
+      occurrenceId:
+        type: integer
+      occurrenceMetaUrl: 
+        type: string
+      pointCount:
+        type: integer
+      pavMetaUrl:
+        type: string
+      sdmProjDataUrl:
+        type: string
+      sdmProjId:
+        type: integer
+      sdmProjMetaUrl:
+        type: string
+      sdmProjScenarioAltPredCode: 
+        type: string
+      sdmProjScenarioCode: 
+        type: string
+      sdmProjScenarioDateCode: 
+        type: string
+      sdmProjScenarioGCM:
+        type: string
+      sdmProjScenarioId:
+        type: integer
+      sdmProjScenarioUrl:
+        type: string
+      shapegridDataUrl:
+        type: string
+      shapegridId: 
+        type: integer
+      shapegridMetaUrl: 
+        type: string
+      squid:
+        type: string
+      userId:
+        type: string
+
+  SpatialRaster:
     type: object
     properties:
-      dataUrl:
-        type: string
-      verify:
-        type: string
-      fileSize:
-        type: string
-      dataFormat:
-        type: string
-      ogrType:
-        type: string
-      featureCount:
-        type: number
-      features:
+      epsg:
+        type: integer
+      bbox:
         type: array
         items:
-          properties:
-            localId:
-              type: string
-            x:
-              type: number
-            y:
-              type: number
+          type: number
+      mapUnits:
+        type: string
+      resolution:
+        type: number
+      dataUrl:
+        type: string
+      sha256:
+        type: string
+      gdalType:
+        type: integer
+      dataFormat:
+        type: string
+      minVal:
+        type: number
+      maxVal:
+        type: number
+      valueUnits:
+        type: string
+      dataType:
+        type: integer
+
+  SpatialVector:
+    type: object
+    properties:
+      epsg:
+        type: integer
+      bbox:
+        type: array
+        items:
+          type: number
+      mapUnits:
+        type: string
+      resolution:
+        type: number
+      dataUrl:
+        type: string
+      sha256:
+        type: string
+      ogrType:
+        type: integer
+      dataFormat:
+        type: string
+      numFeatures:
+        type: integer
+
+  Tree:
+    type: object
+    
+  TreePOST:
+    type: object
+    properties:
+      name:
+        type: string
+      filename:
+        type: string
 
 parameters:
   # Path Parameters
+  PathGridsetId:
+    name: gridsetId
+    in: path
+    description: The id of the grid set to use
+    required: true
+    type: integer
   PathLayerId:
     name: layerId
     in: path
     description: The id of the layer to use
+    required: true
+    type: integer
+  PathMatrixId:
+    name: matrixId
+    in: path
+    description: The id of the matrix to use
+    required: true
+    type: integer
+  PathMatrixColumnId:
+    name: matrixColumnId
+    in: path
+    description: The id of the matrix column to use
     required: true
     type: integer
   PathOccurrenceSetId:
@@ -651,13 +1874,31 @@ parameters:
     description: The id of the scenario
     required: true
     type: integer
+  PathScenarioPackageId:
+    name: scenarioPackageId
+    in: path
+    description: The id of the scenario package
+    required: true
+    type: integer
+  PathShapegridId:
+    name: shapegridId
+    in: path
+    description: The id of a shapegrid
+    required: true
+    type: integer
+  PathTreeId:
+    name: treeId
+    in: path
+    description: The id of the tree
+    required: true
+    type: integer
   # Query Parameters
-  AdditionalMetadata:
-    name: additionalMetadata
+  AfterStatus:
+    name: afterStatus
     in: query
-    description: Additional metadata in JSON format
+    description: Return items with a status greater than this value
     required: false
-    type: string
+    type: integer
   AfterTime:
     name: afterTime
     in: query
@@ -670,18 +1911,49 @@ parameters:
     description: Return experiments that were built using this algorithm
     required: false
     type: string
-  AltPredictionCode:
+  AltPredCode:
     name: altPredCode
     in: query
     description: Alternate prediction code
     required: false
     type: string
+  ArchiveNameReq:
+    name: archiveName
+    in: query
+    description: The name for the new archive grid set created
+    required: true
+    type: string
+  BBox:
+    name: bbox
+    in: query
+    description: A bounding box in the form minx,miny,maxx,maxy to use for spatial queries
+    required: false
+    type: string
+  BeforeStatus:
+    name: beforeStatus
+    in: query
+    description: Return items with a status less than this value
+    required: false
+    type: integer
   BeforeTime:
     name: beforeTime
     in: query
     description: Return experiments modified before this time
     required: false
     type: string
+  CellSides:
+    name: cellSides
+    in: query
+    description: Count or list shapegrids that have this many sides per cell (4 - square, 6 - hexagon)
+    required: false
+    type: integer
+    enum: [4, 6]
+  CellSize:
+    name: cellSize
+    in: query
+    description: Count or list shapegrids that have cells of this size (in units of shapegrid)
+    required: false
+    type: number
   DateCode:
     name: dateCode
     in: query
@@ -692,6 +1964,12 @@ parameters:
     name: displayName
     in: query
     description: Return experiments that have occurrence sets with a display name like this
+    required: false
+    type: string
+  EnvCode:
+    name: envCode
+    in: query
+    description: Return items with this env code
     required: false
     type: string
   EPSG:
@@ -708,36 +1986,54 @@ parameters:
     required: false
     type: string
     format: string
-  HasProjections:
-    name: hasProjections
+  GridSetId:
+    name: gridSetId
     in: query
-    description: If 1, only return occurrence sets that have projections
+    description: Only return items in this grid set
     required: false
-    type: integer
-    format: 0 or 1
-    enum: [0, 1]
-    minimum: 0
-    maximum: 1
-  IsCategorical:
-    name: isCategorical
+    type: string
+  GridSetIdReq:
+    name: gridSetId
     in: query
-    description: If 1, only return categorical layers.  If 0, return layers that are not
+    description: Subset items from this grid set
+    required: true
+    type: string
+  HasBranchLengths:
+    name: hasBranchLengths
+    in: query
+    description: If this is 1, count or list trees with branch lengths
     required: false
     type: integer
     format: int2
-    enum: [0, 1]
     minimum: 0
     maximum: 1
-  LayerType:
-    name: layerType
+    enum: [0, 1]
+  IsBinary:
+    name: isBinary
     in: query
-    description: Limit the layers return to only be the indicated type, 0 for all layers, 1 for environmental layers
+    description: If this is 1, count or list binary trees
     required: false
     type: integer
-    format: integer
-    enum: [0, 1]
+    format: int2
     minimum: 0
     maximum: 1
+    enum: [0, 1]
+  IsUltrametric:
+    name: isUltrametric
+    in: query
+    description: If this is 1, count or list ultrametric trees
+    required: false
+    type: integer
+    format: int2
+    minimum: 0
+    maximum: 1
+    enum: [0, 1]
+  Keyword:
+    name: keyword
+    in: query
+    description: A comma-separated string of keywords
+    required: false
+    type: string
   Limit:
     name: limit
     in: query
@@ -747,6 +2043,43 @@ parameters:
     format: integer
     minimum: 1
     maximum: 1000
+  MatrixType:
+    name: matrixType
+    in: query
+    description: |
+        Integer code of the matrix type to list or count.  
+        PAM - 1, GRIM - 2, BIOGEO - 3, Rolling PAM - 10,  Padded PAM - 101, 
+        MCPA Output - 201
+    required: false
+    type: integer
+    format: int
+    minimum: 0
+    maximum: 201
+    enum: [1, 2, 3, 10, 101, 201]
+  Metadata:
+    name: metadata
+    in: query
+    description: Additional metadata in JSON format
+    required: false
+    type: string
+  MetaString:
+    name: metaString
+    in: query
+    description: If provided, list or count trees with this meta string
+    required: false
+    type: string
+  ModelScenarioCode:
+    name: mdlScenCode
+    in: query
+    description: Only return items built with this modeling scenario
+    required: false
+    type: string
+  ModelScenarioId:
+    name: mdlScenId
+    in: query
+    description: Only return items built with this modeling scenario
+    required: false
+    type: integer
   MinimumNumberOfPoints:
     name: minimumNumberOfPoints
     in: query
@@ -769,16 +2102,36 @@ parameters:
     type: integer
     format: integer
     minimum: 0
-  Public:
-    name: public
+  PointMax:
+    name: pointMax
     in: query
-    description: If this is 1, return public objects, else return only private content if this is 0
+    description: Only return PAVs build from occurrence sets with less than or this many points
     required: false
     type: integer
-    format: int2
-    minimum: 0
-    maximum: 1
-    enum: [0, 1]
+  PointMin:
+    name: pointMin
+    in: query
+    description: Only return PAVs build from occurrence sets with at least this many points
+    required: false
+    type: integer
+  ProjectScenarioCode:
+    name: prjScenCode
+    in: query
+    description: Only return items built with this SDM projection scenario
+    required: false
+    type: string
+  ProjectScenarioId:
+    name: prjScenId
+    in: query
+    description: Only return items built with this SDM projection scenario
+    required: false
+    type: integer
+  ScenarioCode:
+    name: scenarioCode
+    in: query
+    description: Return objects thatare in or used this scenario
+    required: false
+    type: string
   ScenarioId:
     name: scenarioId
     in: query
@@ -786,6 +2139,12 @@ parameters:
     required: false
     type: integer
     minimum: 0
+  ShapegridId:
+    name: shapegridId
+    in: query
+    description: The id of a shapegrid to use for query
+    required: false
+    type: integer
   Squid:
     name: squid
     in: query
@@ -795,10 +2154,61 @@ parameters:
   Status:
     name: status
     in: query
-    description: If zero, return anything, if 1, return running, if 2, return complete, if 3, return error
+    description: If provided, only return items with the status indicated (see before and after status)
     required: false
     type: integer
     format: integer
-    enum: [0, 1, 2, 3]
-    minimum: 0
-    maximum: 3
+  TaxonClass:
+    name: taxonClass
+    in: query
+    description: Limit the Global PAM results to only those in this class
+    required: false
+    type: string
+  TaxonFamily:
+    name: taxonFamily
+    in: query
+    description: Limit the Global PAM results to only those in this family
+    required: false
+    type: string
+  TaxonGenus:
+    name: taxonGenus
+    in: query
+    description: Limit the Global PAM results to only those in this genus
+    required: false
+    type: string
+  TaxonKingdom:
+    name: taxonKingdom
+    in: query
+    description: Limit the Global PAM results to only those in this kingdom
+    required: false
+    type: string
+  TaxonOrder:
+    name: taxonOrder
+    in: query
+    description: Limit the Global PAM results to only those in this order
+    required: false
+    type: string
+  TaxonPhylum:
+    name: taxonPhylum
+    in: query
+    description: Limit the Global PAM results to only those in this phylum
+    required: false
+    type: string
+  TaxonSpecies:
+    name: taxonSpecies
+    in: query
+    description: Limit the Global PAM results to only those with this species name (without genus)
+    required: false
+    type: string
+  TreeName:
+    name: treeName
+    in: query
+    description: If provided, return or count trees with this name
+    required: false
+    type: string
+  UrlUser:
+    name: user
+    in: query
+    description: If this is 'public' return public objects, if it is 'anon', return anonymous objects, else return user objects
+    required: false
+    type: string
