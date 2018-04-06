@@ -328,6 +328,7 @@ paths:
         - $ref: '#/parameters/Status'
         
       tags:
+        - Grid Set
         - Matrix
       responses:
         200:
@@ -356,6 +357,7 @@ paths:
         
       tags:
         - Matrix
+        - Grid Set
       responses:
         200:
           description: Returns the number of matching matrices
@@ -372,6 +374,7 @@ paths:
         - $ref: '#/parameters/PathGridsetId'
         - $ref: '#/parameters/PathMatrixId'
       tags:
+        - Grid Set
         - Matrix
       responses:
         200:
@@ -395,6 +398,8 @@ paths:
         - $ref: '#/parameters/PathGridsetId'
         - $ref: '#/parameters/PathMatrixId'
       tags:
+        - Grid Set
+        - Matrix
         - Matrix Column
       responses:
         200:
@@ -437,6 +442,7 @@ paths:
           }
       tags:
         - Tree
+        - Grid Set
       responses:
         201:
           description: The posted tree
@@ -452,6 +458,7 @@ paths:
         - $ref: '#/parameters/PathTreeId'
       tags:
         - Tree
+        - Grid Set
       responses:
         204:
           description: An OK message that the tree was deleted
