@@ -408,6 +408,81 @@ paths:
           description: Error status thrown when the requested matrix was not
                        found
 
+  /gridset/{gridsetId}/tree:
+    get:
+      summary: Get the tree associated with this gridset
+      tags:
+        - Tree
+        - Grid Set
+      responses:
+        200:
+          description: The tree in the specified format
+          schema:
+            $ref: '#/definitions/Tree'
+        403:
+          description: Error status returned when the user does not have 
+                       permission to access a tree
+        404:
+          description: Error status returned when the requested tree does 
+                       not exist
+    post:
+      summary: Post a new phylogenetic tree
+      parameters:
+        - name: body
+          in: body
+          description: Tree POST body
+          required: true
+          schema: {
+            "$ref" : "#/definitions/TreePOST"
+          }
+      tags:
+        - Tree
+      responses:
+        201:
+          description: The posted tree
+          schema:
+            $ref: '#/definitions/Tree'
+        400:
+          description: Error status returned when there is a problem with user 
+                       input
+
+    delete:
+      summary: Delete a tree that you own
+      parameters:
+        - $ref: '#/parameters/PathTreeId'
+      tags:
+        - Tree
+      responses:
+        204:
+          description: An OK message that the tree was deleted
+        403:
+          description: Error status returned when the user does not have 
+                       permission to delete a tree
+        404:
+          description: Error status returned when the requested tree does 
+                       not exist
+  /gridset/{gridsetId}/tree/{treeId}:
+    post:
+      summary: Adds the specified phylogenetic tree to the gridset
+      parameters:
+        - $ref: '#/parameters/PathTreeId'
+      tags:
+        - Tree
+      responses:
+        201:
+          description: The posted tree
+          schema:
+            $ref: '#/definitions/Tree'
+        400:
+          description: Error status returned when there is a problem with user 
+                       input
+        403:
+          description: Error status returned when the user does not have 
+                       permission to access a tree
+        404:
+          description: Error status returned when the requested tree does 
+                       not exist
+  
   /layer:
     get:
       summary: Lifemapper layers listing services
