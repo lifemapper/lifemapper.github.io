@@ -416,6 +416,8 @@ paths:
   /gridset/{gridsetId}/tree:
     get:
       summary: Get the tree associated with this gridset
+      parameters:
+        - $ref: '#/parameters/PathGridsetId'
       tags:
         - Tree
         - Grid Set
@@ -433,6 +435,7 @@ paths:
     post:
       summary: Post a new phylogenetic tree
       parameters:
+        - $ref: '#/parameters/PathGridsetId'
         - name: body
           in: body
           description: Tree POST body
@@ -455,7 +458,7 @@ paths:
     delete:
       summary: Delete a tree that you own
       parameters:
-        - $ref: '#/parameters/PathTreeId'
+        - $ref: '#/parameters/PathGridsetId'
       tags:
         - Tree
         - Grid Set
@@ -472,6 +475,7 @@ paths:
     post:
       summary: Adds the specified phylogenetic tree to the gridset
       parameters:
+        - $ref: '#/parameters/PathGridsetId'
         - $ref: '#/parameters/PathTreeId'
       tags:
         - Tree
