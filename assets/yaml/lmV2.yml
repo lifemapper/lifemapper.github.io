@@ -1805,7 +1805,7 @@ definitions:
       gridSetMetaUrl:
         type: string
       id:
-        type: integer
+        type: string
       modelScenarioCode: 
         type: string
       modelScenarioId:
