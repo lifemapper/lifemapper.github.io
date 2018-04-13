@@ -1945,6 +1945,20 @@ definitions:
         type: integer
       shapegridMetaUrl: 
         type: string
+      taxonClass:
+        type: string
+      taxonFamily:
+        type: string
+      taxonGenus:
+        type: string
+      taxonKingdom:
+        type: string
+      taxonOrder:
+        type: string
+      taxonPhylum:
+        type: string
+      taxonSpecies:
+        type: string
       squid:
         type: string
       userId:
