@@ -4,12 +4,15 @@ SDM Occurrences REST Service
 
 .. contents::  
 
-The Lifemapper SDM Occurrences REST service allows a user to count, list, post, get, and delete occurrence data layers used to create Species Distribution Modeling experiments in Lifemapper.
+The Lifemapper SDM Occurrence REST service allows a user to count, list, post, 
+get, and delete occurrence data layers used to create Species Distribution 
+Modeling experiments in Lifemapper.
 
 *********************
 Count Occurrence Sets
 *********************
-Requests sent to the occurrence set count service will return the number of SDM occurrence sets that match the specified criteria for the specified user.
+Requests sent to the occurrence set count service will return the number of 
+SDM occurrence sets that match the specified criteria for the specified user.
 
 HTTP Method
 ===========
@@ -17,7 +20,7 @@ GET
 
 URL
 ===
-/services/sdm/occurrences/count/{format}
+/api/v2/occurrence/count/{format}
 
 Format Options
 ==============

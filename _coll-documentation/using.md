@@ -9,12 +9,11 @@ layout: page
 * Will be replaced with the ToC, excluding the "Contents" header
 {:toc}
 
-# Using the APIs or Client Library
-
+# Using Lifemapper APIs <!-- or Client Library
 
 The Lifemapper Python Client Library simplifies queries to a Lifemapper
 installation by wrapping HTTP requests in the Python language.
-Code documentation is at http://lifemapper.github.io.   
+Code documentation is at http://lifemapper.github.io.-->
 
 The Lifemapper archive contains datasets represented by different data objects 
 which contain data and metadata about that data.  Analyses can be performed 
@@ -30,6 +29,12 @@ request computations on existing or user-submitted data.  Users need not login
 to query for existing public data, but must register and login to request 
 analyses.
  
+All analysis requests are tied to a "gridset". Gridsets contain one or more 
+species, SDM parameters and scenarios.  Optionally, data may be tied to 
+the GBIF Backbone taxonomy, or tied to a provided taxonomy for included species, 
+for subsetting by taxonomy.  Other optional elements may be included for 
+multi-species analyses.
+
 ### Single species data and analyses
 
 Data objects containing geospatial data about individual species include:
@@ -47,19 +52,21 @@ OccurrenceSet
   reference system, latitude and longitude in decimal degrees. API documentation
   is at [Occurrence Sets](/documentation/api.html#/Occurrence_Sets) 
 
-Scenarios
+Scenarios 
 : Scenarios consist of a set of environmental layers (i.e. elevation, 
   precipitation, temperature, soil, etc).  For Species Distribution Modeling, 
   researchers often use inputs of 'present day' species points and 'present day' 
-  climate and/or other environmental data.  The resulting models can be 
-  projected onto hypothetical or predicted environmental data, with the
-  same layer types.  An example of predicted environmental data available in 
+  climate and/or other environmental data.  The environmental data may be 
+  global, or regional.  The resulting models can be 
+  projected onto the same environmental dataset or one predicted for a different time
+  period, or one for another region.
+  An example of predicted environmental data available in 
   the Lifemapper archive is climate data computed for the 
   International Panel on Climate Change (IPCC) for its Fifth Assessment 
   Report (AR5, 2013).  API documentation is at 
   [Scenarios](/documentation/api.html#/Scenarios)
   
-Projections
+SDM Projections
 : Computed SDM models may be applied, or *projected* back onto the same, or 
   matching Scenarios.  A map created from the projection of this model onto 
   a Scenario is called a *Projection*, and is a file of geospatial data in 
@@ -67,9 +74,12 @@ Projections
   The Maxent algorithm produces projections with values denoting the predicted 
   presence as a value between 0 and 1.  Other algorithms produce raster files 
   with only the values 1 (predicted present) or 0 (not predicted present).
-  
-Experiments
-:  Experiments contain a single species 
+   
+Gridset
+: The organizing data structure for a single, or group of analyses. A 
+  package may be downloaded for visualization within the Lifemapper web 
+  client, or further analyses in other software.
+
 
 Species Distribution Modeling (SDM) experiments follow a general workflow.  
 A researcher:
@@ -97,13 +107,21 @@ Inputs may start with:
  * Species layers.  These layers can be raster or vector format, and can 
    be predicted (i.e. SDM output projections) or other types of distribution 
    or range maps.  
- * Environmental layers.  These layers can be raster or vector format.
  * A grid definition. This defines the geographic bounding box, geographic 
    projection, and grid cell size and shape
  * A phylogenetic tree. This contains a tree in NEXUS format with leaves
    corresponding to each species layer in the analysis.
  * Biogeographic Hypotheses.  These can be in the form of raster or vector files
    describing biogeographic hypotheses for testing.
+   
+     * a grid definition and intersection parameters for intersecting SDM 
+       projections to produce a Presence-Absence Matrix (PAM).  
+     * a phylogenetic tree, for analyzing the evolutionary patterns in the 
+       spatial distribution
+     * biogeographic hypothesis, for looking at the role of other spatial 
+       attributes (i.e. geology, drainage basins, etc) in the biodiversity of
+       an area.
+
 
 Data products may include the following matrices:
 
@@ -125,6 +143,8 @@ Data products may include the following matrices:
    * Biogeographic Environmental R-Squared
    * Biogeographic Environmental R-Squared P-Value
 
+
+   
 ### Querying the public contents of a Lifemapper installation
 
 

@@ -1,5 +1,5 @@
 ---
-title: Lifemapper Analyses
+title: Single-species workflow
 image_path: ""
 layout: page
 ---
@@ -8,6 +8,8 @@ layout: page
 
 * Will be replaced with the ToC, excluding the "Contents" header
 {:toc}
+
+___
 
 ## Single-species Analysis
 
@@ -47,21 +49,3 @@ Currently these uploads and the SDM request happen in multiple steps, but
 the next version of the API will allow all inputs and parameters to be 
 defined and uploaded at the same time.
 
-___
-
-## Multi-species Analyses
-
-A typical Lifemapper workflow to analyze multi-species data is more
-complex and flexible. Some or all analysis steps can be executed.  In 
-Lifemapper, multi-species analysis inputs may start with:
-
- * Species layers.  These layers can be raster or vector format, and can 
-   be predicted (i.e. SDM output projections) or other types of distribution 
-   maps.  
- * A grid definition. This defines the geographic bounding box, geographic 
-   projection, and grid cell size and shape
- * A phylogenetic tree. This contains a tree in NEXUS format with leaves
-   corresponding to each species layer in the analysis.
- * Environmental layers.  These layers can be raster or vector format.
-
- 

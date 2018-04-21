@@ -20,7 +20,7 @@ GET
 
 URL
 ===
-/services/sdm/layers/count/{format}
+/api/v2/layer/count/{format}
 
 Format Options
 ==============

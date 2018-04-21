@@ -17,7 +17,7 @@ GET
 
 URL
 ===
-/services/sdm/projections/count/{format}
+/api/v2/sdmproject/count/{format}
 
 Format Options
 ==============

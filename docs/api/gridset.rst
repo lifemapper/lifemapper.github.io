@@ -8,12 +8,14 @@ SDM Experiments REST Service
 .. contents::  
 
 
-The Lifemapper SDM Experiments REST service allows a user to count, list, post, get, and delete Species Distribution Modeling experiments.
+The Lifemapper SDM Gridset REST service allows a user to count, list, post, get, 
+and delete experiments containing one or more species.
 
 *****************
 Count Experiments
 *****************
-Requests sent to the experiment count service will return the number of SDM experiments that match the specified criteria for the specified user.
+Requests sent to the gridset count service will return the number of 
+gridsetss that match the specified criteria for the specified user.
 
 HTTP Method
 ===========
@@ -21,7 +23,7 @@ GET
 
 URL
 ===
-/services/sdm/experiments/count/{format}
+/api/v2/gridset/count/{format}
 
 Format Options
 ==============

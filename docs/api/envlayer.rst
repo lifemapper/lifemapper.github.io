@@ -1,15 +1,17 @@
-===========================
-SDM Type Codes REST Service
-===========================
+================================
+Environmental Layer REST Service
+================================
 
 .. contents::  
 
-The Lifemapper SDM Type Codes REST service allows a user to count, list, post, get, and delete environmental layer type codes that are used for matching layers across scenarios.
+The Lifemapper SDM Type Codes REST service allows a user to count, list, post, 
+get, and delete environmental layers that are used in scenarios.
 
 ****************
 Count Type Codes
 ****************
-Requests sent to the type codes count service will return the number of layer type codes that match the specified criteria for the specified user.
+Requests sent to the type codes count service will return the number of 
+environmental layers that match the specified criteria for the specified user.
 
 HTTP Method
 ===========
@@ -17,7 +19,7 @@ GET
 
 URL
 ===
-/services/sdm/typecodes/count/{format}
+/api/v2/envlayer/count/{format}
 
 Format Options
 ==============
@@ -35,15 +37,15 @@ Format Options
 Query Parameters
 ================
 
-+------------------+--------------------+------------+-----------------------------------------------------------------+
-| Name             | Type               | Example    | Description                                                     |
-+==================+====================+============+=================================================================+
-| afterTime        | ISO 8601 Date time | 2015-05-13 | Count type codes modified after this time                       |
-+------------------+--------------------+------------+-----------------------------------------------------------------+
-| beforeTime       | ISO 8601 Date time | 2014-12-03 | Count type codes modified before this time                      |
-+------------------+--------------------+------------+-----------------------------------------------------------------+
-| public           | Integer            | 1          | (Only if logged in) Count public type codes if this is set to 1 |
-+------------------+--------------------+------------+-----------------------------------------------------------------+
++------------+--------------------+------------+-----------------------------------------------------------------+
+| Name       | Type               | Example    | Description                                                     |
++============+====================+============+=================================================================+
+| afterTime  | ISO 8601 Date time | 2015-05-13 | Count type codes modified after this time                       |
++------------+--------------------+------------+-----------------------------------------------------------------+
+| beforeTime | ISO 8601 Date time | 2014-12-03 | Count type codes modified before this time                      |
++------------+--------------------+------------+-----------------------------------------------------------------+
+| public     | Integer            | 1          | (Only if logged in) Count public type codes if this is set to 1 |
++------------+--------------------+------------+-----------------------------------------------------------------+
 
 Example
 =======
@@ -78,7 +80,7 @@ DELETE
 
 URL
 ===
-/services/sdm/typecodes/{type code id}
+/api/v2/envlayer/{type code id}
 
 Example
 =======
@@ -86,7 +88,7 @@ For this example, we will delete type code 100
 
 Request::
 
-   $ curl -X DELETE "http://svc.lifemapper.org/services/sdm/typecodes/100"
+   $ curl -X DELETE "http://svc.lifemapper.org/api/v2/envlayer/100"
 
 -----
 
@@ -105,19 +107,19 @@ URL
 
 Format Options
 ==============
-+---------+--------------------------------------+----------------------------------------------------+
-| Format  | Content-Type                         | Description                                        |
-+=========+======================================+====================================================+
-| (blank) | text/html                            | Returns an HTML page containing type code metadata |
-+---------+--------------------------------------+----------------------------------------------------+
-| atom    | application/atom+xml                 | Returns an atom feed for the type code             |
-+---------+--------------------------------------+----------------------------------------------------+
-| html    | text/html                            | Returns an HTML page containing type code metadata |
-+---------+--------------------------------------+----------------------------------------------------+
-| json    | application/json                     | Returns a JSON document with type code metadata    |
-+---------+--------------------------------------+----------------------------------------------------+
-| xml     | application/xml                      | Returns an XML document with type code metadata    |
-+---------+--------------------------------------+----------------------------------------------------+
++---------+----------------------+----------------------------------------------------+
+| Format  | Content-Type         | Description                                        |
++=========+======================+====================================================+
+| (blank) | text/html            | Returns an HTML page containing type code metadata |
++---------+----------------------+----------------------------------------------------+
+| atom    | application/atom+xml | Returns an atom feed for the type code             |
++---------+----------------------+----------------------------------------------------+
+| html    | text/html            | Returns an HTML page containing type code metadata |
++---------+----------------------+----------------------------------------------------+
+| json    | application/json     | Returns a JSON document with type code metadata    |
++---------+----------------------+----------------------------------------------------+
+| xml     | application/xml      | Returns an XML document with type code metadata    |
++---------+----------------------+----------------------------------------------------+
 
 
 Example
@@ -189,21 +191,21 @@ Format Options
 
 Query Parameters
 ================
-+------------------+--------------------+------------+------------------------------------------------------------------------------------+
-| Name             | Type               | Example    | Description                                                                        |
-+==================+====================+============+====================================================================================+
-| afterTime        | ISO 8601 Date time | 2015-05-13 | Return type codes modified after this time                                         |
-+------------------+--------------------+------------+------------------------------------------------------------------------------------+
-| beforeTime       | ISO 8601 Date time | 2014-12-03 | Return type codes modified before this time                                        |
-+------------------+--------------------+------------+------------------------------------------------------------------------------------+
-| fullObjects      | Integer            | 0          | If this is 1, return all object metadata, if it is 0, return small versions (less) |
-+------------------+--------------------+------------+------------------------------------------------------------------------------------+
-| page             | Integer            | 3          | Return this page of results (zero-based count)                                     |
-+------------------+--------------------+------------+------------------------------------------------------------------------------------+
-| perPage          | Integer            | 100        | Return this many results per page                                                  |
-+------------------+--------------------+------------+------------------------------------------------------------------------------------+
-| public           | Integer            | 1          | (Only if logged in) Return public type codes if this is set to 1                   |
-+------------------+--------------------+------------+------------------------------------------------------------------------------------+
++-------------+--------------------+------------+------------------------------------------------------------------------------------+
+| Name        | Type               | Example    | Description                                                                        |
++=============+====================+============+====================================================================================+
+| afterTime   | ISO 8601 Date time | 2015-05-13 | Return type codes modified after this time                                         |
++-------------+--------------------+------------+------------------------------------------------------------------------------------+
+| beforeTime  | ISO 8601 Date time | 2014-12-03 | Return type codes modified before this time                                        |
++-------------+--------------------+------------+------------------------------------------------------------------------------------+
+| fullObjects | Integer            | 0          | If this is 1, return all object metadata, if it is 0, return small versions (less) |
++-------------+--------------------+------------+------------------------------------------------------------------------------------+
+| page        | Integer            | 3          | Return this page of results (zero-based count)                                     |
++-------------+--------------------+------------+------------------------------------------------------------------------------------+
+| perPage     | Integer            | 100        | Return this many results per page                                                  |
++-------------+--------------------+------------+------------------------------------------------------------------------------------+
+| public      | Integer            | 1          | (Only if logged in) Return public type codes if this is set to 1                   |
++-------------+--------------------+------------+------------------------------------------------------------------------------------+
 
 
 
@@ -296,17 +298,17 @@ POST Query Parameters
 
 Scenarios can be posted using the query parameters below, or with an XML request following the schema at: http://lifemapper.org/schemas/serviceRequest.xsd.
 
-+-------------+----------+----------+-------------------------------------------------------------------------------------------------------------------------+
-| Parameter   | Type     | Required | Description                                                                                                             |
-+=============+==========+==========+=========================================================================================================================+
-| code        | String   | Yes      | A short name for the type code                                                                                          |
-+-------------+----------+----------+-------------------------------------------------------------------------------------------------------------------------+
-| description | String   | No       | A longer description of the type code                                                                                   |
-+-------------+----------+----------+-------------------------------------------------------------------------------------------------------------------------+
-| keyword     | String   | No       | A keyword associated with the type code (add more keyword parameters for multiple keywords ex. keyword=kw1&keyword=kw2) |
-+-------------+----------+----------+-------------------------------------------------------------------------------------------------------------------------+
-| title       | String   | No       | A title for the type code                                                                                               |
-+-------------+----------+----------+-------------------------------------------------------------------------------------------------------------------------+
++-------------+--------+----------+-------------------------------------------------------------------------------------------------------------------------+
+| Parameter   | Type   | Required | Description                                                                                                             |
++=============+========+==========+=========================================================================================================================+
+| code        | String | Yes      | A short name for the type code                                                                                          |
++-------------+--------+----------+-------------------------------------------------------------------------------------------------------------------------+
+| description | String | No       | A longer description of the type code                                                                                   |
++-------------+--------+----------+-------------------------------------------------------------------------------------------------------------------------+
+| keyword     | String | No       | A keyword associated with the type code (add more keyword parameters for multiple keywords ex. keyword=kw1&keyword=kw2) |
++-------------+--------+----------+-------------------------------------------------------------------------------------------------------------------------+
+| title       | String | No       | A title for the type code                                                                                               |
++-------------+--------+----------+-------------------------------------------------------------------------------------------------------------------------+
 
 
 Example
