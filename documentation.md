@@ -1,5 +1,5 @@
 ---
-title: Documentation
+title: Programmer Documentation
 image_path: ""
 layout: page
 ---
@@ -9,36 +9,10 @@ layout: page
 * Will be replaced with the ToC, excluding the "Contents" header
 {:toc}
 
-## Overview
-
-The Lifemapper software is described in [Overview](overview.html).  Lifemapper
-enables Species Distribution Modeling ([SDM](sdm.html)) for one or more species,
-and Range and Diversity ([RAD](rad.html)) analyses of multi-species communities, 
-at landscape levels over multiple dimensions, including time, geography, and 
-evolution.
+## Programmer documentation
 
 To understand how to use the service types and workflows below, start with 
-the [Using Lifemapper Web Services](/documentation/using) overview.
-
-Researcher resources, including basic descriptions of analyses, and links to 
-more in-depth discussions, are at
-      <ul>
-         <li><a href="/researcher/spatialData">Geospatial data</a></li>
-         <li><a href="/researcher/sdm">Single-species SDM analyses</a></li>
-         <li><a href="/training/sdmTraining">Lifemapper Single-Species Tutorial</a></li>
-         <li><a href="/researcher/rad">Multi-species analyses</a></li>
-         <li><a href="/training/boomTraining">Lifemapper Multi-Species Tutorial</a></li>
-         <li><a href="/researcher/mcpa">Lifemapper Meta-Community Phylogenetic Analyses</a></li>
-      </ul>
-
----
-
-## Typical Workflows
-
- * [Query Public Data](/workflow/query-flow)
- * [Request Species Distribution Model](/workflow/sdm-flow)
- * [Request Multi-species analyses](/workflow/rad-flow)
- * [Request Analyses of Public Data Subset](/workflow/subset-flow)
+the [Using Lifemapper Web Services](/lmclient/using) overview.
 
 ---
 ## Python Client Library

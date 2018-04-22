@@ -9,29 +9,31 @@ layout: page
 * Will be replaced with the ToC, excluding the "Contents" header
 {:toc}
 
-# Using Lifemapper APIs <!-- or Client Library
+# Lifemapper Data
 
-The Lifemapper Python Client Library simplifies queries to a Lifemapper
-installation by wrapping HTTP requests in the Python language.
-Code documentation is at http://lifemapper.github.io.-->
-
-The Lifemapper archive contains datasets represented by different data objects 
+Lifemapper data consists of datasets represented by different data objects 
 which contain data and metadata about that data.  Analyses can be performed 
 on individual species or taxa, or on large groups of taxa.  
 
-The Lifemapper 'archive' contains SDM maps for species with over 30 data points 
-from the Global Biodiversity Information Foundation (GBIF).  The SDM maps show 
+The original Lifemapper 'archive' contains SDM maps for species with over 
+30 data points from the Global Biodiversity Information Foundation (GBIF) and
+is available at http://lifemapper.org.  The SDM maps show 
 areas with similar climatic conditions to areas in which the species has been 
 found.
 
-The Lifemapper archive may be queried to find or summarize data, or to 
+The original Lifemapper archive may be queried to find or summarize data, or to 
 request computations on existing or user-submitted data.  Users need not login 
 to query for existing public data, but must register and login to request 
-analyses.
- 
-All analysis requests are tied to a "gridset". Gridsets contain one or more 
-species, SDM parameters and scenarios.  Optionally, data may be tied to 
-the GBIF Backbone taxonomy, or tied to a provided taxonomy for included species, 
+analyses.  Additional installations of the Lifemapper archive focus on regions
+or species of interest, such as the installation at National Center for 
+High-Performance Computing (NCHC, https://www.nchc.org.tw/en/) in Taiwan.  
+
+# Lifemapper Data Terms
+
+Gridset
+: All analysis requests are tied to a "gridset". Gridsets contain one or more 
+  species, SDM parameters and scenarios.  Optionally, data may be tied to 
+  the GBIF Backbone taxonomy, or tied to a provided taxonomy for included species, 
 for subsetting by taxonomy.  Other optional elements may be included for 
 multi-species analyses.
 
