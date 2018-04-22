@@ -20,6 +20,26 @@ evolution.
 To understand how to use the service types and workflows below, start with 
 the [Using Lifemapper Web Services](/documentation/using) overview.
 
+Researcher resources, including basic descriptions of analyses, and links to 
+more in-depth discussions, are at
+      <ul>
+         <li><a href="/researcher/spatialData">Geospatial data</a></li>
+         <li><a href="/researcher/sdm">Single-species SDM analyses</a></li>
+         <li><a href="/training/sdmTraining">Lifemapper Single-Species Tutorial</a></li>
+         <li><a href="/researcher/rad">Multi-species analyses</a></li>
+         <li><a href="/training/boomTraining">Lifemapper Multi-Species Tutorial</a></li>
+         <li><a href="/researcher/mcpa">Lifemapper Meta-Community Phylogenetic Analyses</a></li>
+      </ul>
+
+---
+
+## Typical Workflows
+
+ * [Query Public Data](/workflow/query-flow)
+ * [Request Species Distribution Model](/workflow/sdm-flow)
+ * [Request Multi-species analyses](/workflow/rad-flow)
+ * [Request Analyses of Public Data Subset](/workflow/subset-flow)
+
 ---
 ## Python Client Library
 
@@ -49,10 +69,3 @@ and
 
 -->
 
----
-
-
-## Typical Workflows
-
- * [Query Public Data](/documentation/query-flow)
- * [Request Analyses](/documentation/analysis-flow)
