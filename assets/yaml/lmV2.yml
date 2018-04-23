@@ -469,8 +469,7 @@ paths:
         - BioGeo
       responses:
         200:
-          description: A biogeogrpahic hypothesis matrix
-            $ref: '#/definitions/Matrix'
+          $ref: '#/definitions/Matrix'
         403:
           description: Error status returned when the user does not have 
                        permission to access the data
