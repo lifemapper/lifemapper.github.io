@@ -10,7 +10,7 @@ layout: page
 * Will be replaced with the ToC, excluding the "Contents" header
 {:toc}
 
-Lifemapper and additional terminology is at [Terminology](/terms.html)
+Lifemapper and additional terminology is at [Terminology](/terms)
 
 ## Login (or skip to proceed anonymously)
 
