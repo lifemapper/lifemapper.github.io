@@ -31,6 +31,10 @@ Gridset
 : The organizing data structure for a single, or group of analyses. A 
   package may be downloaded for visualization within the Lifemapper web 
   client, or further analyses in other software. 
+  
+LM Library
+: Existing public data in a Lifemapper installation, including input data, 
+  such as species points, environmental data layers, and computed SDMs.
 
 ## Multi-species data and analyses
 
@@ -44,11 +48,11 @@ OccurrenceSet
 Scenarios 
 : Scenarios consist of a set of environmental layers (i.e. elevation, 
   precipitation, temperature, soil, etc).  For Species Distribution Modeling, 
-  researchers often use inputs of 'present day' species points and 'present day' 
-  climate and/or other environmental data.  The environmental data may be 
+  researchers often choose a set of 'present day' layers ("modeling scenario") as an input 
+  along with 'present day' species points.  The environmental data may be 
   global, or regional.  The resulting models can be 
-  projected onto the same environmental dataset or one predicted for a different time
-  period, or one for another region.
+  projected onto the same environmental dataset and/or one predicted for a different time
+  period, or one for another region ("projection scenarios").
   An example of predicted environmental data available in 
   the Lifemapper archive is climate data computed for the 
   International Panel on Climate Change (IPCC) for its Fifth Assessment 

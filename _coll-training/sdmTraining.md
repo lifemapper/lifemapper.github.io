@@ -10,98 +10,84 @@ layout: page
 * Will be replaced with the ToC, excluding the "Contents" header
 {:toc}
 
-## Preparation
+Lifemapper and additional terminology is at [Terminology](/terms.html)
 
+## Login (or skip to proceed anonymously)
 
-1. Sign in to Lifemapper
-    * Lifemapper top menu option, choose Sign In
-    * Create a user account by clicking the **sign up** link in the left of 
-      dialog to open a browser 
-    * If you are a new user, the app will prompt you to create a new workspace - 
-      choose a local drive and create a new directory
-1. In all Lifemapper dialogs, click the ? button to display context-sensitive help
-
-
+1. Go to the Lifemapper web client
+    * Go to http://svc.lifemapper.org/sdm
+      
+1. IF you wish to browse your own data as well as public data, sign in to 
+   or sign up for a Lifemapper account.  In the left pane of the webpage:
+   
+1. IF you wish to browse your own data as well as public data, sign in to 
+   or sign up for a Lifemapper account.  In the left pane of the webpage:
+    
+    * If you do not have a user account, create one by clicking the **sign up** 
+      link below the Login button.
+    * Once you have a user account, sign in with your username and password.
+            
 ## Species Distribution Modeling
 
-### Definitions (in this context)
+1. To request species distribution modeling on species data in the
+   Lifemapper installation, go to the right pane of the webpage, titled 
+   "Lifemapper SDM | New Project".  You must input choices or actions in each 
+   of the 4 tabs:
 
-Algorithm
-  : a statistical procedure or method for calculating a model from data inputs 
-  
-Model
-  : a formula relating species data to environmental layerset 
-  
-Projection
-  : an application of the model onto an environmental layerset resulting in a raster map
-
-### Steps
-
-1. First, explore the species archive
-
-    * Click on the LM logo on the right side of the second row of the toolbar;
-      this brings up a panel in the lower left
-    * To explore some of the contents of this instance of Lifemapper, type 
-      in the box, to get a list of species that start with the letters you typed.  
-    * When you find a species, double click it to get the point layer, and a 
-      list of projections available for that species.  
-    * Double click a point layer, or projection layer to add it to the canvas on 
-      the right.  They will be automatically colored, if you do this with your 
-      own layers, you must do this by hand. 
-     
-1. To request an SDM experiment:
-
-    * Choose Lifemapper (top menu) → LmSDM: Species Distribution Modeling
-    * In the Perform a Lifemapper SDM Experiment dialog there are four sections:
-   
-        * Name and Description
-        * Species Points 
-        * Environmental Layer Set
-        * Algorithm 
-     
-   * In the Species Points, type in the middle box to activate auto-complete 
-     and choose a species with some points. The Lifemapper Species point 
-     set id will be filled in.
-     
-     * Click the **layerset** icon (it looks like a stack of papers) to the 
-       right of the point set id.  This will populate the Environmental 
-       Layer Set drop-down box with layersets matching the geographic 
-       projection of these point data. These data may be edited in QGIS 
-       then uploaded as your own point data.
+    * SPECIES DATA: choose a species for modeling by typing in the first few
+      letters of a species name.  The page will display a list of scientific 
+      species names in the database beginning with those letters, 
+      below your typing. Choose your desired species, and repeat for as many 
+      species as you want.  Only one set of species points is visible at a time.  
+      Switch the visible species by clicking the "eyeball" icon for the species 
+      you wish to view. 
+    * [ALGORITHMS](/terms.html): choose one or more algorithms to use for creating SDMs for all
+      species chosen in the SPECIES DATA tab.  To display choices, hover over 
+      the "Add Algorithm" box for a list of all available SDM algorithms 
+      available. Hover over individual algorithms to get documentation about
+      that algorithm.  When you choose an algorithm, a box will be added to that
+      tab.  Hover over the box for a list of parameters with default values 
+      for that algorithm. All algorithm parameters may be edited. 
+    * INPUT LAYERS: we  refer to these sets of input layer as 
+      [Scenarios](/terms.html).  Choose one set of "Model Layers" and one or more
+      sets of "Projection Layers" by checking the radio button or boxes to the 
+      right of the descriptions.  Model Layers are for 
+      correlating known species occurrences with environmental values 
+      (producing the SDM Model).  Projection Layers are
+      for applying the SDM model to the same or different regions or time 
+      periods and producing potential species distribution maps.  
+      Layer sets presented as choices in this tab all have the same layertypes 
+      and can be used together.
+      
+       * In the NCHC Lifemapper archive, we use 'current' climate data 
+        from Worldclim 1.4, soils, landcover, and elevation, to model on, then project 
+        onto that, and future climate scenarios, all calculated from change 
+        modeled by Community Climate System, Model, 4.0 (CCSM4), National 
+        Center for Atmospheric Research (NCAR) 
+        http://www.cesm.ucar.edu/models/ccsm4.0/ for the IPCC Fifth Assessment 
+        Report (2013)
        
-   * Now the Environmental Layer Set box shows the public and (your) user 
-     layersets with a matching projection.  Users can upload their own layers, 
-     but we will choose from the existing public layersets
-     
-     * Choose the 'current' (Worldclim 1.4) layerset to model on, project 
-       onto that, and future climate scenarios, all calculated from change 
-       modeled by Community Climate System, Model, 4.0 (CCSM4), National 
-       Center for Atmospheric Research (NCAR) 
-       http://www.cesm.ucar.edu/models/ccsm4.0/ for the IPCC Fifth Assessment 
-       Report (2013)
-       
-         * CCSM4-RCP4.5-2050-30sec-SEA: Predicted 2041-2060 Scenario RCP4.5 
-         * CCSM4-RCP4.5-2070-30sec-SEA: Predicted 2061-2080 Scenario RCP4.5
-         * CCSM4-RCP8.5-2050-30sec-SEA: Predicted 2041-2060 Scenario RCP8.5
-         * CCSM4-RCP8.5-2070-30sec-SEA: Predicted 2061-2080 Scenario RCP8.5
-       
-     * In the Algorithm section, choose an algorithm 
-     
-         * Advanced tab: algorithm-specific parameters - these are initially  
-           filled with defaults.
-           
-   * Finally, Click the Submit Exp button
-   
-1. To List your Experiments - and retrieve data and metadata 
+         * CCSM4-RCP4.5-2050-10min: Predicted 2041-2060 Scenario RCP4.5 
+         * CCSM4-RCP4.5-2070-10min: Predicted 2061-2080 Scenario RCP4.5
+         * CCSM4-RCP8.5-2050-10min: Predicted 2041-2060 Scenario RCP8.5
+         * CCSM4-RCP8.5-2070-10min: Predicted 2061-2080 Scenario RCP8.5
 
-    * Choose Lifemapper (top menu) → LmSDM: Species Distribution Modeling → List 
-      Experiments
-    * Choose experiment
-    * Drill down to projections (final maps)
-    * Click the Download link – this downloads the projection raster file into 
-      the experiment directory within your workspace directory
-     
-        * The projection is added to your canvas; choose symbolization by 
-          double clicking on the layer (or right click then choose Properties)
-        * Calculate the min/max, then stretch the values for a better display
+      * In the public Lifemapper archive, we use 'current' climate data 
+        from Worldclim 1.4 to model on, then project 
+        onto that, and future climate scenarios, all calculated from change 
+        modeled by Community Climate System, Model, 4.0 (CCSM4), National 
+        Center for Atmospheric Research (NCAR) 
+        http://www.cesm.ucar.edu/models/ccsm4.0/ for the IPCC Fifth Assessment 
+        Report (2013)
+       
+         * CCSM4-RCP4.5-2050-10min: Predicted 2041-2060 Scenario RCP4.5 
+         * CCSM4-RCP4.5-2070-10min: Predicted 2061-2080 Scenario RCP4.5
+         * CCSM4-RCP8.5-2050-10min: Predicted 2041-2060 Scenario RCP8.5
+         * CCSM4-RCP8.5-2070-10min: Predicted 2061-2080 Scenario RCP8.5
+
+    * SUBMIT PROJECT: after SPECIES DATA, ALGORITHMS, and INPUT LAYERS have all
+      been filled in correctly, this tab will show them with checkmarks beside 
+      them.  Click "Submit Project" and the page will return a URL which
+      may be used for viewing and downloading results.
+    
 
