@@ -37,12 +37,14 @@ Phylogenetic Tree
 : A data structure containing species names or identifiers for  analyzing 
   evolutionary patterns.  Lifemapper uses phylogenetic trees matching species
   data in a gridset to correlate evolutionary patterns with species 
-  distributions and landscape features.  
+  distributions and landscape features.  API documentation
+  is at [Tree](/api.html#/Tree). 
 
 Biogeographic Hypotheses
 : Spatial layers for testing the influence of geographic elements, such as
   geology, drainage basins, etc, on the biodiversity of a landscape. These 
-  can be in the form of raster or vector files.
+  can be in the form of raster or vector files.  API documentation
+  is at [BioGeo](/api.html#/BioGeo).
    
 MCPA
 : Meta-Community Phylogenetic Analysis, briefly explained at 
@@ -61,14 +63,21 @@ LM Library
 : Existing public data in a Lifemapper installation, including input data, 
   such as species points, environmental data layers, and computed SDMs.
 
-OccurrenceSet
+Occurrence Layer
 : Point data representing specimens collected for a single species or taxa.  Data
   contains a location, x and y, in some known geographic spatial reference system.
   Public data in Lifemapper installations are in the 'Geographic' spatial 
   reference system, latitude and longitude in decimal degrees. API documentation
-  is at [Occurrence Sets](/documentation/api.html#/Occurrence_Sets) 
+  is at [Occurrence Layer](/api.html#/Occurrence_Layer) 
 
-Scenarios 
+Environmental Layer
+: Raster data representing environmental values for cells in a map.  Data
+  may be numeric or categorical, with only one value per cell.
+  Public data in Lifemapper installations are in the 'Geographic' spatial 
+  reference system, latitude and longitude in decimal degrees. API documentation
+  is at [Environmental Layer](/api.html#/Environmental_Layer) 
+
+Scenario
 : Scenarios consist of a set of environmental layers (i.e. elevation, 
   precipitation, temperature, soil, etc).  For Species Distribution Modeling, 
   researchers often choose a set of 'present day' layers ("modeling scenario") as an input 
@@ -80,32 +89,53 @@ Scenarios
   the Lifemapper archive is climate data computed for the 
   International Panel on Climate Change (IPCC) for its Fifth Assessment 
   Report (AR5, 2013).  API documentation is at 
-  [Scenarios](/documentation/api.html#/Scenarios)
+  [Scenario](/api.html#/Scenario).
   
-SDM Projections
+Scenario Package
+: A Scenario Package consists of a set of scenarios with the same type of 
+  layers in each.  Scenarios within a package can be used together, so species
+  data may be modeled with one scenario and projected onto another scenario.
+  Generally, "current day" species data is modeled with current day 
+  environmental data, then may be projected onto environmental data predicted 
+  for the past or future, or onto a different region. API documentation is at 
+  [Scenario Package](/api.html#/Scenario_Package).
+  
+SDM Projection
 : Computed SDM models may be applied, or *projected* back onto the same, or 
   matching Scenarios.  A map created from the projection of this model onto 
   a Scenario is called an *SDM Projection*, and is a file of geospatial data in 
   raster format.  Different algorithms produce projections with different values.  
   The Maxent algorithm produces projections with values denoting the predicted 
   presence as a value between 0 and 1.  Other algorithms produce raster files 
-  with only the values 1 (predicted present) or 0 (not predicted present).
+  with only the values 1 (predicted present) or 0 (not predicted present). API 
+  documentation is at  [SDM Projection](/api.html#/SDM_Projection).
+
+Shapegrid
+: A grid encompassing the area of interest in a Gridset for multi-species
+  analyses. In a gridset, different data layers are intersected with a Shapegrid 
+  to produce Matrices for analyses.  Species layers are intersected to
+  create a PAM, environmental layers are intersected to create an Environmental 
+  Matrix (GRIM) and Biogeographic Hypotheses are intersected to create a BioGeo
+  Matrix. Intersection parameters define how values are computed for gridcells 
+  from the values in data layers. API documentation is at 
+  [Shapegrid](/api.html#/Shapegrid)
+
+Global PAM 
+: A Presence-Absence Matrix (PAM) as described above, containing intersected 
+  data for all species in a gridset.  A Global PAM usually refers to a very 
+  large PAM meant to be subsetted for further analysis.  API 
+  documentation is at  [Global PAM](/api.html#/Global_PAM).
 
 Environmental Matrix (GRIM)
 : A matrix of values indicating the mean value of each of multiple environmental variables
   in a regular grid.  The structure is the same of the PAM, but values are not binary.
   GRIM is an acronym for Geographic Reference Information Matrix.
 
-ShapeGrid
-: A grid encompassing the area of interest in a Gridset. Species layers are intersected 
-  with a ShapeGrid to create a PAM, and environmental layers are intersected with a 
-  ShapeGrid to create a GRIM. Intersection parameters define how values (0/1 for a PAM,
-  mean values for a GRIM) are computed for gridcells from the values in a species 
-  range map or environmental variable map.
-
-Biogeographic Hypotheses
+Biogeographic Hypotheses and BioGeo Matrix
 : Spatial layers for testing the influence of geographic elements, such as
   geology, drainage basins, etc, on the biodiversity of a landscape. These 
-  can be in the form of raster or vector files.
+  can be in the form of raster or vector files.  Biogeographic Hypotheses may 
+  be intersected with the Shapegrid to produce a BioGeo Matrix, used in MCPA 
+  computations. API documentation is at [BioGeo](/api.html#/BioGeo).
 
 
