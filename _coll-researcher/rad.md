@@ -47,7 +47,9 @@ Lifemapper web app in the future.
 
 ### Species statistics
 * Omega (range size)
+  - Number of sites present for each species
 * Omega Prop (range size in proportion to the total of all range sizes)
+  - The percentage of the total number of sites that each species is present
 * PSI (the richness of a species’ range)
 * PSI Prop (species range richness in proportion to richness all species ranges)
 
