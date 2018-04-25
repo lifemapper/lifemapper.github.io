@@ -29,7 +29,8 @@ visualize existing Lifemapper SDM data (the LM Library).
   * Request species [SDMs](/training/sdmTraining) through the website
   * [Subset](/training/subsetTraining) SDM for species
   * [Visualize and Explore](/training/mcpaVizTraining) Meta-Community 
-    Phylogenetic Analyses
+    Phylogenetic Analyses.  Data is available for [download]() or from the 
+    provided USB drive.
 
 ## Hands-On with researcher data
 Data for these exercises is available for [download]() or from the provided

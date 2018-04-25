@@ -12,6 +12,8 @@ layout: page
 
 Lifemapper and additional terminology is at [Terminology](/terms.html)
 
+Data is available for [download]() or from the provided USB drive.
+
 ## Steps
 
 1. Go to the Lifemapper web client
