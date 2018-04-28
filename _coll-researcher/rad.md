@@ -26,7 +26,7 @@ Lifemapper web app in the future.
 ## RAD Statistics
 
 
-### Site-based statistics (for species)
+### Site-based statistics (for species) - https://www.journals.uchicago.edu/doi/10.1086/590954
 * Alpha (species richness)
   - The number of species present at each site
 * Alpha Prop (proportional species richness)
@@ -40,12 +40,12 @@ Lifemapper web app in the future.
 
 ### Site-based statistics (for tree)
 * Mean Nearest Taxon Distance (for each species in this site, how taxonomically 
-  close is its closest relative in this site)
+  close is its closest relative in this site) 
 * Mean Pairwise Distance (for each species in this site, how taxonomically 
   close are all other species in this site)
 * Pearson’s correlation coefficient
 
-### Species statistics
+### Species statistics - https://www.journals.uchicago.edu/doi/10.1086/590954
 * Omega (range size)
   - Number of sites present for each species
 * Omega Prop (range size in proportion to the total of all range sizes)
@@ -54,14 +54,14 @@ Lifemapper web app in the future.
 * PSI Prop (species range richness in proportion to richness all species ranges)
 
 ### Beta diversity statistics
-* Whittakers Beta
-* Landes Additive Beta
-* Legendres Beta
+* Whittakers Beta - http://www.jstor.org/stable/1218190
+* Landes Additive Beta - http://www.jstor.org/stable/3545743
+* Legendres Beta - https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/05-0549
 
 ### Covariance Matrices
 * Sites composition
 * Species ranges
 
 ### Schluter’s statistics
-* Species variance ratio
-* Sites variance ratio
+* Species variance ratio - https://esajournals.onlinelibrary.wiley.com/doi/abs/10.2307/1938071
+* Sites variance ratio - https://esajournals.onlinelibrary.wiley.com/doi/abs/10.2307/1938071
