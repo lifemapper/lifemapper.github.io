@@ -38,8 +38,8 @@ Lifemapper and additional terminology is at [Terminology](/terms)
    your selections for computation if all three inputs are correctly filled.  
 
     * SPECIES DATA: choose a species for modeling by typing in the first few
-      letters of a species name.  The page will display a list of scientific 
-      species names in the database beginning with those letters, 
+      letters of a species name in the 'Search' section.  The page will display 
+      a list of scientific species names in the database beginning with those letters, 
       below your typing. Choose your desired species, and repeat for as many 
       species as you want.  Only one set of species points is visible at a time.  
       Switch the visible species by clicking the "eyeball" icon for the species 
@@ -48,10 +48,10 @@ Lifemapper and additional terminology is at [Terminology](/terms)
       species chosen in the SPECIES DATA tab.  To display choices, hover over 
       the "Add Algorithm" box for a list of all available SDM algorithms 
       available. Hover over individual algorithms to get documentation about
-      that algorithm.  When you choose an algorithm, a box will be added to that
-      tab.  Hover over the box for a list of parameters with default values 
-      for that algorithm. All algorithm parameters may be edited. 
-    * INPUT LAYERS: we  refer to these sets of input layer as 
+      that algorithm.  When you choose an algorithm, a 'card' will be added to that
+      pane.  Hover over the box for a list of parameters filled in with default values 
+      for that algorithm. These parameters may be edited. 
+    * INPUT LAYERS: These sets of input layers are also called 
       [Scenarios](/terms.html).  Choose one set of "Model Layers" and one or more
       sets of "Projection Layers" by checking the radio button or boxes to the 
       right of the descriptions.  Model Layers are for 
@@ -63,13 +63,13 @@ Lifemapper and additional terminology is at [Terminology](/terms)
       and can be used together.
       
        * In the NCHC Lifemapper archive, we use 'current' climate data 
-        from Worldclim 1.4, soils, landcover, and elevation, at global extent, and coarse, 10 minute 
-        resolution to model Taiwan species using all points where they have been found, in and out
-        of Taiwan.  
+         from Worldclim 1.4, soils, landcover, and elevation, at global extent, 
+         and 10 minute resolution to model Taiwan species using all points where 
+         they have been found, both inside and outside of Taiwan.  
 
-      * We project these models back onto the same 'current' climate, soils, landcover and elevation
-        just for the Taiwan region, at higher, 30 second resolution. 
-        onto that, and future climate scenarios, all calculated from change 
+       * We project these models back onto the same 'current' climate, soils, landcover and elevation
+         just for the Taiwan region, at higher, 30 second resolution. 
+         onto that, and future climate scenarios, all calculated from change 
  
      * SUBMIT PROJECT: after SPECIES DATA, ALGORITHMS, and INPUT LAYERS have all
       been filled in correctly, this tab will show them with checkmarks beside 
