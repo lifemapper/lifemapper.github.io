@@ -12,15 +12,20 @@ layout: page
 
 Lifemapper and additional terminology is at [Terminology](/terms.html)
 
-Data is available for [download]() or from the provided USB drive.
+Several pre-subsetted datasets are available for download, or from the provided 
+USB drive, including the [Rubiaceae](http://yeti.lifemapper.org/dl/Rubiaceae.zip) 
+family of flowering plants, and the 
+[Geometridae](http://yeti.lifemapper.org/dl/Geometridae.zip) family of moths.  
 
 ## Steps
 
-1. Go to the Lifemapper web client
-    * Go to http://svc.lifemapper.org/browse
+1. Open the Lifemapper web client, by opening the 
+   Rubiaceae/output/gridset-10-package/index.html file.  This will allow you to 
+   browse the inputs and explore the outputs of multi-species, and phylogentic 
+   analyses on this subset of the Taiwan data library.
+   
+1. To explore the Geometridae data, open the 
+   Geometridae/output/gridset-9-package/index.html file.
       
-1. Sign in to or sign up for a Lifemapper account.  
-      
-1. To query input and computed data in an Lifemapper installation by species,
-   go to the right pane of the webpage, titled "Lifemapper Data".  
+
     

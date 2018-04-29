@@ -31,8 +31,11 @@ Lifemapper and additional terminology is at [Terminology](/terms)
 
 1. To request species distribution modeling on species data in the
    Lifemapper installation, go to the right pane of the webpage, titled 
-   "Lifemapper SDM | New Project".  You must input choices or actions in each 
-   of the 4 tabs:
+   "Lifemapper SDM | New Project". 
+   
+1. There are four headings in the right pane.  The first three are input sections, 
+   SPECIES DATA, ALGORITHMS, and INPUT LAYERS.  The fourth, SUBMIT PROJECT allows you to submit
+   your selections for computation if all three inputs are correctly filled.  
 
     * SPECIES DATA: choose a species for modeling by typing in the first few
       letters of a species name.  The page will display a list of scientific 
@@ -60,32 +63,15 @@ Lifemapper and additional terminology is at [Terminology](/terms)
       and can be used together.
       
        * In the NCHC Lifemapper archive, we use 'current' climate data 
-        from Worldclim 1.4, soils, landcover, and elevation, to model on, then project 
-        onto that, and future climate scenarios, all calculated from change 
-        modeled by Community Climate System, Model, 4.0 (CCSM4), National 
-        Center for Atmospheric Research (NCAR) 
-        http://www.cesm.ucar.edu/models/ccsm4.0/ for the IPCC Fifth Assessment 
-        Report (2013)
-       
-         * CCSM4-RCP4.5-2050-10min: Predicted 2041-2060 Scenario RCP4.5 
-         * CCSM4-RCP4.5-2070-10min: Predicted 2061-2080 Scenario RCP4.5
-         * CCSM4-RCP8.5-2050-10min: Predicted 2041-2060 Scenario RCP8.5
-         * CCSM4-RCP8.5-2070-10min: Predicted 2061-2080 Scenario RCP8.5
+        from Worldclim 1.4, soils, landcover, and elevation, at global extent, and coarse, 10 minute 
+        resolution to model Taiwan species using all points where they have been found, in and out
+        of Taiwan.  
 
-      * In the public Lifemapper archive, we use 'current' climate data 
-        from Worldclim 1.4 to model on, then project 
+      * We project these models back onto the same 'current' climate, soils, landcover and elevation
+        just for the Taiwan region, at higher, 30 second resolution. 
         onto that, and future climate scenarios, all calculated from change 
-        modeled by Community Climate System, Model, 4.0 (CCSM4), National 
-        Center for Atmospheric Research (NCAR) 
-        http://www.cesm.ucar.edu/models/ccsm4.0/ for the IPCC Fifth Assessment 
-        Report (2013)
-       
-         * CCSM4-RCP4.5-2050-10min: Predicted 2041-2060 Scenario RCP4.5 
-         * CCSM4-RCP4.5-2070-10min: Predicted 2061-2080 Scenario RCP4.5
-         * CCSM4-RCP8.5-2050-10min: Predicted 2041-2060 Scenario RCP8.5
-         * CCSM4-RCP8.5-2070-10min: Predicted 2061-2080 Scenario RCP8.5
-
-    * SUBMIT PROJECT: after SPECIES DATA, ALGORITHMS, and INPUT LAYERS have all
+ 
+     * SUBMIT PROJECT: after SPECIES DATA, ALGORITHMS, and INPUT LAYERS have all
       been filled in correctly, this tab will show them with checkmarks beside 
       them.  Click "Submit Project" and the page will return a URL which
       may be used for viewing and downloading results.
