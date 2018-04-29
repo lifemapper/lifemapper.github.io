@@ -65,3 +65,15 @@ Lifemapper web app in the future.
 ### Schluter’s statistics
 * Species variance ratio - https://esajournals.onlinelibrary.wiley.com/doi/abs/10.2307/1938071
 * Sites variance ratio - https://esajournals.onlinelibrary.wiley.com/doi/abs/10.2307/1938071
+
+
+### References
+* Arita, H. T., Christen, J. A., Rodríguez, P., & Soberón, J. (2008). Species diversity and distribution in presence-absence matrices: mathematical relationships and biological implications. The American Naturalist, 172(4), 519-532.
+
+* Lande, R. (1996). Statistics and partitioning of species diversity, and similarity among multiple communities. Oikos, 5-13.
+
+* Legendre, P., Borcard, D., & Peres-Neto, P. R. (2005). Analyzing beta diversity: partitioning the spatial variation of community composition data. Ecological Monographs, 75(4), 435-450.
+
+* Schluter, D. (1984). A variance test for detecting species associations, with some example applications. Ecology, 65(3), 998-1005.
+
+* Whittaker, R. H. (1972). Evolution and measurement of species diversity. Taxon, 213-251.

@@ -83,5 +83,3 @@ or available [here](http://yeti.lifemapper.org/dl/papers.zip)</b>
   Taxon, 213-251.
 
 
-
-
