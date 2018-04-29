@@ -38,11 +38,12 @@ other geo-political units are examples of polygon data.
 
 ## Scale
 
-Large scale maps generally refer to maps of a small area with a lot of detail.  
-It is called large because where the ratio between distance on the map to 
-distance on the ground is very large.  For example 1:5000 means that 1 unit on 
+Large scale maps refer to maps of a small area with a large amount of detail.  
+The ratio between distance on the map to distance on the ground is very large.  
+For example a detailed map of a city might be at 1:5000, meaning that 1 unit on 
 the map (i.e. centimeter) equals 5000 units on the ground (5000 centimeters).  
-This type of map might be used for a detailed map of a city.  
+A smaller scale map, for example a regional map used for land-management, might
+be at a scale of 1:100,000 (1 centimeter = 1 kilometer).
 
 Small scale maps are generally used for mapping large areas.  The ratio of the 
 distance on the map to the distance on the ground is much smaller.  For example, 
@@ -52,5 +53,7 @@ a map of the country of Indonesia might be at the ratio of 1:2,000,000.
 ## Sample Geospatial Data resources
 
 **World borders:**  http://thematicmapping.org/downloads/world_borders.php
+
 **Global administrative boundaries:**  http://www.gadm.org/country 
+
 **Natural earth data:** http://www.naturalearthdata.com/ 

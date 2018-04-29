@@ -72,8 +72,10 @@ Lifemapper and additional terminology is at [Terminology](/terms)
          onto that, and future climate scenarios, all calculated from change 
  
      * SUBMIT PROJECT: after SPECIES DATA, ALGORITHMS, and INPUT LAYERS have all
-      been filled in correctly, this tab will show them with checkmarks beside 
-      them.  Click "Submit Project" and the page will return a URL which
-      may be used for viewing and downloading results.
+       been filled in correctly, this tab will show them with checkmarks beside 
+       them.  Click "Submit Project" and the resulting outputs will be accessible
+       for viewing by clicking on the date/time which appears at the top of the 
+       list in the left pane.  
+       
     
 

@@ -43,7 +43,8 @@ modeling research.
 </p>
 
 <p>
-<b>Some further reading:</b>
+<b>For more information on SDM, look at papers provided in the USB drive 
+or available [here](http://yeti.lifemapper.org/dl/papers.zip)</b>
 
 <li>Elith, J., Kearney, M. & Phillips, S. (2010) 
 The art of modelling range-shifting species. 
@@ -60,4 +61,3 @@ Franklin, Janet, 2009.  <li>Mapping Species Distributions: Spatial Inference and
 <i>Proceedings of the National Academy of Science, USA</i>. 2009 Nov 17; 
 106 Suppl 2:19651-8. doi: 10.1073/pnas.0901650106. Epub 2009 Sep 18.</li>
 
-</p>
