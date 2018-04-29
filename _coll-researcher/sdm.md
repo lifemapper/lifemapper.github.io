@@ -54,7 +54,7 @@ The art of modelling range-shifting species.
 terrestrial producer and vertebrate consumer diversity. 
 <i>Proceedings of the Royal Society of London, B.<\i>, 276, 269-278.</li>
 
-Franklin, Janet, 2009.  <li>Mapping Species Distributions: Spatial Inference and Prediction 
+<li>Franklin, Janet, 2009.  Mapping Species Distributions: Spatial Inference and Prediction 
 (Ecology, Biodiversity and Conservation) </li>
 
 <li>Colwell R.K., Rangel T.F., 2009. Hutchinson's duality: the once and future niche.
