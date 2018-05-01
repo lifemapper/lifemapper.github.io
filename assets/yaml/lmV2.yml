@@ -1353,7 +1353,16 @@ definitions:
 
   GridSet:
     type: object
-    
+    required: [id, matrices]
+    properties:
+      objectType:
+        type: string
+      id:
+        type: integer
+      matrices:
+        type: array
+        items:
+          $ref: '#/definitions/Matrix'
 
   Layer:
     type: object
@@ -1398,6 +1407,12 @@ definitions:
 
   Matrix:
     type: object
+    required: [id]
+    properties:
+      id:
+        type: integer
+      status:
+        type: integer
     
   MatrixColumn:
     type: object
