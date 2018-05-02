@@ -19,9 +19,9 @@ Lifemapper and additional terminology is at [Terminology](/terms)
 1. IF you wish to browse your own data as well as public data, sign in to 
    or sign up for a Lifemapper account.  In the left pane of the webpage:
    
-    a. If you do not have a user account, create one by clicking the **sign up** 
-      link below the Login button.
-    a. Once you have a user account, sign in with your username and password.
+      a. If you do not have a user account, create one by clicking the **sign up** 
+         link below the Login button.
+      a. Once you have a user account, sign in with your username and password.
        
 1. In the left pane of the browser, under **New SDM Project**, choose 
     **Browse By Species**.  
@@ -29,7 +29,7 @@ Lifemapper and additional terminology is at [Terminology](/terms)
 1. Type a few letters of a scientific species name into the text section, and a 
    list of species beginning with those letters will appear below.  Choose a 
    species to display in the map pane on the right of the browser window.
-    
+     
 1. If there are multiple projections for that species, they will all appear in 
    a grid of maps on the right portion of the browser window.
      
