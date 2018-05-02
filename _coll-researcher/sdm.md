@@ -4,8 +4,8 @@ image_path: ""
 layout: page
 ---
 
-<p>
-Species Distribution Modeling (SDM) is also known by several other names, 
+## Species Distribution Modeling (SDM) 
+SDM is also known by several other names, 
 including environmental niche modeling, ecological niche modeling, and habitat 
 modeling.  SDM refers to the process of creating mathematical formulas (models) 
 to predict the geographic distribution of species based on where they have been 
@@ -15,9 +15,8 @@ variables.  These models can be applied to the same environmental conditions
 for other locations or other time periods (predicted past or future), creating 
 maps showing other areas with similar conditions. This technique is used in 
 conservation, ecology and evolutionary biology.
-</p>
 
-<p>
+### Case Study
 A recent study by Jorge Soberón, research scientist at the KU Biodiversity 
 Institute, illustrates the power of Species Distribution Modeling.
 
@@ -40,11 +39,10 @@ them.
 
 Cactus in the most vulnerable areas are being protected thanks to Soberón's 
 modeling research.
-</p>
 
-<p>
-<b>For more information on SDM, look at papers provided in the USB drive 
-or available [here](http://yeti.lifemapper.org/dl/papers.zip)</b>
+### More Information
+For more information on SDM, look at papers provided in the USB drive 
+or available [here](http://yeti.lifemapper.org/dl/papers.zip)::
 
 * Arita, H. T., Christen, J. A., Rodríguez, P., & Soberón, J. (2008). 
   Species diversity and distribution in presence-absence matrices: mathematical 
@@ -81,5 +79,4 @@ or available [here](http://yeti.lifemapper.org/dl/papers.zip)</b>
 
 * Whittaker, R. H. (1972). Evolution and measurement of species diversity. 
   Taxon, 213-251.
-
 
