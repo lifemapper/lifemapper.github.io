@@ -58,7 +58,7 @@ Lifemapper and additional terminology is at [Terminology](/terms)
      Layer sets presented as choices in this tab all have the same layertypes 
      and can be used together.
  
-   * SUBMIT PROJECT: after SPECIES DATA, ALGORITHMS, and INPUT LAYERS have all
+   * **SUBMIT PROJECT**: after SPECIES DATA, ALGORITHMS, and INPUT LAYERS have all
      been filled in correctly, this tab will show them with checkmarks beside 
      them.  Click "Submit Project" and the resulting outputs will be accessible
      for viewing by clicking on the date/time which appears at the top of the 

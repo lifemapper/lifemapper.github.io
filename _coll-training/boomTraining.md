@@ -4,23 +4,22 @@ image_path: ""
 layout: page
 ---
 
-# Contents
-{:.no_toc}
-
-* Will be replaced with the ToC, excluding the "Contents" header
-{:toc}
 
 Lifemapper and additional terminology is at [Terminology](/terms)
 
-## Steps
+## Login (or skip to proceed anonymously)
 
-1. Go to the Lifemapper web client
-    * Go to http://svc.lifemapper.org/browse
+1. Go to the NCHC-Lifemapper [web client](http://gad210.nchc.org.tw/sdm)
+   
+1. IF you wish to browse your own data as well as public data, sign in to 
+   or sign up for a Lifemapper account.  In the left pane of the webpage:
+    
+      * If you do not have a user account, create one by clicking the **sign up** 
+        link below the Login button.
+      * Once you have a user account, sign in with your username and password.
+            
       
 1. Sign in to or sign up for a Lifemapper account.  
-
-## Multi-species analyses - Range and Diversity
-
 
 1. Upload species data and metadata describing it.  
     * Species data and metadata must be in CSV format.  Both files should have  
