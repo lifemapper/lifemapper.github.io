@@ -1,5 +1,5 @@
 ---
-title: Lifemapper Meta-Community Phylogenetic Analysis (MCPA)
+title: Lifemapper Metacommunity Phylogenetic Analysis (MCPA)
 image_path: ""
 layout: page
 ---
@@ -10,7 +10,7 @@ layout: page
 * Will be replaced with the ToC, excluding the "Contents" header
 {:toc}
 
-## Lifemapper Meta-Community Phylogenetic Analysis (MCPA) 
+## Lifemapper Metacommunity Phylogenetic Analysis (MCPA) 
 
 ### What is the analysis?
 

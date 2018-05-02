@@ -33,12 +33,12 @@ landscape levels:
   * Data for multi-species exercises is available on the USB stick or from
     [here](http://yeti.lifemapper.org/dl/taiwan_boom_data.tar.gz).
 
-## Meta-Community Phylogenetic Analyses (MCPA)
+## Metacommunity Phylogenetic Analyses (MCPA)
 Additional phylogenetic and biogeographic analyses can be performed with 
 a phylogenetic (evolutionary) tree containing the same species and 
-bio-geographic maps of regions for which to compare species communities:
+biogeographic maps of regions for which to compare species communities:
   * Overview of [MCPA](/researcher/mcpa)
-  * [Visualize and Explore](/training/mcpaVizTraining) Meta-Community 
+  * [Visualize and Explore](/training/mcpaVizTraining) Metacommunity 
     Phylogenetic Analyses.  
   * [Subset](/training/subsetTraining) SDM for species
   * Two subsets are available from the USB drive or for download:

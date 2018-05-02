@@ -49,11 +49,6 @@ For more information on SDM::
 
 and papers provided in the USB drive ::
 
-* Arita, H. T., Christen, J. A., Rodríguez, P., & Soberón, J. (2008). 
-  Species diversity and distribution in presence-absence matrices: mathematical 
-  relationships and biological implications. The American Naturalist, 
-  172(4), 519-532.
-
 * Colwell R.K., Rangel T.F., 2009. Hutchinson's duality: the once and future 
   niche. Proceedings of the National Academy of Science, USA. 2009 Nov 17; 106 
   Suppl 2:19651-8. doi: 10.1073/pnas.0901650106. Epub 2009 Sep 18.
@@ -67,21 +62,3 @@ and papers provided in the USB drive ::
 * Jetz, W., Kreft, H., Ceballos, G. & Mutke, J. (2009) Global associations 
   between terrestrial producer and vertebrate consumer diversity. Proceedings of 
   the Royal Society of London, B.<\i>, 276, 269-278.
-
-* Lande, R. (1996). Statistics and partitioning of species diversity, and 
-  similarity among multiple communities. Oikos, 5-13.
-
-* Legendre, P., Borcard, D., & Peres-Neto, P. R. (2005). Analyzing beta 
-  diversity: partitioning the spatial variation of community composition data.
-  Ecological Monographs, 75(4), 435-450.
-
-* Leibold, M. A., Economo, E. P., & Peres‐Neto, P. (2010). Metacommunity 
-  phylogenetics: separating the roles of environmental filters and historical 
-  biogeography. Ecology letters, 13(10), 1290-1299.
-
-* Schluter, D. (1984). A variance test for detecting species associations, with 
-  some example applications. Ecology, 65(3), 998-1005.
-
-* Whittaker, R. H. (1972). Evolution and measurement of species diversity. 
-  Taxon, 213-251.
-

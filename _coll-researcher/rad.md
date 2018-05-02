@@ -48,7 +48,7 @@ Papers provided in the USB drive and linked below:
 * Pearson’s correlation coefficient
 
 ### Species statistics
-* [Journal article](https://www.journals.uchicago.edu/doi/10.1086/590954)
+* [Arita et al, 2008](https://www.journals.uchicago.edu/doi/10.1086/590954)
 * Omega (range size)
   - Number of sites present for each species
 * Omega Prop (range size in proportion to the total of all range sizes)
@@ -57,17 +57,17 @@ Papers provided in the USB drive and linked below:
 * PSI Prop (species range richness in proportion to richness all species ranges)
 
 ### Beta diversity statistics
-* [Whittakers Beta](http://www.jstor.org/stable/1218190)
-* [Landes Additive Beta](http://www.jstor.org/stable/3545743)
-* [Legendres Beta](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/05-0549)
+* Whittakers Beta [Whittaker, 1972](http://www.jstor.org/stable/1218190)
+* Landes Additive Beta [Lande, 1996](http://www.jstor.org/stable/3545743)
+* Legendres Beta [Legendre et al, 2005](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/05-0549)
 
 ### Covariance Matrices
 * Sites composition
 * Species ranges
 
 ### Schluter’s statistics
-* [Species variance ratio](https://esajournals.onlinelibrary.wiley.com/doi/abs/10.2307/1938071)
-* [Sites variance ratio](https://esajournals.onlinelibrary.wiley.com/doi/abs/10.2307/1938071)
+* Species variance ratio and
+* Sites variance ratio [Schluter, 1984](https://esajournals.onlinelibrary.wiley.com/doi/abs/10.2307/1938071)
 
 
 ### References
