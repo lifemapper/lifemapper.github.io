@@ -14,7 +14,7 @@ Lifemapper and additional terminology is at [Terminology](/terms)
 
 ## Login (or skip to proceed anonymously)
 
-1. Go to the Lifemapper web client: http://gad210.nchc.org.tw/sdm
+1. Go to the NCHC-Lifemapper [web client](http://gad210.nchc.org.tw/sdm)
       
 1. IF you wish to browse your own data as well as public data, sign in to 
    or sign up for a Lifemapper account.  In the left pane of the webpage:
