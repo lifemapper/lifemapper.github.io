@@ -44,8 +44,8 @@ modeling research.
 
 For more information on SDM::
 
-* https://en.wikipedia.org/wiki/Environmental_niche_modelling
-* http://www.natureserve.org/conservation-tools/species-distribution-modeling
+* [Wikipedia Environmental niche modelling](https://en.wikipedia.org/wiki/Environmental_niche_modelling)
+* [NatureServe Species Distribution Modelling](http://www.natureserve.org/conservation-tools/species-distribution-modeling)
 
 and papers provided in the USB drive ::
 

@@ -15,10 +15,8 @@ Terminology used in Lifemapper and these documents are summarized in
 [Terminology](/terms).
 
 ## Background
-To get an overall understanding of Lifemapper and geospatial data, read:
-  * Types of spatial data in the context of Lifemapper are summarized 
-    [spatial data](/researcher/spatialData)
-  * [Meta-Community Phylogenetic Analyses](/researcher/mcpa)
+For an overall understanding of geospatial data, read:
+  * Types of spatial data are summarized in [spatial data](/researcher/spatialData)
   
 ## Species Distribution Modeling (SDM)
 The potential distribution of individual species may be predicted using SDM tools:
