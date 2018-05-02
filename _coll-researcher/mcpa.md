@@ -14,8 +14,10 @@ layout: page
 
 ### What is the analysis?
 
-  The metacommunity phylogenetic analysis is a "method that aims to evaluate the interaction between phylogenetic 
-  structure, historical biogeographic events and environmental filtering in driving species distributions in a 
+  The metacommunity phylogenetic analysis is a "method that aims to evaluate 
+  the interaction between phylogenetic 
+  structure, historical biogeographic events and environmental filtering in 
+  driving species distributions in a 
   large-scale metacommunity".
 
 ### What are the inputs
@@ -136,11 +138,12 @@ layout: page
 
 ### Reference 
 
-Leibold, M. A., Economo, E. P., & Peres‐Neto, P. (2010). Metacommunity 
-phylogenetics: separating the roles of environmental filters and historical 
-biogeography. Ecology letters, 13(10), 1290-1299.
+Paper provided in the USB drive and linked below:
 
-https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1461-0248.2010.01523.x
+[Leibold, M. A., Economo, E. P., & Peres‐Neto, P. (2010). Metacommunity 
+phylogenetics: separating the roles of environmental filters and historical 
+biogeography. Ecology letters, 13(10), 1290-1299.](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1461-0248.2010.01523.x)
+
 
 
 
