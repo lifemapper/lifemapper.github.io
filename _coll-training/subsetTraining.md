@@ -11,21 +11,30 @@ layout: page
 {:toc}
 
 Lifemapper and additional terminology is at [Terminology](/terms.html)
-
-Several pre-subsetted datasets are available for download, or from the provided 
-USB drive, including the [Rubiaceae](http://yeti.lifemapper.org/dl/Rubiaceae.zip) 
-family of flowering plants, and the 
-[Geometridae](http://yeti.lifemapper.org/dl/Geometridae.zip) family of moths.  
-
+    
 ## Steps
 
-1. Open the Lifemapper web client, by opening the 
-   Rubiaceae/output/gridset-10-package/index.html file.  This will allow you to 
-   browse the inputs and explore the outputs of multi-species, and phylogentic 
-   analyses on this subset of the Taiwan data library.
+1. Open the Lifemapper web client, by navigating to 
+   http://gad210.nchc.org.tw/global-pam.  This will allow you first explore and 
+   then subset the global PAM for this Lifemapper instance.
    
-1. To explore the Geometridae data, open the 
-   Geometridae/output/gridset-9-package/index.html file.
-      
+1. This interface allows you to subset on a variety of variables.  Start by 
+   selecting a taxonomic group that you are interested in.  Start by selecting
+   a kingdom.
+   
+1. After selecting a kingdom, the select boxes will fill in with available
+   options.  You can continue to select different taxonomic classifications as
+   well as selecting algorithm, model and projection scenarios.
 
-    
+1. After each selection you make, the matching species list will be updated in the
+   bottom left pane.  The map pane on the right will be updated as well with a 
+   "heat map" indicating the relative number of species present in each cell.  The 
+   transparency of the cells is determined by the proportion of the matching 
+   species that are present in each cell.
+
+1. When you are happy with your selections, enter an archive name in the text box
+   at the bottom of the screen and press the "Subset PAM" button.  A request will
+   be sent to the server to create a subset of the PAM and run the macro-ecological
+   and MCPA computations on the resulting data.  This process can take a 
+   considerable amount of time so we will show already completed results rather 
+   than waiting for these to return.
