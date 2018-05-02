@@ -41,8 +41,13 @@ Cactus in the most vulnerable areas are being protected thanks to Soberón's
 modeling research.
 
 ### More Information
-For more information on SDM, look at papers provided in the USB drive 
-or available [here](http://yeti.lifemapper.org/dl/papers.zip)::
+
+For more information on SDM::
+
+* https://en.wikipedia.org/wiki/Environmental_niche_modelling
+* http://www.natureserve.org/conservation-tools/species-distribution-modeling
+
+and papers provided in the USB drive ::
 
 * Arita, H. T., Christen, J. A., Rodríguez, P., & Soberón, J. (2008). 
   Species diversity and distribution in presence-absence matrices: mathematical 
