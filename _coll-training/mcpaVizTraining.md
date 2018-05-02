@@ -32,64 +32,17 @@ Lifemapper and additional terminology is at [Terminology](/terms)
    each node is with that predictor variable with brighter green and red values incidating higher levels of correlation and
    darker red and green values representing less correlation.
 
-## Login (or skip to proceed anonymously)
-
-1. 
-
-
-1. Go to the Lifemapper web client
-    * Go to http://svc.lifemapper.org/sdm
-
-## Species Distribution Modeling
-
-1. To request species distribution modeling on species data in the
-   Lifemapper installation, go to the left pane of the webpage, titled 
-   "Lifemapper SDM | New Project". 
+1. Select a node.  Upon doing so, the map in the middle pain will contain the locations where species in that clade are
+   present.  Cells will either be red, blue, or purple.  The tree will also highlight species in red or blue.  The red
+   species in the tree are linked to the red cells in the map and the blue species are linked to the blue cells.  The
+   purple cells indicate that both red and blue species are present at those locations.
    
-1. There are four headings in the right pane.  The first three are input sections, 
-   SPECIES DATA, ALGORITHMS, and INPUT LAYERS.  The fourth, SUBMIT PROJECT allows you to submit
-   your selections for computation if all three inputs are correctly filled.  
+1. The pane on the right will also update when a tree node is selected.  You will see a list of predictors with the 
+   correlation value to the left of each name.  Under the correlation value, the p value is displayed in parentheses.  The 
+   p value indicates the frequency that a greater correlation value was calculated in the permutations.  There is also a 
+   bar of color under each predictor name indicating how correlated the distribution of the sister clades are with that 
+   predictor.
 
-       * **SPECIES DATA**: choose a species for modeling by typing in the first few
-         letters of a species name in the 'Search' section.  The page will display 
-         a list of scientific species names in the database beginning with those letters, 
-         below your typing. Choose your desired species, and repeat for as many 
-         species as you want.  Only one set of species points is visible at a time.  
-         Switch the visible species by clicking the "eyeball" icon for the species 
-         you wish to view. 
-       * [ALGORITHMS](/terms.html): choose one or more algorithms to use for creating SDMs for all
-         species chosen in the SPECIES DATA tab.  To display choices, hover over 
-         the "Add Algorithm" box for a list of all available SDM algorithms 
-         available. Hover over individual algorithms to get documentation about
-         that algorithm.  When you choose an algorithm, a 'card' will be added to that
-         pane.  Hover over the box for a list of parameters filled in with default values 
-         for that algorithm. These parameters may be edited. 
-       * **INPUT LAYERS**: These sets of input layers are also called 
-         [Scenarios](/terms.html).  Choose one set of "Model Layers" and one or more
-         sets of "Projection Layers" by checking the radio button or boxes to the 
-         right of the descriptions.  Model Layers are for 
-         correlating known species occurrences with environmental values 
-         (producing the SDM Model).  Projection Layers are
-         for applying the SDM model to the same or different regions or time 
-         periods and producing potential species distribution maps.  
-         Layer sets presented as choices in this tab all have the same layertypes 
-         and can be used together.
- 
-    * SUBMIT PROJECT: after SPECIES DATA, ALGORITHMS, and INPUT LAYERS have all
-      been filled in correctly, this tab will show them with checkmarks beside 
-      them.  Click "Submit Project" and the resulting outputs will be accessible
-      for viewing by clicking on the date/time which appears at the top of the 
-      list in the left pane.  
-       
-## NCHC Lifemapper archive
-1. We use 'current' climate data 
-   from Worldclim 1.4, soils, landcover, and elevation, at global extent, 
-   and 10 minute resolution to model Taiwan species using all points where 
-   they have been found, both inside and outside of Taiwan.  
-
-1. We project these models back onto the same 'current' climate, soils, landcover and elevation
-   just for the Taiwan region, at higher, 30 second resolution. 
-   onto that, and future climate scenarios, all calculated from change 
 
 
 mcpa/index.html
