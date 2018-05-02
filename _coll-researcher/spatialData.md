@@ -10,9 +10,13 @@ layout: page
 * Will be replaced with the ToC, excluding the "Contents" header
 {:toc}
 
+Geospatial data is data with geographic location associated with it, i.e. map
+data.  There are two kinds of spatial data, raster data and vector data.  Each
+has properties that make it better for representing different information.
+
 ## Raster Data
 
-Geospatial data best represented in raster format generally has values at 
+Geospatial data best represented in raster format generally has one value at 
 every point.  The area to be represented is split up into a grid, with each 
 grid cell containing a value. Elevation, temperature, precipitation are 
 examples of data generally represented as raster.

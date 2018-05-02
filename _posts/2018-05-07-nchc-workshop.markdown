@@ -42,6 +42,7 @@ bio-geographic maps of regions for which to compare species communities:
     Phylogenetic Analyses.  
   * [Subset](/training/subsetTraining) SDM for species
   * Two subsets are available from the USB drive or for download:
+  
     * [Rubiaceae](http://yeti.lifemapper.org/dl/Rubiaceae.zip) 
     * [Geometridae](http://yeti.lifemapper.org/dl/Geometridae.zip) 
 

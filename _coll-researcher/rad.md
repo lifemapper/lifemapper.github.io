@@ -4,7 +4,7 @@ image_path: ""
 layout: page
 ---
 
-## Lifemapper Multi-Species Range and Diveristy (RAD)
+## Lifemapper Macro-Ecological Analyses 
 
 <p>
 Studying biodiversity patterns includes describing, visualizing and analyzing 
@@ -23,7 +23,7 @@ extents.   These web services can be accessed programmatically and through the
 Lifemapper web app in the future.
 </p>
 
-## RAD Statistics
+## Statistics
 
 
 ### Site-based statistics (for species) - https://www.journals.uchicago.edu/doi/10.1086/590954
