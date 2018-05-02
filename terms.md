@@ -138,4 +138,5 @@ Biogeographic Hypotheses and BioGeo Matrix
   be intersected with the Shapegrid to produce a BioGeo Matrix, used in MCPA 
   computations. API documentation is at [BioGeo](/api.html#/BioGeo).
 
-
+Ultrametric Tree
+: A tree whose total branch length from the root to each tip in the tree is the same.

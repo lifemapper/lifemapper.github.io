@@ -17,9 +17,7 @@ Lifemapper and additional terminology is at [Terminology](/terms)
       * If you do not have a user account, create one by clicking the **sign up** 
         link below the Login button.
       * Once you have a user account, sign in with your username and password.
-            
-      
-1. Sign in to or sign up for a Lifemapper account.  
+
 
 1. Upload species data and metadata describing it.  
     * Species data and metadata must be in CSV format.  Both files should have  
