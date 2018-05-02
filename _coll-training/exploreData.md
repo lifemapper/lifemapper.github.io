@@ -20,7 +20,7 @@ Lifemapper and additional terminology is at [Terminology](/terms)
    or sign up for a Lifemapper account.  In the left pane of the webpage:
    
       * If you do not have a user account, create one by clicking the **sign up** 
-         link below the Login button.
+        link below the Login button.
       * Once you have a user account, sign in with your username and password.
        
 1. In the left pane of the browser, under **New SDM Project**, choose 
