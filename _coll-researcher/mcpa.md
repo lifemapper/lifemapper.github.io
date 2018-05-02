@@ -30,8 +30,8 @@ layout: page
   a species.  The value of each cell should  
   be either zero if the species is not found at that site or one if it is.
   
-  The phylogenetic tree must be binary and ultrametric and then is encoded with 
-  the rows representing the tips of the 
+  The phylogenetic tree must be binary and [ultrametric](/terms) and then is 
+  encoded with the rows representing the tips of the 
   tree and the columns representing the internal nodes.  For each node / column, 
   each tip that occurs in that clade should 
   be encoded with a value relative to its branch length.  One of the system 

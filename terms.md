@@ -51,6 +51,15 @@ MCPA
   [MCPA](/researcher/mcpa).  MCPA is defined by Pedro Peres-Neto in 
   https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1461-0248.2010.01523.x
 
+Ultrametric Tree
+: A tree whose total branch length from the root to each tip in the tree is the same.
+
+Helmert Contrast
+: An encoding of data such that sites with values of 1 indicate that they fall on one
+  side of a hypothesis, values of -1 indicate that they belong to the opposite side of
+  the same hypothesis, and values of zero indicate that the cell does not fall on 
+  either side of the hypothesis.
+
  
 # Lifemapper-specific Data and Parameter Terms
 
@@ -137,12 +146,3 @@ Biogeographic Hypotheses and BioGeo Matrix
   can be in the form of raster or vector files.  Biogeographic Hypotheses may 
   be intersected with the Shapegrid to produce a BioGeo Matrix, used in MCPA 
   computations. API documentation is at [BioGeo](/api.html#/BioGeo).
-
-Ultrametric Tree
-: A tree whose total branch length from the root to each tip in the tree is the same.
-
-Helmert Contrast
-: An encoding of data such that sites with values of 1 indicate that they fall on one
-  side of a hypothesis, values of -1 indicate that they belong to the opposite side of
-  the same hypothesis, and values of zero indicate that the cell does not fall on 
-  either side of the hypothesis.
