@@ -140,3 +140,9 @@ Biogeographic Hypotheses and BioGeo Matrix
 
 Ultrametric Tree
 : A tree whose total branch length from the root to each tip in the tree is the same.
+
+Helmert Contrast
+: An encoding of data such that sites with values of 1 indicate that they fall on one
+  side of a hypothesis, values of -1 indicate that they belong to the opposite side of
+  the same hypothesis, and values of zero indicate that the cell does not fall on 
+  either side of the hypothesis.
