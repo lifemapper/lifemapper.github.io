@@ -21,15 +21,19 @@ Terminology used in Lifemapper and these documents are summarized in
 1. Introductions
 1. Lifemapper overview
 1. Single species analysis
+
    * Species Distribution Modeling (SDM)
    * Spatial Data
    * Browse Taiwan data library (hands-on)
    * Submit SDM experiment (hands-on)
+   
 1. Multi-species analyses
+
    * Macroecological analyses
    * Submit multi-species request (hands-on)
    * Metacommunity Phylogenetic Analyses (MCPA)
    * MCPA (hands-on)
+   
 1. Researcher tools
 1. Questions, Discussion, Hands-on help
 
