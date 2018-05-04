@@ -14,6 +14,25 @@ date:   2018-05-07
 Terminology used in Lifemapper and these documents are summarized in 
 [Terminology](/terms).
 
+## Lifemapper Workshop Agenda
+
+2018 May 4, NCHC, Hsinchu, Taiwan
+
+1. Introductions
+1. Lifemapper overview
+1. Single species analysis
+   * Species Distribution Modeling (SDM)
+   * Spatial Data
+   * Browse Taiwan data library (hands-on)
+   * Submit SDM experiment (hands-on)
+1. Multi-species analyses
+   * Macroecological analyses
+   * Submit multi-species request (hands-on)
+   * Metacommunity Phylogenetic Analyses (MCPA)
+   * MCPA (hands-on)
+1. Researcher tools
+1. Questions, Discussion, Hands-on help
+
 ## Background
 For an overall understanding of geospatial data, read:
   * Types of spatial data are summarized in [spatial data](/researcher/spatialData)
