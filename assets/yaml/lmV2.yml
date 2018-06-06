@@ -1,4 +1,4 @@
-# Draft of Lifemapper services API v2
+# Lifemapper services API v2
 swagger: '2.0'
 info:
   title: Lifemapper API
@@ -231,6 +231,7 @@ paths:
         - $ref: '#/parameters/PointMin'
         - $ref: '#/parameters/UrlUser'
         - $ref: '#/parameters/ProjectScenarioCode'
+        - $ref: '#/parameters/Resolution'
         - $ref: '#/parameters/Squid'
         - $ref: '#/parameters/TaxonKingdom'
         - $ref: '#/parameters/TaxonPhylum'
@@ -470,6 +471,7 @@ paths:
       responses:
         200:
           description: A biogeogrpahic hypothesis matrix
+          schema:
             $ref: '#/definitions/Matrix'
         403:
           description: Error status returned when the user does not have 
@@ -2331,6 +2333,13 @@ parameters:
     description: Only return items built with this SDM projection scenario
     required: false
     type: integer
+  Resolution:
+    name: resolution
+    in: query
+    description: Create a new shapegrid with this resolution
+    required: false
+    type: number
+    minimum: 0.00001
   ScenarioCode:
     name: scenarioCode
     in: query
