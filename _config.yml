@@ -42,6 +42,12 @@ collections:
   coll-researcher:
      output: true
      permalink: /researcher/:path/
+  coll-training:
+     output: true
+     permalink: /training/:path/
+  coll-workflow:
+     output: true
+     permalink: /workflow/:path/
 
 
 exclude:

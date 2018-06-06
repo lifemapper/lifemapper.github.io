@@ -1,5 +1,5 @@
 ---
-title: Documentation
+title: Programmer Documentation
 image_path: ""
 layout: page
 ---
@@ -9,15 +9,19 @@ layout: page
 * Will be replaced with the ToC, excluding the "Contents" header
 {:toc}
 
-## Overview
+## Programmer documentation
 
-The Lifemapper software is described in [Overview](overview.html).
 To understand how to use the service types and workflows below, start with 
-the [Using Lifemapper Web Services](/documentation/using) overview.
+the [Using Lifemapper Web Services](/lmclient/using) overview.
 
 ---
-
 ## Python Client Library
+
+Python Client Library is currently being updated.  The library and documentation
+will be available soon.
+
+<!-- 
+--- 
 
 Doxygen documentation for the Python client library starts
 [here](/docs/clientLibrary).  Dig into the 'Classes' for the 
@@ -37,9 +41,5 @@ and
  * [Projection](api.html#/Projections)
  * [SDM Experiment](api.html#/Experiments)
 
----
+-->
 
-## Typical Workflows
-
- * [Query Public Data](/documentation/query-flow)
- * [Request Analyses](/documentation/analysis-flow)

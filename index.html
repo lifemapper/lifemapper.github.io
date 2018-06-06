@@ -6,29 +6,74 @@ layout: default
 
   <p>
      This is the Lifemapper documentation website, it contains
-     information about how to use, install, and program against Lifemapper.
-     Start with the <a href="overview.html">Overview</a>.
+     information about how to use Lifemapper for single- and multi-species biodiversity
+     analyses.
   </p>
   <p>
+     The Lifemapper software is described in <a href="/overview.html">Overview</a>.  
+     Lifemapper enables query and analyses of single and multi-species 
+     distributions, alone or in conjunction with additional geographic and
+     phylogenetic data.  Analyses are described in pages linked below, along with 
+     simple tutorials and typical workflows.  Lifemapper provides single-species modeling 
+     with SDM functions, and multi-species analyses of species communities, at landscape 
+     levels over multiple dimensions, including time, geography, and phylogeny.
+  </p>
+  <!-- p>
+     To understand how to use the service types and workflows below, start with 
+     the [Using Lifemapper Web Services](/lmclient/using) overview.
+     
+  </p> <-->
+  <p>
+
+      <h1 class="page-heading">Definitions and Descriptions</h1>
+      <ul>
+         <li><a href="/terms.html">Terminology</a></li>
+         <li><a href="/researcher/spatialData">Geospatial Data</a></li>
+         <li><a href="/researcher/sdm">Single-species SDM Analyses</a></li>
+         <li><a href="/researcher/rad">Multi-species Analyses</a></li>
+         <li><a href="/researcher/mcpa">Meta-Community Phylogenetic Analyses</a></li>
+      </ul>
+  </p>
+  <p> 
+      <h1 class="page-heading">Web Client Tutorials</h1>
+      <ul>
+         <li><a href="/training/sdmTraining">Lifemapper Single-Species Tutorial</a></li>
+         <li><a href="/training/boomTraining">Lifemapper Multi-Species Tutorial</a></li>
+      </ul>
+  </p>
+  <p> 
+      <h1 class="page-heading">Typical Workflows</h1>
+      <ul>
+         <li><a href="/workflow/query-flow">Query public data</a></li>
+         <li><a href="/workflow/sdm-flow">Request Species Distribution Model</a></li>
+         <li><a href="/workflow/rad-flow">Request Multi-species analyses</a></li>
+         <li><a href="/workflow/subset-flow">Request Analyses of Public Data Subset</a></li>
+      </ul>
+  </p>
+  <p> 
       <h1 class="page-heading">Programmer Documentation</h1>
       <ul>
          <li><a href="documentation.html">Data and Workflows</a></li>
-         <li><a href="/docs/clientLibrary">Python Client Library Reference</a></li>
+         <li>Python Client Library Reference. The Python Client Library is currently being 
+             updated.  The library and documentation will be available soon.</li>
       </ul>
-
-      <h1 class="page-heading">Researcher Resources</h1>
-      <ul>
-         <li><a href="/researcher/radstats">Multi-species statistics</a></li>
-         <li><a href="/researcher/spatialData">Geospatial Data</a></li>
-         <li><a href="/researcher/qgisTraining">Lifemapper QGIS Plugin</a></li>
-      </ul>
-  
+  </p>
+  <p> 
       <h1 class="page-heading">Collaborations</h1>
       <ul>
          <li><a href="http://biotaphy.org">Biotaphy Project</a></li>
          <li><a href="http://www.pragma-grid.net/">PRAGMA</a></li>
+         <li><a href="http://www.globalcentra.org/">CENTRA</a></li>
       </ul>
-
+  </p>
+  
+  <p> 
+      <h1 class="page-heading">Support</h1>
+  This project was supported by research grants 
+  US NSF ACI-1234983, DBI-1356732, DBI-1458422, and USGS BIP-G14AC00285
+  </p>
+  
+  <p> 
       <h1 class="page-heading">Posts</h1>
       <ul class="post-list">
          {% for post in site.posts %}
@@ -40,6 +85,30 @@ layout: default
             </li>
          {% endfor %}
       </ul>
+
+<!-- 
+--- 
+
+Doxygen documentation for the Python client library starts
+[here](/docs/clientLibrary).  Dig into the 'Classes' for the 
+[SDM Client functions](/docs/clientLibrary/classLmClient_1_1sdm_1_1SDMClient.html) 
+and 
+[RAD Client functions](/docs/clientLibrary/classLmClient_1_1rad_1_1RADClient.html)
+
+---
+
+## REST API Service Types
+ * [Updates](/documentation/updates)
+ * [Occurrence Set](api.html#/Occurrence_Sets)
+ * [Scenario (Layer set)](api.html#/Scenarios)
+ * [Layer](api.html#/Layers)
+ * [Layer Typecode](api.html#/Type_Codes)
+ * [Algorithm](api.html#/Algorithms)
+ * [Projection](api.html#/Projections)
+ * [SDM Experiment](api.html#/Experiments)
+
+-->
+
 
   </p>
       <br />
