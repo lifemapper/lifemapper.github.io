@@ -226,12 +226,12 @@ paths:
         - $ref: '#/parameters/GridSetIdReq'
         - $ref: '#/parameters/AlgorithmCode'
         - $ref: '#/parameters/BBox'
+        - $ref: '#/parameters/CellSize'
         - $ref: '#/parameters/ModelScenarioCode'
         - $ref: '#/parameters/PointMax'
         - $ref: '#/parameters/PointMin'
         - $ref: '#/parameters/UrlUser'
         - $ref: '#/parameters/ProjectScenarioCode'
-        - $ref: '#/parameters/Resolution'
         - $ref: '#/parameters/Squid'
         - $ref: '#/parameters/TaxonKingdom'
         - $ref: '#/parameters/TaxonPhylum'
@@ -2348,13 +2348,6 @@ parameters:
     description: Only return items built with this SDM projection scenario
     required: false
     type: integer
-  Resolution:
-    name: resolution
-    in: query
-    description: Create a new shapegrid with this resolution
-    required: false
-    type: number
-    minimum: 0.00001
   ScenarioCode:
     name: scenarioCode
     in: query
