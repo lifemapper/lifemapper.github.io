@@ -420,8 +420,8 @@ paths:
       parameters:
         - $ref: '#/parameters/PathGridsetId'
         - $ref: '#/parameters/DoMCPA'
-        - $ref: '#/parameters/NumPermutations'
-        - $ref: '#/parameters/DoCalc'
+        - $ref: '#/parameters/NumberOfPermutations'
+        - $ref: '#/parameters/DoCalculate'
       tags:
         - Gridset
         - Analysis
