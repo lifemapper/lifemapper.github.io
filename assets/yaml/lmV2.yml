@@ -248,6 +248,28 @@ paths:
           schema:
             $ref: '#/definitions/AtomObject'
 
+  /globalpam/gridset:
+    get:
+      summary: Service to find the available gridsets for the global pam
+      description: |
+        The Global PAM gridset facet endpoint allows the user to find the 
+        gridsets available to them that are cataloged in Solr so that they can
+        create subsets from them.
+      parameters:
+        - $ref: '#/parameters/UrlUser'
+      tags:
+        - Global PAM
+        - Facet
+      responses:
+        200:
+          description: Returns the available gridsets
+          schema:
+            type: object
+            properties:
+              gridSetId:
+                type: object
+                description: Each key is a gridset id and the value is the count
+
   /gridset:
     get:
       summary: Lifemapper grid sets listing service
@@ -420,8 +442,8 @@ paths:
       parameters:
         - $ref: '#/parameters/PathGridsetId'
         - $ref: '#/parameters/DoMCPA'
-        - $ref: '#/parameters/NumPermutations'
-        - $ref: '#/parameters/DoCalc'
+        - $ref: '#/parameters/NumberOfPermutations'
+        - $ref: '#/parameters/DoCalculate'
       tags:
         - Gridset
         - Analysis
