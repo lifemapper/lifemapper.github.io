@@ -1696,51 +1696,6 @@ definitions:
             description: The file name of the tree that was uploaded
             type: string
 
-      # Old options, remove when updated
-
-      algorithms:
-        type: array
-        items:
-          $ref: '#/definitions/Algorithm'
-      occurrenceSets:
-        type: array
-        items:
-          type: object
-          description: Choose one of the available properties for each item in the array
-          properties:
-            occurrenceSetId:
-              type: integer
-            occurrenceData:
-              type: string
-            occurrenceMeta:
-              type: object
-            #gbifTaxonId:
-            #  type: integer
-            #  description: Do not use this, just an example of the future
-      modelScenario:
-        type: object
-        description: Pick one of the options. Only scenario d is enabled now
-        properties:
-          scenarioId:
-            type: integer
-          scenarioCode:
-            type: string
-      projectionScenarios:
-        type: array
-        items:
-          type: object
-          description: Use one or the other
-          properties:
-            scenarioId:
-              type: integer
-            scenarioCode:
-              type: string
-            #modelScenario:
-            #  type: string
-            #  description: This is the model scenario that this projection 
-            #               scenario matches.  We may do this by codes and not
-            #               need this
-
   BoomScenarioPackage:
     type: object
     properties:
