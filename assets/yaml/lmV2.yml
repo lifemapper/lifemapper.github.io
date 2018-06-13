@@ -267,8 +267,14 @@ paths:
             type: object
             properties:
               gridSetId:
-                type: object
-                description: Each key is a gridset id and the value is the count
+                type: list
+                items:
+                  type: object
+                  properties:
+                    gridSetId:
+                      type: string
+                    count:
+                      type: int
 
   /gridset:
     get:
