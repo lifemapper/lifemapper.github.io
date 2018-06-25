@@ -1682,6 +1682,9 @@ definitions:
       occurrence set / model scenario / projection scenario combination
     properties:
       
+      archive_name:
+        type: string
+        
       global_pam:
         $ref: '#/definitions/BoomGlobalPAM'
       mcpa:
