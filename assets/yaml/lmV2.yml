@@ -267,14 +267,14 @@ paths:
             type: object
             properties:
               gridSetId:
-                type: list
+                type: array
                 items:
                   type: object
                   properties:
                     gridSetId:
                       type: string
                     count:
-                      type: int
+                      type: integer
 
   /gridset:
     get:
