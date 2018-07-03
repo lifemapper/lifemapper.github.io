@@ -28,14 +28,17 @@ Lifemapper web app in the future.
 Papers provided in the USB drive and linked below:
 
 ### Site-based statistics (for species)
-* [Journal article](https://www.journals.uchicago.edu/doi/10.1086/590954]
+* [Arita et al, 2008](https://www.journals.uchicago.edu/doi/10.1086/590954)
 * Alpha (species richness)
   - The number of species present at each site
+  
 * Alpha Prop (proportional species richness)
   - The proportion of the entire set of species that are present at each site.  Percentage of species pool 
     present.
+    
 * Phi (total range size)
   - The sum of the range sizes of all species at each site.
+  
 * Phi Prop (proportional species range size)
   - The proportion of the sum of the range sizes of all species at a site compared to the sum of all ranges 
     for all species.
