@@ -29,35 +29,26 @@ Papers provided in the USB drive and linked below:
 
 ### Site-based statistics (for species)
 * [Arita et al, 2008](https://www.journals.uchicago.edu/doi/10.1086/590954)
-* Alpha (species richness)
-  - The number of species present at each site
-  
-* Alpha Prop (proportional species richness)
-  - The proportion of the entire set of species that are present at each site.  Percentage of species pool 
-    present.
-    
-* Phi (total range size)
-  - The sum of the range sizes of all species at each site.
-  
-* Phi Prop (proportional species range size)
-  - The proportion of the sum of the range sizes of all species at a site compared to the sum of all ranges 
-    for all species.
+* Alpha (species richness): The number of species present at each site
+* Alpha Prop (proportional species richness): The proportion of the entire set of species that are present at each site.  
+  Percentage of species pool present.
+* Phi (total range size): The sum of the range sizes of all species at each site.
+* Phi Prop (proportional species range size):  The proportion of the sum of the range sizes of all species at a site 
+  compared to the sum of all ranges for all species.
 
 ### Site-based statistics (for tree)
-* Mean Nearest Taxon Distance (for each species in this site, how taxonomically 
-  close is its closest relative in this site) 
-* Mean Pairwise Distance (for each species in this site, how taxonomically 
-  close are all other species in this site)
+* Mean Nearest Taxon Distance: for each species in this site, how taxonomically 
+  close is its closest relative in this site 
+* Mean Pairwise Distance: for each species in this site, how taxonomically 
+  close are all other species in this site
 * Pearson’s correlation coefficient
 
 ### Species statistics
 * [Arita et al, 2008](https://www.journals.uchicago.edu/doi/10.1086/590954)
-* Omega (range size)
-  - Number of sites present for each species
-* Omega Prop (range size in proportion to the total of all range sizes)
-  - The percentage of the total number of sites that each species is present
-* PSI (the richness of a species’ range)
-* PSI Prop (species range richness in proportion to richness all species ranges)
+* Omega (range size): number of sites present
+* Omega Prop: range size in proportion to the total of all range sizes
+* PSI: richness of a species’ range
+* PSI Prop: species range richness in proportion to richness all species ranges
 
 ### Beta diversity statistics
 * Whittakers Beta [Whittaker, 1972](http://www.jstor.org/stable/1218190)
