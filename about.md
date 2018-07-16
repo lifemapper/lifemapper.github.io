@@ -23,6 +23,5 @@ documented to live. Lifemapper does this by combining species occurrence data
 with global climate, terrain and land cover information, to identify 
 environmental correlates of species ranges.
 
-Lifemapper API and Python client library documentation are at 
-[lifemapper.github.io](http://lifemapper.github.io/)
+Lifemapper documentation is at [lifemapper.github.io](http://lifemapper.github.io/)
 
