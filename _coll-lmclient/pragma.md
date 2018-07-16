@@ -21,9 +21,8 @@ To get an overall understanding of the Lifemapper Software and the contents of
 the Catalog, read the [Overview](/overview.html) page.
 
 ## Documentation
-The [Python client library] (/lmclient/index) is an easy way to access 
-Lifemapper services.  Example code is linked off this page.  If you prefer
-to call the web services from another language, check out the 
-[REST API](api.html) documentation.  These pages allow you to construct and 
-test raw URL queries.  
+The [Python client library] (/lmclient/index) is not currently up to date.  
+[REST API](api.html) documentation allows you to construct and 
+test raw URL queries, which can then be constructed and called in any 
+programming language.
 
