@@ -4,8 +4,8 @@ image_path: ""
 layout: page
 ---
 
-<p>
-Species Distribution Modeling (SDM) is also known by several other names, 
+## Species Distribution Modeling (SDM) 
+SDM is also known by several other names, 
 including environmental niche modeling, ecological niche modeling, and habitat 
 modeling.  SDM refers to the process of creating mathematical formulas (models) 
 to predict the geographic distribution of species based on where they have been 
@@ -15,9 +15,8 @@ variables.  These models can be applied to the same environmental conditions
 for other locations or other time periods (predicted past or future), creating 
 maps showing other areas with similar conditions. This technique is used in 
 conservation, ecology and evolutionary biology.
-</p>
 
-<p>
+### Case Study
 A recent study by Jorge Soberón, research scientist at the KU Biodiversity 
 Institute, illustrates the power of Species Distribution Modeling.
 
@@ -40,24 +39,26 @@ them.
 
 Cactus in the most vulnerable areas are being protected thanks to Soberón's 
 modeling research.
-</p>
 
-<p>
-<b>Some further reading:</b>
+### More Information
 
-<li>Elith, J., Kearney, M. & Phillips, S. (2010) 
-The art of modelling range-shifting species. 
-<i>Methods in Ecology and Evolution</i>, 1, 330-342.</li>
+For more information on SDM::
 
-<li>Jetz, W., Kreft, H., Ceballos, G. & Mutke, J. (2009) Global associations between 
-terrestrial producer and vertebrate consumer diversity. 
-<i>Proceedings of the Royal Society of London, B.<\i>, 276, 269-278.</li>
+* [Wikipedia Environmental niche modelling](https://en.wikipedia.org/wiki/Environmental_niche_modelling)
+* [NatureServe Species Distribution Modelling](http://www.natureserve.org/conservation-tools/species-distribution-modeling)
 
-Franklin, Janet, 2009.  <li>Mapping Species Distributions: Spatial Inference and Prediction 
-(Ecology, Biodiversity and Conservation) </li>
+and papers provided in the USB drive ::
 
-<li>Colwell R.K., Rangel T.F., 2009. Hutchinson's duality: the once and future niche.
-<i>Proceedings of the National Academy of Science, USA</i>. 2009 Nov 17; 
-106 Suppl 2:19651-8. doi: 10.1073/pnas.0901650106. Epub 2009 Sep 18.</li>
+* Colwell R.K., Rangel T.F., 2009. Hutchinson's duality: the once and future 
+  niche. Proceedings of the National Academy of Science, USA. 2009 Nov 17; 106 
+  Suppl 2:19651-8. doi: 10.1073/pnas.0901650106. Epub 2009 Sep 18.
 
-</p>
+* Elith, J., Kearney, M. & Phillips, S. (2010) The art of modelling range-shifting 
+  species. Methods in Ecology and Evolution, 1, 330-342.
+
+* Franklin, Janet, 2009.  Mapping Species Distributions: Spatial Inference and 
+  Prediction (Ecology, Biodiversity and Conservation)
+
+* Jetz, W., Kreft, H., Ceballos, G. & Mutke, J. (2009) Global associations 
+  between terrestrial producer and vertebrate consumer diversity. Proceedings of 
+  the Royal Society of London, B.<\i>, 276, 269-278.

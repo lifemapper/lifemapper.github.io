@@ -1,4 +1,4 @@
-# Draft of Lifemapper services API v2
+# Lifemapper services API v2
 swagger: '2.0'
 info:
   title: Lifemapper API
@@ -226,6 +226,7 @@ paths:
         - $ref: '#/parameters/GridSetIdReq'
         - $ref: '#/parameters/AlgorithmCode'
         - $ref: '#/parameters/BBox'
+        - $ref: '#/parameters/CellSize'
         - $ref: '#/parameters/ModelScenarioCode'
         - $ref: '#/parameters/PointMax'
         - $ref: '#/parameters/PointMin'
@@ -246,6 +247,34 @@ paths:
           description: An atom for the gridset that was just posted
           schema:
             $ref: '#/definitions/AtomObject'
+
+  /globalpam/gridset:
+    get:
+      summary: Service to find the available gridsets for the global pam
+      description: |
+        The Global PAM gridset facet endpoint allows the user to find the 
+        gridsets available to them that are cataloged in Solr so that they can
+        create subsets from them.
+      parameters:
+        - $ref: '#/parameters/UrlUser'
+      tags:
+        - Global PAM
+        - Facet
+      responses:
+        200:
+          description: Returns the available gridsets
+          schema:
+            type: object
+            properties:
+              gridSetId:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    gridSetId:
+                      type: string
+                    count:
+                      type: integer
 
   /gridset:
     get:
@@ -413,6 +442,36 @@ paths:
           description: Error status thrown when the requested matrix was not
                        found
 
+  /gridset/{gridsetId}/analysis:
+    post:
+      summary: Perform analyses on the gridset
+      parameters:
+        - $ref: '#/parameters/PathGridsetId'
+        - $ref: '#/parameters/DoMCPA'
+        - $ref: '#/parameters/NumberOfPermutations'
+        - $ref: '#/parameters/DoCalculate'
+      tags:
+        - Gridset
+        - Analysis
+      responses:
+        202:
+          description: Returns the gridset object that the analyses were 
+                       submitted for
+          schema:
+            $ref: '#/definitions/GridSet'
+        400:
+          description: Error status returned when there is a problem with user 
+                       input
+        403:
+          description: Error status thrown when the user does not have 
+                       permission to access a gridset
+        404:
+          description: Error status thrown when the requested gridset was not
+                       found
+        409:
+          description: Error status thrown when the gridset is not ready for
+                       analyses to be run
+
   /gridset/{gridsetId}/biogeo:
     get:
       summary: Get a list of biogeographic hypothesis matrices for this gridset
@@ -469,7 +528,9 @@ paths:
         - BioGeo
       responses:
         200:
-          $ref: '#/definitions/Matrix'
+          description: A biogeogrpahic hypothesis matrix
+          schema:
+            $ref: '#/definitions/Matrix'
         403:
           description: Error status returned when the user does not have 
                        permission to access the data
@@ -1353,7 +1414,16 @@ definitions:
 
   GridSet:
     type: object
-    
+    required: [id, matrices]
+    properties:
+      objectType:
+        type: string
+      id:
+        type: integer
+      matrices:
+        type: array
+        items:
+          $ref: '#/definitions/Matrix'
 
   Layer:
     type: object
@@ -1398,6 +1468,12 @@ definitions:
 
   Matrix:
     type: object
+    required: [id]
+    properties:
+      id:
+        type: integer
+      status:
+        type: integer
     
   MatrixColumn:
     type: object
@@ -1503,13 +1579,20 @@ definitions:
         required: [min_presence, max_presence, value_name, min_percent]
         properties:
           min_presence:
+            description: The minimum value that should be considered "present"
             type: integer
+            minimum: 1
           max_presence:
+            description: The maximum value that should be considered "present"
             type: integer
+            minimum: 1
           value_name:
             description: Use pixel for rasters
             type: string
           min_percent:
+            description: |
+              The minimum percentage of the grid cell classified as present to 
+              consider the grid cell present
             type: integer
 
   BoomHypotheses:
@@ -1606,6 +1689,9 @@ definitions:
       occurrence set / model scenario / projection scenario combination
     properties:
       
+      archive_name:
+        type: string
+        
       global_pam:
         $ref: '#/definitions/BoomGlobalPAM'
       mcpa:
@@ -1625,51 +1711,6 @@ definitions:
           tree_file_name:
             description: The file name of the tree that was uploaded
             type: string
-
-      # Old options, remove when updated
-
-      algorithms:
-        type: array
-        items:
-          $ref: '#/definitions/Algorithm'
-      occurrenceSets:
-        type: array
-        items:
-          type: object
-          description: Choose one of the available properties for each item in the array
-          properties:
-            occurrenceSetId:
-              type: integer
-            occurrenceData:
-              type: string
-            occurrenceMeta:
-              type: object
-            #gbifTaxonId:
-            #  type: integer
-            #  description: Do not use this, just an example of the future
-      modelScenario:
-        type: object
-        description: Pick one of the options. Only scenario d is enabled now
-        properties:
-          scenarioId:
-            type: integer
-          scenarioCode:
-            type: string
-      projectionScenarios:
-        type: array
-        items:
-          type: object
-          description: Use one or the other
-          properties:
-            scenarioId:
-              type: integer
-            scenarioCode:
-              type: string
-            #modelScenario:
-            #  type: string
-            #  description: This is the model scenario that this projection 
-            #               scenario matches.  We may do this by codes and not
-            #               need this
 
   BoomScenarioPackage:
     type: object
@@ -1857,10 +1898,18 @@ definitions:
       maxy:
         type: number
       resolution:
+        description: The size of each grid cell, in "map_units"
         type: number
       cell_sides:
+        description: |
+          The number of sides for each grid cell.  Use 4 for squares and 6 for hexagons.
+        enum: [4, 6]
         type: integer
       map_units:
+        description: |
+          The spatial units of the shapegrid.  Cell size will be measured in this unit.
+          Note that "dd" means decimal degrees
+        enum: [feet, inches, kilometers, meters, miles, dd, ds]
         type: string
       cutout_wkt:
         type: string
@@ -2170,6 +2219,22 @@ parameters:
     description: Return experiments that have occurrence sets with a display name like this
     required: false
     type: string
+  DoCalculate:
+    name: doCalc
+    in: query
+    description: If set to 1, calculate PAM-based statistics
+    required: false
+    default: 0
+    type: integer
+    enum: [0, 1]
+  DoMCPA:
+    name: doMcpa
+    in: query
+    description: If set to 1, calculate MCPA
+    required: false
+    default: 0
+    type: integer
+    enum: [0, 1]
   EnvCode:
     name: envCode
     in: query
@@ -2291,6 +2356,15 @@ parameters:
     required: false
     type: integer
     minimum: 0
+  NumberOfPermutations:
+    name: numPermutations
+    in: query
+    description: Perform this many permutation tests when running MCPA
+    required: false
+    default: 500
+    type: integer
+    minimum: 1
+    maximum: 10000
   OccurrenceSetId:
     name: occurrenceSetId
     in: query

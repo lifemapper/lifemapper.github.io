@@ -12,28 +12,61 @@ date:   2018-05-07
 {:toc}
 
 Terminology used in Lifemapper and these documents are summarized in 
-[Terminology](/terms)
+[Terminology](/terms).
+
+## Lifemapper Workshop Agenda
+
+2018 May 4, NCHC, Hsinchu, Taiwan
+
+1. Introductions
+1. Lifemapper overview
+1. Single species analysis
+
+   * Species Distribution Modeling (SDM)
+   * Spatial Data
+   * Browse Taiwan data library (hands-on)
+   * Submit SDM experiment (hands-on)
+   
+1. Multi-species analyses
+
+   * Macroecological analyses
+   * Submit multi-species request (hands-on)
+   * Metacommunity Phylogenetic Analyses (MCPA)
+   * MCPA (hands-on)
+   
+1. Researcher tools
+1. Questions, Discussion, Hands-on help
 
 ## Background
-To get an overall understanding of the single- and multi-species analyses 
-available through the Lifemapper software, read:
-  * [Spatial Data](/researcher/spatialData)
-  * [Species Distribution Modeling (SDM)](/researcher/sdm)
-  * [Multi-species Analyses](/researcher/rad)
-  * [Meta-Community Phylogenetic Analyses](/researcher/mcpa)
+For an overall understanding of geospatial data, read:
+  * Types of spatial data are summarized in [spatial data](/researcher/spatialData)
   
-## Hands-On with LM Library data
-Step by step instructions for using the web client to explore, analyze, and 
-visualize existing Lifemapper SDM data (the LM Library).
+## Species Distribution Modeling (SDM)
+The potential distribution of individual species may be predicted using SDM tools:
+  * Overview of [Species Distribution Modeling (SDM)](/researcher/sdm)
   * [Explore](/training/exploreData) SDM data from the LM Library
   * Request species [SDMs](/training/sdmTraining) through the website
-  * [Subset](/training/subsetTraining) SDM for species
-  * [Visualize and Explore](/training/mcpaVizTraining) Meta-Community 
-    Phylogenetic Analyses.  Data is available for [download]() or from the 
-    provided USB drive.
 
-## Hands-On with researcher data
-Data for these exercises is available for [download]() or from the provided
-USB drive.
-  * Request [Multi-species Analyses](/training/boomTraining) using 
+## Macro-ecological Modeling
+Distributions of many species may be combined to look at biodiversity at 
+landscape levels: 
+  * Overview of [Macro-ecological Modeling](/researcher/rad)
+  * Request [Macro-ecological Modeling](/training/boomTraining) using 
     researcher-provided data.
+  * Data for multi-species exercises is available on the USB stick or from
+    [here](http://yeti.lifemapper.org/dl/taiwan_boom_data.tar.gz).
+
+## Metacommunity Phylogenetic Analyses (MCPA)
+Additional phylogenetic and biogeographic analyses can be performed with 
+a phylogenetic (evolutionary) tree containing the same species and 
+biogeographic maps of regions for which to compare species communities:
+  * Overview of [MCPA](/researcher/mcpa)
+  * [Visualize and Explore](/training/mcpaVizTraining) Metacommunity 
+    Phylogenetic Analyses.  
+  * [Subset](/training/subsetTraining) SDM for species
+  * Two subsets are available from the USB drive or for download:
+  
+    * [Rubiaceae](http://yeti.lifemapper.org/dl/Rubiaceae.zip) 
+    * [Geometridae](http://yeti.lifemapper.org/dl/Geometridae.zip) 
+
+
