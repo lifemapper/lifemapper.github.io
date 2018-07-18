@@ -1579,13 +1579,20 @@ definitions:
         required: [min_presence, max_presence, value_name, min_percent]
         properties:
           min_presence:
+            description: The minimum value that should be considered "present"
             type: integer
+            minimum: 1
           max_presence:
+            description: The maximum value that should be considered "present"
             type: integer
+            minimum: 1
           value_name:
             description: Use pixel for rasters
             type: string
           min_percent:
+            description: |
+              The minimum percentage of the grid cell classified as present to 
+              consider the grid cell present
             type: integer
 
   BoomHypotheses:
@@ -1895,10 +1902,18 @@ definitions:
       maxy:
         type: number
       resolution:
+        description: The size of each grid cell, in "map_units"
         type: number
       cell_sides:
+        description: |
+          The number of sides for each grid cell.  Use 4 for squares and 6 for hexagons.
+        enum: [4, 6]
         type: integer
       map_units:
+        description: |
+          The spatial units of the shapegrid.  Cell size will be measured in this unit.
+          Note that "dd" means decimal degrees
+        enum: [feet, inches, kilometers, meters, miles, dd, ds]
         type: string
       cutout_wkt:
         type: string

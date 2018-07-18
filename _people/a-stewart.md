@@ -12,11 +12,12 @@ categories:
                   Lifemapper software
 
 **PRAGMA Role:** Developer enabling Lifemapper deployment
-                 on PRAGMA resources,  in the Virtual Biodiversity Expedition.
+                 on PRAGMA resources in the Virtual Biodiversity Expedition, 
+                 and "Distributed Lifemapper", deployment of 
+                 region-focused installations at multiple PRAGMA sites, along 
+                 with on-site workshops.  
 
-**CENTRA Role:** Developer enabling "Distributed Lifemapper", deployment of 
-                 region-focused installations at multiple CENTRA sites, and 
-                 on-site workshops.  Beginning work on single and multi-site 
+**CENTRA Role:** Developer enabling work on single and multi-site 
                  data-intensive collaborations facilitated by SAGE2 software 
                  for data exploration using large displays at high-resolution. 
 

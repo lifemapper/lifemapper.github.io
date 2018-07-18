@@ -13,7 +13,7 @@ known as species niche models and predicted habitat models) using all available
 online species occurrence data. Using the Lifemapper platform, known species 
 localities georeferenced from museum specimens are combined with climate models 
 to predict a species’ “niche” or potential habitat availability, under current 
-day and future climate change scenarios.  The LmSDM component computes these 
+day and future climate change scenarios.  The SDM components compute these 
 single-species predictions.  
 </p>
 
@@ -27,12 +27,22 @@ defined by the GBIF Backbone Taxonomy.
 
 
 <p>
-Lifemapper Range and Diversity, “LmRAD", extends Lifemapper from creating 
+Lifemapper Range and Diversity, “RAD", extends Lifemapper from creating 
 single-species predictions to large-scale multi-species, landscape-level 
-analyses.  The LmRAD component calculates multi-species biodiversity analyses 
+analyses.  The RAD components calculate multi-species biodiversity analyses 
 by creating a binary presence-absence matrix (PAM) for a large number of species 
 from SDM outputs or other species range maps, then computing a number of 
 biodiversity measures from it. 
+</p>
+
+<p>
+Lifemapper Meta-Community Phylogenetic Analyses, “MCPA", extends Lifemapper  
+computations on a multi-species PAM created by the Lifemapper RAD components
+by connecting a phylogenetic tree for species in the PAM and computing 
+correlations between geographic elements (biogeographic hypotheses) and the
+distribution and evolution of species.  Outputs are returned in a package 
+allowing users to dynamically query linked data visualizations: maps, trees, 
+and scatterplots.
 </p>
 
 <p>
@@ -41,16 +51,15 @@ three core software components:
 <ol>
    <li>  LmServer for data management and communications; </li>
    <li>  LmCompute for calculations; and </li>
-   <li>  client applications including a Lifemapper plugin to the open-source 
-geographic information system, QGIS, and a web site. </li>
+   <li>  and an API and website for browsing the public archive and requesting
+         analyses. </li>
 </ol>
 The LmCompute and LmServer modules are both involved in 
 modeling operations. LmCompute instances request jobs from LmServer, execute 
 them, then post the model results back to LmServer where data are written to 
 storage and metadata to the PostgreSQL database. Two applications on LmCompute 
-underlie SDM calculations: openModeller and MaxEnt, while all LmRAD calculations 
-are performed by Lifemapper code. From LmServer APIs and a Python client 
-library, a user can obtain original and computed data using the Lm website or 
-the QGIS workstation GIS environment.
+underlie SDM calculations: openModeller and MaxEnt, while all RAD and MCPA 
+calculations are performed by Lifemapper code. From LmServer APIs and the 
+website, a user can request public input and computed data.
 </p>
 
