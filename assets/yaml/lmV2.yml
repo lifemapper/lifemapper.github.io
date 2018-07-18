@@ -1711,6 +1711,10 @@ definitions:
       scenario_package_filename:
         type: string
 
+      scenario_package_name:
+        type: string
+        description: The name of a scenario package to use
+      
       model_scenario:
         type: object
         description: Pick one of the options. Only scenario id is enabled now
