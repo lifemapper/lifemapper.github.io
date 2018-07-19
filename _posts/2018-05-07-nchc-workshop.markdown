@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "CENTRA Lifemapper Workshop"
-date:   2018-05-07
+title:  "Biotaphy Workshop, Botany 2018, Rochester, MN, July 21-25"
+date:   2018-07-22
 ---
 
 
@@ -11,31 +11,60 @@ date:   2018-05-07
 * Will be replaced with the ToC, excluding the "Contents" header
 {:toc}
 
-Terminology used in Lifemapper and these documents are summarized in 
+Terminology used in Biotaphy and these documents are summarized in 
 [Terminology](/terms).
 
-## Lifemapper Workshop Agenda
+## Biotaphy Workshop Agenda
 
-2018 May 4, NCHC, Hsinchu, Taiwan
+2018 July 22, Rochester, MN
 
 1. Introductions
-1. Lifemapper overview
-1. Single species analysis
-
-   * Species Distribution Modeling (SDM)
-   * Spatial Data
-   * Browse Taiwan data library (hands-on)
-   * Submit SDM experiment (hands-on)
+1. Biotaphy overview
    
-1. Multi-species analyses
+   * Lifemapper, iDigBio, Open Tree of Life
+   * Links species biology, geography, ecology, phylogeny
+   * Software overview
 
-   * Macroecological analyses
-   * Submit multi-species request (hands-on)
+     * packaging and installation
+     * cluster enabled
+   	 * project/region focussed installations
+   	 * web client for any installation
+   	 * local client packaged with outputs
+
+#. Single Species
+
+   * For all analyses, reference terminology at http://lifemapper.github.io/terms.html
+   * Species Distribution Modeling, http://lifemapper.github.io/researcher/sdm/
+   * Browse Heuchera/Saxifragales data library (hands-on)
+   * Pick species and request SDM (hands-on)
+
+#. RAD Multi Species
+
+   * Multi-species modeling, Macroecological analyses, 
+     http://lifemapper.github.io/researcher/rad/
+   * Request a boom with prepared species data, existing env data,
+     tree, biogeographic hypotheses (demo)
+   * Browse heuchera output package (hands-on)
+
+#. MCPA Multi Species
    * Metacommunity Phylogenetic Analyses (MCPA)
-   * MCPA (hands-on)
-   
-1. Researcher tools
-1. Questions, Discussion, Hands-on help
+     http://lifemapper.github.io/researcher/mcpa/
+   * Request a subset via geography, taxonomy, namestring filter (demo)
+   * Browse saxifragales subset output package (hands-on)
+
+#. Project future - slides
+   * Live OTOL and iDigBio queries 
+   * Add taxonomy to dataset
+   * client interface to 
+	   * Browse PAM
+	   * Subset Global PAM by
+	     * taxonomy
+	     * namestring
+	     * phylogenetic tree
+	   * Create species package for upload 
+	   * Create environmental data package for upload
+
+#. Questions, Discussion, Hands-on help
 
 ## Background
 For an overall understanding of geospatial data, read:
@@ -64,9 +93,9 @@ biogeographic maps of regions for which to compare species communities:
   * [Visualize and Explore](/training/mcpaVizTraining) Metacommunity 
     Phylogenetic Analyses.  
   * [Subset](/training/subsetTraining) SDM for species
-  * Two subsets are available from the USB drive or for download:
-  
-    * [Rubiaceae](http://yeti.lifemapper.org/dl/Rubiaceae.zip) 
-    * [Geometridae](http://yeti.lifemapper.org/dl/Geometridae.zip) 
+  * Two output packages are available from the USB drive or for download:
+    
+    * 
+    * 
 
 
