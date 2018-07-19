@@ -31,14 +31,14 @@ Terminology used in Biotaphy and these documents are summarized in
    	 * web client for any installation
    	 * local client packaged with outputs
 
-#. Single Species
+1. Single Species
 
    * For all analyses, reference terminology at http://lifemapper.github.io/terms.html
    * Species Distribution Modeling, http://lifemapper.github.io/researcher/sdm/
    * Browse Heuchera/Saxifragales data library (hands-on)
    * Pick species and request SDM (hands-on)
 
-#. RAD Multi Species
+1. RAD Multi Species
 
    * Multi-species modeling, Macroecological analyses, 
      http://lifemapper.github.io/researcher/rad/
@@ -46,37 +46,33 @@ Terminology used in Biotaphy and these documents are summarized in
      tree, biogeographic hypotheses (demo)
    * Browse heuchera output package (hands-on)
 
-#. MCPA Multi Species
+1. MCPA Multi Species
    * Metacommunity Phylogenetic Analyses (MCPA)
      http://lifemapper.github.io/researcher/mcpa/
    * Request a subset via geography, taxonomy, namestring filter (demo)
    * Browse saxifragales subset output package (hands-on)
 
-#. Project future - slides
+1. Project future - slides
    * Live OTOL and iDigBio queries 
    * Add taxonomy to dataset
-   * client interface to 
-	   * Browse PAM
-	   * Subset Global PAM by
-	     * taxonomy
-	     * namestring
-	     * phylogenetic tree
-	   * Create species package for upload 
-	   * Create environmental data package for upload
+   * Updated client interface with more data viz options
 
-#. Questions, Discussion, Hands-on help
+1. Questions, Discussion, Hands-on help
 
 ## Background
+
 For an overall understanding of geospatial data, read:
   * Types of spatial data are summarized in [spatial data](/researcher/spatialData)
   
 ## Species Distribution Modeling (SDM)
+
 The potential distribution of individual species may be predicted using SDM tools:
   * Overview of [Species Distribution Modeling (SDM)](/researcher/sdm)
   * [Explore](/training/exploreData) SDM data from the LM Library
   * Request species [SDMs](/training/sdmTraining) through the website
 
 ## Macro-ecological Modeling
+
 Distributions of many species may be combined to look at biodiversity at 
 landscape levels: 
   * Overview of [Macro-ecological Modeling](/researcher/rad)
@@ -86,6 +82,7 @@ landscape levels:
     [here](http://yeti.lifemapper.org/dl/taiwan_boom_data.tar.gz).
 
 ## Metacommunity Phylogenetic Analyses (MCPA)
+
 Additional phylogenetic and biogeographic analyses can be performed with 
 a phylogenetic (evolutionary) tree containing the same species and 
 biogeographic maps of regions for which to compare species communities:
