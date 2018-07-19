@@ -26,12 +26,6 @@ Terminology used in Biotaphy and these documents are summarized in
    * Links species biology, geography, ecology, phylogeny
    * Software overview
 
-     * packaging and installation
-     * cluster enabled
-   	 * project/region focussed installations
-   	 * web client for any installation
-   	 * local client packaged with outputs
-
 
 1. Single Species
    * For all analyses, reference terminology at http://lifemapper.github.io/terms.html
