@@ -19,8 +19,9 @@ Terminology used in Biotaphy and these documents are summarized in
 2018 July 22, Rochester, MN
 
 1. Introductions
+
+
 1. Biotaphy overview
-   
    * Lifemapper, iDigBio, Open Tree of Life
    * Links species biology, geography, ecology, phylogeny
    * Software overview
@@ -31,20 +32,21 @@ Terminology used in Biotaphy and these documents are summarized in
    	 * web client for any installation
    	 * local client packaged with outputs
 
-1. Single Species
 
+1. Single Species
    * For all analyses, reference terminology at http://lifemapper.github.io/terms.html
    * Species Distribution Modeling, http://lifemapper.github.io/researcher/sdm/
    * Browse Heuchera/Saxifragales data library (hands-on)
    * Pick species and request SDM (hands-on)
 
-1. RAD Multi Species
 
+1. RAD Multi Species
    * Multi-species modeling, Macroecological analyses, 
      http://lifemapper.github.io/researcher/rad/
    * Request a boom with prepared species data, existing env data,
      tree, biogeographic hypotheses (demo)
    * Browse heuchera output package (hands-on)
+
 
 1. MCPA Multi Species
    * Metacommunity Phylogenetic Analyses (MCPA)
@@ -52,10 +54,12 @@ Terminology used in Biotaphy and these documents are summarized in
    * Request a subset via geography, taxonomy, namestring filter (demo)
    * Browse saxifragales subset output package (hands-on)
 
+
 1. Project future - slides
    * Live OTOL and iDigBio queries 
    * Add taxonomy to dataset
    * Updated client interface with more data viz options
+
 
 1. Questions, Discussion, Hands-on help
 
