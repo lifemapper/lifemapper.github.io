@@ -1,5 +1,5 @@
 ---
-title: Lifemapper Analyses
+title: Biotaphy Analyses
 image_path: ""
 layout: page
 ---
@@ -9,10 +9,10 @@ layout: page
 * Will be replaced with the ToC, excluding the "Contents" header
 {:toc}
 
-## Querying the contents of a Lifemapper installation
+## Querying the contents of a Biotaphy installation
 
 Aggregate queries will give you a sense of the size, depth and breadth of a
-Lifemapper public archive.
+Biotaphy public archive.
 
 To query input and output SDM data, filtering by various attributes, use the 
 Python Client Library 

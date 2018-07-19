@@ -9,9 +9,10 @@ categories:
  - "researcher"
 ---
 
-**CENTRA Role:** Project director enabling "Distributed Lifemapper", deployment of 
-                 region-focused installations at multiple CENTRA sites, and 
-                 on-site workshops.  Beginning work on single and multi-site 
+**Role:** Project director for Lifemapper, software lead on Biotaphy, 
+                 director enabling "Distributed Lifemapper", deployment of 
+                 region-focused installations at multiple PRAGMA sites, and 
+                 on-site workshops.  Beginning CENTRA work on single and multi-site 
                  data-intensive collaborations facilitated by SAGE2 software 
                  for data exploration using large displays at high-resolution. 
 

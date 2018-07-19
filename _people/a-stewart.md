@@ -11,6 +11,9 @@ categories:
 **Project Role:** Software application developer and technical lead on 
                   Lifemapper software
 
+**Biotaphy Role:** Developer enabling Biotaphy connections between the 
+                 Lifemapper, iDigBio, and Open Tree of Life projects.
+
 **PRAGMA Role:** Developer enabling Lifemapper deployment
                  on PRAGMA resources in the Virtual Biodiversity Expedition, 
                  and "Distributed Lifemapper", deployment of 

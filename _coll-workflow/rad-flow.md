@@ -13,9 +13,9 @@ ___
 
 ## Multi-species Analyses
 
-A typical Lifemapper workflow to analyze multi-species data is more
+A typical Biotaphy workflow to analyze multi-species data is more
 complex and flexible. Some or all analysis steps can be executed.  In 
-Lifemapper, multi-species analysis inputs may start with:
+Biotaphy, multi-species analysis inputs may start with:
 
  * Species layers.  These layers can be raster or vector format, and can 
    be predicted (i.e. SDM output projections) or other types of distribution 

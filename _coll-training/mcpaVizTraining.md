@@ -1,5 +1,5 @@
 ---
-title: Lifemapper MCPA output visualization
+title: Biotaphy MCPA output visualization
 image_path: ""
 layout: page
 ---
@@ -10,18 +10,16 @@ layout: page
 * Will be replaced with the ToC, excluding the "Contents" header
 {:toc}
 
-Lifemapper and additional terminology is at [Terminology](/terms)
+Biotaphy and additional terminology is at [Terminology](/terms)
 
 ## Retrieve a gridset package
 
-Several pre-subsetted datasets are available for download, or from the provided 
-USB drive, including the [Rubiaceae](http://yeti.lifemapper.org/dl/Rubiaceae.zip) 
-family of flowering plants, and the 
-[Geometridae](http://yeti.lifemapper.org/dl/Geometridae.zip) family of moths.      
+Several pre-subsetted datasets are available from the provided 
+USB drive, including the Heuchera genus and the Saxifragales genus.      
 
 ## Metacommunity Phylogenetics Analysis
 
-1. Open the Lifemapper web client, by opening the 
+1. Open the Biotaphy web client, by opening the 
    Rubiaceae/output/gridset-10-package/index.html file in a web browser.  
    This will allow you to browse the inputs and explore the outputs of 
    multi-species, and phylogentic analyses on this subset of the Taiwan data 

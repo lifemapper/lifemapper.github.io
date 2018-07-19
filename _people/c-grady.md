@@ -9,7 +9,7 @@ categories:
  - "researcher"
 ---
 
-**Project Role:** Software application developer on Lifemapper software
+**Project Role:** Software application developer on Lifemapper and Biotaphy softwares.
 
 **Related Work:** Software enabling biodiversity research on single- and 
                   multi-species distributions, and geo-physical and evolutionary 

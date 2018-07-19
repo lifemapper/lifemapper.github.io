@@ -1,5 +1,5 @@
 ---
-title: Subset LM Library for Analyses
+title: Subset for Analyses
 image_path: ""
 layout: page
 ---
@@ -10,13 +10,13 @@ layout: page
 * Will be replaced with the ToC, excluding the "Contents" header
 {:toc}
 
-Lifemapper and additional terminology is at [Terminology](/terms.html)
+Biotaphy and additional terminology is at [Terminology](/terms.html)
     
 ## Steps
 
-1. Open the Lifemapper web client, by navigating to 
-   http://gad210.nchc.org.tw/global-pam.  This will allow you first explore and 
-   then subset the global PAM for this Lifemapper instance.
+1. Open the Biotaphy web client, by navigating to 
+   http://notyeti-191.lifemapper.org/boom.  This will allow you first explore and 
+   then subset the global PAM for this Biotaphy instance.
    
 1. This interface allows you to subset on a variety of variables.  Start by 
    selecting a taxonomic group that you are interested in.  Start by selecting

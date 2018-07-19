@@ -1,5 +1,5 @@
 ---
-title: Lifemapper Metacommunity Phylogenetic Analysis (MCPA)
+title: Biotaphy Metacommunity Phylogenetic Analysis (MCPA)
 image_path: ""
 layout: page
 ---
@@ -10,7 +10,7 @@ layout: page
 * Will be replaced with the ToC, excluding the "Contents" header
 {:toc}
 
-## Lifemapper Metacommunity Phylogenetic Analysis (MCPA) 
+## Biotaphy Metacommunity Phylogenetic Analysis (MCPA) 
 
 ### What is the analysis?
 
@@ -57,9 +57,9 @@ layout: page
   within.  If the site does not fall in either side, the value should be set to 
   zero.
 
-### How does Lifemapper create these inputs
+### How does Biotaphy create these inputs
 
-  Lifemapper uses presence-absence matrices for the incidence matrix in the MCPA 
+  Biotaphy uses presence-absence matrices for the incidence matrix in the MCPA 
   computation.  These PAMs are created by
   generating a species distribution model for each of the taxa that are to be 
   included.  These models are limited by 

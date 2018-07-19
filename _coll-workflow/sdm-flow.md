@@ -13,20 +13,20 @@ ___
 
 ## Single-species Analysis
 
-A typical Lifemapper workflow to analyze data for single species consists of 
+A typical Biotaphy workflow to analyze data for single species consists of 
 computing a Species Distribution Model (SDM), and producing maps of potential
 habitat from these models.  Inputs must include:
 
  * [Occurrence Data](/api.html#/Occurrence_Sets) for a single species or 
-   taxa.  Species data may be from the Lifemapper data library (usually a data 
+   taxa.  Species data may be from the Biotaphy data library (usually a data 
    aggregator, such as the Global Biodiversity Information Facility (GBIF, 
    www.gbif.org)
  * A Modeling [Scenario](/api.html#/Scenarios) is a set of 
    [Environmental Layers](/api.html#/Layers) corresponding to the approximate 
-   time period of the species data (distant past, or current day). Lifemapper 
+   time period of the species data (distant past, or current day). Biotaphy 
    makes available Global Climate data for past, current, and future time periods
    from [Worldclim](http://worldclim.org).
- * One or more *matching* projection Scenarios.  Lifemapper applies the 
+ * One or more *matching* projection Scenarios.  Biotaphy applies the 
    computed model onto these projection scenarios to creates maps of habitat in 
    which the species may thrive.  Matching scenarios are explained further below.
  * An [Algorithm](/api.html#/Algorithm) for computing the relationship between 

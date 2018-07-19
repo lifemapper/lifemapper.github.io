@@ -1,5 +1,5 @@
 ---
-title: Lifemapper Web Client SDM Tutorial
+title: Biotaphy Web Client SDM Tutorial
 image_path: ""
 layout: page
 ---
@@ -10,14 +10,14 @@ layout: page
 * Will be replaced with the ToC, excluding the "Contents" header
 {:toc}
 
-Lifemapper and additional terminology is at [Terminology](/terms)
+Biotaphy and additional terminology is at [Terminology](/terms)
 
 ## Login (or skip to proceed anonymously)
 
-1. Go to the NCHC-Lifemapper [web client](http://gad210.nchc.org.tw/sdm)
+1. Go to the test Biotaphy [web client](http://notyeti-191.lifemapper.org/boom)
    
 1. IF you wish to browse your own data as well as public data, sign in to 
-   or sign up for a Lifemapper account.  In the left pane of the webpage:
+   or sign up for a Biotaphy account.  In the left pane of the webpage:
     
       * If you do not have a user account, create one by clicking the **sign up** 
         link below the Login button.
@@ -26,8 +26,8 @@ Lifemapper and additional terminology is at [Terminology](/terms)
 ## Species Distribution Modeling
 
 1. To request species distribution modeling on species data in the
-   Lifemapper installation, go to the left pane of the webpage, titled 
-   "Lifemapper SDM | New Project". 
+   Biotaphy installation, go to the left pane of the webpage, titled 
+   "Biotaphy SDM | New Project". 
    
 1. There are four headings in the right pane.  The first three are input sections, 
    SPECIES DATA, ALGORITHMS, and INPUT LAYERS.  The fourth, SUBMIT PROJECT allows you to submit
@@ -64,7 +64,7 @@ Lifemapper and additional terminology is at [Terminology](/terms)
      for viewing by clicking on the date/time which appears at the top of the 
      list in the left pane.  
        
-## NCHC Lifemapper archive
+## NCHC Biotaphy archive
 1. We use 'current' climate data 
    from Worldclim 1.4, soils, landcover, and elevation, at global extent, 
    and 10 minute resolution to model Taiwan species using all points where 

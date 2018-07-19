@@ -11,9 +11,9 @@ layout: page
 
 ___
 
-## Subsetting a populated, computed Lifemapper installation
+## Subsetting a populated, computed Biotaphy installation
 
-Lifemapper installations may be populated with species and environmental data
+Biotaphy installations may be populated with species and environmental data
 of interest to a single researcher or institution.  These installations may
 contain public species and environmental data available for a particular 
 country, taxomomic group, or 

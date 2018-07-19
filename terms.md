@@ -23,7 +23,7 @@ Algorithm
 : An algorithm is a procedure or formula for solving a problem.  There are 
   multiple algorithms for computing Species Distribution Models (SDM) which 
   define the relationship between a set of points and the environmental values 
-  at those points. Lifemapper provides 12 algorithms
+  at those points. Biotaphy and Lifemapper provide 12 algorithms
 
 Presence-Absence Matrix (PAM)
 : A binary matrix containing species distributions of 0/1 indicating presence or 
@@ -35,7 +35,7 @@ Presence-Absence Matrix (PAM)
 
 Phylogenetic Tree
 : A data structure containing species names or identifiers for  analyzing 
-  evolutionary patterns.  Lifemapper uses phylogenetic trees matching species
+  evolutionary patterns.  Biotaphy uses phylogenetic trees matching species
   data in a gridset to correlate evolutionary patterns with species 
   distributions and landscape features.  API documentation
   is at [Tree](/api.html#/Tree). 
@@ -61,28 +61,28 @@ Helmert Contrast
   either side of the hypothesis.
 
  
-# Lifemapper-specific Data and Parameter Terms
+# Biotaphy-specific Data and Parameter Terms
 
 Gridset
 : The organizing data structure for a single, or group of analyses. A 
-  package may be downloaded for visualization within the Lifemapper web 
+  package may be downloaded for visualization within the Biotaphy web 
   client, or further analyses in other software. 
   
 LM Library
-: Existing public data in a Lifemapper installation, including input data, 
+: Existing public data in a Biotaphy installation, including input data, 
   such as species points, environmental data layers, and computed SDMs.
 
 Occurrence Layer
 : Point data representing specimens collected for a single species or taxa.  Data
   contains a location, x and y, in some known geographic spatial reference system.
-  Public data in Lifemapper installations are in the 'Geographic' spatial 
+  Public data in Biotaphy installations are in the 'Geographic' spatial 
   reference system, latitude and longitude in decimal degrees. API documentation
   is at [Occurrence Layer](/api.html#/Occurrence_Layer) 
 
 Environmental Layer
 : Raster data representing environmental values for cells in a map.  Data
   may be numeric or categorical, with only one value per cell.
-  Public data in Lifemapper installations are in the 'Geographic' spatial 
+  Public data in Biotaphy installations are in the 'Geographic' spatial 
   reference system, latitude and longitude in decimal degrees. API documentation
   is at [Environmental Layer](/api.html#/Environmental_Layer) 
 
@@ -95,7 +95,7 @@ Scenario
   projected onto the same environmental dataset and/or one predicted for a different time
   period, or one for another region ("projection scenarios").
   An example of predicted environmental data available in 
-  the Lifemapper archive is climate data computed for the 
+  the Biotaphy archive is climate data computed for the 
   International Panel on Climate Change (IPCC) for its Fifth Assessment 
   Report (AR5, 2013).  API documentation is at 
   [Scenario](/api.html#/Scenario).
