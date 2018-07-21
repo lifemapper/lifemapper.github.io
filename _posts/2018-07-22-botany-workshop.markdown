@@ -20,18 +20,37 @@ Terminology used in Biotaphy and these documents are summarized in
 
 1. Introductions
 
-
 1. Biotaphy overview
    * Lifemapper, iDigBio, Open Tree of Life
    * Links species biology, geography, ecology, phylogeny
    * Software overview
 
+1. Spatial data
+   * Raster
+   * Vector
 
-1. Single Species
+1. Single species
    * For all analyses, reference terminology at http://lifemapper.github.io/terms.html
    * Species Distribution Modeling, http://lifemapper.github.io/researcher/sdm/
    * Browse Heuchera/Saxifragales data library (hands-on)
    * Pick species and request SDM (hands-on)
+
+1. Multi species
+   * Presence Absence Matrix (PAM)
+   * PAM-based statistics
+   * Metacommunity Phylogenetics Analysis (MCPA)
+   * Lifemapper BOOM experiments
+   * Global PAM / Subsetting (hands-on)
+   * Explore output packages (hands-on)
+
+1. Project future
+   * Life OTOL and iDigBio queries
+   * Add taxonomy to dataset
+   * Updated client interface
+   
+1. Questions, discussion, hands-on help
+
+
 
 
 1. RAD Multi Species
@@ -55,7 +74,6 @@ Terminology used in Biotaphy and these documents are summarized in
    * Updated client interface with more data viz options
 
 
-1. Questions, Discussion, Hands-on help
 
 ## Background
 
@@ -77,7 +95,7 @@ landscape levels:
   * Request [Macro-ecological Modeling](/training/boomTraining) using 
     researcher-provided data.
   * Data for multi-species exercises is available on the USB stick or from
-    [here](http://yeti.lifemapper.org/dl/taiwan_boom_data.tar.gz).
+    [here](http://lifemapper.github.io/assets/data/botany.zip).
 
 ## Metacommunity Phylogenetic Analyses (MCPA)
 
