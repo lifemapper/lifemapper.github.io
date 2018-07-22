@@ -31,8 +31,8 @@ Terminology used in Biotaphy and these documents are summarized in
     *	Macroecological analyses
       http://lifemapper.github.io/researcher/rad/
     * Presence Absence Matrix (PAM)
-    * Hands on with PAM site statistics
-    * Hands on with PAM scatter plots
+    * [Hands on with PAM site statistics](/training/multi_species_stats)
+    * [Hands on with PAM scatter plots](/training/multi_species_stats)
     * Metacommunity Phylogenetics Analysis (MCPA)
       http://lifemapper.github.io/researcher/mcpa/
     * Hands on with output packages
@@ -43,6 +43,13 @@ Terminology used in Biotaphy and these documents are summarized in
 
 1. Questions, Discussion, Hands on help
 
+## Data
+
+Data available from [download package](/assets/data/botany.zip)
+
+* Package contains:
+  * papers: directory containing papers for statistics computed
+  * outputs: directory containing three output packages for browsing
 
 ## Background
 
@@ -75,9 +82,4 @@ biogeographic maps of regions for which to compare species communities:
   * [Visualize and Explore](/training/mcpaVizTraining) Metacommunity 
     Phylogenetic Analyses.  
   * [Subset](/training/subsetTraining) SDM for species
-  * Two output packages are available from the USB drive or for download:
-    
-    * 
-    * 
-
 
