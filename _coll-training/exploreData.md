@@ -9,23 +9,30 @@ Biotaphy and additional terminology is at [Terminology](/terms)
 
 ## Steps
 
-1. Go to the test Biotaphy [web client](http://notyeti-191.lifemapper.org/boom)
-      
-1. IF you wish to browse your own data as well as public data, sign in to 
-   or sign up for a Biotaphy account.  In the left pane of the webpage:
-   
-      * If you do not have a user account, create one by clicking the **sign up** 
-        link below the Login button.
-      * Once you have a user account, sign in with your username and password.
+1. Navigate to http://notyeti-191.lifemapper.org/boom/
 
+1. In the left-hand pane, under “Completed” select “Browse 
+   Projections”.
 
-1. In the left pane of the browser, under **New SDM Project**, choose 
-    **Browse By Species**.  
-    
-1. Type a few letters of a scientific species name into the text section, and a 
-   list of species beginning with those letters will appear below.  Choose a 
-   species to display in the map pane on the right of the browser window.
-     
-1. If there are multiple projections for that species, they will all appear in 
-   a grid of maps on the right portion of the browser window.
-     
+1. In the right-hand pane, a text field will appear under 
+   “Show SDM projections for:”, enter the first few letters of 
+   the species you are interested in.
+
+1. A list will appear under the text field of matching taxa, 
+   continue typing into the text field until the species you are 
+   interested in shows in the list.
+
+1. Click the species name in the list.
+
+1. A map will appear with the points and any projections associated 
+   with the species you selected.  The name of the map will have 
+   the code of the algorithm used, the model scenario code, and the 
+   projection scenario code.
+
+1. You can pan and zoom the map to explore the projection and point 
+   data.  The orange dots represent occurrence points of the species 
+   and the red grid cells represent areas where the species is 
+   projected to have suitable habitat under the climate scenario.  
+   Darker red indicates that the probability is lower and brighter 
+   red indicates a higher probability of habitat suitability.
+
