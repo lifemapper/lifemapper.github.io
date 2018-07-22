@@ -18,61 +18,30 @@ Terminology used in Biotaphy and these documents are summarized in
 
 2018 July 22, Rochester, MN
 
-1. Introductions
+1.	Introductions
 
-1. Biotaphy overview
-   * Lifemapper, iDigBio, Open Tree of Life
-   * Links species biology, geography, ecology, phylogeny
-   * Software overview
+1.	Biotaphy overview
+    *	iDigBio, Lifemapper, Open Tree of Life
+    *	Linking dataspaces
+    * Integration
 
-1. Spatial data
-   * Raster
-   * Vector
+1. Large-scale biodiversity analyses
 
-1. Single species
-   * For all analyses, reference terminology at http://lifemapper.github.io/terms.html
-   * Species Distribution Modeling, http://lifemapper.github.io/researcher/sdm/
-   * Browse Heuchera/Saxifragales data library (hands-on)
-   * Pick species and request SDM (hands-on)
+1.	Multi-species analyses
+    *	Macroecological analyses
+      http://lifemapper.github.io/researcher/rad/
+    * Presence Absence Matrix (PAM)
+    * Hands on with PAM site statistics
+    * Hands on with PAM scatter plots
+    * Metacommunity Phylogenetics Analysis (MCPA)
+      http://lifemapper.github.io/researcher/mcpa/
+    * Hands on with output packages
 
-1. Multi species
-   * Presence Absence Matrix (PAM)
-   * PAM-based statistics
-   * Metacommunity Phylogenetics Analysis (MCPA)
-   * Lifemapper BOOM experiments
-   * Global PAM / Subsetting (hands-on)
-   * Explore output packages (hands-on)
+1. Lifemapper BOOM
+    * Large experiment submission demo
+    * Global PAM / subsetting demo
 
-1. Project future
-   * Life OTOL and iDigBio queries
-   * Add taxonomy to dataset
-   * Updated client interface
-   
-1. Questions, discussion, hands-on help
-
-
-
-
-1. RAD Multi Species
-   * Multi-species modeling, Macroecological analyses, 
-     http://lifemapper.github.io/researcher/rad/
-   * Request a boom with prepared species data, existing env data,
-     tree, biogeographic hypotheses (demo)
-   * Browse heuchera output package (hands-on)
-
-
-1. MCPA Multi Species
-   * Metacommunity Phylogenetic Analyses (MCPA)
-     http://lifemapper.github.io/researcher/mcpa/
-   * Request a subset via geography, taxonomy, namestring filter (demo)
-   * Browse saxifragales subset output package (hands-on)
-
-
-1. Project future - slides
-   * Live OTOL and iDigBio queries 
-   * Add taxonomy to dataset
-   * Updated client interface with more data viz options
-
+1. Questions, Discussion, Hands on help
 
 
 ## Background
