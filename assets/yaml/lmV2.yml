@@ -1328,6 +1328,13 @@ paths:
             - climate
             - occurrence
             - tree
+        - name: metadata
+          in: query
+          description: |
+            Metadata about the occurrence upload (if posting occurrence data).
+            Should match schema at '#/definitions/OccurrenceMetadata'
+          required: false
+          type: string
         - name: file
           in: formData
           description: The data posted as a file
@@ -1492,6 +1499,58 @@ definitions:
       metadataUrl:
         type: string
 
+  OccurrenceMetadata:
+    type: object
+    properties:
+      field:
+        type: array
+        items:
+          type: object
+          properties:
+            key:
+              type: string
+              description: Original field name in CSV or column index (zero-based)
+            shortName:
+              type: string
+              description: A short name for this field (10 characters or less)
+            fieldType:
+              type: string
+              description: The content of this filed
+              enum:
+                - integer
+                - real
+                - string
+      special:
+        type: object
+        required: [groupBy]
+        properties:
+          geopoint:
+            description: |
+              The field key of the field that has geopoint information.  Either
+              this or latitude and longitude must be provided.
+            type: string
+          groupBy:
+            description: Group records by this field key
+            type: string
+          latitude:
+            description: |
+              The field key for the field with latitude information.  Required
+              if geopoint is not provided
+            type: string
+          longitude:
+            description: |
+              The field key for the field with longitude information.  Required
+              if geopoint is not provided
+            type: string
+          taxaName:
+            description: The field key for the field containing taxon names
+            type: string
+          uniqueId:
+            description: |
+              The field key for the field containing a unique identifier for 
+              the records.
+            type: string
+  
   OccurrenceSet:
     type: object
     required: [id]
