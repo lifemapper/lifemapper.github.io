@@ -1520,7 +1520,7 @@ definitions:
                 - integer
                 - real
                 - string
-      special:
+      role:
         type: object
         required: [groupBy]
         properties:
