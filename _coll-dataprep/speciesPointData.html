@@ -21,26 +21,30 @@ layout: page
             column, less than 10 characters.</li>         
             <li>"type": Required.  The data type contained in the field.  
             Accepted values = "int", "str", "float" </li>         
-            <li>"role": Required only for fields fullfilling those roles. </li>
-		         <ul>
-		            <li>"groupby": Required. Indicates the field used to group 
-		            records</li>         
-		            <li>"longitude": Required if no "geopoint" role.  The 
-		            longitude/x value</li>         
-		            <li>"latitude": Required if no "geopoint" role.  The 
-		            latitude/y value</li>
-		            <li>"geopoint": Required if no "latitude" and "longitude" 
-		            roles.  The field contains both x and y coordinates; CSV 
-		            data will be in the format {"lat": -16.35, "lon": -67.616667}</li>
-		            <li>"uniqueid": Optional.  The field contains a unique ID 
-		            for each record. Values will be generated if missing. </li>         
-		            <li>"taxaname": Optional. The field contains the taxa name 
-		            for the recordset. If this role is not present, records will 
-		            be named with "groupby" field . If role is present and 
-		            records in a group have different values, the first record 
-		            be used as the dataset displayname.  </li>
-		         </ul>
-			</li>
+            <li>"role": Required only for fields fullfilling those roles. 
+            Required and optional roles listed below</li>
+         </ul>
+         <br /><br />
+         The roles "groupby" and either "latitude" and "longitude" or "geopoint"
+         are required.  The role "taxaname" is useful if the "groupby" field is
+         an identifier rather than human-readable name. 
+         <ul>
+            <li>"groupby": Required. Indicates the field used to group 
+            records</li>         
+            <li>"longitude": Required if no "geopoint" role.  The 
+            longitude/x value</li>         
+            <li>"latitude": Required if no "geopoint" role.  The 
+            latitude/y value</li>
+            <li>"geopoint": Required if no "latitude" and "longitude" 
+            roles.  The field contains both x and y coordinates; CSV 
+            data will be in the format {"lat": -16.35, "lon": -67.616667}</li>
+            <li>"uniqueid": Optional.  The field contains a unique ID 
+            for each record. Values will be generated if missing. </li>         
+            <li>"taxaname": Optional. The field contains the taxa name 
+            for the recordset. If this role is not present, records will 
+            be named with "groupby" field . If role is present and 
+            records in a group have different values, the first record 
+            be used as the dataset displayname.  </li>
          </ul>
          <br /><br />
          Sample JSON metadata file contents:
@@ -72,70 +76,3 @@ layout: page
          <br />
       </p>
    </body>
-   
-   # .............................................................................
-##   Columns
-##   1) key: required, column/header name or zero-based column index,
-##   2) shortname: required, <= 10 chars,
-##   3) type: required, int, str, or float
-##   4) role: optional for TaxaName, UniqueID field,
-##            required for Longitude, Latitude, Geopoint, GroupBy fields,
-##   4or5..n) optional, all additional values are acceptedvalues , 
-# .............................................................................
-# Note, This file must have the same basename as the CSV file it describes
-# 
-# '#' indicates a comment line, all others must contain comma-separated values:
-#  IFF a field performs a specific role in these data, role name should be the 
-#      4th value on a line
-#   1st column:  Key = field name (in file header) 
-#                     or column index (Zero-based)
-#   2nd column:  Shortname = a new field name, 10 chars or less
-#   3rd column:  Type = int, str, or float
-#   4th column:  Role = if applicable for this field, Longitude, Latitude, Geopoint, 
-#                                              GroupBy, TaxaName, UniqueID
-#   All following columns (starting at 4 or 5):  accepted values for this field 
-#
-# Role (case-insensitive) MUST be present 2-4 of the fields
-#    Required:
-#       GroupBy field contains value to group records by. 
-#    Required: Either Longitude & Latitude or Geopoint
-#       Longitude field contains x coordinate
-#       Latitude field contains y coordinate
-#       Geopoint field contains both x and y coordinates
-#           CSV data will be in the format {"lat": -16.35, "lon": -67.616667}
-#    Optional:
-#       UniqueID field contains a unique ID for each record. Values will be 
-#          generated if missing. 
-#    Optional:
-#       TaxaName field contains the taxa name for the recordset. If role is not
-#          present, records will be named with GroupBy field . If role is 
-#          present and records in a group have different values, the first 
-#          record be used as the dataset displayname.  
-#
-#    TODO: GroupBy could be optional if data is already parsed into files by taxa
-# .............................................................................
-
- {"0": {"name": "gbifid", "type": "int", "role": "uniqueid"},
-  "1": {"name": "occurid", "type": "int"},
-  "2": {"name": "taxonkey", "type": "int", "role": "groupby"},
-  "3": {"name": "datasetkey", "type": "str"},
-  "4": {"name": "puborgkey", "type": "str"},
-  "5": {"name": "basisofrec", "type": "str"},
-  "6": {"name": "kingdomkey", "type": "int"},
-  "7": {"name": "phylumkey", "type": "int"},
-  "8": {"name": "classkey", "type": "int"},
-  "9": {"name": "orderkey", "type": "int"},
-  "10": {"name": "familykey", "type": "int"},
-  "11": {"name": "genuskey", "type": "int"},
-  "12": {"name": "specieskey", "type": "int"},
-  "13": {"name": "sciname", "type": "str", "role": "taxaname"},
-  "14": {"name": "dec_lat", "type": "float", "role": "latitude"},
-  "15": {"name": "dec_long", "type": "float", "role": "longitude"},
-  "16": {"name": "day", "type": "int"},
-  "17": {"name": "month", "type": "int"},
-  "18": {"name": "year", "type": "int"},
-  "19": {"name": "rec_by", "type": "str"},
-  "20": {"name": "inst_code", "type": "str"},
-  "21": {"name": "coll_code", "type": "str"},
-  "22": {"name": "catnum", "type": "str"}
- }
