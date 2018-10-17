@@ -48,6 +48,9 @@ collections:
   coll-workflow:
      output: true
      permalink: /workflow/:path/
+  coll-dataprep:
+     output: true
+     permalink: /workflow/:path/
 
 
 exclude:
