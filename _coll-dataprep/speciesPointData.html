@@ -12,6 +12,19 @@ layout: page
          file is in CSV format and is named <speciesPkg>.csv and the 
          metadata file is in JSON format and named <speciesPkg>.json.  
          <br /><br />
+      </p>
+
+      <p>
+         <br /><br />
+         The data file consists of a tab-delimited CSV file, with records 
+         grouped by taxa using a field designated with the "groupby" role in the 
+         metadata.  Records MUST BE grouped in input data file. When Lifemapper 
+         processes these data, groups of records are written to separate files 
+         for Species Distribution Modeling and other analyses.
+      </p>
+      
+      <p>
+         <br /><br />
          The metadata file consists of a JSON formatted object with name/value
          pairs for each column.  The name of the column is either the column 
          index (zero-based) or the name contained in the header row of the data 
