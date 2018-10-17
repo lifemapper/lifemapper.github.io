@@ -14,27 +14,29 @@ Biotaphy and additional terminology is at [Terminology](/terms.html)
     
 ## Steps
 
-1. Open the Biotaphy web client, by navigating to 
-   http://notyeti-191.lifemapper.org/boom.  This will allow you first explore and 
-   then subset the global PAM for this Biotaphy instance.
-   
-1. This interface allows you to subset on a variety of variables.  Start by 
-   selecting a taxonomic group that you are interested in.  Start by selecting
-   a kingdom.
-   
-1. After selecting a kingdom, the select boxes will fill in with available
-   options.  You can continue to select different taxonomic classifications as
-   well as selecting algorithm, model and projection scenarios.
+1. Navigate to http://notyeti-191.lifemapper.org/boom/ and select “Subset the 
+   Global PAM” from the left-hand pane.  Alternatively, go directly to 
+   http://notyeti-191.lifemapper.org/boom/subsetpam.html
 
-1. After each selection you make, the matching species list will be updated in the
-   bottom left pane.  The map pane on the right will be updated as well with a 
-   "heat map" indicating the relative number of species present in each cell.  The 
-   transparency of the cells is determined by the proportion of the matching 
-   species that are present in each cell.
+1. This interface can take a few seconds to load given the amount of data that 
+   has to be processed.  When it loads, it will fill in the select boxes with 
+   the available options.  
+   
+1. Use the select boxes to narrow down the results to what you are interested 
+   in for your subset, for instance, you may be interested in a genus, like 
+   Saxifraga.
+   
+1. After every selection, the matching species list is updated with the species 
+   that match your criteria and the map on the right will be updated with a 
+   heat map indicating the relative number of species present at each location 
+   that match your criteria.
+   
+1. You can then select the species you want to use for your subset by performing 
+   a multi-select (control or shift + click) on the items in the “Matching 
+   species” box.  Alternatively, do not select any of them and all of the 
+   matching species will be used.
+   
+1. Give your subset a name by filling in the “Archive name” text field and click 
+   “Submit PAM” to create your new subset.
 
-1. When you are happy with your selections, enter an archive name in the text box
-   at the bottom of the screen and press the "Subset PAM" button.  A request will
-   be sent to the server to create a subset of the PAM and run the macro-ecological
-   and MCPA computations on the resulting data.  This process can take a 
-   considerable amount of time so we will show already completed results rather 
-   than waiting for these to return.
+

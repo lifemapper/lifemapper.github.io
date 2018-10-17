@@ -19,39 +19,43 @@ USB drive, including the Heuchera genus and the Saxifragales genus.
 
 ## Metacommunity Phylogenetics Analysis
 
-1. Open the Biotaphy web client, by opening the 
-   Rubiaceae/output/gridset-10-package/index.html file in a web browser.  
-   This will allow you to browse the inputs and explore the outputs of 
-   multi-species, and phylogentic analyses on this subset of the Taiwan data 
-   library.
+1.	Open the index.html file from one of the output packages included on the USB drive.
 
-1. The interface displays three panes, one for the phylogenetic tree, one for a 
-   map, and one with correlation values.
+1.	Click the “MCPA” link, the first from the left under the package contents.
 
+1.	This interface can take a long time to load if the phylogenetic tree is large. 
+   The Heuchera and Saxifraga packages have smaller trees that load fairly quickly.
 
-1. In the tree pane, there is a select box labeled "Node color".  Select a value 
-   from this box for a predictor variable to explore.
-   
-1. Upon predictor selection, the nodes and branches in the tree will change 
-   color.  The color represents how correlated each node is with that predictor 
-   variable with brighter green and red values incidating higher levels of 
-   correlation and darker red and green values representing less correlation.
+1.	Use the “Node color” selection box at the top of the left side to choose a 
+   predictor that will be used to color the tree.  The left-hand pane will be 
+   updated and the tree contained will be colored according to the correlation 
+   between the selected predictor and the distributions on either side of the 
+   clade.  Brighter colors indicate that the correlation is stronger and darker 
+   colors indicate that the correlation is weaker.
 
-1. Select a node.  Upon doing so, the map in the middle pain will contain the 
-   locations where species in that clade are present.  Cells will either be red, 
-   blue, or purple.  The tree will also highlight species in red or blue.  The 
-   red species in the tree are linked to the red cells in the map and the blue 
-   species are linked to the blue cells.  The
-   purple cells indicate that both red and blue species are present at those 
-   locations.
-   
-1. The pane on the right will also update when a tree node is selected.  
-   You will see a list of predictors with the 
-   correlation value to the left of each name.  Under the correlation value, 
-   the p value is displayed in parentheses.  The 
-   p value indicates the frequency that a greater correlation value was 
-   calculated in the permutations.  There is also a 
-   bar of color under each predictor name indicating how correlated the 
-   distribution of the sister clades are with that predictor.
+1.	Select a clade from the tree, the map will be updated showing red, blue, and 
+   purple cells and the tree will highlight descendant species with red for one 
+   sister clade and blue for the other.  These are connected as the red cells in the 
+   map come from distributions of species highlighted in red, and the blue cells 
+   come from species highlighted in blue.  Purple cells indicate that descendants 
+   from both sister clades can be found at that location.
+
+1.	The pane below the map will also be updated.  The left side of that pane represents 
+   correlation with environmental predictors and the right side is for correlations 
+   with biogeographic predictors.  
+
+1.	The color bar beneath the predictor (such as BIOCLIM_12) indicates how correlated 
+   the sister clade distributions are with that particular predictor.  The brighter 
+   the color and the longer the bar means that the correlation is stronger.
+
+1.	Predictor names that are BOLD indicate that the correlation was found to be 
+   significant after permutation testing.
+
+1.	It is most important to look at the environment adjusted R-squared values and the 
+   biogeo adjusted R-squared values.  These values indicate if the clade is likely 
+   most affected by environmental filtering or historical biogeography.  If both are 
+   found to be significant, then there is likely a confounding effect between the 
+   biogeographic hypotheses and the environmental data.  If neither is significant, 
+   then it is likely that the limiting variable has not been captured.
 
 

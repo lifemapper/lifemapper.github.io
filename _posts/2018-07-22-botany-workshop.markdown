@@ -18,46 +18,38 @@ Terminology used in Biotaphy and these documents are summarized in
 
 2018 July 22, Rochester, MN
 
-1. Introductions
-1. Biotaphy overview
-   
-   * Lifemapper, iDigBio, Open Tree of Life
-   * Links species biology, geography, ecology, phylogeny
-   * Software overview
+1.	Introductions
 
-     * packaging and installation
-     * cluster enabled
-   	 * project/region focussed installations
-   	 * web client for any installation
-   	 * local client packaged with outputs
+1.	Biotaphy overview
+    *	iDigBio, Lifemapper, Open Tree of Life
+    *	Linking dataspaces
+    * Integration
 
-1. Single Species
+1. Large-scale biodiversity analyses
 
-   * For all analyses, reference terminology at http://lifemapper.github.io/terms.html
-   * Species Distribution Modeling, http://lifemapper.github.io/researcher/sdm/
-   * Browse Heuchera/Saxifragales data library (hands-on)
-   * Pick species and request SDM (hands-on)
+1.	Multi-species analyses
+    *	Macroecological analyses
+      http://lifemapper.github.io/researcher/rad/
+    * Presence Absence Matrix (PAM)
+    * [Hands on with PAM site statistics](/training/multi_species_stats)
+    * [Hands on with PAM scatter plots](/training/multi_species_stats)
+    * Metacommunity Phylogenetics Analysis (MCPA)
+      http://lifemapper.github.io/researcher/mcpa/
+    * Hands on with output packages
 
-1. RAD Multi Species
+1. Lifemapper BOOM
+    * Large experiment submission demo
+    * Global PAM / subsetting demo
 
-   * Multi-species modeling, Macroecological analyses, 
-     http://lifemapper.github.io/researcher/rad/
-   * Request a boom with prepared species data, existing env data,
-     tree, biogeographic hypotheses (demo)
-   * Browse heuchera output package (hands-on)
+1. Questions, Discussion, Hands on help
 
-1. MCPA Multi Species
-   * Metacommunity Phylogenetic Analyses (MCPA)
-     http://lifemapper.github.io/researcher/mcpa/
-   * Request a subset via geography, taxonomy, namestring filter (demo)
-   * Browse saxifragales subset output package (hands-on)
+## Data
 
-1. Project future - slides
-   * Live OTOL and iDigBio queries 
-   * Add taxonomy to dataset
-   * Updated client interface with more data viz options
+Data available from [download package](/assets/data/botany.zip)
 
-1. Questions, Discussion, Hands-on help
+* Package contains:
+  * papers: directory containing papers for statistics computed
+  * outputs: directory containing three output packages for browsing
 
 ## Background
 
@@ -79,7 +71,7 @@ landscape levels:
   * Request [Macro-ecological Modeling](/training/boomTraining) using 
     researcher-provided data.
   * Data for multi-species exercises is available on the USB stick or from
-    [here](http://yeti.lifemapper.org/dl/taiwan_boom_data.tar.gz).
+    [here](http://lifemapper.github.io/assets/data/botany.zip).
 
 ## Metacommunity Phylogenetic Analyses (MCPA)
 
@@ -90,9 +82,4 @@ biogeographic maps of regions for which to compare species communities:
   * [Visualize and Explore](/training/mcpaVizTraining) Metacommunity 
     Phylogenetic Analyses.  
   * [Subset](/training/subsetTraining) SDM for species
-  * Two output packages are available from the USB drive or for download:
-    
-    * 
-    * 
-
 
