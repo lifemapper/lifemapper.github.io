@@ -50,7 +50,7 @@ collections:
      permalink: /workflow/:path/
   coll-dataprep:
      output: true
-     permalink: /workflow/:path/
+     permalink: /dataprep/:path/
 
 
 exclude:
