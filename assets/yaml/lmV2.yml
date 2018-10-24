@@ -1221,7 +1221,6 @@ paths:
         - $ref: '#/parameters/TaxonOrder'
         - $ref: '#/parameters/TaxonFamily'
         - $ref: '#/parameters/TaxonGenus'
-        - $ref: '#/parameters/TaxonSpecies'
         - $ref: '#/parameters/TaxonKey'
         - $ref: '#/parameters/ScientificName'
         - $ref: '#/parameters/CanonicalName'
@@ -2179,8 +2178,6 @@ definitions:
         taxon_order:
           type: string
         taxon_phylum:
-          type: string
-        taxon_species:
           type: string
         user_id:
           type: string
