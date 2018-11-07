@@ -1733,6 +1733,10 @@ definitions:
         type: array
         items:
           type: integer
+      taxon_names:
+        type: array
+        items:
+          type: string
       points_filename:
         description: |
           This is the name of a previously uploaded file in the user space
