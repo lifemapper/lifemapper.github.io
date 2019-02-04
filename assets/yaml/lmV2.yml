@@ -578,6 +578,23 @@ paths:
           description: Error status returned when the requested matrix does 
                        not exist
   
+  /gridset/{gridsetId}/progress:
+    get:
+      summary: Lifemapper gridset progress service
+      parameters:
+        - $ref: '#/parameters/PathGridsetId'
+      description: |
+        The gridset progress endpoint returns information about the status of
+        the gridset's matrix and projection sub-objects
+        
+      tags:
+        - Grid Set
+      responses:
+        200:
+          description: Returns the progress of the gridset
+          schema:
+            $ref: '#/definitions/GridsetProgress'
+
   /gridset/{gridsetId}/tree:
     get:
       summary: Get the tree associated with this gridset
@@ -1552,6 +1569,43 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/Matrix'
+
+  GridsetProgress:
+    type: object
+    properties:
+      progress:
+        type: number
+        description: The overall progress of the gridset
+      matrices:
+        type: object
+        properties:
+          waiting:
+            type: integer
+            description: The number of matrices waiting to run
+          running:
+            type: integer
+            description: The number of matrices currently running
+          complete:
+            type: integer
+            description: The number of completed matrices
+          error:
+            type: integer
+            description: The number of matrices that have failed
+      projections:
+        type: object
+        properties:
+          waiting:
+            type: integer
+            description: The number of projections waiting to run
+          running:
+            type: integer
+            description: The number of projections currently running
+          complete:
+            type: integer
+            description: The number of completed projections
+          error:
+            type: integer
+            description: The number of projections that have failed
 
   Layer:
     type: object
