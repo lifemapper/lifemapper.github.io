@@ -1709,6 +1709,7 @@ definitions:
 
   OpenTreePOSTresponse:
     type: object
+    required: [nontree_ids, unmatched_ids]
     properties:
       nontree_ids:
         type: array
