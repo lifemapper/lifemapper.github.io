@@ -1576,8 +1576,11 @@ definitions:
 
   BoomMCPA:
     type: object
-    required: [hypotheses_package_name]
+    required: [compute_pam_stats, hypotheses_package_name]
     properties:
+      compute_mcpa:
+        type: integer
+        enum: [0, 1]
       hypotheses_package_name:
         description: The name of the previously uploaded hypothesis package
         type: string
