@@ -1775,12 +1775,14 @@ definitions:
 
   GridsetProgress:
     type: object
+    required: [progress, matrices, projections]
     properties:
       progress:
         type: number
         description: The overall progress of the gridset
       matrices:
         type: object
+        required: [waiting, running, complete, error]
         properties:
           waiting:
             type: integer
@@ -1796,6 +1798,7 @@ definitions:
             description: The number of matrices that have failed
       projections:
         type: object
+        required: [waiting, running, complete, error]
         properties:
           waiting:
             type: integer
