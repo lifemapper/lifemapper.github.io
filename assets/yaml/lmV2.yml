@@ -994,9 +994,7 @@ paths:
         - $ref: '#/parameters/OccurrenceSetId'
         - $ref: '#/parameters/AlgorithmCode'
         - $ref: '#/parameters/ModelScenarioCode'
-        - $ref: '#/parameters/ModelScenarioId'
         - $ref: '#/parameters/ProjectScenarioCode'
-        - $ref: '#/parameters/ProjectScenarioId'
         - $ref: '#/parameters/Squid'
         - $ref: '#/parameters/GridsetId'
       tags:
@@ -1042,9 +1040,7 @@ paths:
         - $ref: '#/parameters/OccurrenceSetId'
         - $ref: '#/parameters/AlgorithmCode'
         - $ref: '#/parameters/ModelScenarioCode'
-        - $ref: '#/parameters/ModelScenarioId'
         - $ref: '#/parameters/ProjectScenarioCode'
-        - $ref: '#/parameters/ProjectScenarioId'
         - $ref: '#/parameters/Squid'
         - $ref: '#/parameters/GridsetId'
       tags:
