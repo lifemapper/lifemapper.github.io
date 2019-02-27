@@ -2697,17 +2697,11 @@ parameters:
     required: false
     type: string
   ModelScenarioCode:
-    name: mdlScenCode
+    name: modelScenarioCode
     in: query
     description: Only return items built with this modeling scenario
     required: false
     type: string
-  ModelScenarioId:
-    name: mdlScenId
-    in: query
-    description: Only return items built with this modeling scenario
-    required: false
-    type: integer
   MinimumNumberOfPoints:
     name: minimumNumberOfPoints
     in: query
@@ -2752,17 +2746,11 @@ parameters:
     required: false
     type: integer
   ProjectScenarioCode:
-    name: prjScenCode
+    name: projectionScenarioCode
     in: query
     description: Only return items built with this SDM projection scenario
     required: false
     type: string
-  ProjectScenarioId:
-    name: prjScenId
-    in: query
-    description: Only return items built with this SDM projection scenario
-    required: false
-    type: integer
   ScenarioCode:
     name: scenarioCode
     in: query
