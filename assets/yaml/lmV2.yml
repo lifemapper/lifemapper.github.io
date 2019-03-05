@@ -1795,7 +1795,7 @@ definitions:
 
   GridsetProgress:
     type: object
-    required: [progress, matrices, projections]
+    required: [progress]
     properties:
       progress:
         type: number
