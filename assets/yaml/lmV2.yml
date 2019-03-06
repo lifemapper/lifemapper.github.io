@@ -1832,6 +1832,22 @@ definitions:
           error:
             type: integer
             description: The number of projections that have failed
+      workflows:
+        type: object
+        required: [waiting, running, complete, error]
+        properties:
+          waiting:
+            type: integer
+            description: The number of workflows waiting to run
+          running:
+            type: integer
+            description: The number of workflows currently running
+          complete:
+            type: integer
+            description: The number of completed workflows
+          error:
+            type: integer
+            description: The number of workflows that have failed
 
   Layer:
     type: object
