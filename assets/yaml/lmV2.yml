@@ -1939,15 +1939,12 @@ definitions:
                 - string
       role:
         type: object
-        required: [groupBy]
+        required: [latitude, longitude, taxaName]
         properties:
-          geopoint:
-            description: |
-              The field key of the field that has geopoint information.  Either
-              this or latitude and longitude must be provided.
-            type: string
           groupBy:
-            description: Group records by this field key
+            description: |
+              If this is provided, use this field to group occurrence data.  
+              If it is not provided, taxaName will be used.  
             type: string
           latitude:
             description: |
@@ -1960,7 +1957,10 @@ definitions:
               if geopoint is not provided
             type: string
           taxaName:
-            description: The field key for the field containing taxon names
+            description: |
+              The field key for the field containing taxon names. If there are
+              multiple values that should be grouped together, provide
+              "groupBy" as well to group those values.
             type: string
           uniqueId:
             description: |
