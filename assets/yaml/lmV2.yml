@@ -1967,6 +1967,8 @@ definitions:
               The field key for the field containing a unique identifier for 
               the records.
             type: string
+      delimiter:
+        type: string
   
   OccurrenceSet:
     type: object
