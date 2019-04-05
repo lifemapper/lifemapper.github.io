@@ -1816,6 +1816,10 @@ definitions:
           error:
             type: integer
             description: The number of matrices that have failed
+      message:
+        type: string
+        description: |
+          May be populated with a message explaining gridset status or progress.
       projections:
         type: object
         required: [waiting, running, complete, error]
