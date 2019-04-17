@@ -5,7 +5,7 @@ info:
   description: Lifemapper services
   version: "2.0.0"
 # the domain of the service
-host: svc.lifemapper.org
+host: client.lifemapper.org
 # array of all schemes that your API supports
 schemes:
   - http
@@ -47,80 +47,6 @@ paths:
           description: A list of environmental layers that match the specified criteria
           schema:
             $ref: '#/definitions/AtomList'
-    post:
-      summary: Post a new environmental layer
-      consumes:
-        - multipart/form-data
-      parameters:
-        - name: epsgCode
-          in: query
-          description: The EPSG code for the layer
-          required: true
-          type: integer
-        - name: name
-          in: query
-          description: A short name for the layer
-          required: false
-          type: string
-        - name: isCategorical
-          in: query
-          description: An indicator if this layer is categorical or not (1=yes, 0=no)
-          required: false
-          type: integer
-          format: int2
-          minimum: 0
-          maximum: 1
-          enum: [0, 1]
-        - name: envLayerTypeId
-          in: query
-          description: The type code id for this layer
-          required: false
-          type: integer
-        - name: metadata
-          in: query
-          description: Additional metadata to add to the layer
-          required: false
-          type: string
-        - name: envLayerType
-          in: query
-          description: The type code for this layer
-          required: true
-          type: string
-        - name: valUnits
-          in: query
-          description: The units for the values in each cell (such as degreesCelsius)
-          required: false
-          type: string
-        - name: gcmCode
-          in: query
-          description: GCM
-          required: false
-          type: string
-        - name: alternatePredictionCode
-          in: query
-          description: Alternate prediction code
-          required: false
-          type: string
-        - name: dateCode
-          in: query
-          description: Date code
-          required: false
-          type: string
-        - name: file
-          in: formData
-          description: The layer content as a file
-          required: true
-          type: file
-      tags:
-        - Environmental Layer
-      responses:
-        201:
-          description: Successful layer post
-          schema:
-            $ref: '#/definitions/Layer'
-        400:
-          description: Error status returned when there is a problem with the 
-                       user inputs
   /envlayer/count:
     get:
       summary: Lifemapper environmental layers count services
@@ -166,21 +92,6 @@ paths:
         403:
           description: Error status thrown when the user does not have 
                        permission to access an environmental layer
-        404:
-          description: Error status thrown when the requested environmental 
-                       layer was not found
-    delete:
-      summary: Delete a layer that you own
-      parameters:
-        - $ref: '#/parameters/PathLayerId'
-      tags:
-        - Environmental Layer
-      responses:
-        204:
-          description: Returns an OK response that a layer is deleted
-        403:
-          description: Error status thrown when the user does not have 
-                       permission to delete an environmental layer
         404:
           description: Error status thrown when the requested environmental 
                        layer was not found

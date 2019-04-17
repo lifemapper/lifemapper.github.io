@@ -24,4 +24,4 @@ status and the input format required for date filters.  Algorithms may be
 queryed in the same way to produce a list of algorithms present in the database 
 and optionally filter models on algorithm code.  Algorithms with
 code, author, parameters, and description is located in the following
-[XML file](http://svc.lifemapper.org/clients/algorithms.xml).
+[XML file](http://client.lifemapper.org/clients/algorithms.xml).

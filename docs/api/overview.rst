@@ -12,7 +12,7 @@ layout: page
 ## Overview
 
 The Lifemapper data retrieval APIs follow the pattern:
- * baseurl:  svc.lifemapper.org/api/v2/<dataObject>/<dataId or command>
+ * baseurl:  client.lifemapper.org/api/v2/<dataObject>/<dataId or command>
  * 
 
 ## REST API Service Types

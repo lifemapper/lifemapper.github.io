@@ -62,7 +62,7 @@ For this example, we will count all of the occurrence sets with more than 100 po
 
 Request::
 
-      $ curl "http://svc.lifemapper.org/services/sdm/occurrences/count/xml?minimumNumberOfPoints=100"
+      $ curl "http://client.lifemapper.org/services/sdm/occurrences/count/xml?minimumNumberOfPoints=100"
 
 Response::
    
@@ -99,7 +99,7 @@ For this example, we will delete occurrence set 99
 
 Request::
 
-      $ curl -X DELETE "http://svc.lifemapper.org/services/sdm/occurrences/99"
+      $ curl -X DELETE "http://client.lifemapper.org/services/sdm/occurrences/99"
 
 -----
 
@@ -149,7 +149,7 @@ For this example, we will get the shapefile for occurrence set 1000
 
 Request::
 
-      $ curl -X GET "http://svc.lifemapper.org/services/sdm/occurrences/1000/shapefile"
+      $ curl -X GET "http://client.lifemapper.org/services/sdm/occurrences/1000/shapefile"
 
 Response::
 
@@ -222,7 +222,7 @@ In this example, we will request the 3rd page of results, with 2 results per pag
 
 Request::
 
-      $ curl -X GET "http://svc.lifemapper.org/services/sdm/occurrences/json?page=3&perPage=2&minimumNumberOfPoints=500&fullObjects=1"
+      $ curl -X GET "http://client.lifemapper.org/services/sdm/occurrences/json?page=3&perPage=2&minimumNumberOfPoints=500&fullObjects=1"
 
 Response::
 
@@ -253,11 +253,11 @@ Response::
                "mapFilename": "/share/lmserver/data/archive/kubi/000/005/831/759/data_5831759.map",
                "mapLayername": "occ_5831759",
                "mapName": "data_5831759",
-               "mapPrefix": "http://yeti.lifemapper.org/ogc?map=data_5831759&layers=occ_5831759",
+               "mapPrefix": "http://client.lifemapper.org/ogc?map=data_5831759&layers=occ_5831759",
                "mapUnits": "",
                "maxX": "-89.87",
                "maxY": "50.4",
-               "metadataUrl": "http://yeti.lifemapper.org/services/sdm/occurrences/5831759",
+               "metadataUrl": "http://client.lifemapper.org/services/sdm/occurrences/5831759",
                "minX": "-113.31",
                "minY": "23.32",
                "modTime": "2016-08-12 08:01:28",
@@ -272,7 +272,7 @@ Response::
                "status": "300",
                "statusModTime": "2016-08-12 08:01:28",
                "title": "Perdita albipennis",
-               "url": "http://yeti.lifemapper.org/services/sdm/occurrences/5831759",
+               "url": "http://client.lifemapper.org/services/sdm/occurrences/5831759",
                "user": "kubi",
                "verify": "9238b96e381ed6f068b0fafdab376c33eea2920ac013b22d3f25f5152bd0b784"
             },
@@ -298,11 +298,11 @@ Response::
                "mapFilename": "/share/lmserver/data/archive/kubi/000/005/831/749/data_5831749.map",
                "mapLayername": "occ_5831749",
                "mapName": "data_5831749",
-               "mapPrefix": "http://yeti.lifemapper.org/ogc?map=data_5831749&layers=occ_5831749",
+               "mapPrefix": "http://client.lifemapper.org/ogc?map=data_5831749&layers=occ_5831749",
                "mapUnits": "",
                "maxX": "-111.76",
                "maxY": "37.18",
-               "metadataUrl": "http://yeti.lifemapper.org/services/sdm/occurrences/5831749",
+               "metadataUrl": "http://client.lifemapper.org/services/sdm/occurrences/5831749",
                "minX": "-117.61",
                "minY": "32.92",
                "modTime": "2016-08-12 08:01:28",
@@ -317,7 +317,7 @@ Response::
                "status": "300",
                "statusModTime": "2016-08-12 08:01:28",
                "title": "Perdita thermophila",
-               "url": "http://yeti.lifemapper.org/services/sdm/occurrences/5831749",
+               "url": "http://client.lifemapper.org/services/sdm/occurrences/5831749",
                "user": "kubi",
                "verify": "d96518c6f88be261a175cbf944ee61c20b5515fb491d1be0fdab811a013cd91d"
             }
@@ -385,7 +385,7 @@ Post a new occurrence set named "My sample points", the data is in CSV format an
 
 Request::
 
-   $ curl -X POST -H 'Content-type: text/csv' --data '@points.csv' http://svc.lifemapper.org/services/sdm/occurrences/?displayName=My%20sample%20points&pointsType=CSV&epsgCode=2163
+   $ curl -X POST -H 'Content-type: text/csv' --data '@points.csv' http://client.lifemapper.org/services/sdm/occurrences/?displayName=My%20sample%20points&pointsType=CSV&epsgCode=2163
 
 Response::
 
@@ -846,11 +846,11 @@ Sample JSON
       "mapFilename": "/share/lmserver/data/archive/kubi/000/005/901/017/data_5901017.map",
       "mapLayername": "occ_5901017",
       "mapName": "data_5901017",
-      "mapPrefix": "http://yeti.lifemapper.org/ogc?map=data_5901017&layers=occ_5901017",
+      "mapPrefix": "http://client.lifemapper.org/ogc?map=data_5901017&layers=occ_5901017",
       "mapUnits": "",
       "maxX": "128.13333",
       "maxY": "4.11833",
-      "metadataUrl": "http://yeti.lifemapper.org/services/sdm/occurrences/5901017",
+      "metadataUrl": "http://client.lifemapper.org/services/sdm/occurrences/5901017",
       "minX": "55.3833",
       "minY": "-8.32",
       "modTime": "2016-03-17 08:42:23",
