@@ -52,17 +52,17 @@ and papers provided in the USB drive ::
 * Colwell R.K., Rangel T.F., 2009. Hutchinson's duality: the once and future 
   niche. Proceedings of the National Academy of Science, USA. 2009 Nov 17; 106 
   Suppl 2:19651-8. Epub 2009 Sep 18.  
-  [https://doi.org/10.1073/pnas.0901650106] (https://doi.org/10.1073/pnas.0901650106)
+  [https://doi.org/10.1073/pnas.0901650106](https://doi.org/10.1073/pnas.0901650106)
 
 * Elith, J., Kearney, M. & Phillips, S. (2010) The art of modelling range-shifting 
   species. Methods in Ecology and Evolution, 1, 330-342. 
-  [https://doi.org/10.1111/j.2041-210X.2010.00036.x] (https://doi.org/10.1111/j.2041-210X.2010.00036.x)
+  [https://doi.org/10.1111/j.2041-210X.2010.00036.x](https://doi.org/10.1111/j.2041-210X.2010.00036.x)
 
 * Franklin, Janet, 2009.  Mapping Species Distributions: Spatial Inference and 
   Prediction (Ecology, Biodiversity and Conservation).  
-  [https://doi.org/10.1017/CBO9780511810602] (https://doi.org/10.1017/CBO9780511810602)
+  [https://doi.org/10.1017/CBO9780511810602](https://doi.org/10.1017/CBO9780511810602)
 
 * Jetz, W., Kreft, H., Ceballos, G. & Mutke, J. (2009) Global associations 
   between terrestrial producer and vertebrate consumer diversity. Proceedings of 
   the Royal Society of London, B., 276, 269-278.  
-  [https://doi.org/10.1098/rspb.2008.1005] (https://doi.org/10.1098/rspb.2008.1005)
+  [https://doi.org/10.1098/rspb.2008.1005](https://doi.org/10.1098/rspb.2008.1005)
