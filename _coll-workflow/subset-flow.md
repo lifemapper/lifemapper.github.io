@@ -11,9 +11,9 @@ layout: page
 
 ___
 
-## Subsetting a populated, computed Biotaphy installation
+## Subsetting a populated, computed BiotaPhy installation
 
-Biotaphy installations may be populated with species and environmental data
+BiotaPhy installations may be populated with species and environmental data
 of interest to a single researcher or institution.  These installations may
 contain public species and environmental data available for a particular 
 country, taxomomic group, or 

@@ -4,7 +4,7 @@ image_path: ""
 layout: page
 ---
 
-## Biotaphy Macro-Ecological Analyses 
+## BiotaPhy Macro-Ecological Analyses 
 
 <p>
 Studying biodiversity patterns includes describing, visualizing and analyzing 
@@ -16,11 +16,11 @@ distributions and abundance.  These patterns are critical information for
 conservation and land management decisions.
 
 There are major challenges related to study biodiversity patterns at large 
-extents, high resolutions, and with thousands of species.  Biotaphy addresses 
+extents, high resolutions, and with thousands of species.  BiotaPhy addresses 
 these challenges by providing web services for assembling and analyzing many 
 species distribution layers at multiple resolutions over arbitrary geographical 
 extents.   These web services can be accessed programmatically and through the 
-Biotaphy web app in the future.
+BiotaPhy web app in the future.
 </p>
 
 ## Statistics

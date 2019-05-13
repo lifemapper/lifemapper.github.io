@@ -5,14 +5,14 @@ layout: page
 ---
 
 
-Biotaphy and additional terminology is at [Terminology](/terms)
+BiotaPhy and additional terminology is at [Terminology](/terms)
 
 ## Login (or skip to proceed anonymously)
 
-1. Go to the test Biotaphy [web application](http://client.lifemapper.org/biotaphy)
+1. Go to the test BiotaPhy [web application](http://client.lifemapper.org/biotaphy)
    
 1. IF you wish to browse your own data as well as public data, sign in to 
-   or sign up for a Biotaphy account.  In the left pane of the webpage:
+   or sign up for a BiotaPhy account.  In the left pane of the webpage:
     
       * If you do not have a user account, create one by clicking the **sign up** 
         link below the Login button.

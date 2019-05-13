@@ -9,7 +9,7 @@ categories:
  - "researcher"
 ---
 
-**Role:** Project director for Lifemapper, software lead on Biotaphy, 
+**Role:** Project director for Lifemapper, software lead on BiotaPhy, 
                  director enabling "Distributed Lifemapper", deployment of 
                  region-focused installations at multiple PRAGMA sites, and 
                  on-site workshops.  Beginning CENTRA work on single and multi-site 

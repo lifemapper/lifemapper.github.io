@@ -4,7 +4,7 @@ image_path: ""
 layout: page
 ---
 
-Biotaphy and additional terminology is at [Terminology](/terms)
+BiotaPhy and additional terminology is at [Terminology](/terms)
 
 ## Exploring Site statistics
 

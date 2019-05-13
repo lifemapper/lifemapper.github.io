@@ -1,5 +1,5 @@
 ---
-title: Biotaphy MCPA output visualization
+title: BiotaPhy MCPA output visualization
 image_path: ""
 layout: page
 ---
@@ -10,7 +10,7 @@ layout: page
 * Will be replaced with the ToC, excluding the "Contents" header
 {:toc}
 
-Biotaphy and additional terminology is at [Terminology](/terms)
+BiotaPhy and additional terminology is at [Terminology](/terms)
 
 ## Retrieve a gridset package
 
