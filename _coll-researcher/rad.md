@@ -1,5 +1,5 @@
 ---
-title: Multi-species (RAD) Analyses
+title: Multi-species Analyses
 image_path: ""
 layout: page
 ---
@@ -28,7 +28,7 @@ Biotaphy web app in the future.
 Papers provided in the USB drive and linked below:
 
 ### Site-based statistics (for species)
-* [Arita et al, 2008](https://www.journals.uchicago.edu/doi/10.1086/590954)
+* [Arita et al, 2008]( https://doi.org/10.1086/590954)
 * Alpha (species richness): The number of species present at each site
 * Alpha Prop (proportional species richness): The proportion of the entire set of species that are present at each site.  
   Percentage of species pool present.
@@ -44,7 +44,7 @@ Papers provided in the USB drive and linked below:
 * Pearson’s correlation coefficient
 
 ### Species statistics
-* [Arita et al, 2008](https://www.journals.uchicago.edu/doi/10.1086/590954)
+* [Arita et al, 2008](https://doi.org/10.1086/590954)
 * Omega (range size): number of sites present
 * Omega Prop: range size in proportion to the total of all range sizes
 * PSI: richness of a species’ range
