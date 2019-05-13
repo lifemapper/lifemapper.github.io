@@ -63,7 +63,7 @@ and request a JSON document as the response.
 
 Request::
 
-   $ curl "http://svc.lifemapper.org/services/sdm/layers/count/json?scenario=34"
+   $ curl "http://client.lifemapper.org/services/sdm/layers/count/json?scenario=34"
 
 Response
    
@@ -99,7 +99,7 @@ For this example, we will delete layer 4444
 
 Request::
 
-    $ curl -X DELETE "http://svc.lifemapper.org/services/sdm/layers/4444"
+    $ curl -X DELETE "http://client.lifemapper.org/services/sdm/layers/4444"
 
 -----
 
@@ -149,7 +149,7 @@ For this example, we will get the data for layer 123 in GeoTiff format
 
 Request::
 
-   $ curl -X GET "http://svc.lifemapper.org/services/sdm/layers/123/GTiff"
+   $ curl -X GET "http://client.lifemapper.org/services/sdm/layers/123/GTiff"
 
 Response: 
    Response is binary geotiff data
@@ -224,7 +224,7 @@ The layers should have EPSG code 4326 and the response will be XML.
 
 Request::
 
-      $ curl -X GET "http://svc.lifemapper.org/services/sdm/layers/xml?page=0&perPage=2&epsgCode=4326"
+      $ curl -X GET "http://client.lifemapper.org/services/sdm/layers/xml?page=0&perPage=2&epsgCode=4326"
 
 Response
 
@@ -235,16 +235,16 @@ Response
             <lm:title>Lifemapper List Service</lm:title>
             <lm:user>kubi</lm:user>
             <lm:interfaces>
-               <lm:atom>http://yeti.lifemapper.org/services/sdm/layers/atom</lm:atom>
-               <lm:html>http://yeti.lifemapper.org/services/sdm/layers/html</lm:html>
-               <lm:json>http://yeti.lifemapper.org/services/sdm/layers/json</lm:json>
-               <lm:xml>http://yeti.lifemapper.org/services/sdm/layers/xml</lm:xml>
+               <lm:atom>http://client.lifemapper.org/services/sdm/layers/atom</lm:atom>
+               <lm:html>http://client.lifemapper.org/services/sdm/layers/html</lm:html>
+               <lm:json>http://client.lifemapper.org/services/sdm/layers/json</lm:json>
+               <lm:xml>http://client.lifemapper.org/services/sdm/layers/xml</lm:xml>
             </lm:interfaces>
             <lm:pages>
-               <lm:page href="http://yeti.lifemapper.org/services/sdm/layers/xml/?page=0&amp;amp;perPage=2&amp;amp;fullObjects=0&amp;amp;epsgCode=4326&amp;amp;afterTime=&amp;amp;beforeTime=" rel="first" />
-               <lm:page href="http://yeti.lifemapper.org/services/sdm/layers/xml/?page=0&amp;amp;perPage=2&amp;amp;fullObjects=0&amp;amp;epsgCode=4326&amp;amp;afterTime=&amp;amp;beforeTime=" rel="current" />
-               <lm:page href="http://yeti.lifemapper.org/services/sdm/layers/xml/?page=1&amp;amp;perPage=2&amp;amp;fullObjects=0&amp;amp;epsgCode=4326&amp;amp;afterTime=&amp;amp;beforeTime=" rel="next" />
-               <lm:page href="http://yeti.lifemapper.org/services/sdm/layers/xml/?page=67&amp;amp;perPage=2&amp;amp;fullObjects=0&amp;amp;epsgCode=4326&amp;amp;afterTime=&amp;amp;beforeTime=" rel="last" />
+               <lm:page href="http://client.lifemapper.org/services/sdm/layers/xml/?page=0&amp;amp;perPage=2&amp;amp;fullObjects=0&amp;amp;epsgCode=4326&amp;amp;afterTime=&amp;amp;beforeTime=" rel="first" />
+               <lm:page href="http://client.lifemapper.org/services/sdm/layers/xml/?page=0&amp;amp;perPage=2&amp;amp;fullObjects=0&amp;amp;epsgCode=4326&amp;amp;afterTime=&amp;amp;beforeTime=" rel="current" />
+               <lm:page href="http://client.lifemapper.org/services/sdm/layers/xml/?page=1&amp;amp;perPage=2&amp;amp;fullObjects=0&amp;amp;epsgCode=4326&amp;amp;afterTime=&amp;amp;beforeTime=" rel="next" />
+               <lm:page href="http://client.lifemapper.org/services/sdm/layers/xml/?page=67&amp;amp;perPage=2&amp;amp;fullObjects=0&amp;amp;epsgCode=4326&amp;amp;afterTime=&amp;amp;beforeTime=" rel="last" />
             </lm:pages>
             <lm:items itemCount="134" userId="kubi">
                <lm:queryParameters>
@@ -276,7 +276,7 @@ Response
                   <lm:id>7510</lm:id>
                   <lm:modTime>2015-11-19 16:08:10</lm:modTime>
                   <lm:title>cc45bi5014-10min: Precipitation of Driest Month, IPCC AR5 RCP4.5, 2050, 10min</lm:title>
-                  <lm:url>http://yeti.lifemapper.org/services/sdm/layers/7510</lm:url>
+                  <lm:url>http://client.lifemapper.org/services/sdm/layers/7510</lm:url>
                </lm:item>
                <lm:item>
                   <lm:description>Precipitation of Warmest Quarter, Predicted 2041-2060 climate calculated from change modeled by Community Climate System Model, 4.0, National Center for Atmospheric Research (NCAR) http://www.cesm.ucar.edu/models/ccsm4.0/ for the IPCC Fifth Assessment Report (2013), Scenario RCP4.5 plus Worldclim 1.4 observed mean climate</lm:description>
@@ -284,7 +284,7 @@ Response
                   <lm:id>7509</lm:id>
                   <lm:modTime>2015-11-19 16:08:10</lm:modTime>
                   <lm:title>cc45bi5018-10min: Precipitation of Warmest Quarter, IPCC AR5 RCP4.5, 2050, 10min</lm:title>
-                  <lm:url>http://yeti.lifemapper.org/services/sdm/layers/7509</lm:url>
+                  <lm:url>http://client.lifemapper.org/services/sdm/layers/7509</lm:url>
                </lm:item>
             </lm:items>
          </lm:response>
@@ -372,7 +372,7 @@ located at 'layerData.tif' on the local system.
 
 Request::
      
-   $ curl -X POST -H 'Content-type: image/tiff' --data '@layerData.tif' http://svc.lifemapper.org/services/sdm/layers/?name=sampleLayer&units=dd&resolution=2.5&epsgCode=4326&envLayerType=temperature&dataFormat=GTiff&valUnits=degreesC
+   $ curl -X POST -H 'Content-type: image/tiff' --data '@layerData.tif' http://client.lifemapper.org/services/sdm/layers/?name=sampleLayer&units=dd&resolution=2.5&epsgCode=4326&envLayerType=temperature&dataFormat=GTiff&valUnits=degreesC
 
 
 Response:
@@ -415,12 +415,12 @@ Sample JSON
          "keyword": "seasonality"
       },
       "mapLayername": "cc45bi5015-10min",
-      "mapPrefix": "http://yeti.lifemapper.org/ogc?map=usr_kubi_4326&layers=cc45bi5015-10min",
+      "mapPrefix": "http://client.lifemapper.org/ogc?map=usr_kubi_4326&layers=cc45bi5015-10min",
       "mapUnits": "dd",
       "maxVal": "222.0",
       "maxX": "180.0",
       "maxY": "90.0",
-      "metadataUrl": "http://yeti.lifemapper.org/services/sdm/layers/7513",
+      "metadataUrl": "http://client.lifemapper.org/services/sdm/layers/7513",
       "minVal": "0.0",
       "minX": "-180.0",
       "minY": "-60.0",

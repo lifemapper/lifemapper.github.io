@@ -1,0 +1,91 @@
+---
+title: Lifemapper Species Point Data Preparation
+image_path: ""
+layout: page
+---
+
+   <body>
+      <p>
+         <br /><br />
+         Species Point data formatted for Lifemapper is a compressed data 
+         package, named <speciesPkg>.tar.gz, containing two files.  The data 
+         file is in CSV format and is named <speciesPkg>.csv and the 
+         metadata file is in JSON format and named <speciesPkg>.json.  
+         <br /><br />
+      </p>
+
+      <p>
+         <br /><br />
+         The data file consists of a tab-delimited CSV file, with records 
+         grouped by taxa using a field designated with the "groupby" role in the 
+         metadata.  Records MUST BE grouped in input data file. When Lifemapper 
+         processes these data, groups of records are written to separate files 
+         for Species Distribution Modeling and other analyses.
+      </p>
+      
+      <p>
+         <br /><br />
+         The metadata file consists of a JSON formatted object with name/value
+         pairs for each column.  The name of the column is either the column 
+         index (zero-based) or the name contained in the header row of the data 
+         file.  The value is a JSON object with the following name/value pairs:
+         <ul>
+            <li>"name": Required.  Name should be a unique value for each  
+            column, less than 10 characters.</li>         
+            <li>"type": Required.  The data type contained in the field.  
+            Accepted values = "int", "str", "float" </li>         
+            <li>"role": Required only for fields fullfilling those roles. 
+            Required and optional roles listed below</li>
+         </ul>
+         <br /><br />
+         The roles "groupby" and either "latitude" and "longitude" or "geopoint"
+         are required.  The role "taxaname" is useful if the "groupby" field is
+         an identifier rather than human-readable name. 
+         <ul>
+            <li>"groupby": Required. Indicates the field used to group 
+            records</li>         
+            <li>"longitude": Required if no "geopoint" role.  The 
+            longitude/x value</li>         
+            <li>"latitude": Required if no "geopoint" role.  The 
+            latitude/y value</li>
+            <li>"geopoint": Required if no "latitude" and "longitude" 
+            roles.  The field contains both x and y coordinates; CSV 
+            data will be in the format {"lat": -16.35, "lon": -67.616667}</li>
+            <li>"uniqueid": Optional.  The field contains a unique ID 
+            for each record. Values will be generated if missing. </li>         
+            <li>"taxaname": Optional. The field contains the taxa name 
+            for the recordset. If this role is not present, records will 
+            be named with "groupby" field . If role is present and 
+            records in a group have different values, the first record 
+            be used as the dataset displayname.  </li>
+         </ul>
+         <br /><br />
+         Sample JSON metadata file contents:
+<br /> {"0": {"name": "gbifid", "type": "int", "role": "uniqueid"},
+<br />  "1": {"name": "occurid", "type": "int"},
+<br />  "2": {"name": "taxonkey", "type": "int", "role": "groupby"},
+<br />  "3": {"name": "datasetkey", "type": "str"},
+<br />  "4": {"name": "puborgkey", "type": "str"},
+<br />  "5": {"name": "basisofrec", "type": "str"},
+<br />  "6": {"name": "kingdomkey", "type": "int"},
+<br />  "7": {"name": "phylumkey", "type": "int"},
+<br />  "8": {"name": "classkey", "type": "int"},
+<br />  "9": {"name": "orderkey", "type": "int"},
+<br />  "10": {"name": "familykey", "type": "int"},
+<br />  "11": {"name": "genuskey", "type": "int"},
+<br />  "12": {"name": "specieskey", "type": "int"},
+<br />  "13": {"name": "sciname", "type": "str", "role": "taxaname"},
+<br />  "14": {"name": "dec_lat", "type": "float", "role": "latitude"},
+<br />  "15": {"name": "dec_long", "type": "float", "role": "longitude"},
+<br />  "16": {"name": "day", "type": "int"},
+<br />  "17": {"name": "month", "type": "int"},
+<br />  "18": {"name": "year", "type": "int"},
+<br />  "19": {"name": "rec_by", "type": "str"},
+<br />  "20": {"name": "inst_code", "type": "str"},
+<br />  "21": {"name": "coll_code", "type": "str"},
+<br />  "22": {"name": "catnum", "type": "str"}
+<br /> }
+         <br />
+         <br />
+      </p>
+   </body>
