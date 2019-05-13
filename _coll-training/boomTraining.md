@@ -9,7 +9,7 @@ Biotaphy and additional terminology is at [Terminology](/terms)
 
 ## Login (or skip to proceed anonymously)
 
-1. Go to the test Biotaphy [web client](http://notyeti-191.lifemapper.org/biotaphy)
+1. Go to the test Biotaphy [web application](http://client.lifemapper.org/biotaphy)
    
 1. IF you wish to browse your own data as well as public data, sign in to 
    or sign up for a Biotaphy account.  In the left pane of the webpage:

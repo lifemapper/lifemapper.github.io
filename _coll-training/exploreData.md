@@ -9,7 +9,7 @@ Biotaphy and additional terminology is at [Terminology](/terms)
 
 ## Steps
 
-1. Navigate to http://notyeti-191.lifemapper.org/biotaphy/
+1. Navigate to http://client.lifemapper.org/biotaphy/
 
 1. In the left-hand pane, under “Completed” select “Browse 
    Projections”.

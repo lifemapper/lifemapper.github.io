@@ -16,7 +16,7 @@ Biotaphy and additional terminology is at [Terminology](/terms.html)
 
 1. Navigate to http://notyeti-191.lifemapper.org/biotaphy/ and select “Subset the 
    Global PAM” from the left-hand pane.  Alternatively, go directly to 
-   http://notyeti-191.lifemapper.org/biotaphy/subsetpam.html
+   http://client.lifemapper.org/biotaphy/subsetpam.html
 
 1. This interface can take a few seconds to load given the amount of data that 
    has to be processed.  When it loads, it will fill in the select boxes with 
