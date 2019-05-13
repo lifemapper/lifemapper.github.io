@@ -56,8 +56,8 @@ a map of the country of Indonesia might be at the ratio of 1:2,000,000.
 
 ## Sample Geospatial Data resources
 
-**World borders:**  http://thematicmapping.org/downloads/world_borders.php
+* [World borders]  (http://thematicmapping.org/downloads/world_borders.php)
 
-**Global administrative boundaries:**  http://www.gadm.org/country 
+* [Global administrative boundaries]  http://www.gadm.org/country)
 
-**Natural earth data:** http://www.naturalearthdata.com/ 
+* [Natural earth data] (http://www.naturalearthdata.com/)
