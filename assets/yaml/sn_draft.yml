@@ -1,4 +1,4 @@
-swagger: '2.0'
+openapi: 3.0.3
 info:
   title: S^N Draft
   description: This is a draft API specification for S^N
