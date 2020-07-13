@@ -1,0 +1,243 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "S^N Draft",
+    "description": "This is a draft API specification for S^N",
+    "termsOfService": "http://example.com/terms/",
+    "contact": {
+      "name": "API Support",
+      "url": "http://www.example.com/support",
+      "email": "support@example.com"
+    },
+    "license": {
+      "name": "GPL 3",
+      "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://s2n.lifemapper.org/api/",
+      "description": "Base URL for S^N services"
+    }
+  ],
+  "paths": {
+    "/resolver/services": {
+      "get": {
+        "description": "Endpoint for listing available resolver services",
+        "summary": "List resolver services",
+        "operationId": "resolverServiceList",
+        "responses": {
+          "200": {
+            "description": "List available resolver services",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "resolver_code": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "url": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "example": [
+                  {
+                    "resolver_code": "specify",
+                    "name": "Specify GUID Resolver",
+                    "url": "https://labs.lifemapper.org/specifyResolver"
+                  },
+                  {
+                    "resolver_code": "doi",
+                    "name": "DOI Resolver",
+                    "url": "https://dx.doi.org/"
+                  },
+                  {
+                    "resolver_code": "cnri",
+                    "name": "CNRI Resolver",
+                    "url": "https://cnri.org"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/resolver/{identifier}": {
+      "get": {
+        "description": "Description of resolver",
+        "summary": "Summary of resolver",
+        "operationId": "getUrlForIdentifier",
+        "responses": {
+          "200": {
+            "description": "Resolver response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "resolver_code": {
+                      "type": "string",
+                      "example": "specify"
+                    },
+                    "url": {
+                      "type": "string",
+                      "example": "https://specify7.specifysoftware.org/KUI/KUFish/some_specify_guid"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "identifier",
+            "in": "path",
+            "description": "Identifier to resolve",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple",
+            "example": "some_specify_guid"
+          },
+          {
+            "name": "resolver_code",
+            "in": "query",
+            "description": "The type of identifier provided",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "specify"
+          }
+        ]
+      },
+      "post": {
+        "description": "Description of POST",
+        "summary": "Summary of new identifier post",
+        "operationId": "addIdentifier",
+        "responses": {
+          "201": {
+            "description": "New identifier POST"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "identifier": {
+                    "type": "string"
+                  },
+                  "resolver_code": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "identifier": "some_specify_guid",
+                  "resolver_code": "specify",
+                  "url": "https://specify7.specifysoftware.org/KUI/KUFish/some_specify_guid"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "identifier",
+            "in": "path",
+            "description": "Identifier to resolve",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple",
+            "example": "some_specify_guid"
+          }
+        ]
+      }
+    },
+    "/query": {
+      "get": {
+        "description": "Query various services for information connected to an identifier",
+        "responses": {
+          "200": {
+            "description": "All connected data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "service_code": {
+                        "type": "string"
+                      },
+                      "url": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "example": [
+                  {
+                    "service_code": "specify",
+                    "url": "https://specify7.specifysoftware.org/KUI/KUFish/some_specify_guid"
+                  },
+                  {
+                    "service_code": "morphosource",
+                    "url": "Some morphosource url"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "identifier",
+            "in": "query",
+            "description": "An identifier to search for",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "some_specify_guid"
+          },
+          {
+            "name": "service",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "style": "form",
+            "explode": true,
+            "example": [
+              "morphosource",
+              "specify"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
