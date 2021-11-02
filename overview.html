@@ -14,7 +14,7 @@ online species occurrence data. Using the Lifemapper platform, known species
 localities georeferenced from museum specimens are combined with climate models 
 to predict a species’ “niche” or potential habitat availability, under current 
 day and future climate change scenarios.  The SDM components compute these 
-single-species predictions.  
+single-species predictions.  The MaxEnt application drives all SDM calculations.
 </p>
 
 <p>
@@ -45,21 +45,4 @@ allowing users to dynamically query linked data visualizations: maps, trees,
 and scatterplots.
 </p>
 
-<p>
-The Lifemapper platform is a large but modular web services-based system of 
-three core software components: 
-<ol>
-   <li>  LmServer for data management and communications; </li>
-   <li>  LmCompute for calculations; and </li>
-   <li>  and an API and website for browsing the public archive and requesting
-         analyses. </li>
-</ol>
-The LmCompute and LmServer modules are both involved in 
-modeling operations. LmCompute instances request jobs from LmServer, execute 
-them, then post the model results back to LmServer where data are written to 
-storage and metadata to the PostgreSQL database. Two applications on LmCompute 
-underlie SDM calculations: openModeller and MaxEnt, while all RAD and MCPA 
-calculations are performed by Lifemapper code. From LmServer APIs and the 
-website, a user can request public input and computed data.
-</p>
 
