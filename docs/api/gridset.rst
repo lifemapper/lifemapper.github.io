@@ -66,7 +66,7 @@ Example
 For this example, we will count all of the public experiments built with the ATT Maxent algorithm and request a JSON document as the response.
 
 Request
-      $ curl "http://client.lifemapper.org/services/sdm/experiments/count/json?public=1&algorithmCode=ATT_MAXENT"
+      $ curl "https://data.lifemapper.org/services/sdm/experiments/count/json?public=1&algorithmCode=ATT_MAXENT"
 
 Response
 
@@ -101,7 +101,7 @@ For this example, we will delete experiment 12345
 
 Request::
 
-   $ curl -X DELETE "http://client.lifemapper.org/services/sdm/experiments/12345"
+   $ curl -X DELETE "https://data.lifemapper.org/services/sdm/experiments/12345"
 
 -----
 
@@ -153,7 +153,7 @@ For this example, we will get the raw model of experiment 12345.  It was built w
 
 Request::
 
-   $ curl -X GET "http://client.lifemapper.org/services/sdm/experiments/12345/model"
+   $ curl -X GET "https://data.lifemapper.org/services/sdm/experiments/12345/model"
 
 Response
 
@@ -256,7 +256,7 @@ In this example, we will request the 5th page of results with 5 results per page
 
 Request::
 
-   $ curl -X GET "http://client.lifemapper.org/services/sdm/experiments/json?status=300&perPage=5&algorithmCode=ATT_MAXENT&epsgCode=4326&page=5"
+   $ curl -X GET "https://data.lifemapper.org/services/sdm/experiments/json?status=300&perPage=5&algorithmCode=ATT_MAXENT&epsgCode=4326&page=5"
 
 Response
 
@@ -271,35 +271,35 @@ Response
                "id": "33350",
                "modTime": "2016-08-12 09:12:00",
                "title": "Perdita calloleuca",
-               "url": "http://client.lifemapper.org/services/sdm/experiments/33350"
+               "url": "https://data.lifemapper.org/services/sdm/experiments/33350"
             },
             {
                "epsgcode": "4326",
                "id": "33338",
                "modTime": "2016-08-12 09:11:59",
                "title": "Perdita larreae",
-               "url": "http://client.lifemapper.org/services/sdm/experiments/33338"
+               "url": "https://data.lifemapper.org/services/sdm/experiments/33338"
             },
             {
                "epsgcode": "4326",
                "id": "33340",
                "modTime": "2016-08-12 09:11:58",
                "title": "Perdita hirticeps",
-               "url": "http://client.lifemapper.org/services/sdm/experiments/33340"
+               "url": "https://data.lifemapper.org/services/sdm/experiments/33340"
             },
             {
                "epsgcode": "4326",
                "id": "33342",
                "modTime": "2016-08-12 09:11:30",
                "title": "Perdita media",
-               "url": "http://client.lifemapper.org/services/sdm/experiments/33342"
+               "url": "https://data.lifemapper.org/services/sdm/experiments/33342"
             },
             {
                "epsgcode": "4326",
                "id": "33344",
                "modTime": "2016-08-12 09:11:30",
                "title": "Perdita scopata",
-               "url": "http://client.lifemapper.org/services/sdm/experiments/33344"
+               "url": "https://data.lifemapper.org/services/sdm/experiments/33344"
             }
       ],
       "itemCount": "92308",
@@ -349,7 +349,7 @@ Post a new experiment using Bioclim with a standard deviation cutoff value of 1.
 
 Request::
 
-      $ curl -X POST -H 'Content-type: application/xml' -d '<lm:request xmlns:lm="http://lifemapper.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://lifemapper.org /schemas/serviceRequest.xsd"><lm:experiment><lm:algorithm><lm:algorithmCode>BIOCLIM</lm:algorithmCode><lm:parameters><lm:standarddeviationcutoff>1.0</lm:standarddeviationcutoff></lm:parameters></lm:algorithm><lm:occurrenceSetId>1234</lm:occurrenceSetId><lm:modelScenario>99</lm:modelScenario><lm:name>Sample Experiment</lm:name><lm:description>This is a sample request for posting an experiment</lm:description><lm:projectionScenario>8</lm:projectionScenario><lm:projectionScenario>17</lm:projectionScenario><lm:projectionScenario>99</lm:projectionScenario><lm:projectionScenario>342</lm:projectionScenario></lm:experiment></lm:request>' http://client.lifemapper.org/services/sdm/experiments/xml
+      $ curl -X POST -H 'Content-type: application/xml' -d '<lm:request xmlns:lm="http://lifemapper.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://lifemapper.org /schemas/serviceRequest.xsd"><lm:experiment><lm:algorithm><lm:algorithmCode>BIOCLIM</lm:algorithmCode><lm:parameters><lm:standarddeviationcutoff>1.0</lm:standarddeviationcutoff></lm:parameters></lm:algorithm><lm:occurrenceSetId>1234</lm:occurrenceSetId><lm:modelScenario>99</lm:modelScenario><lm:name>Sample Experiment</lm:name><lm:description>This is a sample request for posting an experiment</lm:description><lm:projectionScenario>8</lm:projectionScenario><lm:projectionScenario>17</lm:projectionScenario><lm:projectionScenario>99</lm:projectionScenario><lm:projectionScenario>342</lm:projectionScenario></lm:experiment></lm:request>' https://data.lifemapper.org/services/sdm/experiments/xml
 
 Response
 The response of this request is the same as if you ran a GET request on the experiment you just posted.  
@@ -369,15 +369,15 @@ Sample XML (extra layers and projections removed)
       <lm:title>Lifemapper experiment 33338</lm:title>
       <lm:user>kubi</lm:user>
       <lm:interfaces>
-         <lm:atom>http://client.lifemapper.org/services/sdm/experiments/33338/atom</lm:atom>
-         <lm:html>http://client.lifemapper.org/services/sdm/experiments/33338/html</lm:html>
-         <lm:json>http://client.lifemapper.org/services/sdm/experiments/33338/json</lm:json>
-         <lm:kml>http://client.lifemapper.org/services/sdm/experiments/33338/kml</lm:kml>
-         <lm:model>http://client.lifemapper.org/services/sdm/experiments/33338/model</lm:model>
-         <lm:package>http://client.lifemapper.org/services/sdm/experiments/33338/package</lm:package>
-         <lm:prov>http://client.lifemapper.org/services/sdm/experiments/33338/prov</lm:prov>
-         <lm:status>http://client.lifemapper.org/services/sdm/experiments/33338/status</lm:status>
-         <lm:xml>http://client.lifemapper.org/services/sdm/experiments/33338/xml</lm:xml>
+         <lm:atom>https://data.lifemapper.org/services/sdm/experiments/33338/atom</lm:atom>
+         <lm:html>https://data.lifemapper.org/services/sdm/experiments/33338/html</lm:html>
+         <lm:json>https://data.lifemapper.org/services/sdm/experiments/33338/json</lm:json>
+         <lm:kml>https://data.lifemapper.org/services/sdm/experiments/33338/kml</lm:kml>
+         <lm:model>https://data.lifemapper.org/services/sdm/experiments/33338/model</lm:model>
+         <lm:package>https://data.lifemapper.org/services/sdm/experiments/33338/package</lm:package>
+         <lm:prov>https://data.lifemapper.org/services/sdm/experiments/33338/prov</lm:prov>
+         <lm:status>https://data.lifemapper.org/services/sdm/experiments/33338/status</lm:status>
+         <lm:xml>https://data.lifemapper.org/services/sdm/experiments/33338/xml</lm:xml>
       </lm:interfaces>
       <lm:experiment>
          <lm:algorithm>
@@ -435,7 +435,7 @@ Sample XML (extra layers and projections removed)
          <lm:createTime>2015-11-21 01:37:54</lm:createTime>
          <lm:epsgcode>4326</lm:epsgcode>
          <lm:id>33338</lm:id>
-         <lm:metadataUrl>http://client.lifemapper.org/services/sdm/experiments/33338</lm:metadataUrl>
+         <lm:metadataUrl>https://data.lifemapper.org/services/sdm/experiments/33338</lm:metadataUrl>
          <lm:modTime>2016-08-12 09:11:59</lm:modTime>
          <lm:model>
             <lm:algorithmCode>ATT_MAXENT</lm:algorithmCode>
@@ -468,12 +468,12 @@ Sample XML (extra layers and projections removed)
                      <lm:keyword>mean</lm:keyword>
                   </lm:keywords>
                   <lm:mapLayername>bio10-10min</lm:mapLayername>
-                  <lm:mapPrefix>http://client.lifemapper.org/ogc?map=usr_kubi_4326&amp;amp;layers=bio10-10min</lm:mapPrefix>
+                  <lm:mapPrefix>https://data.lifemapper.org/ogc?map=usr_kubi_4326&amp;amp;layers=bio10-10min</lm:mapPrefix>
                   <lm:mapUnits>dd</lm:mapUnits>
                   <lm:maxVal>380.0</lm:maxVal>
                   <lm:maxX>180.0</lm:maxX>
                   <lm:maxY>90.0</lm:maxY>
-                  <lm:metadataUrl>http://client.lifemapper.org/services/sdm/layers/7380</lm:metadataUrl>
+                  <lm:metadataUrl>https://data.lifemapper.org/services/sdm/layers/7380</lm:metadataUrl>
                   <lm:minVal>-97.0</lm:minVal>
                   <lm:minX>-180.0</lm:minX>
                   <lm:minY>-60.0</lm:minY>
@@ -508,7 +508,7 @@ Sample XML (extra layers and projections removed)
             <lm:makeflowFilename>/share/lmserver/data/archive/kubi/000/005/831/805/occ_5831805.mf</lm:makeflowFilename>
             <lm:mapFilename>/share/lmserver/data/archive/kubi/000/005/831/805/data_5831805.map</lm:mapFilename>
             <lm:mapName>data_5831805</lm:mapName>
-            <lm:metadataUrl>http://client.lifemapper.org/services/sdm/models/33338</lm:metadataUrl>
+            <lm:metadataUrl>https://data.lifemapper.org/services/sdm/models/33338</lm:metadataUrl>
             <lm:modTime>2016-08-12 09:11:59</lm:modTime>
             <lm:moduleType>sdm</lm:moduleType>
             <lm:name>Perdita larreae</lm:name>
@@ -530,11 +530,11 @@ Sample XML (extra layers and projections removed)
                <lm:mapFilename>/share/lmserver/data/archive/kubi/000/005/831/805/data_5831805.map</lm:mapFilename>
                <lm:mapLayername>occ_5831805</lm:mapLayername>
                <lm:mapName>data_5831805</lm:mapName>
-               <lm:mapPrefix>http://client.lifemapper.org/ogc?map=data_5831805&amp;amp;layers=occ_5831805</lm:mapPrefix>
+               <lm:mapPrefix>https://data.lifemapper.org/ogc?map=data_5831805&amp;amp;layers=occ_5831805</lm:mapPrefix>
                <lm:mapUnits />
                <lm:maxX>-106.61</lm:maxX>
                <lm:maxY>37.29</lm:maxY>
-               <lm:metadataUrl>http://client.lifemapper.org/services/sdm/occurrences/5831805</lm:metadataUrl>
+               <lm:metadataUrl>https://data.lifemapper.org/services/sdm/occurrences/5831805</lm:metadataUrl>
                <lm:minX>-117.63</lm:minX>
                <lm:minY>31.35</lm:minY>
                <lm:modTime>2016-08-12 08:11:12</lm:modTime>
@@ -600,12 +600,12 @@ Sample XML (extra layers and projections removed)
                <lm:mapFilename>/share/lmserver/data/archive/kubi/000/005/831/805/data_5831805.map</lm:mapFilename>
                <lm:mapLayername>prj_6707641</lm:mapLayername>
                <lm:mapName>data_5831805</lm:mapName>
-               <lm:mapPrefix>http://client.lifemapper.org/ogc?map=data_5831805&amp;amp;layers=prj_6707641</lm:mapPrefix>
+               <lm:mapPrefix>https://data.lifemapper.org/ogc?map=data_5831805&amp;amp;layers=prj_6707641</lm:mapPrefix>
                <lm:mapUnits>dd</lm:mapUnits>
                <lm:maxVal>100.0</lm:maxVal>
                <lm:maxX>180.0</lm:maxX>
                <lm:maxY>90.0</lm:maxY>
-               <lm:metadataUrl>http://client.lifemapper.org/services/sdm/projections/6707641</lm:metadataUrl>
+               <lm:metadataUrl>https://data.lifemapper.org/services/sdm/projections/6707641</lm:metadataUrl>
                <lm:minVal>0.0</lm:minVal>
                <lm:minX>-180.0</lm:minX>
                <lm:minY>-60.0</lm:minY>

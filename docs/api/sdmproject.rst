@@ -65,7 +65,7 @@ For this example, we will count all of the projections that are in experiment 12
 
 Request::
 
-   $ curl "http://client.lifemapper.org/services/sdm/projections/count/json?experimentId=123"
+   $ curl "https://data.lifemapper.org/services/sdm/projections/count/json?experimentId=123"
 
 Response
    
@@ -100,7 +100,7 @@ For this example, we will delete projection 1234
 
 Request::
 
-   $ curl -X DELETE "http://client.lifemapper.org/services/sdm/projections/1234"
+   $ curl -X DELETE "https://data.lifemapper.org/services/sdm/projections/1234"
 
 -----
 
@@ -154,7 +154,7 @@ For this example, we will get a kml document for projection 123
 
 Request::
 
-   $ curl -X GET "http://client.lifemapper.org/services/sdm/projections/123/kml"
+   $ curl -X GET "https://data.lifemapper.org/services/sdm/projections/123/kml"
 
 Response
    Response is a KML document that will display the projection
@@ -231,7 +231,7 @@ In this example, we will request the 100th page of results with 2 results per pa
 
 Request::
 
-   $ curl -X GET "http://client.lifemapper.org/services/sdm/projections/json?perPage=2&page=100&status=300"
+   $ curl -X GET "https://data.lifemapper.org/services/sdm/projections/json?perPage=2&page=100&status=300"
 
 Response
 
@@ -246,14 +246,14 @@ Response
                "id": "6707802",
                "modTime": "2016-08-14 15:02:48",
                "title": "Perdita covilleae",
-               "url": "http://client.lifemapper.org/services/sdm/projections/6707802"
+               "url": "https://data.lifemapper.org/services/sdm/projections/6707802"
             },
             {
                "epsgcode": "4326",
                "id": "6707804",
                "modTime": "2016-08-14 15:02:48",
                "title": "Perdita covilleae",
-               "url": "http://client.lifemapper.org/services/sdm/projections/6707804"
+               "url": "https://data.lifemapper.org/services/sdm/projections/6707804"
             }
       ],
       "itemCount": "1290131",
@@ -365,12 +365,12 @@ Sample JSON
                   "keyword": "mean"
                },
                "mapLayername": "ccmidbi10-10min",
-               "mapPrefix": "http://client.lifemapper.org/ogc?map=usr_kubi_4326&layers=ccmidbi10-10min",
+               "mapPrefix": "https://data.lifemapper.org/ogc?map=usr_kubi_4326&layers=ccmidbi10-10min",
                "mapUnits": "dd",
                "maxVal": "382.0",
                "maxX": "180.0",
                "maxY": "90.0",
-               "metadataUrl": "http://client.lifemapper.org/services/sdm/layers/7419",
+               "metadataUrl": "https://data.lifemapper.org/services/sdm/layers/7419",
                "minVal": "-90.0",
                "minX": "-180.0",
                "minY": "-60.0",
@@ -408,12 +408,12 @@ Sample JSON
       "mapFilename": "/share/lmserver/data/archive/kubi/000/005/831/827/data_5831827.map",
       "mapLayername": "prj_6707804",
       "mapName": "data_5831827",
-      "mapPrefix": "http://client.lifemapper.org/ogc?map=data_5831827&layers=prj_6707804",
+      "mapPrefix": "https://data.lifemapper.org/ogc?map=data_5831827&layers=prj_6707804",
       "mapUnits": "dd",
       "maxVal": "50.0",
       "maxX": "180.0",
       "maxY": "90.0",
-      "metadataUrl": "http://client.lifemapper.org/services/sdm/projections/6707804",
+      "metadataUrl": "https://data.lifemapper.org/services/sdm/projections/6707804",
       "minVal": "0.0",
       "minX": "-180.0",
       "minY": "-60.0",

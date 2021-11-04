@@ -57,7 +57,7 @@ For this example, we will count all of the scenarios that match scenario 34 and 
 
 Request::
 
-      $ curl "http://client.lifemapper.org/services/sdm/scenarios/count/json?matchingScenario=34"
+      $ curl "https://data.lifemapper.org/services/sdm/scenarios/count/json?matchingScenario=34"
 
 Response
    
@@ -92,7 +92,7 @@ For this example, we will delete scenario 1
 
 Request::
 
-   $ curl -X DELETE "http://client.lifemapper.org/services/sdm/scenarios/1"
+   $ curl -X DELETE "https://data.lifemapper.org/services/sdm/scenarios/1"
 
 -----
 
@@ -134,7 +134,7 @@ For this example, we will get the metadata for scenario 2 in eml format
    
 Request::
 
-   $ curl -X GET "http://client.lifemapper.org/services/sdm/scenarios/2/eml"
+   $ curl -X GET "https://data.lifemapper.org/services/sdm/scenarios/2/eml"
 
 Response
    Response is scenario EML document
@@ -204,45 +204,45 @@ In this example, we will request the 0th page of results with 3 results per page
 
 Request::
 
-   $ curl -X GET "http://client.lifemapper.org/services/sdm/scenarios/atom?page=0&perPage=3"
+   $ curl -X GET "https://data.lifemapper.org/services/sdm/scenarios/atom?page=0&perPage=3"
 
 Response
 
 .. code-block:: xml
 
    <feed xmlns="http://www.w3.org/2005/Atom">
-      <id>http://client.lifemapper.org/services/sdm/scenarios/atom</id>
+      <id>https://data.lifemapper.org/services/sdm/scenarios/atom</id>
       <title>Lifemapper List Service</title>
-      <link href="http://client.lifemapper.org/services/sdm/scenarios/atom" rel="self" />
+      <link href="https://data.lifemapper.org/services/sdm/scenarios/atom" rel="self" />
       <updated>2016-08-19T20:57:07Z</updated>
       <author>
          <name>Lifemapper</name>
          <email>no-reply-lifemapper@client.lifemapper.org</email>
       </author>
-      <link href="http://client.lifemapper.org/services/sdm/scenarios/atom/?page=0&amp;amp;amp;perPage=3&amp;amp;amp;fullObjects=0&amp;amp;amp;keyword=[]&amp;amp;amp;afterTime=&amp;amp;amp;beforeTime=" rel="first" />
-      <link href="http://client.lifemapper.org/services/sdm/scenarios/atom/?page=0&amp;amp;amp;perPage=3&amp;amp;amp;fullObjects=0&amp;amp;amp;keyword=[]&amp;amp;amp;afterTime=&amp;amp;amp;beforeTime=" rel="current" />
-      <link href="http://client.lifemapper.org/services/sdm/scenarios/atom/?page=1&amp;amp;amp;perPage=3&amp;amp;amp;fullObjects=0&amp;amp;amp;keyword=[]&amp;amp;amp;afterTime=&amp;amp;amp;beforeTime=" rel="next" />
-      <link href="http://client.lifemapper.org/services/sdm/scenarios/atom/?page=2&amp;amp;amp;perPage=3&amp;amp;amp;fullObjects=0&amp;amp;amp;keyword=[]&amp;amp;amp;afterTime=&amp;amp;amp;beforeTime=" rel="last" />
+      <link href="https://data.lifemapper.org/services/sdm/scenarios/atom/?page=0&amp;amp;amp;perPage=3&amp;amp;amp;fullObjects=0&amp;amp;amp;keyword=[]&amp;amp;amp;afterTime=&amp;amp;amp;beforeTime=" rel="first" />
+      <link href="https://data.lifemapper.org/services/sdm/scenarios/atom/?page=0&amp;amp;amp;perPage=3&amp;amp;amp;fullObjects=0&amp;amp;amp;keyword=[]&amp;amp;amp;afterTime=&amp;amp;amp;beforeTime=" rel="current" />
+      <link href="https://data.lifemapper.org/services/sdm/scenarios/atom/?page=1&amp;amp;amp;perPage=3&amp;amp;amp;fullObjects=0&amp;amp;amp;keyword=[]&amp;amp;amp;afterTime=&amp;amp;amp;beforeTime=" rel="next" />
+      <link href="https://data.lifemapper.org/services/sdm/scenarios/atom/?page=2&amp;amp;amp;perPage=3&amp;amp;amp;fullObjects=0&amp;amp;amp;keyword=[]&amp;amp;amp;afterTime=&amp;amp;amp;beforeTime=" rel="last" />
       <entry>
-         <id>http://client.lifemapper.org/services/sdm/scenarios/1551</id>
-         <link href="http://client.lifemapper.org/services/sdm/scenarios/1551/atom" rel="self" />
-         <link href="http://client.lifemapper.org/services/sdm/scenarios/1551/atom" rel="alternate" />
+         <id>https://data.lifemapper.org/services/sdm/scenarios/1551</id>
+         <link href="https://data.lifemapper.org/services/sdm/scenarios/1551/atom" rel="self" />
+         <link href="https://data.lifemapper.org/services/sdm/scenarios/1551/atom" rel="alternate" />
          <title>CCSM4, IPCC AR5 RCP4.5, 2041-2060, 10min</title>
          <updated>2015-11-19T16:08:10Z</updated>
          <summary>CCSM4, IPCC AR5 RCP4.5, 2041-2060, 10min</summary>
       </entry>
       <entry>
-         <id>http://client.lifemapper.org/services/sdm/scenarios/1550</id>
-         <link href="http://client.lifemapper.org/services/sdm/scenarios/1550/atom" rel="self" />
-         <link href="http://client.lifemapper.org/services/sdm/scenarios/1550/atom" rel="alternate" />
+         <id>https://data.lifemapper.org/services/sdm/scenarios/1550</id>
+         <link href="https://data.lifemapper.org/services/sdm/scenarios/1550/atom" rel="self" />
+         <link href="https://data.lifemapper.org/services/sdm/scenarios/1550/atom" rel="alternate" />
          <title>CCSM4, IPCC AR5 RCP8.5, 2041-2060, 10min</title>
          <updated>2015-11-19T16:08:10Z</updated>
          <summary>CCSM4, IPCC AR5 RCP8.5, 2041-2060, 10min</summary>
       </entry>
       <entry>
-         <id>http://client.lifemapper.org/services/sdm/scenarios/1549</id>
-         <link href="http://client.lifemapper.org/services/sdm/scenarios/1549/atom" rel="self" />
-         <link href="http://client.lifemapper.org/services/sdm/scenarios/1549/atom" rel="alternate" />
+         <id>https://data.lifemapper.org/services/sdm/scenarios/1549</id>
+         <link href="https://data.lifemapper.org/services/sdm/scenarios/1549/atom" rel="self" />
+         <link href="https://data.lifemapper.org/services/sdm/scenarios/1549/atom" rel="alternate" />
          <title>CCSM4, IPCC AR5 RCP4.5, 2061-2080, 10min</title>
          <updated>2015-11-19T16:08:10Z</updated>
          <summary>CCSM4, IPCC AR5 RCP4.5, 2061-2080, 10min</summary>
@@ -320,7 +320,7 @@ Post a new scenario with the code: sample, epsg: 4326, layers: 1, 2, 3, 4, and u
 
 Request::
      
-   $ curl -X POST http://client.lifemapper.org/services/sdm/scenarios/?code=sample&epsgCode=4326&layer=1&layer=2&layer=3&layer=4&units=dd
+   $ curl -X POST https://data.lifemapper.org/services/sdm/scenarios/?code=sample&epsgCode=4326&layer=1&layer=2&layer=3&layer=4&units=dd
 
 Response
    The response of this request is the same as if you ran a GET request on the scenario you just posted.  
@@ -397,12 +397,12 @@ Sample JSON
                   "keyword": "mean"
                },
                "mapLayername": "cc45bi7010-10min",
-               "mapPrefix": "http://client.lifemapper.org/ogc?map=usr_kubi_4326&layers=cc45bi7010-10min",
+               "mapPrefix": "https://data.lifemapper.org/ogc?map=usr_kubi_4326&layers=cc45bi7010-10min",
                "mapUnits": "dd",
                "maxVal": "411.0",
                "maxX": "180.0",
                "maxY": "90.0",
-               "metadataUrl": "http://client.lifemapper.org/services/sdm/layers/7457",
+               "metadataUrl": "https://data.lifemapper.org/services/sdm/layers/7457",
                "minVal": "-75.0",
                "minX": "-180.0",
                "minY": "-60.0",
@@ -439,10 +439,10 @@ Sample JSON
       },
       "mapFilename": "/share/lmserver/data/archive/kubi/maps/scen_CCSM4-RCP4.5-2070-10min.map",
       "mapName": "scen_CCSM4-RCP4.5-2070-10min",
-      "mapPrefix": "http://client.lifemapper.org/ogc?map=usr_kubi",
+      "mapPrefix": "https://data.lifemapper.org/ogc?map=usr_kubi",
       "maxX": "180.0",
       "maxY": "90.0",
-      "metadataUrl": "http://client.lifemapper.org/services/sdm/scenarios/1549",
+      "metadataUrl": "https://data.lifemapper.org/services/sdm/scenarios/1549",
       "minX": "-180.0",
       "minY": "-60.0",
       "modTime": "2015-11-19 16:08:10",

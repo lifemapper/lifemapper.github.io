@@ -54,7 +54,7 @@ landscape levels:
   * Request [Macro-ecological Modeling](/training/boomTraining) using 
     researcher-provided data.
   * Data for multi-species exercises is available on the USB stick or from
-    [here](http://client.lifemapper.org/dl/taiwan_boom_data.tar.gz).
+    [here](https://data.lifemapper.org/dl/taiwan_boom_data.tar.gz).
 
 ## Metacommunity Phylogenetic Analyses (MCPA)
 Additional phylogenetic and biogeographic analyses can be performed with 
@@ -66,6 +66,6 @@ biogeographic maps of regions for which to compare species communities:
   * [Subset](/training/subsetTraining) SDM for species
   * Two subsets are available from the USB drive or for download:
   
-    * [Rubiaceae](http://client.lifemapper.org/dl/Rubiaceae.zip) 
-    * [Geometridae](http://client.lifemapper.org/dl/Geometridae.zip) 
+    * [Rubiaceae](https://data.lifemapper.org/dl/Rubiaceae.zip) 
+    * [Geometridae](https://data.lifemapper.org/dl/Geometridae.zip) 
 

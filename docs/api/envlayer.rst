@@ -53,7 +53,7 @@ For this example, we will count all of the type codes in the system.
 
 Request::
 
-      $ curl "http://client.lifemapper.org/services/sdm/typecodes/count/json"
+      $ curl "https://data.lifemapper.org/services/sdm/typecodes/count/json"
 
 Response
    
@@ -88,7 +88,7 @@ For this example, we will delete type code 100
 
 Request::
 
-   $ curl -X DELETE "http://client.lifemapper.org/api/v2/envlayer/100"
+   $ curl -X DELETE "https://data.lifemapper.org/api/v2/envlayer/100"
 
 -----
 
@@ -128,7 +128,7 @@ For this example, we will get the metadata for type code 131 XML format
    
 Request::
 
-   $ curl -X GET "http://client.lifemapper.org/services/sdm/typecodes/131/xml"
+   $ curl -X GET "https://data.lifemapper.org/services/sdm/typecodes/131/xml"
 
 Response::
 
@@ -140,7 +140,7 @@ Response::
       <lm:typecode>
          <lm:createTime>2015-11-18 20:41:01</lm:createTime>
          <lm:id>131</lm:id>
-         <lm:metadataUrl>http://client.lifemapper.org/services/sdm/typecodes/131</lm:metadataUrl>
+         <lm:metadataUrl>https://data.lifemapper.org/services/sdm/typecodes/131</lm:metadataUrl>
          <lm:modTime>2015-11-18 20:41:01</lm:modTime>
          <lm:moduleType>sdm</lm:moduleType>
          <lm:parametersModTime>2015-11-18 20:41:01</lm:parametersModTime>
@@ -215,45 +215,45 @@ In this example, we will request the 0th page of results with 3 results per page
 
 Request::
 
-   $ curl -X GET "http://client.lifemapper.org/services/sdm/typecodes/atom?page=0&perPage=3"
+   $ curl -X GET "https://data.lifemapper.org/services/sdm/typecodes/atom?page=0&perPage=3"
 
 Response
 
 .. code-block:: xml
 
    <feed xmlns="http://www.w3.org/2005/Atom">
-      <id>http://client.lifemapper.org/services/sdm/typecodes/atom</id>
+      <id>https://data.lifemapper.org/services/sdm/typecodes/atom</id>
       <title>Lifemapper List Service</title>
-      <link href="http://client.lifemapper.org/services/sdm/typecodes/atom" rel="self" />
+      <link href="https://data.lifemapper.org/services/sdm/typecodes/atom" rel="self" />
       <updated>2016-08-22T19:20:38Z</updated>
       <author>
          <name>Lifemapper</name>
          <email>no-reply-lifemapper@client.lifemapper.org</email>
       </author>
-      <link href="http://client.lifemapper.org/services/sdm/typecodes/atom/?page=0&amp;amp;amp;perPage=3&amp;amp;amp;fullObjects=0&amp;amp;amp;afterTime=&amp;amp;amp;beforeTime=" rel="first" />
-      <link href="http://client.lifemapper.org/services/sdm/typecodes/atom/?page=0&amp;amp;amp;perPage=3&amp;amp;amp;fullObjects=0&amp;amp;amp;afterTime=&amp;amp;amp;beforeTime=" rel="current" />
-      <link href="http://client.lifemapper.org/services/sdm/typecodes/atom/?page=1&amp;amp;amp;perPage=3&amp;amp;amp;fullObjects=0&amp;amp;amp;afterTime=&amp;amp;amp;beforeTime=" rel="next" />
-      <link href="http://client.lifemapper.org/services/sdm/typecodes/atom/?page=6&amp;amp;amp;perPage=3&amp;amp;amp;fullObjects=0&amp;amp;amp;afterTime=&amp;amp;amp;beforeTime=" rel="last" />
+      <link href="https://data.lifemapper.org/services/sdm/typecodes/atom/?page=0&amp;amp;amp;perPage=3&amp;amp;amp;fullObjects=0&amp;amp;amp;afterTime=&amp;amp;amp;beforeTime=" rel="first" />
+      <link href="https://data.lifemapper.org/services/sdm/typecodes/atom/?page=0&amp;amp;amp;perPage=3&amp;amp;amp;fullObjects=0&amp;amp;amp;afterTime=&amp;amp;amp;beforeTime=" rel="current" />
+      <link href="https://data.lifemapper.org/services/sdm/typecodes/atom/?page=1&amp;amp;amp;perPage=3&amp;amp;amp;fullObjects=0&amp;amp;amp;afterTime=&amp;amp;amp;beforeTime=" rel="next" />
+      <link href="https://data.lifemapper.org/services/sdm/typecodes/atom/?page=6&amp;amp;amp;perPage=3&amp;amp;amp;fullObjects=0&amp;amp;amp;afterTime=&amp;amp;amp;beforeTime=" rel="last" />
       <entry>
-         <id>http://client.lifemapper.org/services/sdm/typecodes/1886</id>
-         <link href="http://client.lifemapper.org/services/sdm/typecodes/1886/atom" rel="self" />
-         <link href="http://client.lifemapper.org/services/sdm/typecodes/1886/atom" rel="alternate" />
+         <id>https://data.lifemapper.org/services/sdm/typecodes/1886</id>
+         <link href="https://data.lifemapper.org/services/sdm/typecodes/1886/atom" rel="self" />
+         <link href="https://data.lifemapper.org/services/sdm/typecodes/1886/atom" rel="alternate" />
          <title>ALT: Elevation</title>
          <updated>2015-11-19T16:08:10Z</updated>
          <summary>ALT: Elevation</summary>
       </entry>
       <entry>
-         <id>http://client.lifemapper.org/services/sdm/typecodes/1879</id>
-         <link href="http://client.lifemapper.org/services/sdm/typecodes/1879/atom" rel="self" />
-         <link href="http://client.lifemapper.org/services/sdm/typecodes/1879/atom" rel="alternate" />
+         <id>https://data.lifemapper.org/services/sdm/typecodes/1879</id>
+         <link href="https://data.lifemapper.org/services/sdm/typecodes/1879/atom" rel="self" />
+         <link href="https://data.lifemapper.org/services/sdm/typecodes/1879/atom" rel="alternate" />
          <title>BIO1: Annual Mean Temperature</title>
          <updated>2015-11-19T16:08:10Z</updated>
          <summary>BIO1: Annual Mean Temperature</summary>
       </entry>
       <entry>
-         <id>http://client.lifemapper.org/services/sdm/typecodes/130</id>
-         <link href="http://client.lifemapper.org/services/sdm/typecodes/130/atom" rel="self" />
-         <link href="http://client.lifemapper.org/services/sdm/typecodes/130/atom" rel="alternate" />
+         <id>https://data.lifemapper.org/services/sdm/typecodes/130</id>
+         <link href="https://data.lifemapper.org/services/sdm/typecodes/130/atom" rel="self" />
+         <link href="https://data.lifemapper.org/services/sdm/typecodes/130/atom" rel="alternate" />
          <title>BIO10: Mean Temperature of Warmest Quarter</title>
          <updated>2015-11-18T20:41:01Z</updated>
          <summary>BIO10: Mean Temperature of Warmest Quarter</summary>
@@ -317,7 +317,7 @@ Post a new type code with code: sample, description: A sample type code
 
 Request::
      
-   $ curl -X POST http://client.lifemapper.org/services/sdm/typecodes/?code=sample&description=A%20sample%20type%20code
+   $ curl -X POST https://data.lifemapper.org/services/sdm/typecodes/?code=sample&description=A%20sample%20type%20code
 
 Response::
 
@@ -338,7 +338,7 @@ Sample JSON
       "title": "Lifemapper typecode 1886",
       "createTime": "2015-11-19 16:08:10",
       "id": "1886",
-      "metadataUrl": "http://client.lifemapper.org/services/sdm/typecodes/1886",
+      "metadataUrl": "https://data.lifemapper.org/services/sdm/typecodes/1886",
       "modTime": "2015-11-19 16:08:10",
       "moduleType": "sdm",
       "parametersModTime": "2015-11-19 16:08:10",
