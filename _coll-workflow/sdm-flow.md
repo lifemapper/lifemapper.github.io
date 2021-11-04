@@ -29,20 +29,17 @@ habitat from these models.  Inputs must include:
  * One or more *matching* projection Scenarios.  BiotaPhy applies the 
    computed model onto these projection scenarios to creates maps of habitat in 
    which the species may thrive.  Matching scenarios are explained further below.
- * An [Algorithm](/api.html#/Algorithm) for computing the relationship between 
-   species occurrences and environmental values.  Algorithms with
-   code, author, parameters, and description can be queried with the
-   [API call]().
+
+
+The inputs are analyzed with the MaxEnt species distribution modeling algorithm to compute 
+the relationship between species occurrences and environmental values.  Parameters may be set
+to fine tune the MaxEnt algorithm, or the defaults accepted.
 
 User submission for scenarios is not currently enabled.  If you have environmental layers
 that you would like to use for SDM computation, we are happy to work with you to assemble
 metadata and layers into a package for computations in BiotaPhy.
 
 To request an SDM computation, a user will choose or upload an Occurrence 
-dataset, a modeling Scenario, and one or more projection Scenarios, choose an algorithm, and optionally modify 
-the default algorithm parameters.
-
-Currently these uploads and the SDM request happen in multiple steps, but 
-the next version of the API will allow all inputs and parameters to be 
-defined and uploaded at the same time.
+dataset, choose a modeling Scenario and one or more projection Scenarios, and optionally 
+modify the default MaxEnt algorithm parameters.
 

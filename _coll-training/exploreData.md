@@ -9,14 +9,14 @@ BiotaPhy and additional terminology is at [Terminology](/terms)
 
 ## Steps
 
-1. Navigate to http://client.lifemapper.org/biotaphy/
+1. Navigate to https://data.lifemapper.org/biotaphy/
 
-1. In the left-hand pane, under “Completed” select “Browse 
-   Projections”.
-
-1. In the right-hand pane, a text field will appear under 
-   “Show SDM projections for:”, enter the first few letters of 
-   the species you are interested in.
+1. In the left pane, choose a completed project under `Anonymous`, or your username if you
+   are logged in.  Completed projects have a check mark after their name.  Completed projected 
+   distribution maps will be displayed in the right pane.
+   
+1. To view data in the public archive , click `Search Species` in the left pane.  In the 
+   right pane, enter a species name, or the first few letters of a species name.
 
 1. A list will appear under the text field of matching taxa, 
    continue typing into the text field until the species you are 
